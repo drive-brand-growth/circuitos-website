@@ -3,15 +3,33 @@
 @tailwind utilities;
 
 :root {
-  --batman-black: #0a0a0a;
-  --batman-dark: #121212;
-  --batman-charcoal: #1a1a1a;
-  --batman-steel: #2a2a2a;
-  --batman-gray: #3a3a3a;
-  --batman-silver: #888888;
-  --batman-gold: #c9a227;
-  --batman-gold-light: #e6c547;
-  --batman-gold-dark: #a68520;
+  /* Gotham - Blacks and Charcoals */
+  --gotham-black: #0a0a0c;
+  --gotham-void: #0d0d0f;
+  --gotham-night: #111114;
+  --gotham-dark: #151518;
+  --gotham-charcoal: #1a1a1e;
+
+  /* Gotham - Steel and Gunmetal */
+  --gotham-steel: #252529;
+  --gotham-gunmetal: #2d2d33;
+  --gotham-concrete: #3a3a42;
+  --gotham-iron: #4a4a54;
+  --gotham-silver: #6a6a76;
+  --gotham-ash: #8a8a96;
+
+  /* Gotham - Cool Blues */
+  --gotham-blue-deep: #0a1628;
+  --gotham-blue-dark: #132238;
+  --gotham-blue-night: #1a3050;
+  --gotham-blue-steel: #2a4a70;
+  --gotham-blue-light: #3a6090;
+  --gotham-blue-glow: #4a80b0;
+
+  /* Accent Colors */
+  --gotham-warning: #8b4513;
+  --gotham-alert: #a02020;
+  --gotham-signal: #c4a000;
 }
 
 * {
@@ -24,45 +42,55 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--batman-black);
-  color: #ffffff;
+  background-color: var(--gotham-black);
+  color: #e0e0e8;
 }
 
 body {
-  background: linear-gradient(135deg, #0a0a0a 0%, #121212 50%, #0a0a0a 100%);
+  background: linear-gradient(180deg, #0a0a0c 0%, #0a1628 50%, #0a0a0c 100%);
   min-height: 100vh;
 }
 
-/* Dark Knight scrollbar */
+/* Gotham scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--batman-dark);
+  background: var(--gotham-dark);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--batman-gold-dark);
-  border-radius: 4px;
+  background: var(--gotham-blue-steel);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--batman-gold);
+  background: var(--gotham-blue-light);
 }
 
-/* Gold glow effects */
-.glow-gold {
-  box-shadow: 0 0 20px rgba(201, 162, 39, 0.3);
+/* Blue glow effects */
+.glow-blue {
+  box-shadow: 0 0 20px rgba(42, 74, 112, 0.4);
 }
 
-.glow-gold-strong {
-  box-shadow: 0 0 40px rgba(201, 162, 39, 0.5);
+.glow-blue-strong {
+  box-shadow: 0 0 40px rgba(58, 96, 144, 0.6);
 }
 
-/* Bat-signal gradient text */
-.text-gradient-gold {
-  background: linear-gradient(135deg, #a68520 0%, #c9a227 50%, #e6c547 100%);
+/* Alert glow */
+.glow-alert {
+  box-shadow: 0 0 20px rgba(160, 32, 32, 0.4);
+}
+
+/* Signal/warning glow */
+.glow-signal {
+  box-shadow: 0 0 20px rgba(196, 160, 0, 0.3);
+}
+
+/* Text gradient - cool blue */
+.text-gradient-blue {
+  background: linear-gradient(135deg, #3a6090 0%, #4a80b0 50%, #5a90c0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -70,8 +98,8 @@ body {
 
 /* Black box effect for proprietary content */
 .black-box {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-  border: 1px solid rgba(201, 162, 39, 0.2);
+  background: linear-gradient(135deg, #0a0a0c 0%, #151518 100%);
+  border: 1px solid rgba(42, 74, 112, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -87,20 +115,145 @@ body {
     45deg,
     transparent,
     transparent 10px,
-    rgba(201, 162, 39, 0.03) 10px,
-    rgba(201, 162, 39, 0.03) 20px
+    rgba(42, 74, 112, 0.02) 10px,
+    rgba(42, 74, 112, 0.02) 20px
   );
   pointer-events: none;
 }
 
 /* Proprietary badge */
 .proprietary-badge {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-  border: 1px solid var(--batman-gold-dark);
-  color: var(--batman-gold);
-  font-size: 0.75rem;
-  padding: 0.25rem 0.75rem;
+  background: linear-gradient(135deg, #1a1a1e 0%, #252529 100%);
+  border: 1px solid var(--gotham-blue-steel);
+  color: var(--gotham-blue-light);
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 9999px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+/* Terminal/console styling */
+.terminal {
+  background: var(--gotham-black);
+  border: 1px solid var(--gotham-steel);
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 0.875rem;
+}
+
+.terminal-header {
+  background: var(--gotham-dark);
+  border-bottom: 1px solid var(--gotham-steel);
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.terminal-dot.red { background: var(--gotham-alert); }
+.terminal-dot.yellow { background: var(--gotham-warning); }
+.terminal-dot.green { background: #1a4a2a; }
+
+/* Data table styling */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th {
+  background: var(--gotham-steel);
+  color: var(--gotham-ash);
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--gotham-concrete);
+}
+
+.data-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--gotham-charcoal);
+  color: var(--gotham-ash);
+}
+
+.data-table tr:hover td {
+  background: var(--gotham-charcoal);
+}
+
+/* Tier badges */
+.tier-a { background: #1a4a2a; color: #4a9a5a; }
+.tier-b { background: #1a3a4a; color: #4a8aaa; }
+.tier-c { background: #3a3a2a; color: #9a9a5a; }
+.tier-d { background: #3a2a1a; color: #9a7a4a; }
+.tier-f { background: #3a1a1a; color: #9a4a4a; }
+
+/* Loading animation */
+@keyframes pulse-scan {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+.loading-pulse {
+  animation: pulse-scan 1.5s ease-in-out infinite;
+}
+
+/* Input styling */
+input, textarea, select {
+  background: var(--gotham-dark);
+  border: 1px solid var(--gotham-steel);
+  color: #e0e0e8;
+  border-radius: 0.375rem;
+  padding: 0.75rem 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--gotham-blue-steel);
+  box-shadow: 0 0 0 3px rgba(42, 74, 112, 0.2);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--gotham-iron);
+}
+
+/* Button styling */
+.btn-primary {
+  background: linear-gradient(135deg, #1a3050 0%, #2a4a70 100%);
+  border: 1px solid var(--gotham-blue-steel);
+  color: #e0e0e8;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #2a4a70 0%, #3a6090 100%);
+  box-shadow: 0 0 20px rgba(42, 74, 112, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--gotham-steel);
+  color: var(--gotham-ash);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  border-color: var(--gotham-blue-steel);
+  color: var(--gotham-blue-light);
 }
