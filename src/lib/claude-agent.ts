@@ -127,6 +127,9 @@ Provide actionable recommendations.`;
       model: dmn.recommendedModel,
     };
   } catch (error) {
+    // Log the actual error for debugging
+    console.error('Claude API Error:', error);
+
     // Fallback response if API fails
     const fallbackResponse = leadScore
       ? `Lead Analysis (Offline Mode):
