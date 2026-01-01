@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -28,6 +28,17 @@ export default function Home() {
   // Contact form state
   const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' })
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+
+  // Escape key handler for chat widget accessibility
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && chatOpen) {
+        setChatOpen(false)
+      }
+    }
+    window.addEventListener('keydown', handleEsc)
+    return () => window.removeEventListener('keydown', handleEsc)
+  }, [chatOpen])
 
   const handleSend = async () => {
     if (!inputValue.trim()) return
@@ -728,6 +739,9 @@ export default function Home() {
         <AnimatePresence>
           {chatOpen && (
             <motion.div
+              id="aria-chat-panel"
+              role="dialog"
+              aria-label="Chat with Aria AI assistant"
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -749,9 +763,10 @@ export default function Home() {
                 </div>
                 <button
                   onClick={() => setChatOpen(false)}
+                  aria-label="Close chat"
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
@@ -792,13 +807,15 @@ export default function Home() {
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                     placeholder="Ask Aria anything..."
+                    aria-label="Type your message to Aria"
                     className="flex-1 bg-[#1a1a1a] border border-[#27272a] rounded-xl px-4 py-3 text-sm text-white placeholder-[#52525b] focus:outline-none focus:border-blue-500/50"
                   />
                   <button
                     onClick={handleSend}
+                    aria-label="Send message"
                     className="bg-blue-600 hover:bg-blue-500 text-white px-4 rounded-xl transition-colors"
                   >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                     </svg>
                   </button>
@@ -811,18 +828,21 @@ export default function Home() {
         {/* Chat Bubble Button */}
         <motion.button
           onClick={() => setChatOpen(!chatOpen)}
+          aria-label={chatOpen ? "Close chat with Aria" : "Open chat with Aria"}
+          aria-expanded={chatOpen}
+          aria-controls="aria-chat-panel"
           className="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-500 rounded-full shadow-lg flex items-center justify-center hover:shadow-blue-500/25 hover:shadow-xl transition-all"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           {chatOpen ? (
-            <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           ) : (
             <div className="relative">
-              <span className="text-white font-bold text-2xl">A</span>
-              <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-blue-600"></span>
+              <span className="text-white font-bold text-2xl" aria-hidden="true">A</span>
+              <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-blue-600" aria-hidden="true"></span>
             </div>
           )}
         </motion.button>
