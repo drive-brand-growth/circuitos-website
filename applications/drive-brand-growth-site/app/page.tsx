@@ -16,6 +16,7 @@ import {
   Rocket,
   Terminal
 } from "lucide-react";
+import ChatWidget from "@/components/ChatWidget";
 
 // Simple fade-in component using intersection observer + CSS
 function FadeIn({
@@ -695,6 +696,9 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Aria Chat Widget */}
+      <ChatWidget />
     </main>
   );
 }
