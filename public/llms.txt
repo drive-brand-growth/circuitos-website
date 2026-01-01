@@ -29,11 +29,31 @@ Automatically flags suspicious patterns: burner emails, VPN usage during signup,
 
 ## Aria AI Agent
 
-Aria is an autonomous AI agent included with CircuitOS that:
-- Responds to leads in 2.3 seconds average
-- Operates 24/7 across email, SMS, Slack, and web chat
-- Qualifies leads before routing to sales
-- Never takes PTO, never calls in sick
+Aria is an autonomous AI agent with world-class capabilities included with CircuitOS Growth and Enterprise tiers:
+
+### Semantic RAG Memory
+Aria uses vector embeddings to remember every conversation. She can recall context from weeks-old interactions mid-conversation, providing personalized continuity that human reps can't match.
+
+### Core Capabilities
+- **Response Time**: 2.3 seconds average across all channels
+- **Availability**: 24/7/365 - no PTO, no sick days, no holidays
+- **Multi-Channel**: Email, SMS, Slack, web chat with seamless handoffs
+- **Autonomous Qualification**: Pre-qualifies leads using CircuitOS scoring before routing to sales
+- **Contextual Memory**: Remembers past conversations, preferences, and objections
+- **Objection Handling**: Trained on proven sales frameworks to overcome common objections
+
+### How Aria Works
+1. Lead contacts via any channel
+2. Aria retrieves conversation history from semantic RAG
+3. CircuitOS scores the lead in real-time
+4. Aria responds with context-aware, personalized messaging
+5. Hot leads are routed to human sales with full context
+
+### Aria Stats
+- 94% qualification accuracy
+- 2.3s average response time
+- 0 sick days taken
+- 24/7 availability
 
 ## Pricing Tiers
 

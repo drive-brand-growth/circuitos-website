@@ -85,6 +85,13 @@ button:focus-visible,
   border-radius: 8px;
 }
 
+/* Hero headline - forced spacing */
+.hero-headline {
+  line-height: 1.2 !important;
+  letter-spacing: 0.02em !important;
+  word-spacing: 0.05em;
+}
+
 /* Gradient text - blue tint */
 .gradient-text {
   background: linear-gradient(180deg, #fff 0%, #a1a1aa 100%);
