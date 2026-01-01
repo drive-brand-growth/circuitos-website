@@ -714,12 +714,12 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center gap-8 text-sm text-[#a1a1aa]">
-            <a href="https://drivebrandgrowth.com" className="hover:text-white transition-colors">DriveBrandGrowth</a>
+            <a href="#pricing" className="hover:text-white transition-colors">Pricing</a>
             <a href="mailto:hello@usecircuitos.com" className="hover:text-white transition-colors">Contact</a>
           </div>
         </div>
         <div className="max-w-6xl mx-auto mt-10 pt-8 border-t border-[#27272a] text-center text-sm text-[#52525b]" suppressHydrationWarning>
-          © 2025 CircuitOS. Built by DriveBrandGrowth.
+          © 2025 CircuitOS. All rights reserved.
         </div>
       </footer>
 
