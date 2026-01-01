@@ -25,6 +25,10 @@ export default function Home() {
   const [inputValue, setInputValue] = useState('')
   const [isTyping, setIsTyping] = useState(false)
 
+  // Contact form state
+  const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' })
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+
   const handleSend = async () => {
     if (!inputValue.trim()) return
 
@@ -35,7 +39,7 @@ export default function Home() {
 
     // Simulate Aria response (in production, this would call your AI backend)
     setTimeout(() => {
-      let response = "Great question! I'd be happy to help with that. Could you tell me a bit more about what you're looking for? Or if you'd like, I can connect you with our team - just email hello@usecircuitos.com"
+      let response = "Great question! I'd be happy to help with that. Could you tell me a bit more about what you're looking for? Or if you'd like, scroll down to fill out the contact form and our team will reach out!"
 
       const lowerMsg = userMessage.toLowerCase()
 
@@ -55,7 +59,7 @@ export default function Home() {
       }
       // Demo
       else if (lowerMsg.includes('demo') || lowerMsg.includes('trial') || lowerMsg.includes('test') || lowerMsg.includes('try')) {
-        response = "I'd love to show you CircuitOS in action! We do live demos where we score YOUR actual leads so you can see real results. Email hello@usecircuitos.com or click 'Request Demo' above. What's your biggest lead scoring challenge?"
+        response = "I'd love to show you CircuitOS in action! We do live demos where we score YOUR actual leads so you can see real results. Fill out the contact form below or scroll down to 'Request Demo'. What's your biggest lead scoring challenge?"
       }
       // Features
       else if (lowerMsg.includes('social') || lowerMsg.includes('validat')) {
@@ -575,22 +579,128 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Contact / Demo Form */}
       <section id="demo" className="section-padding px-6 border-t border-[#27272a]">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mx-auto text-center"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-[-0.02em]">Ready to stop guessing?</h2>
-          <p className="text-[#a1a1aa] mb-10 text-lg leading-[1.6]">
-            See CircuitOS score your leads in real-time. No commitment, no BS.
-          </p>
-          <a href="mailto:hello@usecircuitos.com?subject=CircuitOS Demo Request" className="inline-block px-10 py-4 btn-primary text-white rounded-lg font-semibold text-lg">
-            Request Demo
-          </a>
-        </motion.div>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            {/* Left - CTA Text */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-[-0.02em]">Ready to stop guessing?</h2>
+              <p className="text-[#a1a1aa] mb-8 text-lg leading-[1.6]">
+                See CircuitOS score your leads in real-time. We'll show you how deterministic scoring
+                catches the liars and routes hot leads before competitors respond.
+              </p>
+              <ul className="space-y-4 text-[#a1a1aa]">
+                <li className="flex items-center gap-3">
+                  <span className="text-blue-500">✓</span> Live demo with YOUR leads
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-blue-500">✓</span> No commitment required
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-blue-500">✓</span> See real scores in 15ms
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Right - Contact Form */}
+            <motion.div
+              id="contact"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="card rounded-xl p-8"
+            >
+              <h3 className="text-2xl font-semibold mb-6">Request a Demo</h3>
+              {formStatus === 'success' ? (
+                <div className="text-center py-8">
+                  <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-green-400 text-3xl">✓</span>
+                  </div>
+                  <h4 className="text-xl font-semibold mb-2">Thanks for reaching out!</h4>
+                  <p className="text-[#a1a1aa]">We'll be in touch within 24 hours to schedule your demo.</p>
+                </div>
+              ) : (
+                <form
+                  onSubmit={async (e) => {
+                    e.preventDefault()
+                    setFormStatus('submitting')
+                    // Send to email (in production, this would be an API endpoint)
+                    try {
+                      const mailtoLink = `mailto:hello@usecircuitos.com?subject=Demo Request from ${formData.name}&body=Name: ${formData.name}%0AEmail: ${formData.email}%0ACompany: ${formData.company}%0A%0AMessage:%0A${formData.message}`
+                      window.open(mailtoLink, '_blank')
+                      setFormStatus('success')
+                    } catch {
+                      setFormStatus('error')
+                    }
+                  }}
+                  className="space-y-5"
+                >
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-[#a1a1aa] mb-2">Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full bg-[#1a1a1a] border border-[#27272a] rounded-lg px-4 py-3 text-white placeholder-[#52525b] focus:outline-none focus:border-blue-500/50"
+                      placeholder="John Smith"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-[#a1a1aa] mb-2">Work Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full bg-[#1a1a1a] border border-[#27272a] rounded-lg px-4 py-3 text-white placeholder-[#52525b] focus:outline-none focus:border-blue-500/50"
+                      placeholder="john@company.com"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="company" className="block text-sm font-medium text-[#a1a1aa] mb-2">Company</label>
+                    <input
+                      type="text"
+                      id="company"
+                      value={formData.company}
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      className="w-full bg-[#1a1a1a] border border-[#27272a] rounded-lg px-4 py-3 text-white placeholder-[#52525b] focus:outline-none focus:border-blue-500/50"
+                      placeholder="Acme Corp"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-[#a1a1aa] mb-2">What's your biggest lead scoring challenge?</label>
+                    <textarea
+                      id="message"
+                      rows={3}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full bg-[#1a1a1a] border border-[#27272a] rounded-lg px-4 py-3 text-white placeholder-[#52525b] focus:outline-none focus:border-blue-500/50 resize-none"
+                      placeholder="Tell us about your current lead scoring challenges..."
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={formStatus === 'submitting'}
+                    className="w-full py-4 btn-primary text-white rounded-lg font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {formStatus === 'submitting' ? 'Sending...' : 'Request Demo'}
+                  </button>
+                  {formStatus === 'error' && (
+                    <p className="text-red-400 text-sm text-center">Something went wrong. Please try again or email hello@usecircuitos.com</p>
+                  )}
+                </form>
+              )}
+            </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* Footer */}
@@ -608,8 +718,8 @@ export default function Home() {
             <a href="mailto:hello@usecircuitos.com" className="hover:text-white transition-colors">Contact</a>
           </div>
         </div>
-        <div className="max-w-6xl mx-auto mt-10 pt-8 border-t border-[#27272a] text-center text-sm text-[#52525b]">
-          © {new Date().getFullYear()} CircuitOS. Built by DriveBrandGrowth.
+        <div className="max-w-6xl mx-auto mt-10 pt-8 border-t border-[#27272a] text-center text-sm text-[#52525b]" suppressHydrationWarning>
+          © 2025 CircuitOS. Built by DriveBrandGrowth.
         </div>
       </footer>
 

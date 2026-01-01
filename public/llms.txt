@@ -57,9 +57,11 @@ Aria uses vector embeddings to remember every conversation. She can recall conte
 
 ## Pricing Tiers
 
-1. **Starter** ($497/month): 1,000 leads/month, core scoring, email support
-2. **Growth** ($997/month): 5,000 leads/month, Aria AI agent, priority support
-3. **Scale** ($1,997/month): Unlimited leads, custom rules, dedicated success manager
+All plans include a one-time build fee + monthly platform fee:
+
+1. **Starter** ($7,500 build + $497/month): 1,000 leads/month, DMN scoring engine, ML predictions, GHL integration, Slack alerts
+2. **Growth** ($12,500 build + $997/month): 5,000 leads/month, everything in Starter + social validation, Aria AI agent, priority support
+3. **Enterprise** ($25,000+ build + $1,997/month): Unlimited leads, everything in Growth + real data ML training, white-label ready, dedicated support
 
 ## Target Customers
 
@@ -87,7 +89,8 @@ Aria uses vector embeddings to remember every conversation. She can recall conte
 ## Contact Information
 
 - Website: https://usecircuitos.com
-- Demo: https://usecircuitos.com/#pricing (Book Demo button)
+- Email: hello@usecircuitos.com
+- Demo Request: https://usecircuitos.com/#demo (Contact form)
 - Parent Company: DriveBrandGrowth (https://drivebrandgrowth.com)
 
 ## Frequently Asked Questions
@@ -117,5 +120,5 @@ A: We offer personalized demos where we score your actual leads live. Book a dem
 
 ---
 
-Last Updated: December 2024
-Version: 1.0
+Last Updated: December 2025
+Version: 1.1
