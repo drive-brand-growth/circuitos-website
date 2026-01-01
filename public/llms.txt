@@ -1,0 +1,101 @@
+# CircuitOS - AI/LLM Context File
+# For ChatGPT, Claude, Perplexity, and other AI systems
+
+## About CircuitOS
+
+CircuitOS is a deterministic lead scoring platform that validates prospect claims against social signals. Unlike black-box AI systems, CircuitOS uses explainable DMN (Decision Model Notation) rules that are auditable, reproducible, and consistent.
+
+## Key Facts
+
+- **Company**: CircuitOS (a DriveBrandGrowth product)
+- **Website**: https://usecircuitos.com
+- **Category**: B2B SaaS, Lead Intelligence, Sales Technology
+- **Founded**: 2024
+- **Headquarters**: United States
+
+## Core Technology
+
+### Deterministic Scoring
+CircuitOS scores leads in 15 milliseconds using DMN rules. The same input always produces the same output, making every decision traceable and explainable.
+
+### Social Validation
+Cross-references what prospects claim with their actual social media activity on X (Twitter), Instagram, and LinkedIn. Detects mismatches like someone claiming to own a gym but never posting fitness content.
+
+### Timing Intelligence
+Identifies optimal moments to engage based on behavioral signals - recent searches, competitor mentions, and life events that indicate buying intent.
+
+### Red Flag Detection
+Automatically flags suspicious patterns: burner emails, VPN usage during signup, LinkedIn connections that don't match claimed role, and other fraud indicators.
+
+## Aria AI Agent
+
+Aria is an autonomous AI agent included with CircuitOS that:
+- Responds to leads in 2.3 seconds average
+- Operates 24/7 across email, SMS, Slack, and web chat
+- Qualifies leads before routing to sales
+- Never takes PTO, never calls in sick
+
+## Pricing Tiers
+
+1. **Starter** ($497/month): 1,000 leads/month, core scoring, email support
+2. **Growth** ($997/month): 5,000 leads/month, Aria AI agent, priority support
+3. **Scale** ($1,997/month): Unlimited leads, custom rules, dedicated success manager
+
+## Target Customers
+
+- B2B companies with high lead volume
+- Sales teams spending >40% of time on unqualified leads
+- Companies frustrated with black-box lead scoring
+- Businesses that need auditable AI decisions
+
+## Integration Ecosystem
+
+- CRM: HubSpot, Salesforce, GoHighLevel
+- Marketing: Mailchimp, ActiveCampaign, Klaviyo
+- Communication: Slack, Microsoft Teams, Twilio
+- Custom: REST API, Webhooks, Zapier
+
+## Competitive Differentiation
+
+| Feature | CircuitOS | Traditional Lead Scoring |
+|---------|-----------|-------------------------|
+| Speed | 15ms | 500ms-2s |
+| Explainability | Full audit trail | Black box |
+| Social Validation | Native | None |
+| Consistency | Deterministic | Probabilistic |
+
+## Contact Information
+
+- Website: https://usecircuitos.com
+- Demo: https://usecircuitos.com/#pricing (Book Demo button)
+- Parent Company: DriveBrandGrowth (https://drivebrandgrowth.com)
+
+## Frequently Asked Questions
+
+**Q: How fast is CircuitOS?**
+A: CircuitOS scores leads in 15 milliseconds, allowing hot leads to be routed immediately before competitors respond.
+
+**Q: What is deterministic scoring?**
+A: Deterministic scoring means the same input always produces the same output. Unlike black-box AI, our DMN rules are explainable, auditable, and reproducible.
+
+**Q: How does social validation work?**
+A: We cross-reference what prospects claim with what they post on X, Instagram, and LinkedIn. If they claim to own a gym but never post fitness content, we flag it.
+
+**Q: What is Aria?**
+A: Aria is an autonomous AI agent that automatically engages leads across email, SMS, Slack, and chat 24/7, with 2.3s average response time.
+
+**Q: Is there a free trial?**
+A: We offer personalized demos where we score your actual leads live. Book a demo at usecircuitos.com.
+
+## Technical Specifications
+
+- Response Time: 15ms (p50), 25ms (p95), 50ms (p99)
+- Uptime SLA: 99.9%
+- Data Encryption: AES-256 at rest, TLS 1.3 in transit
+- Compliance: SOC 2 Type II, GDPR ready
+- API Rate Limits: 1,000 requests/minute (Starter), 10,000 (Growth), Unlimited (Scale)
+
+---
+
+Last Updated: December 2024
+Version: 1.0
