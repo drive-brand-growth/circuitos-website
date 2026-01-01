@@ -19,6 +19,10 @@ export const metadata: Metadata = {
     "enterprise AI",
   ],
   authors: [{ name: "Noel Pena", url: "https://drivebrandgrowth.com" }],
+  icons: {
+    icon: "/circuitos-icon.svg",
+    apple: "/circuitos-icon.svg",
+  },
   openGraph: {
     title: "Drive Brand Growth | Revenue Prediction Systems",
     description:
