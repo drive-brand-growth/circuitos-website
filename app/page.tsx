@@ -120,9 +120,8 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-10">
             <a href="/" className="flex items-center gap-2">
-              <img src="/circuitos-icon.svg" alt="CircuitOS" className="h-8 w-8" />
               <span className="text-xl font-semibold tracking-tight">
-                Circuit<span className="text-blue-500">OS</span>
+                <span className="text-blue-500">//</span> Circuit<span className="text-blue-500">OS</span>
               </span>
             </a>
             <div className="hidden md:flex items-center gap-8 text-sm text-[#a1a1aa]">
@@ -718,9 +717,8 @@ export default function Home() {
       <footer className="py-12 px-6 border-t border-[#27272a]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex items-center gap-3">
-            <img src="/circuitos-icon.svg" alt="CircuitOS" className="h-8 w-8" />
             <div>
-              <span className="text-xl font-semibold">Circuit<span className="text-blue-500">OS</span></span>
+              <span className="text-xl font-semibold"><span className="text-blue-500">//</span> Circuit<span className="text-blue-500">OS</span></span>
               <p className="text-sm text-[#52525b] mt-1">Same input. Same output. Every time.</p>
             </div>
           </div>
