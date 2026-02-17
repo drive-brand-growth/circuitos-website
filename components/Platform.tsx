@@ -16,7 +16,7 @@ const staggerContainer = {
 const cards = [
   {
     title: 'Predictive Scoring',
-    desc: 'Every lead scored by AI before your team touches it. The model ships pre-calibrated with demand logic and vertical-specific intelligence — no training period, no cold start. Then every outcome makes the next prediction more accurate.',
+    desc: 'We encode your ideal customer profile into the model before launch. Decision logic, qualification criteria, and demand patterns — all pre-configured for your vertical. Every lead scored against YOUR definition of qualified, not a cold algorithm learning on your dime.',
   },
   {
     title: 'Autonomous Outreach',

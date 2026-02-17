@@ -41,9 +41,9 @@ export default function Hero() {
           variants={fadeInUp}
           className="text-lg sm:text-xl md:text-2xl text-[#a1a1aa] max-w-2xl mx-auto mb-10 leading-[1.6]"
         >
-          AI scores every lead — intelligently, from day one. No training period. No cold start.
-          Content writes itself. Outreach runs autonomously.
-          Every outcome makes the next prediction better.
+          Your ICP encoded. Decision logic configured. Qualification criteria set —
+          before your first lead arrives. Every lead scored against your definition of qualified.
+          No cold leads. No wasted spend. Every outcome makes it smarter.
         </motion.p>
 
         <motion.div

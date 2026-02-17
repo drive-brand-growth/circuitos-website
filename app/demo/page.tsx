@@ -43,7 +43,7 @@ function ScoringDemo() {
       <div className="p-6 font-mono text-sm space-y-3 min-h-[320px]">
         {step === 0 && !scoring && (
           <div className="flex flex-col items-center justify-center h-[280px] gap-4">
-            <p className="text-[#a1a1aa] text-center text-base font-sans">See how CircuitOS scores a lead in real-time</p>
+            <p className="text-[#a1a1aa] text-center text-base font-sans">See how a pre-configured model scores a lead in real-time</p>
             <button
               onClick={runDemo}
               className="btn-primary text-white px-6 py-3 rounded-lg font-semibold font-sans"
@@ -61,7 +61,7 @@ function ScoringDemo() {
             {step >= 1 && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
                 <span className="text-[#52525b]">[model]</span>
-                <span className="text-green-400 ml-2">Pre-calibrated priors loaded — demand logic active</span>
+                <span className="text-green-400 ml-2">ICP encoded · Decision logic loaded · Qualification criteria active</span>
               </motion.div>
             )}
             {step >= 1 && (
@@ -174,7 +174,11 @@ function BeforeAfter() {
         <ul className="space-y-3 text-[#a1a1aa] text-sm">
           <li className="flex items-start gap-3">
             <span className="text-red-500 mt-0.5">&#10005;</span>
-            Manual lead qualification takes 2-4 hours per prospect
+            Cold leads waste your team's time — no way to know who's qualified
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-red-500 mt-0.5">&#10005;</span>
+            AI tools need weeks of data before scoring is useful
           </li>
           <li className="flex items-start gap-3">
             <span className="text-red-500 mt-0.5">&#10005;</span>
@@ -183,10 +187,6 @@ function BeforeAfter() {
           <li className="flex items-start gap-3">
             <span className="text-red-500 mt-0.5">&#10005;</span>
             No feedback loop. Can't explain what works
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-red-500 mt-0.5">&#10005;</span>
-            Each vertical needs separate tools and processes
           </li>
           <li className="flex items-start gap-3">
             <span className="text-red-500 mt-0.5">&#10005;</span>
@@ -199,7 +199,11 @@ function BeforeAfter() {
         <ul className="space-y-3 text-[#a1a1aa] text-sm">
           <li className="flex items-start gap-3">
             <span className="text-blue-500 mt-0.5">&#10003;</span>
-            Pre-calibrated from day one — no training period, no wasted spend
+            ICP encoded, decision logic configured — qualified leads identified from day one
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-blue-500 mt-0.5">&#10003;</span>
+            Every lead scored against YOUR criteria instantly. No cold leads slip through
           </li>
           <li className="flex items-start gap-3">
             <span className="text-blue-500 mt-0.5">&#10003;</span>
@@ -207,11 +211,7 @@ function BeforeAfter() {
           </li>
           <li className="flex items-start gap-3">
             <span className="text-blue-500 mt-0.5">&#10003;</span>
-            Closed-loop learning. Model improves with every outcome
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-blue-500 mt-0.5">&#10003;</span>
-            One platform serves all verticals with isolated infrastructure
+            Closed-loop learning. Every outcome makes the next prediction better
           </li>
           <li className="flex items-start gap-3">
             <span className="text-blue-500 mt-0.5">&#10003;</span>
@@ -262,7 +262,7 @@ export default function DemoPage() {
             className="mb-8"
           >
             <h2 className="text-2xl md:text-3xl font-bold mb-3">Lead Scoring Pipeline</h2>
-            <p className="text-[#a1a1aa]">The scoring model is pre-calibrated with demand logic and vertical-specific priors before your first lead arrives. No cold start. Watch how it evaluates a lead in real-time.</p>
+            <p className="text-[#a1a1aa]">Before your first lead arrives, we encode your ICP, configure decision logic, and set qualification criteria. The model already knows what a qualified lead looks like. Watch what happens when a lead comes in.</p>
           </motion.div>
           <ScoringDemo />
         </div>

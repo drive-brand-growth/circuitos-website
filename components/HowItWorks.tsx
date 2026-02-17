@@ -120,6 +120,33 @@ export default function HowItWorks() {
           </p>
         </motion.div>
 
+        {/* Pre-configuration callout */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12 card rounded-xl p-8 border-blue-500/20 bg-blue-500/5"
+        >
+          <div className="flex flex-col md:flex-row md:items-center gap-6">
+            <div className="flex-shrink-0">
+              <span className="text-sm text-blue-500 font-mono font-semibold">00</span>
+              <h3 className="text-xl font-semibold mt-1">Configure</h3>
+            </div>
+            <div className="flex-1">
+              <p className="text-[#a1a1aa] leading-relaxed">
+                Before the loop starts, we define your ICP, encode qualification criteria, and configure decision logic for your vertical.
+                The model knows what a qualified lead looks like before it processes a single one. No cold start. No wasted spend while an algorithm &ldquo;figures it out.&rdquo;
+              </p>
+            </div>
+            <div className="flex-shrink-0 hidden md:flex flex-col gap-2 text-xs font-mono">
+              <div><span className="text-[#52525b]">icp:</span> <span className="text-green-400">encoded</span></div>
+              <div><span className="text-[#52525b]">decision_logic:</span> <span className="text-green-400">configured</span></div>
+              <div><span className="text-[#52525b]">priors:</span> <span className="text-green-400">calibrated</span></div>
+              <div><span className="text-[#52525b]">status:</span> <span className="text-blue-400">ready</span></div>
+            </div>
+          </div>
+        </motion.div>
+
         <motion.div
           className="grid md:grid-cols-5 gap-4"
           initial="initial"
