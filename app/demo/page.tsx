@@ -132,12 +132,16 @@ function ContentDemo() {
         </div>
         <div>
           <span className="text-blue-400">[score]</span>
-          <span className="text-[#a1a1aa] ml-2">3 AI models evaluate quality</span>
+          <span className="text-[#a1a1aa] ml-2">Proprietary multi-model evaluation</span>
           <div className="pl-6 mt-1 text-xs space-y-1">
-            <div><span className="text-green-400">readability:</span> 0.82 (Gemini)</div>
-            <div><span className="text-green-400">uniqueness:</span> 0.75 (Perplexity)</div>
-            <div><span className="text-green-400">brand_voice:</span> 0.91 (Claude)</div>
+            <div><span className="text-green-400">readability_model:</span> 0.82</div>
+            <div><span className="text-green-400">uniqueness_model:</span> 0.75</div>
+            <div><span className="text-green-400">brand_voice_model:</span> 0.91</div>
           </div>
+        </div>
+        <div>
+          <span className="text-blue-400">[infer]</span>
+          <span className="text-[#a1a1aa] ml-2">DMN logic + ML inference &#8594; composite score &#8594; tier assignment</span>
         </div>
         <div>
           <span className="text-blue-400">[distribute]</span>
@@ -145,7 +149,7 @@ function ContentDemo() {
         </div>
         <div>
           <span className="text-blue-400">[learn]</span>
-          <span className="text-[#a1a1aa] ml-2">GA4 data feeds back 48h later &#8594; model updates</span>
+          <span className="text-[#a1a1aa] ml-2">Engagement data feeds back &#8594; inference model updates</span>
         </div>
         <div className="pt-4 border-t border-[#27272a] text-[#a1a1aa] font-sans text-sm">
           Every piece of content goes through source verification, fact-checking, multi-AI scoring, and governance gates before publication.

@@ -6,7 +6,7 @@ const metrics = [
   { value: '6', label: 'Active Verticals' },
   { value: '1,200+', label: 'Automated Tests' },
   { value: '72', label: 'Scoring Signals' },
-  { value: '3', label: 'AI Models' },
+  { value: '3', label: 'Inference Engines' },
   { value: '6', label: 'Enrichment Sources' },
   { value: '24/7', label: 'Autonomous Operation' },
 ]

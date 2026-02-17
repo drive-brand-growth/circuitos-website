@@ -87,7 +87,7 @@ const jsonLd = {
     'Predictive Lead Scoring',
     'Autonomous Email Outreach',
     'Content Intelligence Engine',
-    'Multi-AI Quality Assurance',
+    'Proprietary Multi-Model Quality Assurance',
     'GA4 Feedback Loop',
     'Multi-Vertical Support',
     'Human-in-the-Loop Governance',

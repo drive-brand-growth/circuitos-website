@@ -5,9 +5,9 @@ export default function IntegrationBar() {
     'GoHighLevel',
     'Instantly.ai',
     'Google Analytics',
-    'Claude AI',
-    'Gemini',
-    'Perplexity',
+    'PostgreSQL',
+    'Docker',
+    'n8n',
   ]
 
   return (

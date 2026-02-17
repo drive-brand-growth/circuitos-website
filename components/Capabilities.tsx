@@ -33,7 +33,7 @@ const capabilities = [
     category: 'Content',
     items: [
       { title: 'AI Blog Generation', desc: 'Full articles with source verification, fact-checking, and brand voice compliance' },
-      { title: 'Multi-AI Quality Assurance', desc: 'Three AI models evaluate readability, competitive uniqueness, and voice before publish' },
+      { title: 'Proprietary Quality Assurance', desc: 'Multi-model inference evaluates readability, competitive uniqueness, and brand voice before publish' },
       { title: 'UGC Pipeline', desc: 'User-generated content collection, AI enhancement, and publication workflow' },
     ]
   },
