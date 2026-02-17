@@ -174,7 +174,7 @@ function BeforeAfter() {
         <ul className="space-y-3 text-[#a1a1aa] text-sm">
           <li className="flex items-start gap-3">
             <span className="text-red-500 mt-0.5">&#10005;</span>
-            Cold leads waste your team's time — no way to know who's qualified
+            Cold leads waste your team's time. No way to know who's qualified
           </li>
           <li className="flex items-start gap-3">
             <span className="text-red-500 mt-0.5">&#10005;</span>
@@ -199,7 +199,7 @@ function BeforeAfter() {
         <ul className="space-y-3 text-[#a1a1aa] text-sm">
           <li className="flex items-start gap-3">
             <span className="text-blue-500 mt-0.5">&#10003;</span>
-            ICP encoded, decision logic configured — qualified leads identified from day one
+            ICP encoded, decision logic configured. Qualified leads identified from day one
           </li>
           <li className="flex items-start gap-3">
             <span className="text-blue-500 mt-0.5">&#10003;</span>

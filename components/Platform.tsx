@@ -16,7 +16,7 @@ const staggerContainer = {
 const cards = [
   {
     title: 'Predictive Scoring',
-    desc: 'We encode your ideal customer profile into the model before launch. Decision logic, qualification criteria, and demand patterns — all pre-configured for your vertical. Every lead scored against YOUR definition of qualified, not a cold algorithm learning on your dime.',
+    desc: 'We encode your ideal customer profile into the model before launch. Decision logic, qualification criteria, and demand patterns, all pre-configured for your vertical. Every lead scored against YOUR definition of qualified. Not a cold algorithm learning on your dime.',
   },
   {
     title: 'Autonomous Outreach',
@@ -163,7 +163,7 @@ export default function Platform() {
               {[
                 'Predictable lead qualification. Every lead scored against pre-defined criteria and routed automatically. No cherry-picking.',
                 'AI generates content, scores it for performance, and learns from real engagement data.',
-                'Not a collection of AI tools — a complete revenue system. Scoring, outreach, content, CRM, and analytics in one predictable pipeline.',
+                'Not a collection of AI tools. A complete revenue system with scoring, outreach, content, CRM, and analytics in one predictable pipeline.',
                 'Full audit trail on every decision. You know exactly what worked and why.',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-4">

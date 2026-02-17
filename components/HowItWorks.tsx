@@ -28,7 +28,7 @@ const steps = [
   {
     step: '02',
     title: 'Score',
-    desc: 'Pre-calibrated AI evaluates fit, intent, and timing across 72+ signals. The model ships with vertical-specific demand logic — intelligent from day one, not after weeks of training.',
+    desc: 'Pre-calibrated AI evaluates fit, intent, and timing across 72+ signals. The model ships with vertical-specific demand logic. Intelligent from day one, not after weeks of training.',
     code: [
       { label: 'priors', text: 'pre-calibrated', color: 'text-green-400' },
       { label: 'signals', text: '72 evaluated', color: 'text-blue-400' },

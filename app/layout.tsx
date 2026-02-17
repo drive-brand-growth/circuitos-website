@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     default: 'CircuitOS - Autonomous Revenue Intelligence Platform',
     template: '%s | CircuitOS'
   },
-  description: 'Predictable, data-driven revenue intelligence — not another AI chatbot. Pre-configured scoring, autonomous outreach, content intelligence, and closed-loop optimization. One system, measurable results.',
+  description: 'Predictable, data-driven revenue intelligence. Not another AI chatbot. Pre-configured scoring, autonomous outreach, content intelligence, and closed-loop optimization. One system, measurable results.',
   keywords: [
     'revenue intelligence platform',
     'AI lead scoring',
@@ -37,13 +37,13 @@ export const metadata: Metadata = {
     url: 'https://usecircuitos.com',
     siteName: 'CircuitOS',
     title: 'CircuitOS - Autonomous Revenue Intelligence',
-    description: 'Predictable revenue intelligence — not another AI tool. Pre-configured scoring, autonomous outreach, and closed-loop optimization. One system, measurable results.',
+    description: 'Predictable revenue intelligence. Not another AI tool. Pre-configured scoring, autonomous outreach, and closed-loop optimization. One system, measurable results.',
     images: ['/opengraph-image'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'CircuitOS - Revenue Intelligence That Learns',
-    description: 'Predictable revenue intelligence — pre-configured scoring, autonomous outreach, and closed-loop optimization. Not an AI chatbot. A complete revenue system.',
+    description: 'Predictable revenue intelligence. Pre-configured scoring, autonomous outreach, and closed-loop optimization. Not an AI chatbot. A complete revenue system.',
     images: ['/opengraph-image'],
   },
   robots: {
@@ -66,7 +66,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'CircuitOS',
-  description: 'Predictable, data-driven revenue intelligence platform with pre-configured scoring, content intelligence, and closed-loop learning. Not an AI chatbot — a complete revenue system.',
+  description: 'Predictable, data-driven revenue intelligence platform with pre-configured scoring, content intelligence, and closed-loop learning. Not an AI chatbot. A complete revenue system.',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web-based',
   url: 'https://usecircuitos.com',
