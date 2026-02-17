@@ -12,27 +12,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/#features`,
+      url: `${baseUrl}/demo`,
       lastModified,
       changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#how-it-works`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#aria`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#pricing`,
-      lastModified,
-      changeFrequency: 'weekly',
       priority: 0.9,
     },
   ]
