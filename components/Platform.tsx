@@ -3,35 +3,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] }
-}
-
-const staggerContainer = {
-  animate: { transition: { staggerChildren: 0.1 } }
-}
-
-const cards = [
-  {
-    title: 'Predictive Scoring',
-    desc: 'Your ICP, qualification criteria, and demand patterns pre-configured before launch. Every lead scored against your definition of qualified.',
-  },
-  {
-    title: 'Autonomous Outreach',
-    desc: 'From first touch to booked call. Personalized emails that match your brand voice. Nothing ships without your sign-off.',
-  },
-  {
-    title: 'Content Intelligence',
-    desc: 'Content generated, scored, and optimized across blog, social, and email. Multi-model quality evaluation before publish. Real engagement data feeds back to improve every next piece.',
-  },
-  {
-    title: 'Multi-Vertical',
-    desc: 'One platform serves your entire portfolio. Isolated infrastructure per client. Shared intelligence. Each business gets its own scoring model, templates, and CRM routing.',
-  },
-]
-
 // Animated content pipeline terminal
 const pipelineSteps = [
   { label: 'generate', text: 'Topic: "Lead Nurturing Best Practices"', color: 'text-blue-400' },
@@ -174,25 +145,6 @@ export default function Platform() {
             </ul>
           </motion.div>
         </div>
-
-        <motion.div
-          className="grid md:grid-cols-2 gap-6"
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-        >
-          {cards.map((card) => (
-            <motion.div
-              key={card.title}
-              variants={fadeInUp}
-              className="card rounded-xl p-8"
-            >
-              <h3 className="text-xl font-semibold mb-3">{card.title}</h3>
-              <p className="text-[#a1a1aa] leading-relaxed">{card.desc}</p>
-            </motion.div>
-          ))}
-        </motion.div>
 
         {/* Content Pipeline Terminal */}
         <ContentPipelineTerminal />

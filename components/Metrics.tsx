@@ -3,11 +3,9 @@
 import { motion } from 'framer-motion'
 
 const metrics = [
-  { value: '6', label: 'Active Verticals' },
-  { value: '1,200+', label: 'Automated Tests' },
+  { value: '6', label: 'Live Verticals' },
   { value: '72', label: 'Scoring Signals' },
-  { value: '3', label: 'Inference Engines' },
-  { value: '6', label: 'Enrichment Sources' },
+  { value: 'Day 1', label: 'Intelligent Scoring' },
   { value: '24/7', label: 'Autonomous Operation' },
 ]
 
@@ -27,7 +25,7 @@ export default function Metrics() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8"
+          className="grid grid-cols-2 md:grid-cols-4 gap-8"
         >
           {metrics.map((item) => (
             <div key={item.label} className="text-center">
