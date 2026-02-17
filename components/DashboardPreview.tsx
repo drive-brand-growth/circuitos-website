@@ -129,7 +129,7 @@ export default function DashboardPreview() {
 
             {/* Bottom status bar */}
             <div className="px-6 py-2.5 border-t border-[#27272a] flex items-center justify-between text-[11px] text-[#52525b]">
-              <span>72 signals evaluated per lead</span>
+              <span>72 signals · Pre-calibrated priors active</span>
               <span>Model v3.2 · Last calibration: 2h ago</span>
             </div>
           </div>

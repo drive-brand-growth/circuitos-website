@@ -16,7 +16,7 @@ const capabilities = [
   {
     category: 'Intelligence',
     items: [
-      { title: 'Predictive Lead Scoring', desc: 'AI-powered scoring across 72+ signals with multi-source data enrichment' },
+      { title: 'Predictive Lead Scoring', desc: 'Pre-calibrated AI scores across 72+ signals from day one — no training period, no cold start' },
       { title: 'Multi-Source Enrichment', desc: 'Six data sources verify and enhance every prospect profile automatically' },
       { title: 'Conversation Memory', desc: 'Vector-based semantic memory recalls context across every interaction' },
     ]

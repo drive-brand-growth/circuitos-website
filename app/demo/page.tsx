@@ -60,6 +60,12 @@ function ScoringDemo() {
             </motion.div>
             {step >= 1 && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                <span className="text-[#52525b]">[model]</span>
+                <span className="text-green-400 ml-2">Pre-calibrated priors loaded — demand logic active</span>
+              </motion.div>
+            )}
+            {step >= 1 && (
+              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
                 <span className="text-[#52525b]">[ingest]</span>
                 <span className="text-green-400 ml-2">Lead received from web form</span>
               </motion.div>
@@ -193,7 +199,7 @@ function BeforeAfter() {
         <ul className="space-y-3 text-[#a1a1aa] text-sm">
           <li className="flex items-start gap-3">
             <span className="text-blue-500 mt-0.5">&#10003;</span>
-            Every lead scored automatically across 72+ signals
+            Pre-calibrated from day one — no training period, no wasted spend
           </li>
           <li className="flex items-start gap-3">
             <span className="text-blue-500 mt-0.5">&#10003;</span>
@@ -256,7 +262,7 @@ export default function DemoPage() {
             className="mb-8"
           >
             <h2 className="text-2xl md:text-3xl font-bold mb-3">Lead Scoring Pipeline</h2>
-            <p className="text-[#a1a1aa]">Watch how a lead flows through enrichment, scoring, routing, and governance in real-time.</p>
+            <p className="text-[#a1a1aa]">The scoring model is pre-calibrated with demand logic and vertical-specific priors before your first lead arrives. No cold start. Watch how it evaluates a lead in real-time.</p>
           </motion.div>
           <ScoringDemo />
         </div>

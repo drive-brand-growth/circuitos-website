@@ -41,8 +41,9 @@ export default function Hero() {
           variants={fadeInUp}
           className="text-lg sm:text-xl md:text-2xl text-[#a1a1aa] max-w-2xl mx-auto mb-10 leading-[1.6]"
         >
-          AI scores every lead. Content writes itself. Outreach runs autonomously.
-          Every outcome feeds back into the model. The system gets smarter with every cycle.
+          AI scores every lead — intelligently, from day one. No training period. No cold start.
+          Content writes itself. Outreach runs autonomously.
+          Every outcome makes the next prediction better.
         </motion.p>
 
         <motion.div
