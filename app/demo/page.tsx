@@ -43,7 +43,7 @@ function ScoringDemo() {
       <div className="p-6 font-mono text-sm space-y-3 min-h-[320px]">
         {step === 0 && !scoring && (
           <div className="flex flex-col items-center justify-center h-[280px] gap-4">
-            <p className="text-[#a1a1aa] text-center text-base font-sans">See how a pre-configured model scores a lead in real-time</p>
+            <p className="text-[#a1a1aa] text-center text-base font-sans">See how a lead gets scored in real-time</p>
             <button
               onClick={runDemo}
               className="btn-primary text-white px-6 py-3 rounded-lg font-semibold font-sans"
@@ -174,11 +174,11 @@ function BeforeAfter() {
         <ul className="space-y-3 text-[#a1a1aa] text-sm">
           <li className="flex items-start gap-3">
             <span className="text-red-500 mt-0.5">&#10005;</span>
-            Cold leads waste your team's time. No way to know who's qualified
+            Leads pile up. No way to know who's qualified
           </li>
           <li className="flex items-start gap-3">
             <span className="text-red-500 mt-0.5">&#10005;</span>
-            AI tools need weeks of data before scoring is useful
+            Most tools need weeks of data before scoring is useful
           </li>
           <li className="flex items-start gap-3">
             <span className="text-red-500 mt-0.5">&#10005;</span>
@@ -199,11 +199,11 @@ function BeforeAfter() {
         <ul className="space-y-3 text-[#a1a1aa] text-sm">
           <li className="flex items-start gap-3">
             <span className="text-blue-500 mt-0.5">&#10003;</span>
-            ICP encoded, decision logic configured. Qualified leads identified from day one
+            Pre-configured scoring. Qualified leads identified from day one
           </li>
           <li className="flex items-start gap-3">
             <span className="text-blue-500 mt-0.5">&#10003;</span>
-            Every lead scored against YOUR criteria instantly. No cold leads slip through
+            Every lead scored against your criteria instantly
           </li>
           <li className="flex items-start gap-3">
             <span className="text-blue-500 mt-0.5">&#10003;</span>
@@ -215,7 +215,7 @@ function BeforeAfter() {
           </li>
           <li className="flex items-start gap-3">
             <span className="text-blue-500 mt-0.5">&#10003;</span>
-            AI writes emails in your brand voice. You approve before send
+            Emails written in your brand voice. You approve before send
           </li>
         </ul>
       </div>
@@ -246,7 +246,6 @@ export default function DemoPage() {
             variants={fadeInUp}
             className="text-lg sm:text-xl text-[#a1a1aa] max-w-2xl mx-auto leading-[1.6]"
           >
-            Not an AI chatbot. Not a collection of tools. A predictable revenue system.
             Walk through the two core pipelines that run in production across 6 active verticals.
           </motion.p>
         </motion.div>
@@ -262,7 +261,7 @@ export default function DemoPage() {
             className="mb-8"
           >
             <h2 className="text-2xl md:text-3xl font-bold mb-3">Lead Scoring Pipeline</h2>
-            <p className="text-[#a1a1aa]">Before your first lead arrives, we encode your ICP, configure decision logic, and set qualification criteria. The model already knows what a qualified lead looks like. Watch what happens when a lead comes in.</p>
+            <p className="text-[#a1a1aa]">Your ICP encoded, decision logic configured, qualification criteria set. Watch what happens when a lead comes in.</p>
           </motion.div>
           <ScoringDemo />
         </div>
@@ -309,7 +308,7 @@ export default function DemoPage() {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready for predictable revenue?</h2>
             <p className="text-[#a1a1aa] mb-8 text-lg">
-              We'll configure a complete revenue system around your vertical, your ICPs, and your qualification criteria.
+              We'll configure a system around your vertical, your ICPs, and your qualification criteria.
             </p>
             <a href="/#contact" className="inline-block px-8 py-4 btn-primary text-white rounded-lg font-semibold text-lg">
               Request Your Demo

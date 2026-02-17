@@ -28,7 +28,7 @@ const steps = [
   {
     step: '02',
     title: 'Score',
-    desc: 'Pre-calibrated AI evaluates fit, intent, and timing across 72+ signals. The model ships with vertical-specific demand logic. Intelligent from day one, not after weeks of training.',
+    desc: 'Pre-calibrated model evaluates fit, intent, and timing across 72+ signals. Ships with vertical-specific demand logic. Intelligent from day one.',
     code: [
       { label: 'priors', text: 'pre-calibrated', color: 'text-green-400' },
       { label: 'signals', text: '72 evaluated', color: 'text-blue-400' },
@@ -135,7 +135,7 @@ export default function HowItWorks() {
             <div className="flex-1">
               <p className="text-[#a1a1aa] leading-relaxed">
                 Before the loop starts, we define your ICP, encode qualification criteria, and configure decision logic for your vertical.
-                The model knows what a qualified lead looks like before it processes a single one. No cold start. No wasted spend while an algorithm &ldquo;figures it out.&rdquo;
+                The model knows what a qualified lead looks like before it processes a single one.
               </p>
             </div>
             <div className="flex-shrink-0 hidden md:flex flex-col gap-2 text-xs font-mono">

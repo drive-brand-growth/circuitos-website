@@ -41,9 +41,8 @@ export default function Hero() {
           variants={fadeInUp}
           className="text-lg sm:text-xl md:text-2xl text-[#a1a1aa] max-w-2xl mx-auto mb-10 leading-[1.6]"
         >
-          Not another AI chatbot. Not another tool to bolt on.
-          A predictable, data-driven revenue system with your ICP encoded, decision logic configured,
-          and outcomes pre-defined before your first lead arrives. Measurable pipeline. Predictable results.
+          Your ICP encoded. Decision logic configured. Outcomes pre-defined.
+          One system that scores, routes, engages, and learns. Intelligent before your first lead arrives.
         </motion.p>
 
         <motion.div

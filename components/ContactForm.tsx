@@ -47,8 +47,8 @@ export default function ContactForm() {
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-[-0.02em]">Ready to close the loop?</h2>
             <p className="text-[#a1a1aa] mb-8 text-lg leading-[1.6]">
-              See how a predictable, data-driven revenue system works. Not another AI chatbot. A complete pipeline configured for your business.
               We'll walk you through the entire pipeline with your business context.
+              Pre-configured scoring, autonomous outreach, and content intelligence working together.
             </p>
             <ul className="space-y-4 text-[#a1a1aa]">
               <li className="flex items-center gap-3">

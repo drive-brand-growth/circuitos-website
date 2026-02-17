@@ -16,15 +16,15 @@ const staggerContainer = {
 const cards = [
   {
     title: 'Predictive Scoring',
-    desc: 'We encode your ideal customer profile into the model before launch. Decision logic, qualification criteria, and demand patterns, all pre-configured for your vertical. Every lead scored against YOUR definition of qualified. Not a cold algorithm learning on your dime.',
+    desc: 'Your ICP, qualification criteria, and demand patterns pre-configured before launch. Every lead scored against your definition of qualified.',
   },
   {
     title: 'Autonomous Outreach',
-    desc: 'From first touch to booked call. AI-generated emails that match your brand voice. Human approval gates ensure nothing ships without your sign-off.',
+    desc: 'From first touch to booked call. Personalized emails that match your brand voice. Nothing ships without your sign-off.',
   },
   {
     title: 'Content Intelligence',
-    desc: 'AI writes, scores, and optimizes your content across blog, social, and email. Proprietary multi-model inference evaluates quality before publish. Real engagement data feeds back to improve every next piece.',
+    desc: 'Content generated, scored, and optimized across blog, social, and email. Multi-model quality evaluation before publish. Real engagement data feeds back to improve every next piece.',
   },
   {
     title: 'Multi-Vertical',
@@ -162,8 +162,8 @@ export default function Platform() {
             <ul className="space-y-4 text-[#a1a1aa]">
               {[
                 'Predictable lead qualification. Every lead scored against pre-defined criteria and routed automatically. No cherry-picking.',
-                'AI generates content, scores it for performance, and learns from real engagement data.',
-                'Not a collection of AI tools. A complete revenue system with scoring, outreach, content, CRM, and analytics in one predictable pipeline.',
+                'Content generated, scored for performance, and refined from real engagement data.',
+                'One system. Scoring, outreach, content, CRM, and analytics in a single pipeline.',
                 'Full audit trail on every decision. You know exactly what worked and why.',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-4">

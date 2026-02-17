@@ -16,7 +16,7 @@ const capabilities = [
   {
     category: 'Intelligence',
     items: [
-      { title: 'Predictive Lead Scoring', desc: 'Your ICP and qualification criteria encoded before launch. Every lead scored against YOUR definition of qualified. No cold start, no wasted spend' },
+      { title: 'Predictive Lead Scoring', desc: 'ICP and qualification criteria encoded before launch. Every lead scored against your definition of qualified' },
       { title: 'Multi-Source Enrichment', desc: 'Six data sources verify and enhance every prospect profile automatically' },
       { title: 'Conversation Memory', desc: 'Vector-based semantic memory recalls context across every interaction' },
     ]
