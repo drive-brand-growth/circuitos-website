@@ -161,9 +161,9 @@ export default function Platform() {
             <h2 className="text-3xl md:text-4xl font-bold mb-8 tracking-[-0.02em]">CircuitOS closes the loop</h2>
             <ul className="space-y-4 text-[#a1a1aa]">
               {[
-                'Every lead scored and routed automatically. No cherry-picking. No missed opportunities.',
+                'Predictable lead qualification. Every lead scored against pre-defined criteria and routed automatically. No cherry-picking.',
                 'AI generates content, scores it for performance, and learns from real engagement data.',
-                'One platform connects scoring, outreach, content, CRM, and analytics into a single pipeline.',
+                'Not a collection of AI tools — a complete revenue system. Scoring, outreach, content, CRM, and analytics in one predictable pipeline.',
                 'Full audit trail on every decision. You know exactly what worked and why.',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-4">

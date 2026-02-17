@@ -246,8 +246,8 @@ export default function DemoPage() {
             variants={fadeInUp}
             className="text-lg sm:text-xl text-[#a1a1aa] max-w-2xl mx-auto leading-[1.6]"
           >
-            Walk through the two core pipelines: lead scoring and content intelligence.
-            Everything you see here runs in production across 6 active verticals.
+            Not an AI chatbot. Not a collection of tools. A predictable revenue system.
+            Walk through the two core pipelines that run in production across 6 active verticals.
           </motion.p>
         </motion.div>
       </section>
@@ -307,9 +307,9 @@ export default function DemoPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready for a personalized walkthrough?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready for predictable revenue?</h2>
             <p className="text-[#a1a1aa] mb-8 text-lg">
-              We'll configure a demo around your vertical, your ICPs, and your content strategy.
+              We'll configure a complete revenue system around your vertical, your ICPs, and your qualification criteria.
             </p>
             <a href="/#contact" className="inline-block px-8 py-4 btn-primary text-white rounded-lg font-semibold text-lg">
               Request Your Demo
