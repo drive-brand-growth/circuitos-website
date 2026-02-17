@@ -18,28 +18,20 @@ export default function ContactForm() {
     setFormStatus('submitting')
 
     try {
-      const res = await fetch('https://api.drivebrandgrowth.com/circuitos/api/v1/scoring/score', {
+      const res = await fetch('/api/demo-request', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          source: 'usecircuitos.com',
-          notes: `Vertical: ${formData.vertical}\n\n${formData.message}`,
-        }),
+        body: JSON.stringify(formData),
       })
 
       if (res.ok) {
         setFormStatus('success')
       } else {
-        // Fallback: open mailto if API fails
-        window.location.href = `mailto:noel@drivebrandgrowth.com?subject=Demo Request from ${formData.name}&body=Name: ${formData.name}%0AEmail: ${formData.email}%0ACompany: ${formData.company}%0AVertical: ${formData.vertical}%0A%0A${formData.message}`
-        setFormStatus('success')
+        setFormStatus('error')
       }
     } catch {
       // Fallback: open mailto if API unreachable
-      window.location.href = `mailto:noel@drivebrandgrowth.com?subject=Demo Request from ${formData.name}&body=Name: ${formData.name}%0AEmail: ${formData.email}%0ACompany: ${formData.company}%0AVertical: ${formData.vertical}%0A%0A${formData.message}`
+      window.location.href = `mailto:noel@drivebrandgrowth.com?subject=Demo Request from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nVertical: ${formData.vertical}\n\n${formData.message}`)}`
       setFormStatus('success')
     }
   }
