@@ -9,57 +9,39 @@ const fadeInUp = {
 }
 
 const staggerContainer = {
-  animate: { transition: { staggerChildren: 0.08 } }
+  animate: { transition: { staggerChildren: 0.12 } }
 }
 
-const capabilities = [
+const problems = [
   {
-    category: 'Intelligence',
-    items: [
-      { title: 'Predictive Lead Scoring', desc: 'ICP and qualification criteria encoded before launch. Every lead scored against your definition of qualified' },
-      { title: 'Multi-Source Enrichment', desc: 'Six data sources verify and enhance every prospect profile automatically' },
-      { title: 'Conversation Memory', desc: 'Vector-based semantic memory recalls context across every interaction' },
-    ]
+    problem: 'Leads pile up and nobody knows which ones matter',
+    solution: 'Predictive scoring, pre-configured to your ICP',
+    desc: 'Your qualification criteria and demand patterns are encoded before launch. Every lead gets scored on fit, intent, and timing. Your team works the right prospects from day one.',
   },
   {
-    category: 'Automation',
-    items: [
-      { title: 'Email Sequences', desc: 'AI-generated outreach in your brand voice with governance-gated sending' },
-      { title: 'Social Distribution', desc: 'Blog to social pipeline across Facebook, Instagram, X, and Google Business' },
-      { title: 'Calendar Booking', desc: 'Smart appointment scheduling with intelligent slot selection' },
-    ]
+    problem: 'Outreach is either generic blasts or slow manual work',
+    solution: 'Personalized sequences in your brand voice',
+    desc: 'Emails written to match how your team actually talks. Each prospect gets a tailored sequence based on their score and profile. You review and approve before anything sends.',
   },
   {
-    category: 'Content',
-    items: [
-      { title: 'AI Blog Generation', desc: 'Full articles with source verification, fact-checking, and brand voice compliance' },
-      { title: 'Proprietary Quality Assurance', desc: 'Multi-model inference evaluates readability, competitive uniqueness, and brand voice before publish' },
-      { title: 'UGC Pipeline', desc: 'User-generated content collection, AI enhancement, and publication workflow' },
-    ]
+    problem: 'Content takes weeks and you can\'t predict what will perform',
+    solution: 'Generate, verify, score, and publish in hours',
+    desc: 'Blog posts written, fact-checked against real sources, and scored for quality by multiple models. Social distribution across four channels. All before lunch, all with your sign-off.',
   },
   {
-    category: 'Infrastructure',
-    items: [
-      { title: 'Isolated Environments', desc: 'Each vertical runs in its own containerized stack with dedicated database' },
-      { title: 'Native Integrations', desc: 'GoHighLevel, Instantly.ai, GA4, and full REST API with webhook support' },
-      { title: 'Background Processing', desc: 'Async job scheduling, retry queues, and cache management built in' },
-    ]
+    problem: 'Every tool is a silo that doesn\'t talk to the others',
+    solution: 'One system from lead to closed deal',
+    desc: 'Scoring, outreach, content, CRM, and analytics in a single pipeline. No duct-taping five platforms together. One place to see what\'s working and why.',
   },
   {
-    category: 'Governance',
-    items: [
-      { title: 'Human-in-the-Loop', desc: 'Every outbound action requires explicit approval. Nothing sends without your sign-off' },
-      { title: 'Approval Workflows', desc: 'Confidence-based escalation gates route decisions to the right reviewer' },
-      { title: 'Full Audit Trail', desc: 'Every scoring decision, every email sent, every approval logged and exportable' },
-    ]
+    problem: 'Campaigns end and you can\'t explain what worked',
+    solution: 'Every outcome makes the next prediction better',
+    desc: 'Real engagement data feeds back into the model automatically. Open rates, reply rates, conversions, GA4 metrics. The system learns from every cycle so each one is more accurate than the last.',
   },
   {
-    category: 'Analytics',
-    items: [
-      { title: 'GA4 Feedback Loop', desc: 'Real engagement data flows back into the scoring model automatically' },
-      { title: 'Performance Reports', desc: 'Monthly intelligence briefs with trends, recommendations, and outcomes' },
-      { title: 'A/B Testing', desc: 'Built-in variant testing for email subject lines, content, and send timing' },
-    ]
+    problem: 'You don\'t trust automation to act without oversight',
+    solution: 'Nothing sends without your sign-off',
+    desc: 'Every email, every blog post, every social update goes through approval gates. Confidence-based escalation routes edge cases to the right reviewer. Full audit trail on every decision.',
   },
 ]
 
@@ -73,7 +55,7 @@ export default function Capabilities() {
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-bold text-center mb-4 tracking-[-0.02em]"
         >
-          Everything you need
+          Built to solve real problems
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -81,34 +63,28 @@ export default function Capabilities() {
           viewport={{ once: true }}
           className="text-[#a1a1aa] text-center mb-16 text-lg max-w-2xl mx-auto"
         >
-          Six capability layers that work together as one system
+          Every feature exists because a real business had this exact problem
         </motion.p>
 
-        <div className="space-y-12">
-          {capabilities.map((group) => (
-            <div key={group.category}>
-              <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-widest mb-4">{group.category}</h3>
-              <motion.div
-                className="grid md:grid-cols-3 gap-4"
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-                variants={staggerContainer}
-              >
-                {group.items.map((item) => (
-                  <motion.div
-                    key={item.title}
-                    variants={fadeInUp}
-                    className="card rounded-xl p-6"
-                  >
-                    <h4 className="text-base font-semibold mb-2">{item.title}</h4>
-                    <p className="text-[#a1a1aa] text-sm leading-relaxed">{item.desc}</p>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
+        <motion.div
+          className="grid md:grid-cols-2 gap-6"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+        >
+          {problems.map((item) => (
+            <motion.div
+              key={item.problem}
+              variants={fadeInUp}
+              className="card rounded-xl p-8"
+            >
+              <p className="text-sm text-red-400 font-medium mb-3">{item.problem}</p>
+              <h3 className="text-xl font-semibold mb-3">{item.solution}</h3>
+              <p className="text-[#a1a1aa] leading-relaxed">{item.desc}</p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
