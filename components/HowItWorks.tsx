@@ -159,8 +159,14 @@ export default function HowItWorks() {
               key={item.step}
               variants={fadeInUp}
               className="card rounded-xl p-6 relative cursor-pointer"
+              tabIndex={0}
+              role="button"
+              aria-expanded={activeStep === i}
               onMouseEnter={() => setActiveStep(i)}
               onMouseLeave={() => setActiveStep(null)}
+              onFocus={() => setActiveStep(i)}
+              onBlur={() => setActiveStep(null)}
+              onClick={() => setActiveStep(activeStep === i ? null : i)}
             >
               <span className="text-sm text-blue-500 font-mono font-semibold">{item.step}</span>
               <h3 className="text-lg font-semibold mt-2 mb-2">{item.title}</h3>

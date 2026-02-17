@@ -117,8 +117,14 @@ function ScoringDemo() {
                 <span className="text-[#71717a]">[govern]</span>
                 <span className="text-yellow-400 ml-2">PENDING_REVIEW</span>
                 <span className="text-[#71717a] ml-2">&#8212; awaiting your approval</span>
-                <div className="mt-4 pt-4 border-t border-[#27272a] text-[#a1a1aa] font-sans text-sm">
-                  Nothing sends without your sign-off. Every action logged. Full audit trail.
+                <div className="mt-4 pt-4 border-t border-[#27272a] text-[#a1a1aa] font-sans text-sm flex items-center justify-between">
+                  <span>Nothing sends without your sign-off. Every action logged. Full audit trail.</span>
+                  <button
+                    onClick={(e) => { e.stopPropagation(); runDemo(); }}
+                    className="ml-4 text-xs text-blue-400 hover:text-blue-300 font-medium flex-shrink-0"
+                  >
+                    Run again
+                  </button>
                 </div>
               </motion.div>
             )}
