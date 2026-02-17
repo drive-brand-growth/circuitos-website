@@ -15,38 +15,42 @@ const staggerContainer = {
 const plans = [
   {
     name: 'Starter',
-    build: '$15,000',
     monthly: '$1,500',
-    desc: 'Single vertical',
+    desc: 'For brands launching their first automated revenue engine',
+    cta: 'Book a Demo',
     features: [
       'Predictive lead scoring (72+ signals)',
-      'Automated email sequences',
-      'CRM integration',
-      'Full audit trail',
-      'Human approval gates',
+      'Pre-calibrated to your ICP from day one',
+      'Automated email sequences in your brand voice',
+      'CRM integration (GoHighLevel)',
+      'Human approval gates on all outreach',
       'Content intelligence engine',
+      'Full audit trail on every decision',
+      'Email & chat support',
     ],
   },
   {
     name: 'Growth',
-    build: '$30,000',
     monthly: '$3,500',
-    desc: '2–3 verticals',
+    desc: 'For brands scaling across multiple business lines',
+    cta: 'Book a Demo',
     features: [
       'Everything in Starter',
-      'Multi-source enrichment',
-      'AI blog & social generation',
-      'Closed-loop ML feedback',
+      'Multi-source lead enrichment',
+      'AI blog & social media generation',
+      'GA4 closed-loop performance feedback',
       'Isolated infrastructure per vertical',
+      'Multi-vertical scoring models',
+      'Automated social distribution (4 channels)',
       'Priority support & quarterly reviews',
     ],
     popular: true,
   },
   {
     name: 'Enterprise',
-    build: '$50,000+',
-    monthly: '$7,500',
-    desc: 'Unlimited verticals',
+    monthly: 'Custom',
+    desc: 'For organizations with complex, multi-brand operations',
+    cta: 'Contact Sales',
     features: [
       'Everything in Growth',
       'Unlimited vertical stacks',
@@ -54,6 +58,8 @@ const plans = [
       'Dedicated infrastructure',
       'Compliance & governance package',
       'Dedicated success manager',
+      'Custom AI model training',
+      'SLA & uptime guarantees',
     ],
   },
 ]
@@ -68,8 +74,8 @@ export default function Pricing() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">Pricing</h2>
-          <p className="text-[#a1a1aa] text-lg">One-time build + monthly platform fee</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">Plans that scale with your business</h2>
+          <p className="text-[#a1a1aa] text-lg">Implementation fee applies — we'll scope it together on a call</p>
         </motion.div>
 
         <motion.div
@@ -90,13 +96,9 @@ export default function Pricing() {
               )}
               <h3 className="text-2xl font-semibold mt-5">{plan.name}</h3>
               <p className="text-sm text-[#a1a1aa] mt-1">{plan.desc}</p>
-              <div className="mt-6 mb-2">
-                <span className="text-4xl font-bold">{plan.build}</span>
-                <span className="text-[#a1a1aa] text-sm ml-2">build</span>
-              </div>
-              <div className="mb-8">
-                <span className="text-2xl font-semibold">{plan.monthly}</span>
-                <span className="text-[#a1a1aa] text-sm ml-1">/month</span>
+              <div className="mt-6 mb-8">
+                <span className="text-4xl font-bold">{plan.monthly}</span>
+                {plan.monthly !== 'Custom' && <span className="text-[#a1a1aa] text-sm ml-1">/month</span>}
               </div>
               <ul className="space-y-4 text-sm pt-8 border-t border-[#27272a]">
                 {plan.features.map((f) => (
@@ -111,7 +113,7 @@ export default function Pricing() {
                   plan.popular ? 'btn-primary text-white' : 'border border-[#27272a] hover:bg-white/5'
                 }`}
               >
-                Get Started
+                {plan.cta}
               </a>
             </motion.div>
           ))}

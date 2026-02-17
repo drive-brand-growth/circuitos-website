@@ -34,6 +34,115 @@ const staggerContainer = {
   animate: { transition: { staggerChildren: 0.15 } }
 }
 
+// Demo request form (primary conversion)
+function DemoForm() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+  })
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setFormStatus('submitting')
+
+    try {
+      const res = await fetch('/api/demo-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+
+      if (res.ok) {
+        setFormStatus('success')
+      } else {
+        setFormStatus('error')
+      }
+    } catch {
+      window.location.href = `mailto:noel@drivebrandgrowth.com?subject=Demo Request from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nPhone: ${formData.phone}`)}`
+      setFormStatus('success')
+    }
+  }
+
+  return (
+    <div className="card rounded-xl p-8">
+      <h3 className="text-2xl font-semibold mb-2">Book a Demo</h3>
+      <p className="text-sm text-[#a1a1aa] mb-6">30-minute personalized walkthrough</p>
+      {formStatus === 'success' ? (
+        <div className="text-center py-8">
+          <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-green-400 text-3xl">&#10003;</span>
+          </div>
+          <h4 className="text-xl font-semibold mb-2">Thanks for reaching out!</h4>
+          <p className="text-[#a1a1aa]">We&apos;ll be in touch within 24 hours to schedule your demo.</p>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-[#a1a1aa] mb-1.5">Name</label>
+            <input
+              type="text"
+              id="name"
+              required
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              className="w-full bg-[#1a1a1a] border border-[#27272a] rounded-lg px-4 py-3 text-white placeholder-[#71717a] focus:outline-none focus:border-blue-500/50"
+              placeholder="Your name"
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-[#a1a1aa] mb-1.5">Work Email</label>
+            <input
+              type="email"
+              id="email"
+              required
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              className="w-full bg-[#1a1a1a] border border-[#27272a] rounded-lg px-4 py-3 text-white placeholder-[#71717a] focus:outline-none focus:border-blue-500/50"
+              placeholder="you@company.com"
+            />
+          </div>
+          <div>
+            <label htmlFor="company" className="block text-sm font-medium text-[#a1a1aa] mb-1.5">Company</label>
+            <input
+              type="text"
+              id="company"
+              value={formData.company}
+              onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+              className="w-full bg-[#1a1a1a] border border-[#27272a] rounded-lg px-4 py-3 text-white placeholder-[#71717a] focus:outline-none focus:border-blue-500/50"
+              placeholder="Your company"
+            />
+          </div>
+          <div>
+            <label htmlFor="phone" className="block text-sm font-medium text-[#a1a1aa] mb-1.5">Phone <span className="text-[#71717a]">(optional)</span></label>
+            <input
+              type="tel"
+              id="phone"
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              className="w-full bg-[#1a1a1a] border border-[#27272a] rounded-lg px-4 py-3 text-white placeholder-[#71717a] focus:outline-none focus:border-blue-500/50"
+              placeholder="(555) 123-4567"
+            />
+          </div>
+          <button
+            type="submit"
+            disabled={formStatus === 'submitting'}
+            className="w-full py-4 btn-primary text-white rounded-lg font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {formStatus === 'submitting' ? 'Sending...' : 'Book a Demo'}
+          </button>
+          {formStatus === 'error' && (
+            <p className="text-red-400 text-sm text-center">Something went wrong. Please try again or email noel@drivebrandgrowth.com</p>
+          )}
+          <p className="text-xs text-[#71717a] text-center">No commitment required. We&apos;ll reach out within 24 hours.</p>
+        </form>
+      )}
+    </div>
+  )
+}
+
 // Simulated scoring animation
 function ScoringDemo() {
   const [step, setStep] = useState(0)
@@ -118,7 +227,7 @@ function ScoringDemo() {
                 <span className="text-yellow-400 ml-2">PENDING_REVIEW</span>
                 <span className="text-[#71717a] ml-2">&#8212; awaiting your approval</span>
                 <div className="mt-4 pt-4 border-t border-[#27272a] text-[#a1a1aa] font-sans text-sm flex items-center justify-between">
-                  <span>Nothing sends without your sign-off. Every action logged. Full audit trail.</span>
+                  <span>Nothing sends without your sign-off. Every action logged.</span>
                   <button
                     onClick={(e) => { e.stopPropagation(); runDemo(); }}
                     className="ml-4 text-xs text-blue-400 hover:text-blue-300 font-medium flex-shrink-0"
@@ -199,7 +308,7 @@ function BeforeAfter() {
         <ul className="space-y-3 text-[#a1a1aa] text-sm">
           <li className="flex items-start gap-3">
             <span className="text-red-500 mt-0.5">&#10005;</span>
-            Leads pile up. No way to know who's qualified
+            Leads pile up. No way to know who&apos;s qualified
           </li>
           <li className="flex items-start gap-3">
             <span className="text-red-500 mt-0.5">&#10005;</span>
@@ -211,7 +320,7 @@ function BeforeAfter() {
           </li>
           <li className="flex items-start gap-3">
             <span className="text-red-500 mt-0.5">&#10005;</span>
-            No feedback loop. Can't explain what works
+            No feedback loop. Can&apos;t explain what works
           </li>
           <li className="flex items-start gap-3">
             <span className="text-red-500 mt-0.5">&#10005;</span>
@@ -236,7 +345,7 @@ function BeforeAfter() {
           </li>
           <li className="flex items-start gap-3">
             <span className="text-blue-500 mt-0.5">&#10003;</span>
-            Closed-loop learning. Every outcome makes the next prediction better
+            Closed-loop learning. Every outcome improves the next prediction
           </li>
           <li className="flex items-start gap-3">
             <span className="text-blue-500 mt-0.5">&#10003;</span>
@@ -257,43 +366,28 @@ export default function DemoPage() {
       />
       <Nav />
 
-      {/* Demo Hero */}
-      <section className="pt-36 pb-16 px-8 sm:px-12 md:px-6 hero-glow">
+      {/* Demo Hero — Form + Scoring Demo side by side */}
+      <section className="pt-36 pb-20 px-6 hero-glow">
         <motion.div
-          className="max-w-4xl mx-auto text-center"
+          className="max-w-6xl mx-auto"
           initial="initial"
           animate="animate"
           variants={staggerContainer}
         >
-          <motion.h1
-            variants={fadeInUp}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold gradient-text mb-6 hero-headline"
-          >
-            See it in action
-          </motion.h1>
-          <motion.p
-            variants={fadeInUp}
-            className="text-lg sm:text-xl text-[#a1a1aa] max-w-2xl mx-auto leading-[1.6]"
-          >
-            Walk through the two core pipelines that run in production across 6 active verticals.
-          </motion.p>
-        </motion.div>
-      </section>
-
-      {/* Scoring Demo */}
-      <section className="px-6 pb-20">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-8"
-          >
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">Lead Scoring Pipeline</h2>
-            <p className="text-[#a1a1aa]">Your ICP encoded, decision logic configured, qualification criteria set. Watch what happens when a lead comes in.</p>
+          <motion.div variants={fadeInUp} className="text-center mb-12">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold gradient-text mb-6 hero-headline">
+              See it in action
+            </h1>
+            <p className="text-lg sm:text-xl text-[#a1a1aa] max-w-2xl mx-auto leading-[1.6]">
+              Schedule a personalized walkthrough of the full pipeline with your business context.
+            </p>
           </motion.div>
-          <ScoringDemo />
-        </div>
+
+          <motion.div variants={fadeInUp} className="grid lg:grid-cols-2 gap-8 items-start">
+            <DemoForm />
+            <ScoringDemo />
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Content Demo */}
@@ -327,22 +421,21 @@ export default function DemoPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Bottom CTA — repeats the form */}
       <section className="px-6 pb-20 border-t border-[#27272a] pt-20">
-        <div className="max-w-2xl mx-auto text-center">
+        <div className="max-w-md mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="text-center mb-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready for predictable revenue?</h2>
-            <p className="text-[#a1a1aa] mb-8 text-lg">
-              We'll configure a system around your vertical, your ICPs, and your qualification criteria.
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to get started?</h2>
+            <p className="text-[#a1a1aa] text-lg">
+              We&apos;ll configure a system around your vertical, your ICPs, and your qualification criteria.
             </p>
-            <a href="/#contact" className="inline-block px-8 py-4 btn-primary text-white rounded-lg font-semibold text-lg">
-              Request Your Demo
-            </a>
           </motion.div>
+          <DemoForm />
         </div>
       </section>
 
