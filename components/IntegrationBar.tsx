@@ -9,11 +9,7 @@ const integrations = [
   { name: 'Claude', category: 'AI' },
   { name: 'Gemini', category: 'AI' },
   { name: 'Perplexity', category: 'AI' },
-  { name: 'OpenAI', category: 'Embeddings' },
-  { name: 'PostgreSQL', category: 'Database' },
-  { name: 'Redis', category: 'Cache' },
-  { name: 'Docker', category: 'Infrastructure' },
-  { name: 'n8n', category: 'Automation' },
+  { name: 'OpenAI', category: 'AI' },
 ]
 
 export default function IntegrationBar() {
@@ -26,7 +22,7 @@ export default function IntegrationBar() {
           viewport={{ once: true }}
           className="text-center text-sm text-[#71717a] mb-10 uppercase tracking-widest"
         >
-          Built on production-grade infrastructure
+          Integrations
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
