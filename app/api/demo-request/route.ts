@@ -9,27 +9,52 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Name and email are required' }, { status: 400 })
     }
 
-    // Try n8n webhook first (circuitos vertical on the droplet)
+    const payload = {
+      type: 'demo_request',
+      name,
+      email,
+      company: company || 'Not provided',
+      vertical: vertical || 'Not specified',
+      message: message || 'No message',
+      source: 'usecircuitos.com',
+      submitted_at: new Date().toISOString(),
+    }
+
+    // Try n8n webhook
     const webhookUrl = process.env.DEMO_WEBHOOK_URL
     if (webhookUrl) {
       try {
         await fetch(webhookUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            type: 'demo_request',
-            name,
-            email,
-            company: company || 'Not provided',
-            vertical: vertical || 'Not specified',
-            message: message || 'No message',
-            source: 'usecircuitos.com',
-            submitted_at: new Date().toISOString(),
-          }),
+          body: JSON.stringify(payload),
         })
       } catch {
-        // Webhook failed, continue — we'll still log it
         console.error('Webhook notification failed')
+      }
+    }
+
+    // Send push notification via ntfy.sh
+    const ntfyTopic = process.env.NTFY_TOPIC
+    if (ntfyTopic) {
+      try {
+        await fetch(`https://ntfy.sh/${ntfyTopic}`, {
+          method: 'POST',
+          headers: {
+            'Title': `Demo Request: ${name}`,
+            'Tags': 'incoming_envelope',
+            'Priority': '4',
+          },
+          body: [
+            `Name: ${name}`,
+            `Email: ${email}`,
+            `Company: ${company || 'N/A'}`,
+            `Vertical: ${vertical || 'N/A'}`,
+            `Message: ${message || 'N/A'}`,
+          ].join('\n'),
+        })
+      } catch {
+        console.error('ntfy notification failed')
       }
     }
 

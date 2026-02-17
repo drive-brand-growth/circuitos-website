@@ -40,7 +40,7 @@ const pipelineSteps = [
   { label: 'score', text: 'readability_model: 0.84', color: 'text-green-400' },
   { label: 'score', text: 'uniqueness_model: 0.78', color: 'text-green-400' },
   { label: 'score', text: 'brand_voice_model: 0.92', color: 'text-green-400' },
-  { label: 'infer', text: 'DMN logic + ML inference → composite: 84.7 → Tier: HIGH', color: 'text-blue-400' },
+  { label: 'infer', text: 'Multi-model evaluation → composite: 84.7 → Tier: HIGH', color: 'text-blue-400' },
   { label: 'distribute', text: 'Blog → 4 social channels queued', color: 'text-[#a1a1aa]' },
   { label: 'govern', text: 'Status: PENDING_REVIEW', color: 'text-yellow-400' },
   { label: 'learn', text: 'Feedback loop registered. Model update in 48h.', color: 'text-[#a1a1aa]' },
