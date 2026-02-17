@@ -141,7 +141,7 @@ function ContentDemo() {
         </div>
         <div>
           <span className="text-blue-400">[infer]</span>
-          <span className="text-[#a1a1aa] ml-2">DMN logic + ML inference &#8594; composite score &#8594; tier assignment</span>
+          <span className="text-[#a1a1aa] ml-2">Multi-model evaluation &#8594; composite score &#8594; tier assignment</span>
         </div>
         <div>
           <span className="text-blue-400">[distribute]</span>

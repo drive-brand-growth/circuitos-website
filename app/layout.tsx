@@ -38,20 +38,13 @@ export const metadata: Metadata = {
     siteName: 'CircuitOS',
     title: 'CircuitOS - Autonomous Revenue Intelligence',
     description: 'AI scores every lead. Content writes itself. Outreach runs autonomously. Every outcome feeds back into the model. The system gets smarter with every cycle.',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'CircuitOS - Autonomous Revenue Intelligence Platform',
-      },
-    ],
+    images: ['/opengraph-image'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'CircuitOS - Revenue Intelligence That Learns',
     description: 'AI-powered scoring, outreach, and content intelligence. One platform, every vertical. The system learns from every outcome.',
-    images: ['/og-image.png'],
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,
