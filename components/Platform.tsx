@@ -82,11 +82,11 @@ function ContentPipelineTerminal() {
             <div className="w-3 h-3 rounded-full bg-[#eab308]/80"></div>
             <div className="w-3 h-3 rounded-full bg-[#22c55e]/80"></div>
           </div>
-          <span className="ml-4 text-xs text-[#52525b] font-mono">circuitos — content intelligence pipeline</span>
+          <span className="ml-4 text-xs text-[#71717a] font-mono">circuitos — content intelligence pipeline</span>
         </div>
         <div className="p-6 font-mono text-sm space-y-2 min-h-[300px]">
           {isInView && visibleSteps === 0 && (
-            <div className="flex items-center gap-2 text-[#52525b]">
+            <div className="flex items-center gap-2 text-[#71717a]">
               <span className="animate-pulse">&#9679;</span> Initializing pipeline...
             </div>
           )}
@@ -100,13 +100,13 @@ function ContentPipelineTerminal() {
                 transition={{ duration: 0.2 }}
                 className="flex items-start gap-2"
               >
-                <span className="text-[#52525b] flex-shrink-0">[{step.label}]</span>
+                <span className="text-[#71717a] flex-shrink-0">[{step.label}]</span>
                 <span className={step.color}>{step.text}</span>
               </motion.div>
             )
           })}
           {visibleSteps > 0 && visibleSteps < pipelineSteps.length && (
-            <div className="flex items-center gap-2 text-[#52525b]">
+            <div className="flex items-center gap-2 text-[#71717a]">
               <span className="animate-pulse">&#9679;</span> Processing...
             </div>
           )}

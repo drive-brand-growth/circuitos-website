@@ -91,7 +91,7 @@ function StepCode({ code, isVisible }: { code: typeof steps[0]['code'], isVisibl
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.2 }}
               >
-                <span className="text-[#52525b]">{line.label}:</span>{' '}
+                <span className="text-[#71717a]">{line.label}:</span>{' '}
                 <span className={line.color}>{line.text}</span>
               </motion.div>
             ))}
@@ -139,10 +139,10 @@ export default function HowItWorks() {
               </p>
             </div>
             <div className="flex-shrink-0 hidden md:flex flex-col gap-2 text-xs font-mono">
-              <div><span className="text-[#52525b]">icp:</span> <span className="text-green-400">encoded</span></div>
-              <div><span className="text-[#52525b]">decision_logic:</span> <span className="text-green-400">configured</span></div>
-              <div><span className="text-[#52525b]">priors:</span> <span className="text-green-400">calibrated</span></div>
-              <div><span className="text-[#52525b]">status:</span> <span className="text-blue-400">ready</span></div>
+              <div><span className="text-[#71717a]">icp:</span> <span className="text-green-400">encoded</span></div>
+              <div><span className="text-[#71717a]">decision_logic:</span> <span className="text-green-400">configured</span></div>
+              <div><span className="text-[#71717a]">priors:</span> <span className="text-green-400">calibrated</span></div>
+              <div><span className="text-[#71717a]">status:</span> <span className="text-blue-400">ready</span></div>
             </div>
           </div>
         </motion.div>

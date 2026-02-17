@@ -39,7 +39,7 @@ export default function DashboardPreview() {
             <div className="w-3 h-3 rounded-full bg-[#22c55e]/80"></div>
           </div>
           <div className="ml-4 flex-1">
-            <div className="bg-[#1a1a1a] rounded-md px-4 py-1.5 text-xs text-[#52525b] max-w-md">
+            <div className="bg-[#1a1a1a] rounded-md px-4 py-1.5 text-xs text-[#71717a] max-w-md">
               app.usecircuitos.com/dashboard/scoring
             </div>
           </div>
@@ -53,9 +53,9 @@ export default function DashboardPreview() {
                 <span className="text-blue-400 font-semibold text-sm">//</span>
                 <span className="text-white font-semibold text-sm">CircuitOS</span>
                 <span className="text-[#27272a] mx-2">|</span>
-                <span className="text-[#52525b] text-sm">Lead Scoring</span>
+                <span className="text-[#71717a] text-sm">Lead Scoring</span>
               </div>
-              <div className="flex items-center gap-4 text-xs text-[#52525b]">
+              <div className="flex items-center gap-4 text-xs text-[#71717a]">
                 <span className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
                   All systems operational
@@ -77,7 +77,7 @@ export default function DashboardPreview() {
                     <span className="text-xl font-bold text-white">{m.value}</span>
                     {m.trend && <span className="text-[10px] text-green-400">{m.trend}</span>}
                   </div>
-                  <span className="text-[11px] text-[#52525b]">{m.label}</span>
+                  <span className="text-[11px] text-[#71717a]">{m.label}</span>
                 </motion.div>
               ))}
             </div>
@@ -86,11 +86,11 @@ export default function DashboardPreview() {
             <div className="px-6 py-3">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-sm font-medium text-[#a1a1aa]">Recent Leads</span>
-                <span className="text-[11px] text-[#52525b]">Updated 2m ago</span>
+                <span className="text-[11px] text-[#71717a]">Updated 2m ago</span>
               </div>
 
               {/* Table header */}
-              <div className="grid grid-cols-12 gap-2 text-[11px] text-[#52525b] uppercase tracking-wider pb-2 border-b border-[#27272a]">
+              <div className="grid grid-cols-12 gap-2 text-[11px] text-[#71717a] uppercase tracking-wider pb-2 border-b border-[#27272a]">
                 <div className="col-span-3">Name</div>
                 <div className="col-span-3">Company</div>
                 <div className="col-span-2 text-right">Score</div>
@@ -128,7 +128,7 @@ export default function DashboardPreview() {
             </div>
 
             {/* Bottom status bar */}
-            <div className="px-6 py-2.5 border-t border-[#27272a] flex items-center justify-between text-[11px] text-[#52525b]">
+            <div className="px-6 py-2.5 border-t border-[#27272a] flex items-center justify-between text-[11px] text-[#71717a]">
               <span>72 signals · ICP-configured · Decision logic active</span>
               <span>Model v3.2 · Last calibration: 2h ago</span>
             </div>

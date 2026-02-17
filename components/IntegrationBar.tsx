@@ -24,7 +24,7 @@ export default function IntegrationBar() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center text-sm text-[#52525b] mb-10 uppercase tracking-widest"
+          className="text-center text-sm text-[#71717a] mb-10 uppercase tracking-widest"
         >
           Built on production-grade infrastructure
         </motion.p>
@@ -36,7 +36,7 @@ export default function IntegrationBar() {
         >
           {integrations.map((item) => (
             <div key={item.name} className="group flex items-center gap-2">
-              <span className="text-sm font-semibold tracking-wide uppercase text-[#52525b] group-hover:text-[#a1a1aa] transition-colors">
+              <span className="text-sm font-semibold tracking-wide uppercase text-[#71717a] group-hover:text-[#a1a1aa] transition-colors">
                 {item.name}
               </span>
             </div>

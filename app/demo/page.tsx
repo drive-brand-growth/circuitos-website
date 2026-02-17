@@ -38,7 +38,7 @@ function ScoringDemo() {
           <div className="w-3 h-3 rounded-full bg-[#eab308]/80"></div>
           <div className="w-3 h-3 rounded-full bg-[#22c55e]/80"></div>
         </div>
-        <span className="ml-4 text-xs text-[#52525b] font-mono">circuitos — live scoring demo</span>
+        <span className="ml-4 text-xs text-[#71717a] font-mono">circuitos — live scoring demo</span>
       </div>
       <div className="p-6 font-mono text-sm space-y-3 min-h-[320px]">
         {step === 0 && !scoring && (
@@ -60,25 +60,25 @@ function ScoringDemo() {
             </motion.div>
             {step >= 1 && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-                <span className="text-[#52525b]">[model]</span>
+                <span className="text-[#71717a]">[model]</span>
                 <span className="text-green-400 ml-2">ICP encoded · Decision logic loaded · Qualification criteria active</span>
               </motion.div>
             )}
             {step >= 1 && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-                <span className="text-[#52525b]">[ingest]</span>
+                <span className="text-[#71717a]">[ingest]</span>
                 <span className="text-green-400 ml-2">Lead received from web form</span>
               </motion.div>
             )}
             {step >= 2 && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-                <span className="text-[#52525b]">[enrich]</span>
+                <span className="text-[#71717a]">[enrich]</span>
                 <span className="text-[#a1a1aa] ml-2">6 sources queried... web presence verified</span>
               </motion.div>
             )}
             {step >= 3 && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-                <span className="text-[#52525b]">[score]</span>
+                <span className="text-[#71717a]">[score]</span>
                 <span className="text-[#a1a1aa] ml-2">72 signals evaluated</span>
                 <div className="pl-6 mt-1 text-xs space-y-1">
                   <div><span className="text-blue-400">composite_score:</span> <span className="text-green-400">82.6</span></div>
@@ -89,22 +89,22 @@ function ScoringDemo() {
             )}
             {step >= 4 && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-                <span className="text-[#52525b]">[route]</span>
+                <span className="text-[#71717a]">[route]</span>
                 <span className="text-[#a1a1aa] ml-2">Action: generate personalized email sequence</span>
               </motion.div>
             )}
             {step >= 5 && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-                <span className="text-[#52525b]">[govern]</span>
+                <span className="text-[#71717a]">[govern]</span>
                 <span className="text-yellow-400 ml-2">PENDING_REVIEW</span>
-                <span className="text-[#52525b] ml-2">&#8212; awaiting your approval</span>
+                <span className="text-[#71717a] ml-2">&#8212; awaiting your approval</span>
                 <div className="mt-4 pt-4 border-t border-[#27272a] text-[#a1a1aa] font-sans text-sm">
                   Nothing sends without your sign-off. Every action logged. Full audit trail.
                 </div>
               </motion.div>
             )}
             {scoring && step < 5 && (
-              <div className="flex items-center gap-2 text-[#52525b]">
+              <div className="flex items-center gap-2 text-[#71717a]">
                 <span className="animate-pulse">&#9679;</span> Processing...
               </div>
             )}
@@ -125,7 +125,7 @@ function ContentDemo() {
           <div className="w-3 h-3 rounded-full bg-[#eab308]/80"></div>
           <div className="w-3 h-3 rounded-full bg-[#22c55e]/80"></div>
         </div>
-        <span className="ml-4 text-xs text-[#52525b] font-mono">content intelligence — pipeline</span>
+        <span className="ml-4 text-xs text-[#71717a] font-mono">content intelligence — pipeline</span>
       </div>
       <div className="p-6 font-mono text-sm space-y-4">
         <div>

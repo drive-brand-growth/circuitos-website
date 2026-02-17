@@ -91,7 +91,7 @@ export default function ContactForm() {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-[#1a1a1a] border border-[#27272a] rounded-lg px-4 py-3 text-white placeholder-[#52525b] focus:outline-none focus:border-blue-500/50"
+                    className="w-full bg-[#1a1a1a] border border-[#27272a] rounded-lg px-4 py-3 text-white placeholder-[#71717a] focus:outline-none focus:border-blue-500/50"
                     placeholder="Your name"
                   />
                 </div>
@@ -103,7 +103,7 @@ export default function ContactForm() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-[#1a1a1a] border border-[#27272a] rounded-lg px-4 py-3 text-white placeholder-[#52525b] focus:outline-none focus:border-blue-500/50"
+                    className="w-full bg-[#1a1a1a] border border-[#27272a] rounded-lg px-4 py-3 text-white placeholder-[#71717a] focus:outline-none focus:border-blue-500/50"
                     placeholder="you@company.com"
                   />
                 </div>
@@ -114,7 +114,7 @@ export default function ContactForm() {
                     id="company"
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="w-full bg-[#1a1a1a] border border-[#27272a] rounded-lg px-4 py-3 text-white placeholder-[#52525b] focus:outline-none focus:border-blue-500/50"
+                    className="w-full bg-[#1a1a1a] border border-[#27272a] rounded-lg px-4 py-3 text-white placeholder-[#71717a] focus:outline-none focus:border-blue-500/50"
                     placeholder="Your company"
                   />
                 </div>
@@ -145,7 +145,7 @@ export default function ContactForm() {
                     rows={3}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-[#1a1a1a] border border-[#27272a] rounded-lg px-4 py-3 text-white placeholder-[#52525b] focus:outline-none focus:border-blue-500/50 resize-none"
+                    className="w-full bg-[#1a1a1a] border border-[#27272a] rounded-lg px-4 py-3 text-white placeholder-[#71717a] focus:outline-none focus:border-blue-500/50 resize-none"
                     placeholder="Tell us about your current challenges..."
                   />
                 </div>

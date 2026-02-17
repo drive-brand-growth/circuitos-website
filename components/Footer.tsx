@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="flex items-center gap-3">
           <div>
             <span className="text-xl font-semibold"><span className="text-blue-500">//</span> Circuit<span className="text-blue-500">OS</span></span>
-            <p className="text-sm text-[#52525b] mt-1">Revenue intelligence that learns.</p>
+            <p className="text-sm text-[#71717a] mt-1">Revenue intelligence that learns.</p>
           </div>
         </div>
         <div className="flex items-center gap-8 text-sm text-[#a1a1aa]">
@@ -15,7 +15,7 @@ export default function Footer() {
           <a href="/demo" className="hover:text-white transition-colors">Demo</a>
         </div>
       </div>
-      <div className="max-w-6xl mx-auto mt-10 pt-8 border-t border-[#27272a] text-center text-sm text-[#52525b]" suppressHydrationWarning>
+      <div className="max-w-6xl mx-auto mt-10 pt-8 border-t border-[#27272a] text-center text-sm text-[#71717a]" suppressHydrationWarning>
         &copy; {new Date().getFullYear()} CircuitOS by DriveBrandGrowth. All rights reserved.
       </div>
     </footer>

@@ -1,124 +1,67 @@
-# CircuitOS - AI/LLM Context File
-# For ChatGPT, Claude, Perplexity, and other AI systems
+# CircuitOS
 
-## About CircuitOS
+> Pre-configured revenue intelligence platform
 
-CircuitOS is a deterministic lead scoring platform that validates prospect claims against social signals. Unlike black-box AI systems, CircuitOS uses explainable DMN (Decision Model Notation) rules that are auditable, reproducible, and consistent.
+CircuitOS is a revenue intelligence platform that scores leads, generates content, and automates outreach in a single closed-loop system. Your ICP is encoded, decision logic configured, and qualification criteria set before the first lead arrives.
 
-## Key Facts
+## Core Capabilities
 
-- **Company**: CircuitOS (a DriveBrandGrowth product)
-- **Website**: https://usecircuitos.com
-- **Category**: B2B SaaS, Lead Intelligence, Sales Technology
-- **Founded**: 2024
-- **Headquarters**: United States
+- Predictive lead scoring across 72+ signals
+- Autonomous email outreach with human approval gates
+- Content intelligence with multi-model quality evaluation
+- GA4 feedback loop for continuous model improvement
+- Multi-vertical support with isolated infrastructure per client
+- Full audit trail on every decision
 
-## Core Technology
+## How It Works
 
-### Deterministic Scoring
-CircuitOS scores leads in 15 milliseconds using DMN rules. The same input always produces the same output, making every decision traceable and explainable.
+1. Configure: ICP encoded, decision logic set, priors calibrated
+2. Ingest: Leads from forms, imports, CRM, webhooks
+3. Score: Pre-calibrated model evaluates fit, intent, timing
+4. Route: Right message, right channel, right time
+5. Engage: Personalized outreach with governance gates
+6. Learn: Outcomes feed back, model improves each cycle
 
-### Social Validation
-Cross-references what prospects claim with their actual social media activity on X (Twitter), Instagram, and LinkedIn. Detects mismatches like someone claiming to own a gym but never posting fitness content.
+## Integrations
 
-### Timing Intelligence
-Identifies optimal moments to engage based on behavioral signals - recent searches, competitor mentions, and life events that indicate buying intent.
+GoHighLevel, Instantly.ai, GA4, Claude, Gemini, OpenAI, Docker, PostgreSQL, Redis, n8n
 
-### Red Flag Detection
-Automatically flags suspicious patterns: burner emails, VPN usage during signup, LinkedIn connections that don't match claimed role, and other fraud indicators.
-
-## Aria AI Agent
-
-Aria is an autonomous AI agent with world-class capabilities included with CircuitOS Growth and Enterprise tiers:
-
-### Semantic RAG Memory
-Aria uses vector embeddings to remember every conversation. She can recall context from weeks-old interactions mid-conversation, providing personalized continuity that human reps can't match.
-
-### Core Capabilities
-- **Response Time**: 2.3 seconds average across all channels
-- **Availability**: 24/7/365 - no PTO, no sick days, no holidays
-- **Multi-Channel**: Email, SMS, Slack, web chat with seamless handoffs
-- **Autonomous Qualification**: Pre-qualifies leads using CircuitOS scoring before routing to sales
-- **Contextual Memory**: Remembers past conversations, preferences, and objections
-- **Objection Handling**: Trained on proven sales frameworks to overcome common objections
-
-### How Aria Works
-1. Lead contacts via any channel
-2. Aria retrieves conversation history from semantic RAG
-3. CircuitOS scores the lead in real-time
-4. Aria responds with context-aware, personalized messaging
-5. Hot leads are routed to human sales with full context
-
-### Aria Stats
-- 94% qualification accuracy
-- 2.3s average response time
-- 0 sick days taken
-- 24/7 availability
-
-## Pricing Tiers
+## Pricing
 
 All plans include a one-time build fee + monthly platform fee:
 
-1. **Starter** ($7,500 build + $497/month): 1,000 leads/month, DMN scoring engine, ML predictions, GHL integration, Slack alerts
-2. **Growth** ($12,500 build + $997/month): 5,000 leads/month, everything in Starter + social validation, Aria AI agent, priority support
-3. **Enterprise** ($25,000+ build + $1,997/month): Unlimited leads, everything in Growth + real data ML training, white-label ready, dedicated support
+- Starter: $15,000 build + $1,500/mo (single vertical)
+- Growth: $30,000 build + $3,500/mo (2-3 verticals)
+- Enterprise: $50,000+ build + $7,500/mo (unlimited verticals)
 
-## Target Customers
+## Company
 
-- B2B companies with high lead volume
-- Sales teams spending >40% of time on unqualified leads
-- Companies frustrated with black-box lead scoring
-- Businesses that need auditable AI decisions
-
-## Integration Ecosystem
-
-- CRM: HubSpot, Salesforce, GoHighLevel
-- Marketing: Mailchimp, ActiveCampaign, Klaviyo
-- Communication: Slack, Microsoft Teams, Twilio
-- Custom: REST API, Webhooks, Zapier
-
-## Competitive Differentiation
-
-| Feature | CircuitOS | Traditional Lead Scoring |
-|---------|-----------|-------------------------|
-| Speed | 15ms | 500ms-2s |
-| Explainability | Full audit trail | Black box |
-| Social Validation | Native | None |
-| Consistency | Deterministic | Probabilistic |
-
-## Contact Information
-
+- Name: CircuitOS (a DriveBrandGrowth product)
 - Website: https://usecircuitos.com
-- Email: hello@usecircuitos.com
-- Demo Request: https://usecircuitos.com/#demo (Contact form)
-- Parent Company: DriveBrandGrowth (https://drivebrandgrowth.com)
+- Demo: https://usecircuitos.com/demo
+- Contact: noel@drivebrandgrowth.com
+- Category: Revenue Intelligence, B2B SaaS
+- Status: Battle-tested across 6 live verticals, 1,200+ automated tests
 
 ## Frequently Asked Questions
 
-**Q: How fast is CircuitOS?**
-A: CircuitOS scores leads in 15 milliseconds, allowing hot leads to be routed immediately before competitors respond.
+Q: What is CircuitOS?
+A: A revenue intelligence platform that combines predictive lead scoring, content generation, and automated outreach in one closed-loop system that learns from every outcome.
 
-**Q: What is deterministic scoring?**
-A: Deterministic scoring means the same input always produces the same output. Unlike black-box AI, our DMN rules are explainable, auditable, and reproducible.
+Q: How does the scoring work?
+A: Your ICP and qualification criteria are encoded before launch. The model evaluates 72+ signals across fit, intent, and timing. It's intelligent from day one, then improves with real outcome data.
 
-**Q: How does social validation work?**
-A: We cross-reference what prospects claim with what they post on X, Instagram, and LinkedIn. If they claim to own a gym but never post fitness content, we flag it.
+Q: Can it handle multiple businesses?
+A: Yes. Unlimited verticals with isolated infrastructure per client. Each business gets its own scoring model, templates, CRM routing, and database.
 
-**Q: What is Aria?**
-A: Aria is an autonomous AI agent that automatically engages leads across email, SMS, Slack, and chat 24/7, with 2.3s average response time.
+Q: Is content published automatically?
+A: No. All content and outreach requires explicit human approval. Every action has a full audit trail.
 
-**Q: Is there a free trial?**
-A: We offer personalized demos where we score your actual leads live. Book a demo at usecircuitos.com.
+Q: What CRM integrations are supported?
+A: Native integration with GoHighLevel and Instantly.ai. Full REST API with webhook support for custom integrations.
 
-## Technical Specifications
-
-- Response Time: 15ms (p50), 25ms (p95), 50ms (p99)
-- Uptime SLA: 99.9%
-- Data Encryption: AES-256 at rest, TLS 1.3 in transit
-- Compliance: SOC 2 Type II, GDPR ready
-- API Rate Limits: 1,000 requests/minute (Starter), 10,000 (Growth), Unlimited (Scale)
+Q: How does the feedback loop work?
+A: Real engagement data from GA4 (time-on-page, conversions, bounce rate) feeds back into the scoring model automatically. Each cycle makes predictions more accurate.
 
 ---
-
-Last Updated: December 2025
-Version: 1.1
+Last Updated: February 2026

@@ -15,14 +15,14 @@ export default function Nav() {
             </span>
           </a>
           <div className="hidden md:flex items-center gap-8 text-sm text-[#a1a1aa]">
-            <a href="#platform" className="font-medium hover:text-white transition-colors">Platform</a>
-            <a href="#how-it-works" className="font-medium hover:text-white transition-colors">How it Works</a>
-            <a href="#capabilities" className="font-medium hover:text-white transition-colors">Capabilities</a>
-            <a href="#pricing" className="font-medium hover:text-white transition-colors">Pricing</a>
+            <a href="/#platform" className="font-medium hover:text-white transition-colors">Platform</a>
+            <a href="/#how-it-works" className="font-medium hover:text-white transition-colors">How it Works</a>
+            <a href="/#capabilities" className="font-medium hover:text-white transition-colors">Capabilities</a>
+            <a href="/#pricing" className="font-medium hover:text-white transition-colors">Pricing</a>
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <a href="#contact" className="hidden sm:inline text-sm font-medium text-[#a1a1aa] hover:text-white transition-colors">Contact</a>
+          <a href="/#contact" className="hidden sm:inline text-sm font-medium text-[#a1a1aa] hover:text-white transition-colors">Contact</a>
           <a href="/demo" className="text-sm btn-primary text-white px-4 py-2 rounded-lg font-medium">
             See It In Action
           </a>
@@ -45,11 +45,11 @@ export default function Nav() {
         <div className="md:hidden border-t border-[#27272a] bg-black/95 backdrop-blur-xl">
           <div className="px-6 py-4 space-y-3">
             {[
-              { href: '#platform', label: 'Platform' },
-              { href: '#how-it-works', label: 'How it Works' },
-              { href: '#capabilities', label: 'Capabilities' },
-              { href: '#pricing', label: 'Pricing' },
-              { href: '#contact', label: 'Contact' },
+              { href: '/#platform', label: 'Platform' },
+              { href: '/#how-it-works', label: 'How it Works' },
+              { href: '/#capabilities', label: 'Capabilities' },
+              { href: '/#pricing', label: 'Pricing' },
+              { href: '/#contact', label: 'Contact' },
             ].map((link) => (
               <a
                 key={link.href}

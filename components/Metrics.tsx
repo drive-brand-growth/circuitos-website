@@ -19,7 +19,7 @@ export default function Metrics() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center text-sm text-[#52525b] mb-10 uppercase tracking-widest"
+          className="text-center text-sm text-[#71717a] mb-10 uppercase tracking-widest"
         >
           By the numbers
         </motion.p>
