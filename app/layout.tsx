@@ -38,13 +38,13 @@ export const metadata: Metadata = {
     siteName: 'CircuitOS',
     title: 'CircuitOS - Autonomous Revenue Intelligence',
     description: 'Pre-configured revenue intelligence. Predictive scoring, autonomous outreach, and closed-loop optimization. One system, measurable results.',
-    images: ['/opengraph-image'],
+    images: ['https://usecircuitos.com/opengraph-image'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'CircuitOS - Revenue Intelligence That Learns',
     description: 'Pre-configured revenue intelligence. Predictive scoring, autonomous outreach, and closed-loop optimization. One system, measurable results.',
-    images: ['/opengraph-image'],
+    images: ['https://usecircuitos.com/opengraph-image'],
   },
   robots: {
     index: true,
@@ -62,6 +62,20 @@ export const metadata: Metadata = {
   },
 }
 
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'DriveBrandGrowth',
+  url: 'https://drivebrandgrowth.com',
+  logo: 'https://usecircuitos.com/circuitos-logo-full.svg',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'noel@drivebrandgrowth.com',
+    contactType: 'sales',
+  },
+  sameAs: [],
+}
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
@@ -70,12 +84,14 @@ const jsonLd = {
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web-based',
   url: 'https://usecircuitos.com',
+  image: 'https://usecircuitos.com/opengraph-image',
   offers: {
     '@type': 'AggregateOffer',
     priceCurrency: 'USD',
     lowPrice: '1500',
     highPrice: '7500',
     offerCount: 3,
+    availability: 'https://schema.org/OnlineOnly',
   },
   featureList: [
     'Predictive Lead Scoring',
@@ -105,7 +121,7 @@ const faqJsonLd = {
       name: 'What is CircuitOS?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS is an autonomous revenue intelligence platform that combines predictive lead scoring, AI-powered content generation, and automated outreach into a single closed-loop system that learns from every outcome.',
+        text: 'CircuitOS is a pre-configured revenue intelligence platform that combines predictive lead scoring, content generation, and automated outreach into a single closed-loop system. It learns from every outcome to improve future predictions.',
       },
     },
     {
@@ -113,7 +129,7 @@ const faqJsonLd = {
       name: 'How does the closed-loop learning work?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS scores leads and content using AI, tracks real outcomes (conversions, engagement, GA4 metrics), and feeds that data back into the scoring model. The system continuously improves its predictions based on actual results.',
+        text: 'CircuitOS scores leads and content, tracks real outcomes (conversions, engagement, GA4 metrics), and feeds that data back into the scoring model. The system continuously improves its predictions based on actual results.',
       },
     },
     {
@@ -132,6 +148,109 @@ const faqJsonLd = {
         text: 'No. All content and outreach requires explicit human approval. CircuitOS has governance gates that ensure nothing publishes or sends without your sign-off. Every action has a full audit trail.',
       },
     },
+    {
+      '@type': 'Question',
+      name: 'How does lead scoring work?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Your ICP and qualification criteria are encoded into the system before launch. Every incoming lead is scored across 72+ signals including fit, intent, and timing. The model ships pre-calibrated to your vertical so scoring is intelligent from day one.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What integrations does CircuitOS support?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'CircuitOS integrates natively with GoHighLevel (CRM), Instantly.ai (email outreach), and Google Analytics 4 (feedback loop). It also provides a full REST API and webhook support for custom integrations.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How is content quality ensured?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Every piece of content goes through a multi-step pipeline: generation, source verification, fact-checking, and multi-model quality evaluation covering readability, competitive uniqueness, and brand voice alignment. Nothing publishes without passing all gates.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What does the onboarding process look like?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Onboarding follows five steps: Configure (encode your ICP, criteria, and brand voice), Score (activate the pre-calibrated scoring model), Route (set up CRM routing and outreach channels), Engage (launch automated sequences with approval gates), and Learn (connect GA4 feedback for continuous improvement).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does CircuitOS cost?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'CircuitOS pricing includes a one-time build fee plus monthly platform fee. Starter (single vertical) is $15,000 build + $1,500/month. Growth (2-3 verticals) is $30,000 build + $3,500/month. Enterprise (unlimited verticals) starts at $50,000+ build + $7,500/month.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What industries does CircuitOS work for?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'CircuitOS is vertical-agnostic. Each deployment is configured for the specific industry, ICP, and demand patterns of the business. Current live deployments span licensing, events, fitness, apparel, and professional services.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is my data isolated from other clients?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Every vertical runs in its own containerized stack with a dedicated database, scoring model, and workflow configuration. No data is shared between verticals or clients.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I see a demo before committing?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Request a demo at usecircuitos.com/demo and we will walk you through the entire pipeline using your business context — including live scoring, content intelligence, and outreach configuration. No commitment required.',
+      },
+    },
+  ],
+}
+
+const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How CircuitOS Works',
+  description: 'Five steps to predictable revenue with CircuitOS.',
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: 'Configure',
+      text: 'Encode your ICP, qualification criteria, brand voice, and demand patterns into the system.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: 'Score',
+      text: 'Every lead is scored across 72+ signals for fit, intent, and timing using the pre-calibrated model.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: 'Route',
+      text: 'Qualified leads are routed to the right channel with the right message automatically.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 4,
+      name: 'Engage',
+      text: 'Personalized outreach sequences launch with human approval gates before anything sends.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 5,
+      name: 'Learn',
+      text: 'Real outcomes feed back into the model. Every conversion, reply, and engagement makes the next prediction better.',
+    },
   ],
 }
 
@@ -147,11 +266,19 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
         />
       </head>
       <body className="antialiased">

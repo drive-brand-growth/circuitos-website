@@ -5,6 +5,25 @@ import { useState } from 'react'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://usecircuitos.com',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Demo',
+      item: 'https://usecircuitos.com/demo',
+    },
+  ],
+}
+
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
@@ -226,6 +245,10 @@ function BeforeAfter() {
 export default function DemoPage() {
   return (
     <main className="min-h-screen grid-bg">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Nav />
 
       {/* Demo Hero */}
