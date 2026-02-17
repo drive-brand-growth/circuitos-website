@@ -101,52 +101,18 @@ export default function Platform() {
   return (
     <section id="platform" className="section-padding px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-16 md:gap-20 mb-20">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 tracking-[-0.02em]">The problem with revenue operations</h2>
-            <ul className="space-y-4 text-[#a1a1aa]">
-              {[
-                'Leads pile up. Your team cherry-picks. Good prospects slip through.',
-                'Content takes weeks to produce and you have no idea if it will perform.',
-                'Every tool is a silo. CRM doesn\'t talk to email doesn\'t talk to analytics.',
-                'You can\'t explain why one campaign worked and another didn\'t.',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-4">
-                  <span className="text-red-500 mt-0.5 text-lg flex-shrink-0">&#10005;</span>
-                  <span className="text-base sm:text-lg">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 tracking-[-0.02em]">CircuitOS closes the loop</h2>
-            <ul className="space-y-4 text-[#a1a1aa]">
-              {[
-                'Predictable lead qualification. Every lead scored against pre-defined criteria and routed automatically. No cherry-picking.',
-                'Content generated, scored for performance, and refined from real engagement data.',
-                'One system. Scoring, outreach, content, CRM, and analytics in a single pipeline.',
-                'Full audit trail on every decision. You know exactly what worked and why.',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-4">
-                  <span className="text-blue-500 mt-0.5 text-lg flex-shrink-0">&#10003;</span>
-                  <span className="text-base sm:text-lg">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-4"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">One pipeline, start to finish</h2>
+          <p className="text-[#a1a1aa] max-w-2xl mx-auto text-lg leading-[1.6]">
+            From content generation through fact-checking, scoring, and distribution — watch what a single pipeline run looks like in production.
+          </p>
+        </motion.div>
 
-        {/* Content Pipeline Terminal */}
         <ContentPipelineTerminal />
       </div>
     </section>

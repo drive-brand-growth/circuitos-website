@@ -4,7 +4,6 @@ import IntegrationBar from '@/components/IntegrationBar'
 import Platform from '@/components/Platform'
 import HowItWorks from '@/components/HowItWorks'
 import Capabilities from '@/components/Capabilities'
-import Metrics from '@/components/Metrics'
 import Pricing from '@/components/Pricing'
 import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
@@ -21,7 +20,6 @@ export default function Home() {
       <Platform />
       <HowItWorks />
       <Capabilities />
-      <Metrics />
       <Pricing />
       <ContactForm />
       <Footer />

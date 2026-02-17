@@ -28,7 +28,7 @@ const steps = [
   {
     step: '02',
     title: 'Score',
-    desc: 'Pre-calibrated model evaluates fit, intent, and timing across 72+ signals. Ships with vertical-specific demand logic. Intelligent from day one.',
+    desc: 'A pre-calibrated model evaluates fit, intent, and timing across 72+ signals. The system ships with vertical-specific logic, so scoring is intelligent from day one.',
     code: [
       { label: 'priors', text: 'pre-calibrated', color: 'text-green-400' },
       { label: 'signals', text: '72 evaluated', color: 'text-blue-400' },
@@ -40,7 +40,7 @@ const steps = [
   {
     step: '03',
     title: 'Route',
-    desc: 'Right message, right channel, right time. Leads tier into automated sequences. Content distributes across platforms.',
+    desc: 'High-scoring leads tier into automated sequences. Content distributes across platforms. Right message, right channel, right time.',
     code: [
       { label: 'action', text: 'email_sequence', color: 'text-green-400' },
       { label: 'template', text: 'high_intent_v3', color: 'text-blue-400' },
@@ -51,7 +51,7 @@ const steps = [
   {
     step: '04',
     title: 'Engage',
-    desc: 'Autonomous outreach with human approval gates. AI writes personalized emails in your brand voice. You approve before anything sends.',
+    desc: 'AI writes personalized emails in your brand voice with human approval gates on every action. Nothing sends without your sign-off.',
     code: [
       { label: 'email', text: 'generated', color: 'text-green-400' },
       { label: 'voice', text: 'brand_match: 0.94', color: 'text-green-400' },
@@ -62,7 +62,7 @@ const steps = [
   {
     step: '05',
     title: 'Learn',
-    desc: 'Every outcome feeds back into the model. GA4 engagement data updates scoring priors. The system gets more accurate with every cycle.',
+    desc: 'Every outcome feeds back into the model. GA4 engagement data updates scoring automatically, so the system gets more accurate with every cycle.',
     code: [
       { label: 'outcome', text: 'meeting_booked', color: 'text-green-400' },
       { label: 'feedback', text: 'positive', color: 'text-green-400' },
@@ -114,9 +114,9 @@ export default function HowItWorks() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">The closed loop</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">How it works</h2>
           <p className="text-[#a1a1aa] max-w-2xl mx-auto text-lg leading-[1.6]">
-            Score. Route. Engage. Learn. Repeat. Every cycle makes the next one better.
+            A self-improving pipeline that scores leads, routes outreach, and refines itself with every outcome.
           </p>
         </motion.div>
 
@@ -134,8 +134,8 @@ export default function HowItWorks() {
             </div>
             <div className="flex-1">
               <p className="text-[#a1a1aa] leading-relaxed">
-                Before the loop starts, we define your ICP, encode qualification criteria, and configure decision logic for your vertical.
-                The model knows what a qualified lead looks like before it processes a single one.
+                Before anything runs, we define your ideal customer, set up qualification criteria, and configure the decision logic for your vertical.
+                The system knows what a good lead looks like before it processes a single one.
               </p>
             </div>
             <div className="flex-shrink-0 hidden md:flex flex-col gap-2 text-xs font-mono">

@@ -12,36 +12,30 @@ const staggerContainer = {
   animate: { transition: { staggerChildren: 0.12 } }
 }
 
-const problems = [
+const capabilities = [
   {
-    problem: 'Leads pile up and nobody knows which ones matter',
-    solution: 'Predictive scoring, pre-configured to your ICP',
-    desc: 'Your qualification criteria and demand patterns are encoded before launch. Every lead gets scored on fit, intent, and timing. Your team works the right prospects from day one.',
+    title: 'Predictive scoring from day one',
+    desc: 'Your qualification criteria and demand patterns are encoded before launch. Every lead gets scored on fit, intent, and timing. Your team works the right prospects immediately.',
   },
   {
-    problem: 'Outreach is either generic blasts or slow manual work',
-    solution: 'Personalized sequences in your brand voice',
-    desc: 'Emails written to match how your team actually talks. Each prospect gets a tailored sequence based on their score and profile. You review and approve before anything sends.',
+    title: 'Personalized outreach in your brand voice',
+    desc: 'AI writes emails that match how your team actually talks. Each prospect gets a tailored sequence based on their score and profile. You review and approve before anything sends.',
   },
   {
-    problem: 'Content takes weeks and you can\'t predict what will perform',
-    solution: 'Generate, verify, score, and publish in hours',
-    desc: 'Blog posts written, fact-checked against real sources, and scored for quality by multiple models. Social distribution across four channels. All before lunch, all with your sign-off.',
+    title: 'Content generated, scored, and published in hours',
+    desc: 'Blog posts written, fact-checked against real sources, and scored for quality by multiple AI models. Social distribution across four channels. All with your sign-off.',
   },
   {
-    problem: 'Every tool is a silo that doesn\'t talk to the others',
-    solution: 'One system from lead to closed deal',
+    title: 'One system from lead to closed deal',
     desc: 'Scoring, outreach, content, CRM, and analytics in a single pipeline. No duct-taping five platforms together. One place to see what\'s working and why.',
   },
   {
-    problem: 'Campaigns end and you can\'t explain what worked',
-    solution: 'Every outcome makes the next prediction better',
-    desc: 'Real engagement data feeds back into the model automatically. Open rates, reply rates, conversions, GA4 metrics. The system learns from every cycle so each one is more accurate than the last.',
+    title: 'Every outcome improves the next prediction',
+    desc: 'Real engagement data feeds back into the model automatically. Open rates, reply rates, conversions, GA4 metrics. The system learns from every cycle.',
   },
   {
-    problem: 'You don\'t trust automation to act without oversight',
-    solution: 'Nothing sends without your sign-off',
-    desc: 'Every email, every blog post, every social update goes through approval gates. Confidence-based escalation routes edge cases to the right reviewer. Full audit trail on every decision.',
+    title: 'Human approval on every action',
+    desc: 'Every email, blog post, and social update goes through approval gates. Confidence-based escalation routes edge cases to the right reviewer. Full audit trail on every decision.',
   },
 ]
 
@@ -55,7 +49,7 @@ export default function Capabilities() {
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-bold text-center mb-4 tracking-[-0.02em]"
         >
-          Built to solve real problems
+          What you get
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -63,7 +57,7 @@ export default function Capabilities() {
           viewport={{ once: true }}
           className="text-[#a1a1aa] text-center mb-16 text-lg max-w-2xl mx-auto"
         >
-          Every feature exists because a real business had this exact problem
+          Six capabilities that work together as one system
         </motion.p>
 
         <motion.div
@@ -73,14 +67,13 @@ export default function Capabilities() {
           viewport={{ once: true }}
           variants={staggerContainer}
         >
-          {problems.map((item) => (
+          {capabilities.map((item) => (
             <motion.div
-              key={item.problem}
+              key={item.title}
               variants={fadeInUp}
               className="card rounded-xl p-8"
             >
-              <p className="text-sm text-red-400 font-medium mb-3">{item.problem}</p>
-              <h3 className="text-xl font-semibold mb-3">{item.solution}</h3>
+              <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
               <p className="text-[#a1a1aa] leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
