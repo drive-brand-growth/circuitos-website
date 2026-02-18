@@ -16,7 +16,7 @@ const fallbackKB: Record<string, string> = {
   'how': 'Five steps: Configure your ICP → Score every lead (72+ signals) → Route to the right channel → Engage with AI outreach → Learn from every outcome. [See how it works](/#how-it-works)',
   'integration': 'Native integrations: GoHighLevel (CRM), Instantly.ai (email), Google Analytics 4 (feedback loop). Plus Claude, Gemini, Perplexity for content quality. REST API + webhooks for custom.',
   'contact': 'Reach us at hello@usecircuitos.com or [book a demo](/demo). We respond within 24 hours.',
-  'hello': "Hey! I'm AriaX, the CircuitOS concierge. I can help with anything about the platform — scoring, outreach, content, pricing. What are you looking into?",
+  'hello': "Hey! I'm Aria X, the CircuitOS concierge. I can help with anything about the platform — scoring, outreach, content, pricing. What are you looking into?",
 }
 
 function localFallback(query: string): string {
@@ -75,7 +75,7 @@ export default function AriaX() {
       setTimeout(() => {
         setMessages([{
           role: 'assistant',
-          content: "Hey, I'm AriaX — the CircuitOS concierge. I can walk you through the platform, answer questions about scoring, outreach, content intelligence, or pricing. What can I help with?",
+          content: "Hey, I'm Aria X — the CircuitOS concierge. I can walk you through the platform, answer questions about scoring, outreach, content intelligence, or pricing. What can I help with?",
         }])
         setIsTyping(false)
       }, 600)
@@ -150,7 +150,7 @@ export default function AriaX() {
               ? 'bg-[#18181b] border border-[#27272a]'
               : 'bg-gradient-to-br from-blue-500 to-blue-700 hover:from-blue-400 hover:to-blue-600 hover:scale-105'
           }`}
-          aria-label={isOpen ? 'Close chat' : 'Open AriaX assistant'}
+          aria-label={isOpen ? 'Close chat' : 'Open Aria X assistant'}
         >
           {isOpen ? (
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -179,7 +179,7 @@ export default function AriaX() {
             transition={{ duration: 0.2 }}
             className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-3rem)] h-[520px] bg-black rounded-xl shadow-2xl flex flex-col border border-[#27272a] overflow-hidden"
             role="dialog"
-            aria-label="AriaX chat assistant"
+            aria-label="Aria X chat assistant"
           >
             {/* Header */}
             <div className="bg-[#0a0a0a] px-5 py-4 flex items-center justify-between border-b border-[#27272a]">
@@ -188,7 +188,7 @@ export default function AriaX() {
                   <span className="text-white font-bold text-xs">AX</span>
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold text-sm">AriaX</h3>
+                  <h3 className="text-white font-semibold text-sm">Aria X</h3>
                   <div className="flex items-center gap-1.5">
                     <span className={`w-1.5 h-1.5 rounded-full ${tierColors[leadTier] || tierColors.awareness}`} />
                     <span className="text-[#71717a] text-xs">{tierLabels[leadTier] || 'Online'}</span>
