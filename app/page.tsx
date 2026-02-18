@@ -5,6 +5,7 @@ import Platform from '@/components/Platform'
 import HowItWorks from '@/components/HowItWorks'
 import Capabilities from '@/components/Capabilities'
 import Pricing from '@/components/Pricing'
+import BuildCalculator from '@/components/BuildCalculator'
 import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
 
@@ -21,6 +22,7 @@ export default function Home() {
       <HowItWorks />
       <Capabilities />
       <Pricing />
+      <BuildCalculator />
       <ContactForm />
       <Footer />
     </main>

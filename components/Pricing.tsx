@@ -75,7 +75,16 @@ export default function Pricing() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">Plans that scale with your business</h2>
-          <p className="text-[#a1a1aa] text-lg">Implementation fee applies — we'll scope it together on a call</p>
+          <p className="text-[#a1a1aa] text-lg mb-5">One-time implementation fee applies</p>
+          <a
+            href="#build-calculator"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-blue-500/50 bg-blue-500/10 text-blue-400 font-semibold text-sm hover:bg-blue-500/20 hover:border-blue-500 transition-all"
+          >
+            Estimate Your Build
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
         </motion.div>
 
         <motion.div

@@ -186,7 +186,7 @@ const faqJsonLd = {
       name: 'How much does CircuitOS cost?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS offers three tiers: Starter ($1,500/month) for brands launching their first automated revenue engine, Growth ($3,500/month) for brands scaling across multiple business lines, and Enterprise (custom pricing) for organizations with complex, multi-brand operations. An implementation fee is scoped during your demo call.',
+        text: 'CircuitOS offers three monthly tiers: Starter ($1,500/month), Growth ($3,500/month), and Enterprise (custom pricing). Implementation is priced transparently with a line-item build calculator on the website — select the modules you need and see exactly what your build costs before your demo call.',
       },
     },
     {

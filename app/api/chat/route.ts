@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { notifyHotLead } from '@/lib/slack/notify'
 
 // --- SECURITY: Rate limiting (in-memory, per-IP, resets on cold start) ---
 const rateLimits = new Map<string, { count: number; resetAt: number }>()
@@ -175,7 +176,29 @@ GoHighLevel (CRM), Instantly.ai (email outreach), Google Analytics 4 (feedback l
 - Starter ($1,500/mo): Single vertical. Scoring, outreach, CRM, content, audit trail, support
 - Growth ($3,500/mo): Multi-vertical. Everything in Starter + enrichment, GA4 feedback, isolated infrastructure, social distribution, quarterly reviews
 - Enterprise (Custom): Unlimited verticals. Dedicated infrastructure, custom integrations, AI model training, SLA, compliance, success manager
-- Implementation fee scoped during demo (not published)
+- Implementation fee: Transparent build calculator at usecircuitos.com/#build-calculator. Line-item pricing for every module
+
+### Build Calculator (Implementation Pricing)
+Core (included in every build):
+- Platform Provisioning (infrastructure, database, Docker stack): $1,500
+- ICP Encoding & Scoring Calibration: $1,000
+
+Feature modules (add what you need):
+- Lead Scoring & Enrichment: $1,500
+- Email Outreach Automation: $1,250
+- Content Intelligence Engine: $1,500
+- Social Distribution (4 channels): $750
+- CRM Integration (GoHighLevel): $750
+- GA4 Feedback Loop: $500
+
+Additional services:
+- Additional vertical: $3,500 each
+- Data migration: $500 per source
+- Custom API integration: $1,000 per integration
+- Priority onboarding (2 weeks vs 4): $1,500
+- Extended training (4 sessions): $750
+
+Typical implementation ranges: Starter ~$5,750-$8,250, Growth ~$10,000-$15,000, Enterprise custom. Direct visitors to [the build calculator](/#build-calculator) to estimate their specific build.
 
 ### Social Proof
 - 6 live verticals in production (licensing, events, fitness, apparel, professional services)
@@ -337,17 +360,25 @@ export async function POST(req: NextRequest) {
     // Notify on high-intent leads (fire and forget)
     if (lead_tier === 'qualified' || lead_tier === 'hot') {
       const ntfyTopic = process.env.NTFY_TOPIC
+      const notifyEmail = process.env.NOTIFICATION_EMAIL
       if (ntfyTopic) {
+        const ntfyHeaders: Record<string, string> = {
+          'Title': `Aria X: ${lead_tier.toUpperCase()} lead engaged`,
+          'Tags': lead_tier === 'qualified' ? 'fire' : 'eyes',
+          'Priority': lead_tier === 'qualified' ? '5' : '4',
+        }
+        if (notifyEmail) {
+          ntfyHeaders['Email'] = notifyEmail
+        }
         fetch(`https://ntfy.sh/${ntfyTopic}`, {
           method: 'POST',
-          headers: {
-            'Title': `Aria X: ${lead_tier.toUpperCase()} lead engaged`,
-            'Tags': lead_tier === 'qualified' ? 'fire' : 'eyes',
-            'Priority': lead_tier === 'qualified' ? '5' : '4',
-          },
+          headers: ntfyHeaders,
           body: `Lead tier: ${lead_tier}\nLast message: ${message.slice(0, 200)}\nMessages exchanged: ${msgCount}`,
         }).catch(() => {})
       }
+
+      // Notify Slack channel
+      notifyHotLead({ lead_tier, lastMessage: message, messageCount: msgCount }).catch(() => {})
     }
 
     return NextResponse.json({

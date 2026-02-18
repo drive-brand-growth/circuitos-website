@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { notifyDemoRequest } from '@/lib/slack/notify'
 
 export async function POST(req: NextRequest) {
   try {
@@ -34,17 +35,22 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // Send push notification via ntfy.sh
+    // Send notification via ntfy.sh (push + email)
     const ntfyTopic = process.env.NTFY_TOPIC
+    const notifyEmail = process.env.NOTIFICATION_EMAIL
     if (ntfyTopic) {
       try {
+        const ntfyHeaders: Record<string, string> = {
+          'Title': `Demo Request: ${name}`,
+          'Tags': 'incoming_envelope',
+          'Priority': '4',
+        }
+        if (notifyEmail) {
+          ntfyHeaders['Email'] = notifyEmail
+        }
         await fetch(`https://ntfy.sh/${ntfyTopic}`, {
           method: 'POST',
-          headers: {
-            'Title': `Demo Request: ${name}`,
-            'Tags': 'incoming_envelope',
-            'Priority': '4',
-          },
+          headers: ntfyHeaders,
           body: [
             `Name: ${name}`,
             `Email: ${email}`,
@@ -57,6 +63,9 @@ export async function POST(req: NextRequest) {
         console.error('ntfy notification failed')
       }
     }
+
+    // Notify Slack channel
+    notifyDemoRequest({ name, email, company, vertical, message }).catch(() => {})
 
     // Always log to server console as backup
     console.log('=== DEMO REQUEST ===')

@@ -28,11 +28,16 @@ GoHighLevel, Instantly.ai, GA4, Claude, Gemini, OpenAI, Docker, PostgreSQL, Redi
 
 ## Pricing
 
+Monthly plans:
 - Starter: $1,500/mo (single vertical)
 - Growth: $3,500/mo (2-3 verticals)
 - Enterprise: Custom pricing (unlimited verticals)
 
-Implementation fee scoped during demo call.
+Implementation (one-time build fee) — transparent, line-item pricing:
+- Core: Platform provisioning ($1,500) + ICP encoding ($1,000) = $2,500 base
+- Modules: Lead Scoring ($1,500), Email Outreach ($1,250), Content Intelligence ($1,500), Social Distribution ($750), CRM Integration ($750), GA4 Feedback Loop ($500)
+- Add-ons: Additional verticals ($3,500 each), data migration ($500/source), custom API integrations ($1,000 each), priority onboarding ($1,500), extended training ($750)
+- Interactive build calculator: https://usecircuitos.com/#build-calculator
 
 ## Company
 
