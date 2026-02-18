@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import Analytics from '@/components/Analytics'
+import AriaX from '@/components/AriaX'
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -70,7 +71,7 @@ const orgJsonLd = {
   logo: 'https://usecircuitos.com/circuitos-logo-full.svg',
   contactPoint: {
     '@type': 'ContactPoint',
-    email: 'noel@drivebrandgrowth.com',
+    email: 'hello@usecircuitos.com',
     contactType: 'sales',
   },
   sameAs: [],
@@ -185,7 +186,7 @@ const faqJsonLd = {
       name: 'How much does CircuitOS cost?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS pricing includes a one-time build fee plus monthly platform fee. Starter (single vertical) is $15,000 build + $1,500/month. Growth (2-3 verticals) is $30,000 build + $3,500/month. Enterprise (unlimited verticals) starts at $50,000+ build + $7,500/month.',
+        text: 'CircuitOS offers three tiers: Starter ($1,500/month) for brands launching their first automated revenue engine, Growth ($3,500/month) for brands scaling across multiple business lines, and Enterprise (custom pricing) for organizations with complex, multi-brand operations. An implementation fee is scoped during your demo call.',
       },
     },
     {
@@ -284,6 +285,7 @@ export default function RootLayout({
       <body className="antialiased">
         <Analytics />
         {children}
+        <AriaX />
       </body>
     </html>
   )

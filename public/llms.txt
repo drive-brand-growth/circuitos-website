@@ -28,18 +28,18 @@ GoHighLevel, Instantly.ai, GA4, Claude, Gemini, OpenAI, Docker, PostgreSQL, Redi
 
 ## Pricing
 
-All plans include a one-time build fee + monthly platform fee:
+- Starter: $1,500/mo (single vertical)
+- Growth: $3,500/mo (2-3 verticals)
+- Enterprise: Custom pricing (unlimited verticals)
 
-- Starter: $15,000 build + $1,500/mo (single vertical)
-- Growth: $30,000 build + $3,500/mo (2-3 verticals)
-- Enterprise: $50,000+ build + $7,500/mo (unlimited verticals)
+Implementation fee scoped during demo call.
 
 ## Company
 
 - Name: CircuitOS (a DriveBrandGrowth product)
 - Website: https://usecircuitos.com
 - Demo: https://usecircuitos.com/demo
-- Contact: noel@drivebrandgrowth.com
+- Contact: hello@usecircuitos.com
 - Category: Revenue Intelligence, B2B SaaS
 - Status: Battle-tested across 6 live verticals, 1,200+ automated tests
 

@@ -51,7 +51,7 @@ export default function PrivacyPage() {
 
           <h2 className="text-xl font-semibold mt-10 mb-4">Your Rights</h2>
           <p className="text-[#a1a1aa] leading-relaxed">
-            You have the right to access, correct, or delete your personal data. To exercise these rights, contact us at noel@drivebrandgrowth.com.
+            You have the right to access, correct, or delete your personal data. To exercise these rights, contact us at hello@usecircuitos.com.
           </p>
 
           <h2 className="text-xl font-semibold mt-10 mb-4">Changes to This Policy</h2>
@@ -61,7 +61,7 @@ export default function PrivacyPage() {
 
           <h2 className="text-xl font-semibold mt-10 mb-4">Contact Us</h2>
           <p className="text-[#a1a1aa] leading-relaxed">
-            If you have any questions about this privacy policy, please contact us at noel@drivebrandgrowth.com.
+            If you have any questions about this privacy policy, please contact us at hello@usecircuitos.com.
           </p>
         </div>
       </section>

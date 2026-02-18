@@ -61,7 +61,7 @@ function DemoForm() {
         setFormStatus('error')
       }
     } catch {
-      window.location.href = `mailto:noel@drivebrandgrowth.com?subject=Demo Request from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nPhone: ${formData.phone}`)}`
+      window.location.href = `mailto:hello@usecircuitos.com?subject=Demo Request from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nPhone: ${formData.phone}`)}`
       setFormStatus('success')
     }
   }
@@ -134,7 +134,7 @@ function DemoForm() {
             {formStatus === 'submitting' ? 'Sending...' : 'Book a Demo'}
           </button>
           {formStatus === 'error' && (
-            <p className="text-red-400 text-sm text-center">Something went wrong. Please try again or email noel@drivebrandgrowth.com</p>
+            <p className="text-red-400 text-sm text-center">Something went wrong. Please try again or email hello@usecircuitos.com</p>
           )}
           <p className="text-xs text-[#71717a] text-center">No commitment required. We&apos;ll reach out within 24 hours.</p>
         </form>

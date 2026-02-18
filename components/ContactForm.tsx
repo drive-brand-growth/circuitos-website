@@ -23,7 +23,7 @@ export default function ContactForm() {
               Book a Demo
             </a>
             <a
-              href="mailto:noel@drivebrandgrowth.com"
+              href="mailto:hello@usecircuitos.com"
               className="w-full sm:w-auto px-8 py-4 border border-[#27272a] rounded-lg font-semibold hover:bg-white/5 transition-colors text-lg"
             >
               Email Us Directly

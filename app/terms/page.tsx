@@ -72,7 +72,7 @@ export default function TermsPage() {
 
           <h2 className="text-xl font-semibold mt-10 mb-4">Contact Us</h2>
           <p className="text-[#a1a1aa] leading-relaxed">
-            If you have any questions about these Terms, please contact us at noel@drivebrandgrowth.com.
+            If you have any questions about these Terms, please contact us at hello@usecircuitos.com.
           </p>
         </div>
       </section>
