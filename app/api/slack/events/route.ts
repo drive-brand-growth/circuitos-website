@@ -56,12 +56,19 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  // Process event — fire and forget (don't await), return 200 immediately
-  // Slack requires ack within 3 seconds. The promise runs in the background
-  // on Vercel's serverless runtime until the function times out (default 10s).
+  // Process event — await processing before returning
+  // Vercel serverless may kill the process after response, so we must finish first.
+  // Slack allows 3s for ack but retries are harmless (we return 200 regardless).
   if (body.type === 'event_callback' && body.event) {
     const event = body.event as { type: string; text?: string; channel?: string; user?: string; bot_id?: string; thread_ts?: string; ts?: string }
-    processEvent(event).catch(err => console.error('Slack event error:', err))
+    console.log('[Slack] Event received:', event.type, 'text:', event.text, 'channel:', event.channel, 'user:', event.user)
+    try {
+      await processEvent(event)
+    } catch (err) {
+      console.error('[Slack] Event processing error:', err)
+    }
+  } else {
+    console.log('[Slack] Non-event request, type:', body.type)
   }
 
   return NextResponse.json({ ok: true })
@@ -77,11 +84,19 @@ async function processEvent(event: {
   ts?: string
 }) {
   try {
+    console.log('[Slack] processEvent:', JSON.stringify(event))
+
     // Only handle messages and app_mentions
-    if (event.type !== 'app_mention' && event.type !== 'message') return
+    if (event.type !== 'app_mention' && event.type !== 'message') {
+      console.log('[Slack] Ignoring event type:', event.type)
+      return
+    }
 
     // Ignore bot messages (prevent loops)
-    if (event.bot_id) return
+    if (event.bot_id) {
+      console.log('[Slack] Ignoring bot message from:', event.bot_id)
+      return
+    }
 
     const text = event.text || ''
     const channel = event.channel || ''
