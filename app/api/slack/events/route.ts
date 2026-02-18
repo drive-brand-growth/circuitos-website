@@ -25,10 +25,27 @@ function checkRateLimit(userId: string): boolean {
 }
 
 export async function POST(req: NextRequest) {
-  // Read raw body for signature verification
-  const rawBody = await req.text()
+  let rawBody: string
+  try {
+    rawBody = await req.text()
+  } catch {
+    return NextResponse.json({ error: 'Bad request' }, { status: 400 })
+  }
 
-  // Verify Slack signature
+  let body: Record<string, unknown>
+  try {
+    body = JSON.parse(rawBody)
+  } catch {
+    return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 })
+  }
+
+  // Handle Slack URL verification challenge FIRST (before sig check)
+  // Slack sends this during app setup and it must respond with the challenge
+  if (body.type === 'url_verification') {
+    return NextResponse.json({ challenge: body.challenge })
+  }
+
+  // Verify Slack signature for all other requests
   const signingSecret = process.env.SLACK_SIGNING_SECRET
   if (signingSecret) {
     const timestamp = req.headers.get('x-slack-request-timestamp') || ''
@@ -39,18 +56,12 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  const body = JSON.parse(rawBody)
-
-  // Handle Slack URL verification challenge (one-time setup handshake)
-  if (body.type === 'url_verification') {
-    return NextResponse.json({ challenge: body.challenge })
-  }
-
   // Process event — fire and forget (don't await), return 200 immediately
   // Slack requires ack within 3 seconds. The promise runs in the background
   // on Vercel's serverless runtime until the function times out (default 10s).
   if (body.type === 'event_callback' && body.event) {
-    processEvent(body.event).catch(err => console.error('Slack event error:', err))
+    const event = body.event as { type: string; text?: string; channel?: string; user?: string; bot_id?: string; thread_ts?: string; ts?: string }
+    processEvent(event).catch(err => console.error('Slack event error:', err))
   }
 
   return NextResponse.json({ ok: true })
