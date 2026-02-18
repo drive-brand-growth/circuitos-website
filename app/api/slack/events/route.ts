@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { waitUntil } from '@vercel/functions'
 import { verifySlackRequest } from '@/lib/slack/verify'
 import { postMessage, postThreadReply } from '@/lib/slack/client'
 import { classifyIntent } from '@/lib/slack/router'
@@ -47,15 +46,14 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ challenge: body.challenge })
   }
 
-  // Ack immediately (Slack requires response within 3 seconds)
-  const response = NextResponse.json({ ok: true })
-
-  // Process event in background
+  // Process event — fire and forget (don't await), return 200 immediately
+  // Slack requires ack within 3 seconds. The promise runs in the background
+  // on Vercel's serverless runtime until the function times out (default 10s).
   if (body.type === 'event_callback' && body.event) {
-    waitUntil(processEvent(body.event))
+    processEvent(body.event).catch(err => console.error('Slack event error:', err))
   }
 
-  return response
+  return NextResponse.json({ ok: true })
 }
 
 async function processEvent(event: {
