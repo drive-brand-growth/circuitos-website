@@ -421,6 +421,29 @@ export default function DemoPage() {
         </div>
       </section>
 
+      {/* Playground CTA */}
+      <section className="px-6 pb-20 border-t border-[#27272a] pt-20">
+        <div className="max-w-2xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Want to see the math?</h2>
+            <p className="text-[#a1a1aa] text-lg mb-8">
+              Fire signals, watch Bayesian updates, see DMN routing, and trigger a CLUTCH STRIKE — all in the browser.
+            </p>
+            <a
+              href="/playground"
+              className="inline-flex items-center gap-2 btn-primary text-white px-8 py-4 rounded-lg font-semibold text-lg"
+            >
+              Try the Revenue Physics Playground
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Bottom CTA — repeats the form */}
       <section className="px-6 pb-20 border-t border-[#27272a] pt-20">
         <div className="max-w-md mx-auto">
