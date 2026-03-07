@@ -19,6 +19,7 @@ export default function Nav() {
             <a href="/#how-it-works" className="font-medium hover:text-white transition-colors">How it Works</a>
             <a href="/#capabilities" className="font-medium hover:text-white transition-colors">Capabilities</a>
             <a href="/#pricing" className="font-medium hover:text-white transition-colors">Pricing</a>
+            <a href="/playground" className="font-medium hover:text-white transition-colors">Playground</a>
           </div>
         </div>
         <div className="flex items-center gap-4">
@@ -49,6 +50,7 @@ export default function Nav() {
               { href: '/#how-it-works', label: 'How it Works' },
               { href: '/#capabilities', label: 'Capabilities' },
               { href: '/#pricing', label: 'Pricing' },
+              { href: '/playground', label: 'Playground' },
               { href: '/#contact', label: 'Contact' },
             ].map((link) => (
               <a
