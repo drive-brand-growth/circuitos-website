@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { notifyHotLead } from '@/lib/slack/notify'
+import { syncLeadToGHL } from '@/lib/ghl'
 
 // --- SECURITY: Rate limiting (in-memory, per-IP, resets on cold start) ---
 const rateLimits = new Map<string, { count: number; resetAt: number }>()
@@ -331,6 +332,42 @@ export async function POST(req: NextRequest) {
         user_agent: userAgent,
         transcript,
       }).catch(() => {})
+
+      // GHL: create/update contact, tag, add note with transcript, trigger workflow
+      syncLeadToGHL({
+        name: leadInfo.name,
+        email: leadInfo.email,
+        company: leadInfo.company,
+        lead_tier: tier,
+        transcript,
+        page_url: pageUrl,
+        referrer,
+        source: pageUrl?.includes('drivebrandgrowth') ? 'drivebrandgrowth.com' : 'usecircuitos.com',
+      }).catch(() => {})
+
+      // n8n webhook for follow-up automation
+      const leadWebhookUrl = process.env.ARIA_LEAD_WEBHOOK_URL || process.env.DEMO_WEBHOOK_URL
+      if (leadWebhookUrl) {
+        fetch(leadWebhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'aria_x_lead',
+            name: leadInfo.name,
+            email: leadInfo.email,
+            company: leadInfo.company || undefined,
+            lead_tier: tier,
+            source: pageUrl?.includes('drivebrandgrowth') ? 'drivebrandgrowth.com' : 'usecircuitos.com',
+            page_url: pageUrl,
+            referrer,
+            message_count: safeHistory.length,
+            transcript: transcript?.slice(0, 2000),
+            captured_at: new Date().toISOString(),
+          }),
+          signal: AbortSignal.timeout(5000),
+        }).catch(() => {})
+      }
+
       return NextResponse.json({ response: 'Lead captured', lead_tier: tier })
     }
 
@@ -475,6 +512,20 @@ export async function POST(req: NextRequest) {
         user_agent: userAgent,
         transcript: fullTranscript,
       }).catch(() => {})
+
+      // GHL sync for high-intent leads with captured contact info
+      if (leadInfo?.email) {
+        syncLeadToGHL({
+          name: leadInfo.name || 'Aria X Chat User',
+          email: leadInfo.email,
+          company: leadInfo.company,
+          lead_tier,
+          transcript: fullTranscript,
+          page_url: pageUrl,
+          referrer,
+          source: pageUrl?.includes('drivebrandgrowth') ? 'drivebrandgrowth.com' : 'usecircuitos.com',
+        }).catch(() => {})
+      }
     }
 
     return NextResponse.json({
