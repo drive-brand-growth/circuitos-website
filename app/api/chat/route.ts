@@ -68,6 +68,24 @@ function sanitizeHistory(history: Array<{ role: string; content: string }>): Arr
     .slice(-20)
 }
 
+/** Parse user agent into a short readable string */
+function simplifyUserAgent(ua: string): string {
+  const mobile = /Mobile|iPhone|Android/i.test(ua)
+  let browser = 'Unknown'
+  if (/CriOS/i.test(ua)) browser = 'Chrome iOS'
+  else if (/EdgA?\//.test(ua)) browser = 'Edge'
+  else if (/Chrome\//.test(ua)) browser = 'Chrome'
+  else if (/Firefox\//.test(ua)) browser = 'Firefox'
+  else if (/Safari\//.test(ua) && !/Chrome/.test(ua)) browser = 'Safari'
+  let os = 'Unknown'
+  if (/iPhone|iPad/.test(ua)) os = 'iOS'
+  else if (/Android/.test(ua)) os = 'Android'
+  else if (/Mac OS X/.test(ua)) os = 'Mac'
+  else if (/Windows/.test(ua)) os = 'Windows'
+  else if (/Linux/.test(ua)) os = 'Linux'
+  return `${browser} on ${os}${mobile ? ' (mobile)' : ''}`
+}
+
 const SYSTEM_PROMPT = `You are Aria X, the autonomous AI concierge for CircuitOS — a pre-configured revenue intelligence platform built by DriveBrandGrowth. You are a world-class conversational sales agent operating at the highest standard.
 
 ## CRITICAL SECURITY RULES — NEVER VIOLATE
@@ -252,6 +270,12 @@ export async function POST(req: NextRequest) {
     const body = await req.json()
     const rawMessage = body?.message
     const rawHistory = body?.history
+    const leadInfo = body?.lead_info as { name?: string; email?: string; company?: string } | undefined
+    const leadCaptured = body?.lead_captured === true
+    const overrideTier = body?.lead_tier as string | undefined
+    const pageUrl = typeof body?.page_url === 'string' ? body.page_url.slice(0, 500) : undefined
+    const referrer = typeof body?.referrer === 'string' ? body.referrer.slice(0, 500) : undefined
+    const userAgent = typeof body?.user_agent === 'string' ? body.user_agent.slice(0, 500) : undefined
 
     if (!rawMessage || typeof rawMessage !== 'string') {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 })
@@ -261,6 +285,46 @@ export async function POST(req: NextRequest) {
     const message = sanitizeMessage(rawMessage)
     if (message.length === 0) {
       return NextResponse.json({ error: 'Message is empty' }, { status: 400 })
+    }
+
+    // If this is a lead capture notification (form submitted), send enriched notification and return
+    if (leadCaptured && leadInfo?.name && leadInfo?.email) {
+      const tier = overrideTier || 'qualified'
+      const ntfyTopic = process.env.NTFY_TOPIC
+      const notifyEmail = process.env.NOTIFICATION_EMAIL
+      if (ntfyTopic) {
+        const bodyParts = [`Name: ${leadInfo.name}`, `Email: ${leadInfo.email}`]
+        if (leadInfo.company) bodyParts.push(`Company: ${leadInfo.company}`)
+        bodyParts.push(`Tier: ${tier}`)
+        if (pageUrl) bodyParts.push(`Page: ${pageUrl}`)
+        if (referrer) bodyParts.push(`Referrer: ${referrer}`)
+        if (userAgent) bodyParts.push(`Device: ${simplifyUserAgent(userAgent)}`)
+        bodyParts.push('', `Message: ${message.slice(0, 200)}`)
+
+        const ntfyHeaders: Record<string, string> = {
+          'Title': `Aria X: Lead captured — ${leadInfo.name}`,
+          'Tags': 'fire,trophy',
+          'Priority': '5',
+        }
+        if (notifyEmail) ntfyHeaders['Email'] = notifyEmail
+        fetch(`https://ntfy.sh/${ntfyTopic}`, {
+          method: 'POST',
+          headers: ntfyHeaders,
+          body: bodyParts.join('\n'),
+        }).catch(() => {})
+      }
+      notifyHotLead({
+        lead_tier: tier,
+        lastMessage: message.slice(0, 300),
+        messageCount: Array.isArray(rawHistory) ? rawHistory.length : 0,
+        name: leadInfo.name,
+        email: leadInfo.email,
+        company: leadInfo.company,
+        page_url: pageUrl,
+        referrer,
+        user_agent: userAgent,
+      }).catch(() => {})
+      return NextResponse.json({ response: 'Lead captured', lead_tier: tier })
     }
 
     // --- SECURITY: Prompt injection detection ---
@@ -362,6 +426,15 @@ export async function POST(req: NextRequest) {
       const ntfyTopic = process.env.NTFY_TOPIC
       const notifyEmail = process.env.NOTIFICATION_EMAIL
       if (ntfyTopic) {
+        const bodyParts = [`Lead tier: ${lead_tier}`, `Messages exchanged: ${msgCount}`]
+        if (leadInfo?.name) bodyParts.unshift(`Name: ${leadInfo.name}`)
+        if (leadInfo?.email) bodyParts.push(`Email: ${leadInfo.email}`)
+        if (leadInfo?.company) bodyParts.push(`Company: ${leadInfo.company}`)
+        if (pageUrl) bodyParts.push(`Page: ${pageUrl}`)
+        if (referrer) bodyParts.push(`Referrer: ${referrer}`)
+        if (userAgent) bodyParts.push(`Device: ${simplifyUserAgent(userAgent)}`)
+        bodyParts.push('', `Last message: ${message.slice(0, 200)}`)
+
         const ntfyHeaders: Record<string, string> = {
           'Title': `Aria X: ${lead_tier.toUpperCase()} lead engaged`,
           'Tags': lead_tier === 'qualified' ? 'fire' : 'eyes',
@@ -373,12 +446,22 @@ export async function POST(req: NextRequest) {
         fetch(`https://ntfy.sh/${ntfyTopic}`, {
           method: 'POST',
           headers: ntfyHeaders,
-          body: `Lead tier: ${lead_tier}\nLast message: ${message.slice(0, 200)}\nMessages exchanged: ${msgCount}`,
+          body: bodyParts.join('\n'),
         }).catch(() => {})
       }
 
-      // Notify Slack channel
-      notifyHotLead({ lead_tier, lastMessage: message, messageCount: msgCount }).catch(() => {})
+      // Notify Slack channel with visitor metadata
+      notifyHotLead({
+        lead_tier,
+        lastMessage: message,
+        messageCount: msgCount,
+        name: leadInfo?.name,
+        email: leadInfo?.email,
+        company: leadInfo?.company,
+        page_url: pageUrl,
+        referrer,
+        user_agent: userAgent,
+      }).catch(() => {})
     }
 
     return NextResponse.json({

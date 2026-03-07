@@ -6,6 +6,13 @@ import { motion, AnimatePresence } from 'framer-motion'
 interface Message {
   role: 'user' | 'assistant'
   content: string
+  type?: 'lead-capture'
+}
+
+interface LeadInfo {
+  name: string
+  email: string
+  company?: string
 }
 
 // Local fallback knowledge for when API is unavailable
@@ -14,7 +21,7 @@ const fallbackKB: Record<string, string> = {
   'pricing': 'Three tiers: **Starter** ($1,500/mo), **Growth** ($3,500/mo), **Enterprise** (custom). Use our [build calculator](/#build-calculator) to estimate your implementation cost — full line-item transparency. [See pricing](/#pricing)',
   'demo': 'You can [book a demo here](/demo) — 30-minute personalized walkthrough with your business context. No commitment.',
   'how': 'Five steps: Configure your ICP → Score every lead (72+ signals) → Route to the right channel → Engage with AI outreach → Learn from every outcome. [See how it works](/#how-it-works)',
-  'integration': 'Native integrations: GoHighLevel (CRM), Instantly.ai (email), Google Analytics 4 (feedback loop). Plus Claude, Gemini, Perplexity for content quality. REST API + webhooks for custom.',
+  'integration': 'Native integrations: GoHighLevel (CRM), Instantly.ai (email outreach), Google Analytics 4 (feedback loop). Plus Claude, Gemini, Perplexity for content quality. REST API + webhooks for custom.',
   'contact': 'Reach us at hello@usecircuitos.com or [book a demo](/demo). We respond within 24 hours.',
   'hello': "Hey! I'm Aria X, the CircuitOS concierge. I can help with anything about the platform — scoring, outreach, content, pricing. What are you looking into?",
 }
@@ -52,6 +59,17 @@ const tierLabels: Record<string, string> = {
   qualified: 'Ready to Talk',
 }
 
+const HIGH_INTENT_TIERS = new Set(['hot', 'qualified'])
+
+function getVisitorMetadata() {
+  if (typeof window === 'undefined') return {}
+  return {
+    page_url: window.location.href,
+    referrer: document.referrer || undefined,
+    user_agent: navigator.userAgent,
+  }
+}
+
 export default function AriaX() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
@@ -60,6 +78,9 @@ export default function AriaX() {
   const [isTyping, setIsTyping] = useState(false)
   const [leadTier, setLeadTier] = useState('awareness')
   const [hasNotification, setHasNotification] = useState(false)
+  const [leadStatus, setLeadStatus] = useState<'idle' | 'pending' | 'captured' | 'skipped'>('idle')
+  const capturedLeadRef = useRef<LeadInfo | null>(null)
+  const pendingCaptureRef = useRef<{ tier: string; message: string; messageCount: number } | null>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const greetedRef = useRef(false)
 
@@ -104,12 +125,15 @@ export default function AriaX() {
     setIsTyping(true)
 
     try {
+      const metadata = getVisitorMetadata()
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           message: msg,
           history: updatedMessages.slice(-20),
+          lead_info: leadStatus === 'captured' && capturedLeadRef.current ? capturedLeadRef.current : undefined,
+          ...metadata,
         }),
       })
 
@@ -117,7 +141,19 @@ export default function AriaX() {
 
       const data = await res.json()
       setMessages(prev => [...prev, { role: 'assistant', content: data.response }])
-      if (data.lead_tier) setLeadTier(data.lead_tier)
+      if (data.lead_tier) {
+        setLeadTier(data.lead_tier)
+        // Show lead capture form on first high-intent detection
+        if (HIGH_INTENT_TIERS.has(data.lead_tier) && leadStatus === 'idle') {
+          pendingCaptureRef.current = {
+            tier: data.lead_tier,
+            message: msg,
+            messageCount: updatedMessages.length,
+          }
+          setLeadStatus('pending')
+          setMessages(prev => [...prev, { role: 'assistant', content: '', type: 'lead-capture' }])
+        }
+      }
       if (data.quick_replies) setQuickReplies(data.quick_replies)
     } catch {
       // Fallback to local matching
@@ -126,7 +162,44 @@ export default function AriaX() {
     } finally {
       setIsTyping(false)
     }
-  }, [input, isTyping, messages])
+  }, [input, isTyping, messages, leadStatus])
+
+  const handleLeadSubmit = useCallback((name: string, email: string, company?: string) => {
+    const info: LeadInfo = { name, email, company }
+    capturedLeadRef.current = info
+    setLeadStatus('captured')
+
+    // Replace form message with confirmation
+    setMessages(prev => {
+      const filtered = prev.filter(m => m.type !== 'lead-capture')
+      return [...filtered, {
+        role: 'assistant' as const,
+        content: `Got it, **${name}**! We'll reach out to you at **${email}**.`,
+      }]
+    })
+
+    // Send lead info to API with visitor metadata
+    const metadata = getVisitorMetadata()
+    fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: pendingCaptureRef.current?.message || '[lead captured]',
+        history: [],
+        lead_info: info,
+        lead_captured: true,
+        lead_tier: pendingCaptureRef.current?.tier || leadTier,
+        ...metadata,
+      }),
+    }).catch(() => {})
+    pendingCaptureRef.current = null
+  }, [leadTier])
+
+  const handleLeadSkip = useCallback(() => {
+    setLeadStatus('skipped')
+    setMessages(prev => prev.filter(m => m.type !== 'lead-capture'))
+    pendingCaptureRef.current = null
+  }, [])
 
   return (
     <>
@@ -209,31 +282,35 @@ export default function AriaX() {
             {/* Messages */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
               {messages.map((msg, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                >
-                  {msg.role === 'assistant' && (
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center mr-2 mt-1 flex-shrink-0">
-                      <span className="text-white font-bold text-[8px]">AX</span>
-                    </div>
-                  )}
-                  <div
-                    className={`max-w-[80%] rounded-xl px-4 py-2.5 text-sm leading-relaxed ${
-                      msg.role === 'user'
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-[#18181b] text-[#e4e4e7] border border-[#27272a]'
-                    }`}
+                msg.type === 'lead-capture' ? (
+                  <LeadCaptureForm key={`lead-${i}`} onSubmit={handleLeadSubmit} onSkip={handleLeadSkip} />
+                ) : (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
-                    <span
-                      className="whitespace-pre-wrap [&_a]:text-blue-400 [&_a]:underline [&_a:hover]:text-blue-300"
-                      dangerouslySetInnerHTML={{ __html: formatMessage(msg.content) }}
-                    />
-                  </div>
-                </motion.div>
+                    {msg.role === 'assistant' && (
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center mr-2 mt-1 flex-shrink-0">
+                        <span className="text-white font-bold text-[8px]">AX</span>
+                      </div>
+                    )}
+                    <div
+                      className={`max-w-[80%] rounded-xl px-4 py-2.5 text-sm leading-relaxed ${
+                        msg.role === 'user'
+                          ? 'bg-blue-600 text-white'
+                          : 'bg-[#18181b] text-[#e4e4e7] border border-[#27272a]'
+                      }`}
+                    >
+                      <span
+                        className="whitespace-pre-wrap [&_a]:text-blue-400 [&_a]:underline [&_a:hover]:text-blue-300"
+                        dangerouslySetInnerHTML={{ __html: formatMessage(msg.content) }}
+                      />
+                    </div>
+                  </motion.div>
+                )
               ))}
               {isTyping && (
                 <motion.div
@@ -308,5 +385,79 @@ export default function AriaX() {
         )}
       </AnimatePresence>
     </>
+  )
+}
+
+function LeadCaptureForm({
+  onSubmit,
+  onSkip,
+}: {
+  onSubmit: (name: string, email: string, company?: string) => void
+  onSkip: () => void
+}) {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [company, setCompany] = useState('')
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!name.trim() || !email.trim()) return
+    onSubmit(name.trim(), email.trim(), company.trim() || undefined)
+  }
+
+  return (
+    <div className="flex justify-start">
+      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center mr-2 mt-1 flex-shrink-0">
+        <span className="text-white font-bold text-[8px]">AX</span>
+      </div>
+      <div className="max-w-[85%] w-full">
+        <div className="bg-[#18181b] border border-[#27272a] rounded-xl px-4 py-3">
+          <p className="text-[#e4e4e7] text-sm mb-3">
+            Sounds like we can help. Drop your info and we&apos;ll reach out with next steps.
+          </p>
+          <form onSubmit={handleFormSubmit} className="space-y-2">
+            <input
+              type="text"
+              placeholder="Your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className="w-full bg-black/50 border border-[#27272a] rounded-lg px-3 py-2 text-sm text-white placeholder-[#52525b] outline-none focus:border-blue-500/50 transition-colors"
+            />
+            <input
+              type="email"
+              placeholder="Email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full bg-black/50 border border-[#27272a] rounded-lg px-3 py-2 text-sm text-white placeholder-[#52525b] outline-none focus:border-blue-500/50 transition-colors"
+            />
+            <input
+              type="text"
+              placeholder="Company (optional)"
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
+              className="w-full bg-black/50 border border-[#27272a] rounded-lg px-3 py-2 text-sm text-white placeholder-[#52525b] outline-none focus:border-blue-500/50 transition-colors"
+            />
+            <div className="flex items-center gap-3 pt-1">
+              <button
+                type="submit"
+                disabled={!name.trim() || !email.trim()}
+                className="px-4 py-2 bg-blue-600 text-white text-xs font-semibold rounded-lg hover:bg-blue-500 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                Get started
+              </button>
+              <button
+                type="button"
+                onClick={onSkip}
+                className="text-[#52525b] text-xs hover:text-[#a1a1aa] transition-colors"
+              >
+                No thanks
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   )
 }

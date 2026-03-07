@@ -2,6 +2,23 @@ import { postMessage } from './client'
 
 const CHANNEL = () => process.env.SLACK_CHANNEL_ID || ''
 
+function simplifyUserAgent(ua: string): string {
+  const mobile = /Mobile|iPhone|Android/i.test(ua)
+  let browser = 'Unknown'
+  if (/CriOS/i.test(ua)) browser = 'Chrome iOS'
+  else if (/EdgA?\//.test(ua)) browser = 'Edge'
+  else if (/Chrome\//.test(ua)) browser = 'Chrome'
+  else if (/Firefox\//.test(ua)) browser = 'Firefox'
+  else if (/Safari\//.test(ua) && !/Chrome/.test(ua)) browser = 'Safari'
+  let os = 'Unknown'
+  if (/iPhone|iPad/.test(ua)) os = 'iOS'
+  else if (/Android/.test(ua)) os = 'Android'
+  else if (/Mac OS X/.test(ua)) os = 'Mac'
+  else if (/Windows/.test(ua)) os = 'Windows'
+  else if (/Linux/.test(ua)) os = 'Linux'
+  return `${browser} on ${os}${mobile ? ' (mobile)' : ''}`
+}
+
 export async function notifyDemoRequest(data: {
   name: string
   email: string
@@ -49,12 +66,40 @@ export async function notifyHotLead(data: {
   lead_tier: string
   lastMessage: string
   messageCount: number
+  name?: string
+  email?: string
+  company?: string
+  page_url?: string
+  referrer?: string
+  user_agent?: string
 }) {
   const channel = CHANNEL()
   if (!channel) return
 
   const emoji = data.lead_tier === 'qualified' ? ':fire:' : ':eyes:'
   const priority = data.lead_tier === 'qualified' ? 'QUALIFIED' : 'HOT'
+
+  const fields: Array<{ type: 'mrkdwn'; text: string }> = [
+    { type: 'mrkdwn', text: `*Tier:*\n${emoji} ${data.lead_tier}` },
+    { type: 'mrkdwn', text: `*Messages:*\n${data.messageCount}` },
+  ]
+
+  if (data.name) {
+    fields.push({ type: 'mrkdwn', text: `*Name:*\n${data.name}` })
+  }
+  if (data.email) {
+    fields.push({ type: 'mrkdwn', text: `*Email:*\n${data.email}` })
+  }
+  if (data.company) {
+    fields.push({ type: 'mrkdwn', text: `*Company:*\n${data.company}` })
+  }
+
+  const contextParts = [
+    `${new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' })} CT`,
+  ]
+  if (data.page_url) contextParts.push(`Page: ${data.page_url}`)
+  if (data.referrer) contextParts.push(`Referrer: ${data.referrer}`)
+  if (data.user_agent) contextParts.push(`Device: ${simplifyUserAgent(data.user_agent)}`)
 
   const blocks = [
     {
@@ -63,10 +108,7 @@ export async function notifyHotLead(data: {
     },
     {
       type: 'section',
-      fields: [
-        { type: 'mrkdwn', text: `*Tier:*\n${emoji} ${data.lead_tier}` },
-        { type: 'mrkdwn', text: `*Messages:*\n${data.messageCount}` },
-      ],
+      fields,
     },
     {
       type: 'section',
@@ -76,7 +118,7 @@ export async function notifyHotLead(data: {
     {
       type: 'context',
       elements: [
-        { type: 'mrkdwn', text: `${new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' })} CT` },
+        { type: 'mrkdwn', text: contextParts.join('\n') },
       ],
     },
   ]
