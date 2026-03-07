@@ -72,6 +72,7 @@ export async function notifyHotLead(data: {
   page_url?: string
   referrer?: string
   user_agent?: string
+  transcript?: string
 }) {
   const channel = CHANNEL()
   if (!channel) return
@@ -101,7 +102,8 @@ export async function notifyHotLead(data: {
   if (data.referrer) contextParts.push(`Referrer: ${data.referrer}`)
   if (data.user_agent) contextParts.push(`Device: ${simplifyUserAgent(data.user_agent)}`)
 
-  const blocks = [
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const blocks: any[] = [
     {
       type: 'header',
       text: { type: 'plain_text', text: `${priority} Lead via Aria X`, emoji: true },
@@ -114,6 +116,20 @@ export async function notifyHotLead(data: {
       type: 'section',
       text: { type: 'mrkdwn', text: `*Last message:*\n>${data.lastMessage.slice(0, 300)}` },
     },
+  ]
+
+  // Add conversation transcript if available (Slack section text max ~3000 chars)
+  if (data.transcript) {
+    blocks.push(
+      { type: 'divider' },
+      {
+        type: 'section',
+        text: { type: 'mrkdwn', text: `*Conversation:*\n${data.transcript.slice(0, 2800)}` },
+      },
+    )
+  }
+
+  blocks.push(
     { type: 'divider' },
     {
       type: 'context',
@@ -121,7 +137,7 @@ export async function notifyHotLead(data: {
         { type: 'mrkdwn', text: contextParts.join('\n') },
       ],
     },
-  ]
+  )
 
   try {
     await postMessage(channel, `${priority} lead on Aria X: "${data.lastMessage.slice(0, 100)}"`, blocks)

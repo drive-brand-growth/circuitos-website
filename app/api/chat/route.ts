@@ -287,6 +287,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Message is empty' }, { status: 400 })
     }
 
+    // Build conversation transcript from history
+    const safeHistory = Array.isArray(rawHistory) ? sanitizeHistory(rawHistory) : []
+    const transcript = safeHistory
+      .map(m => `${m.role === 'user' ? 'Visitor' : 'Aria X'}: ${m.content.slice(0, 300)}`)
+      .join('\n')
+
     // If this is a lead capture notification (form submitted), send enriched notification and return
     if (leadCaptured && leadInfo?.name && leadInfo?.email) {
       const tier = overrideTier || 'qualified'
@@ -299,7 +305,7 @@ export async function POST(req: NextRequest) {
         if (pageUrl) bodyParts.push(`Page: ${pageUrl}`)
         if (referrer) bodyParts.push(`Referrer: ${referrer}`)
         if (userAgent) bodyParts.push(`Device: ${simplifyUserAgent(userAgent)}`)
-        bodyParts.push('', `Message: ${message.slice(0, 200)}`)
+        if (transcript) bodyParts.push('', '--- Conversation ---', transcript)
 
         const ntfyHeaders: Record<string, string> = {
           'Title': `Aria X: Lead captured — ${leadInfo.name}`,
@@ -316,13 +322,14 @@ export async function POST(req: NextRequest) {
       notifyHotLead({
         lead_tier: tier,
         lastMessage: message.slice(0, 300),
-        messageCount: Array.isArray(rawHistory) ? rawHistory.length : 0,
+        messageCount: safeHistory.length,
         name: leadInfo.name,
         email: leadInfo.email,
         company: leadInfo.company,
         page_url: pageUrl,
         referrer,
         user_agent: userAgent,
+        transcript,
       }).catch(() => {})
       return NextResponse.json({ response: 'Lead captured', lead_tier: tier })
     }
@@ -336,8 +343,8 @@ export async function POST(req: NextRequest) {
       })
     }
 
-    // Sanitize history
-    const history = Array.isArray(rawHistory) ? sanitizeHistory(rawHistory) : []
+    // Sanitize history (use pre-built safeHistory if available, otherwise build fresh)
+    const history = safeHistory.length > 0 ? safeHistory : (Array.isArray(rawHistory) ? sanitizeHistory(rawHistory) : [])
 
     // Check history for injection attempts
     const hasHistoryInjection = history.some(msg =>
@@ -374,7 +381,7 @@ export async function POST(req: NextRequest) {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',
+        model: 'claude-sonnet-4-6',
         max_tokens: 600,
         system: SYSTEM_PROMPT,
         messages,
@@ -423,6 +430,11 @@ export async function POST(req: NextRequest) {
 
     // Notify on high-intent leads (fire and forget)
     if (lead_tier === 'qualified' || lead_tier === 'hot') {
+      // Build full transcript including current message
+      const fullTranscript = [...history, { role: 'user', content: message }, { role: 'assistant', content: assistantMessage }]
+        .map(m => `${m.role === 'user' ? 'Visitor' : 'Aria X'}: ${m.content.slice(0, 300)}`)
+        .join('\n')
+
       const ntfyTopic = process.env.NTFY_TOPIC
       const notifyEmail = process.env.NOTIFICATION_EMAIL
       if (ntfyTopic) {
@@ -433,7 +445,7 @@ export async function POST(req: NextRequest) {
         if (pageUrl) bodyParts.push(`Page: ${pageUrl}`)
         if (referrer) bodyParts.push(`Referrer: ${referrer}`)
         if (userAgent) bodyParts.push(`Device: ${simplifyUserAgent(userAgent)}`)
-        bodyParts.push('', `Last message: ${message.slice(0, 200)}`)
+        if (fullTranscript) bodyParts.push('', '--- Conversation ---', fullTranscript)
 
         const ntfyHeaders: Record<string, string> = {
           'Title': `Aria X: ${lead_tier.toUpperCase()} lead engaged`,
@@ -450,7 +462,7 @@ export async function POST(req: NextRequest) {
         }).catch(() => {})
       }
 
-      // Notify Slack channel with visitor metadata
+      // Notify Slack channel with visitor metadata + transcript
       notifyHotLead({
         lead_tier,
         lastMessage: message,
@@ -461,6 +473,7 @@ export async function POST(req: NextRequest) {
         page_url: pageUrl,
         referrer,
         user_agent: userAgent,
+        transcript: fullTranscript,
       }).catch(() => {})
     }
 
