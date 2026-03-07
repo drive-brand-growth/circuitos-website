@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { notifyHotLead } from '@/lib/slack/notify'
 import { syncLeadToGHL } from '@/lib/ghl'
+import { waitUntil } from '@vercel/functions'
 
 // --- SECURITY: Rate limiting (in-memory, per-IP, resets on cold start) ---
 const rateLimits = new Map<string, { count: number; resetAt: number }>()
@@ -297,76 +298,100 @@ export async function POST(req: NextRequest) {
     // If this is a lead capture notification (form submitted), send enriched notification and return
     if (leadCaptured && leadInfo?.name && leadInfo?.email) {
       const tier = overrideTier || 'qualified'
-      const ntfyTopic = process.env.NTFY_TOPIC
-      const notifyEmail = process.env.NOTIFICATION_EMAIL
-      if (ntfyTopic) {
-        const bodyParts = [`Name: ${leadInfo.name}`, `Email: ${leadInfo.email}`]
-        if (leadInfo.company) bodyParts.push(`Company: ${leadInfo.company}`)
-        bodyParts.push(`Tier: ${tier}`)
-        if (pageUrl) bodyParts.push(`Page: ${pageUrl}`)
-        if (referrer) bodyParts.push(`Referrer: ${referrer}`)
-        if (userAgent) bodyParts.push(`Device: ${simplifyUserAgent(userAgent)}`)
-        if (transcript) bodyParts.push('', '--- Conversation ---', transcript)
+      const leadName = leadInfo.name
+      const leadEmail = leadInfo.email
+      const leadCompany = leadInfo.company
 
-        const ntfyHeaders: Record<string, string> = {
-          'Title': `Aria X: Lead captured — ${leadInfo.name}`,
-          'Tags': 'fire,trophy',
-          'Priority': '5',
+      // Use waitUntil to ensure background tasks complete after response is sent
+      const backgroundTasks = async () => {
+        const tasks: Promise<unknown>[] = []
+
+        // ntfy push + email
+        const ntfyTopic = process.env.NTFY_TOPIC
+        const notifyEmail = process.env.NOTIFICATION_EMAIL
+        if (ntfyTopic) {
+          const bodyParts = [`Name: ${leadName}`, `Email: ${leadEmail}`]
+          if (leadCompany) bodyParts.push(`Company: ${leadCompany}`)
+          bodyParts.push(`Tier: ${tier}`)
+          if (pageUrl) bodyParts.push(`Page: ${pageUrl}`)
+          if (referrer) bodyParts.push(`Referrer: ${referrer}`)
+          if (userAgent) bodyParts.push(`Device: ${simplifyUserAgent(userAgent)}`)
+          if (transcript) bodyParts.push('', '--- Conversation ---', transcript)
+
+          const ntfyHeaders: Record<string, string> = {
+            'Title': `Aria X: Lead captured — ${leadName}`,
+            'Tags': 'fire,trophy',
+            'Priority': '5',
+          }
+          if (notifyEmail) ntfyHeaders['Email'] = notifyEmail
+          tasks.push(
+            fetch(`https://ntfy.sh/${ntfyTopic}`, {
+              method: 'POST',
+              headers: ntfyHeaders,
+              body: bodyParts.join('\n'),
+            }).catch((e) => console.error('[lead] ntfy failed:', e))
+          )
         }
-        if (notifyEmail) ntfyHeaders['Email'] = notifyEmail
-        fetch(`https://ntfy.sh/${ntfyTopic}`, {
-          method: 'POST',
-          headers: ntfyHeaders,
-          body: bodyParts.join('\n'),
-        }).catch(() => {})
-      }
-      notifyHotLead({
-        lead_tier: tier,
-        lastMessage: message.slice(0, 300),
-        messageCount: safeHistory.length,
-        name: leadInfo.name,
-        email: leadInfo.email,
-        company: leadInfo.company,
-        page_url: pageUrl,
-        referrer,
-        user_agent: userAgent,
-        transcript,
-      }).catch(() => {})
 
-      // GHL: create/update contact, tag, add note with transcript, trigger workflow
-      syncLeadToGHL({
-        name: leadInfo.name,
-        email: leadInfo.email,
-        company: leadInfo.company,
-        lead_tier: tier,
-        transcript,
-        page_url: pageUrl,
-        referrer,
-        source: pageUrl?.includes('drivebrandgrowth') ? 'drivebrandgrowth.com' : 'usecircuitos.com',
-      }).catch(() => {})
-
-      // n8n webhook for follow-up automation
-      const leadWebhookUrl = process.env.ARIA_LEAD_WEBHOOK_URL || process.env.DEMO_WEBHOOK_URL
-      if (leadWebhookUrl) {
-        fetch(leadWebhookUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            type: 'aria_x_lead',
-            name: leadInfo.name,
-            email: leadInfo.email,
-            company: leadInfo.company || undefined,
+        // Slack notification
+        tasks.push(
+          notifyHotLead({
             lead_tier: tier,
-            source: pageUrl?.includes('drivebrandgrowth') ? 'drivebrandgrowth.com' : 'usecircuitos.com',
+            lastMessage: message.slice(0, 300),
+            messageCount: safeHistory.length,
+            name: leadName,
+            email: leadEmail,
+            company: leadCompany,
             page_url: pageUrl,
             referrer,
-            message_count: safeHistory.length,
-            transcript: transcript?.slice(0, 2000),
-            captured_at: new Date().toISOString(),
-          }),
-          signal: AbortSignal.timeout(5000),
-        }).catch(() => {})
+            user_agent: userAgent,
+            transcript,
+          }).catch((e) => console.error('[lead] Slack failed:', e))
+        )
+
+        // GHL: create/update contact, tag, add note with transcript, trigger workflow
+        tasks.push(
+          syncLeadToGHL({
+            name: leadName,
+            email: leadEmail,
+            company: leadCompany,
+            lead_tier: tier,
+            transcript,
+            page_url: pageUrl,
+            referrer,
+            source: pageUrl?.includes('drivebrandgrowth') ? 'drivebrandgrowth.com' : 'usecircuitos.com',
+          }).catch((e) => console.error('[lead] GHL failed:', e))
+        )
+
+        // n8n webhook for follow-up automation
+        const leadWebhookUrl = process.env.ARIA_LEAD_WEBHOOK_URL || process.env.DEMO_WEBHOOK_URL
+        if (leadWebhookUrl) {
+          tasks.push(
+            fetch(leadWebhookUrl, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                type: 'aria_x_lead',
+                name: leadName,
+                email: leadEmail,
+                company: leadCompany || undefined,
+                lead_tier: tier,
+                source: pageUrl?.includes('drivebrandgrowth') ? 'drivebrandgrowth.com' : 'usecircuitos.com',
+                page_url: pageUrl,
+                referrer,
+                message_count: safeHistory.length,
+                transcript: transcript?.slice(0, 2000),
+                captured_at: new Date().toISOString(),
+              }),
+              signal: AbortSignal.timeout(5000),
+            }).catch((e) => console.error('[lead] n8n webhook failed:', e))
+          )
+        }
+
+        await Promise.allSettled(tasks)
       }
+
+      waitUntil(backgroundTasks())
 
       return NextResponse.json({ response: 'Lead captured', lead_tier: tier })
     }
@@ -465,67 +490,76 @@ export async function POST(req: NextRequest) {
       quick_replies = ['What is CircuitOS?', 'How does it work?', 'See pricing']
     }
 
-    // Notify on high-intent leads (fire and forget)
+    // Notify on high-intent leads (background tasks survive response via waitUntil)
     if (lead_tier === 'qualified' || lead_tier === 'hot') {
-      // Build full transcript including current message
       const fullTranscript = [...history, { role: 'user', content: message }, { role: 'assistant', content: assistantMessage }]
         .map(m => `${m.role === 'user' ? 'Visitor' : 'Aria X'}: ${m.content.slice(0, 300)}`)
         .join('\n')
 
-      const ntfyTopic = process.env.NTFY_TOPIC
-      const notifyEmail = process.env.NOTIFICATION_EMAIL
-      if (ntfyTopic) {
-        const bodyParts = [`Lead tier: ${lead_tier}`, `Messages exchanged: ${msgCount}`]
-        if (leadInfo?.name) bodyParts.unshift(`Name: ${leadInfo.name}`)
-        if (leadInfo?.email) bodyParts.push(`Email: ${leadInfo.email}`)
-        if (leadInfo?.company) bodyParts.push(`Company: ${leadInfo.company}`)
-        if (pageUrl) bodyParts.push(`Page: ${pageUrl}`)
-        if (referrer) bodyParts.push(`Referrer: ${referrer}`)
-        if (userAgent) bodyParts.push(`Device: ${simplifyUserAgent(userAgent)}`)
-        if (fullTranscript) bodyParts.push('', '--- Conversation ---', fullTranscript)
+      const highIntentTasks = async () => {
+        const tasks: Promise<unknown>[] = []
 
-        const ntfyHeaders: Record<string, string> = {
-          'Title': `Aria X: ${lead_tier.toUpperCase()} lead engaged`,
-          'Tags': lead_tier === 'qualified' ? 'fire' : 'eyes',
-          'Priority': lead_tier === 'qualified' ? '5' : '4',
+        const ntfyTopic = process.env.NTFY_TOPIC
+        const notifyEmail = process.env.NOTIFICATION_EMAIL
+        if (ntfyTopic) {
+          const bodyParts = [`Lead tier: ${lead_tier}`, `Messages exchanged: ${msgCount}`]
+          if (leadInfo?.name) bodyParts.unshift(`Name: ${leadInfo.name}`)
+          if (leadInfo?.email) bodyParts.push(`Email: ${leadInfo.email}`)
+          if (leadInfo?.company) bodyParts.push(`Company: ${leadInfo.company}`)
+          if (pageUrl) bodyParts.push(`Page: ${pageUrl}`)
+          if (referrer) bodyParts.push(`Referrer: ${referrer}`)
+          if (userAgent) bodyParts.push(`Device: ${simplifyUserAgent(userAgent)}`)
+          if (fullTranscript) bodyParts.push('', '--- Conversation ---', fullTranscript)
+
+          const ntfyHeaders: Record<string, string> = {
+            'Title': `Aria X: ${lead_tier.toUpperCase()} lead engaged`,
+            'Tags': lead_tier === 'qualified' ? 'fire' : 'eyes',
+            'Priority': lead_tier === 'qualified' ? '5' : '4',
+          }
+          if (notifyEmail) ntfyHeaders['Email'] = notifyEmail
+          tasks.push(
+            fetch(`https://ntfy.sh/${ntfyTopic}`, {
+              method: 'POST',
+              headers: ntfyHeaders,
+              body: bodyParts.join('\n'),
+            }).catch((e) => console.error('[intent] ntfy failed:', e))
+          )
         }
-        if (notifyEmail) {
-          ntfyHeaders['Email'] = notifyEmail
+
+        tasks.push(
+          notifyHotLead({
+            lead_tier,
+            lastMessage: message,
+            messageCount: msgCount,
+            name: leadInfo?.name,
+            email: leadInfo?.email,
+            company: leadInfo?.company,
+            page_url: pageUrl,
+            referrer,
+            user_agent: userAgent,
+            transcript: fullTranscript,
+          }).catch((e) => console.error('[intent] Slack failed:', e))
+        )
+
+        if (leadInfo?.email) {
+          tasks.push(
+            syncLeadToGHL({
+              name: leadInfo.name || 'Aria X Chat User',
+              email: leadInfo.email,
+              company: leadInfo.company,
+              lead_tier,
+              transcript: fullTranscript,
+              page_url: pageUrl,
+              referrer,
+              source: pageUrl?.includes('drivebrandgrowth') ? 'drivebrandgrowth.com' : 'usecircuitos.com',
+            }).catch((e) => console.error('[intent] GHL failed:', e))
+          )
         }
-        fetch(`https://ntfy.sh/${ntfyTopic}`, {
-          method: 'POST',
-          headers: ntfyHeaders,
-          body: bodyParts.join('\n'),
-        }).catch(() => {})
+
+        await Promise.allSettled(tasks)
       }
 
-      // Notify Slack channel with visitor metadata + transcript
-      notifyHotLead({
-        lead_tier,
-        lastMessage: message,
-        messageCount: msgCount,
-        name: leadInfo?.name,
-        email: leadInfo?.email,
-        company: leadInfo?.company,
-        page_url: pageUrl,
-        referrer,
-        user_agent: userAgent,
-        transcript: fullTranscript,
-      }).catch(() => {})
-
-      // GHL sync for high-intent leads with captured contact info
-      if (leadInfo?.email) {
-        syncLeadToGHL({
-          name: leadInfo.name || 'Aria X Chat User',
-          email: leadInfo.email,
-          company: leadInfo.company,
-          lead_tier,
-          transcript: fullTranscript,
-          page_url: pageUrl,
-          referrer,
-          source: pageUrl?.includes('drivebrandgrowth') ? 'drivebrandgrowth.com' : 'usecircuitos.com',
-        }).catch(() => {})
-      }
+      waitUntil(highIntentTasks())
     }
 
     return NextResponse.json({
