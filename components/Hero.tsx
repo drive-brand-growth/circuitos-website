@@ -15,7 +15,7 @@ const staggerContainer = {
 
 export default function Hero() {
   return (
-    <section id="main-content" className="pt-36 pb-24 px-8 sm:px-12 md:px-6 hero-glow">
+    <section id="main-content" className="pt-36 pb-24 px-8 sm:px-12 md:px-6 hero-glow overflow-hidden">
       <motion.div
         className="max-w-4xl mx-auto text-center px-2 sm:px-0"
         initial="initial"

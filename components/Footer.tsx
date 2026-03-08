@@ -45,7 +45,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-[#27272a] text-center text-sm text-[#71717a]" suppressHydrationWarning>
-          &copy; {new Date().getFullYear()} CircuitOS by DriveBrandGrowth. All rights reserved.
+          &copy; {new Date().getFullYear()} CircuitOS. All rights reserved.
         </div>
       </div>
     </footer>

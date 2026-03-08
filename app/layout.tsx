@@ -282,10 +282,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
         />
       </head>
-      <body className="antialiased">
-        <Analytics />
-        {children}
-        <AriaX />
+      <body className="antialiased overflow-x-hidden">
+        <div className="overflow-x-hidden w-full">
+          <Analytics />
+          {children}
+          <AriaX />
+        </div>
       </body>
     </html>
   )

@@ -171,7 +171,7 @@ export default function PlaygroundPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                   {/* Left column — sticky controls */}
                   <div className="lg:col-span-5">
-                    <div className="lg:sticky lg:top-24 space-y-6">
+                    <div className="lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto lg:overscroll-contain lg:pr-2 space-y-6 thin-scrollbar">
                       <SignalBoard
                         firedSignalIds={firedSignalIds}
                         onFireSignal={(signalId) =>

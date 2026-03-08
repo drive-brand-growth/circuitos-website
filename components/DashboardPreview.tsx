@@ -28,7 +28,7 @@ export default function DashboardPreview() {
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: 0.3, duration: 0.8 }}
-      className="max-w-4xl mx-auto mt-16"
+      className="max-w-4xl w-full mx-auto mt-16 overflow-hidden"
     >
       <div className="rounded-xl overflow-hidden border border-[#27272a] bg-[#0a0a0a] glow">
         {/* Browser chrome */}

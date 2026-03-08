@@ -1008,7 +1008,7 @@ function InlineDemoForm({
       })
       if (res.ok) {
         setStatus('success')
-        onSubmit()
+        setTimeout(onSubmit, 2000)
       } else {
         setStatus('error')
       }

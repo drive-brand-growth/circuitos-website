@@ -19,13 +19,17 @@
   margin: 0;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
   font-family: 'Inter', system-ui, sans-serif;
@@ -126,7 +130,7 @@ button:focus-visible,
   top: 15%;
   left: 50%;
   transform: translateX(-50%);
-  width: 800px;
+  width: min(800px, 100vw);
   height: 500px;
   background: radial-gradient(ellipse, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
   pointer-events: none;
@@ -215,7 +219,7 @@ button:focus-visible,
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateX(-15px);
   }
   to {
     opacity: 1;
@@ -261,6 +265,22 @@ button:focus-visible,
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Thin scrollbar for sidebar panels */
+.thin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #3f3f46 transparent;
+}
+.thin-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 2px;
 }
 
 /* Terminal cursor */

@@ -210,7 +210,7 @@ export default function AriaX() {
           <motion.div
             initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}
-            className="absolute -top-2 -left-48 bg-[#18181b] border border-[#27272a] rounded-lg px-3 py-2 text-xs text-[#a1a1aa] whitespace-nowrap shadow-lg"
+            className="absolute -top-2 -left-48 bg-[#18181b] border border-[#27272a] rounded-lg px-3 py-2 text-xs text-[#a1a1aa] whitespace-nowrap shadow-lg hidden sm:block"
           >
             Have questions? I can help.
             <div className="absolute top-1/2 right-0 transform translate-x-1 -translate-y-1/2 w-2 h-2 bg-[#18181b] border-r border-t border-[#27272a] rotate-45" />
