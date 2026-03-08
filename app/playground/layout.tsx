@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     description: 'Interactive Bayesian scoring engine — fire signals, watch scores update, see DMN routing in real-time.',
     type: 'website',
   },
+  alternates: { canonical: 'https://usecircuitos.com/playground' },
 }
 
 export default function PlaygroundLayout({ children }: { children: React.ReactNode }) {

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
     title: 'Demo - See CircuitOS In Action',
     description: 'Interactive walkthrough of the CircuitOS scoring and content intelligence pipelines.',
   },
+  alternates: { canonical: 'https://usecircuitos.com/demo' },
 }
 
 export default function DemoLayout({

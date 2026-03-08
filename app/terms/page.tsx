@@ -5,6 +5,7 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Terms of Service - CircuitOS',
   description: 'CircuitOS terms of service. Terms and conditions for using our platform and services.',
+  alternates: { canonical: 'https://usecircuitos.com/terms' },
 }
 
 export default function TermsPage() {

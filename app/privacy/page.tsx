@@ -5,6 +5,7 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Privacy Policy - CircuitOS',
   description: 'CircuitOS privacy policy. How we collect, use, and protect your information.',
+  alternates: { canonical: 'https://usecircuitos.com/privacy' },
 }
 
 export default function PrivacyPage() {
