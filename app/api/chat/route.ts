@@ -190,26 +190,26 @@ CircuitOS is a pre-configured revenue intelligence platform that scores leads, g
 - Feedback Loop: GA4 data (time-on-page, bounce rate, conversions, scroll depth) feeds back continuously
 
 ### Integrations
-GoHighLevel (CRM), Instantly.ai (email outreach), Google Analytics 4 (feedback loop), Claude, Gemini, Perplexity (multi-model quality), Docker, PostgreSQL, Redis, n8n, REST API + webhooks
+Connects to any CRM (HubSpot, Salesforce, GoHighLevel, and more), email automation platforms, Google Analytics 4 (feedback loop), Claude, Gemini, Perplexity (multi-model quality), Docker, PostgreSQL, Redis, workflow automation, REST API + webhooks
 
 ### Pricing
-- Starter ($1,500/mo): Single vertical. Scoring, outreach, CRM, content, audit trail, support
-- Growth ($3,500/mo): Multi-vertical. Everything in Starter + enrichment, GA4 feedback, isolated infrastructure, social distribution, quarterly reviews
-- Enterprise (Custom): Unlimited verticals. Dedicated infrastructure, custom integrations, AI model training, SLA, compliance, success manager
+- Growth ($3,500/mo): Single vertical. Scoring, outreach, CRM integration, content intelligence, audit trail, support
+- Scale ($6,500/mo): Multi-vertical. Everything in Growth + enrichment, GA4 feedback, isolated infrastructure, AgentOps governance dashboard, social distribution, quarterly reviews
+- Enterprise ($12,000/mo): Unlimited verticals. Dedicated infrastructure, custom integrations, token cost tracking, compliance & governance package, SLA, dedicated success manager
 - Implementation fee: Transparent build calculator at usecircuitos.com/#build-calculator. Line-item pricing for every module
 
 ### Build Calculator (Implementation Pricing)
 Core (included in every build):
-- Platform Provisioning (infrastructure, database, Docker stack): $1,500
-- ICP Encoding & Scoring Calibration: $1,000
+- Platform Provisioning (infrastructure, database, Docker stack): $2,500
+- ICP Encoding & Scoring Calibration: $2,000
 
 Feature modules (add what you need):
-- Lead Scoring & Enrichment: $1,500
-- Email Outreach Automation: $1,250
-- Content Intelligence Engine: $1,500
-- Social Distribution (4 channels): $750
-- CRM Integration (GoHighLevel): $750
-- GA4 Feedback Loop: $500
+- Lead Scoring & Enrichment: $2,500
+- Outreach Automation: $2,000
+- Content Intelligence Engine: $2,000
+- Social Distribution (4 channels): $1,000
+- CRM Integration (any platform): $1,500
+- Attribution & Feedback Loop: $1,000
 
 Additional services:
 - Additional vertical: $3,500 each
@@ -218,7 +218,10 @@ Additional services:
 - Priority onboarding (2 weeks vs 4): $1,500
 - Extended training (4 sessions): $750
 
-Typical implementation ranges: Starter ~$5,750-$8,250, Growth ~$10,000-$15,000, Enterprise custom. Direct visitors to [the build calculator](/#build-calculator) to estimate their specific build.
+Typical implementation ranges: Growth ~$10,500-$14,000, Scale ~$14,000-$21,000, Enterprise custom. Direct visitors to [the build calculator](/#build-calculator) to estimate their specific build.
+
+### Target Market
+Built for $10M-$50M businesses that want enterprise-grade revenue intelligence without enterprise complexity. Not competing with Salesforce — built for companies that want a system that actually runs sales, operations, and marketing with full attribution. Mid-market pricing, enterprise-grade governance.
 
 ### Social Proof
 - 6 live verticals in production (licensing, events, fitness, apparel, professional services)
@@ -444,7 +447,7 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
-        max_tokens: 600,
+        max_tokens: 400,
         system: SYSTEM_PROMPT,
         messages,
       }),
