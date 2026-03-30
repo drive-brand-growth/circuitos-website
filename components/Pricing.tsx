@@ -77,7 +77,13 @@ export default function Pricing() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">Enterprise-grade. Mid-market pricing.</h2>
-          <p className="text-[#a1a1aa] text-lg">Built for $10M–$50M businesses that want real revenue intelligence — not another dashboard.</p>
+          <p className="text-[#a1a1aa] text-lg mb-6">Built for $10M–$50M businesses that want real revenue intelligence — not another dashboard.</p>
+          <a
+            href="/pilot"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-blue-500/50 bg-blue-500/10 text-blue-400 font-semibold text-sm hover:bg-blue-500/20 hover:border-blue-500 transition-all"
+          >
+            Start with a $1,500 Pilot — 50 leads, 30 days, prove the value first
+          </a>
         </motion.div>
 
         <motion.div
