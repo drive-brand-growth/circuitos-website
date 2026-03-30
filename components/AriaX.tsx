@@ -20,7 +20,7 @@ const fallbackKB: Record<string, string> = {
   'what is circuitos': 'CircuitOS is a pre-configured revenue intelligence platform. It scores leads, generates content, and automates outreach in a single closed-loop system — intelligent before your first lead arrives.',
   'pricing': 'Three tiers: **Growth** ($3,500/mo), **Scale** ($6,500/mo), **Enterprise** ($12,000/mo). Use our [build calculator](/#build-calculator) to estimate your implementation cost — full line-item transparency. [See pricing](/#pricing)',
   'demo': 'You can [book a demo here](/demo) — 30-minute personalized walkthrough with your business context. No commitment.',
-  'how': 'Five steps: Configure your ICP → Score every lead (72+ signals) → Route to the right channel → Engage with AI outreach → Learn from every outcome. [See how it works](/#how-it-works)',
+  'how': 'Three steps: Score every lead (72+ signals) → Decide autonomously or escalate to a human → Prove every action with a full audit trail. [See how it works](/#how-it-works)',
   'integration': 'Connects to any CRM (HubSpot, Salesforce, GoHighLevel, and more), email automation platforms, and Google Analytics 4 for closed-loop feedback. Plus Claude, Gemini, and Perplexity for content quality. REST API + webhooks for custom integrations.',
   'contact': 'Reach us at hello@usecircuitos.com or [book a demo](/demo). We respond within 24 hours.',
   'hello': "Hey! I'm Aria X, the CircuitOS concierge. I can help with anything about the platform — scoring, outreach, content, pricing. What are you looking into?",
