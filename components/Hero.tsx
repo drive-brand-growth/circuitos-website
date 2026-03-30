@@ -34,14 +34,15 @@ export default function Hero() {
           variants={fadeInUp}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold gradient-text mb-10 hero-headline"
         >
-          Revenue intelligence<br />that learns
+
+          Your revenue runs<br />while you sleep
         </motion.h1>
 
         <motion.p
           variants={fadeInUp}
           className="text-lg sm:text-xl md:text-2xl text-[#a1a1aa] max-w-2xl mx-auto mb-10 leading-[1.6]"
         >
-          One system that scores, routes, and engages — intelligent before your first lead arrives.
+          Every decision proven by morning. AI that scores leads, decides what to do, and shows its work.
         </motion.p>
 
         <motion.div

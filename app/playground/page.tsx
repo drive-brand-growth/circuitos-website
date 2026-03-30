@@ -1,6 +1,6 @@
 'use client'
 
-import { useReducer } from 'react'
+import { useReducer, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
@@ -114,6 +114,7 @@ const staggerContainer = {
 
 export default function PlaygroundPage() {
   const [state, dispatch] = useReducer(reducer, initialState)
+  const [showAdvanced, setShowAdvanced] = useState(false)
 
   const firedSignalIds = state.engine
     ? state.engine.firedSignals.map(f => f.signal.id)
@@ -192,35 +193,24 @@ export default function PlaygroundPage() {
                     </div>
                   </div>
 
-                  {/* Right column — scrolling visualizations */}
+                  {/* Right column — focused story: Score → Decide → Prove */}
                   <div className="lg:col-span-7 space-y-6">
+                    {/* SCORE — Conviction meter */}
                     <PosteriorMeter
                       posterior={state.engine.posterior}
                       logOdds={state.engine.logOdds}
                     />
 
-                    <SocialEnginePanel
-                      socialEnrichments={state.engine.socialEnrichments}
-                      latestSignalEngines={state.lastFiredEngines as any}
-                    />
-
-                    <QualificationBreakdown
-                      compositeScore={state.engine.compositeScore}
-                    />
-
+                    {/* DECIDE — Autonomy gate + DMN routing */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <VectorDisplay vector={state.engine.vector} />
-                      <TripleGate gates={state.engine.gates} />
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <DMNRouter route={state.engine.dmnRoute} />
                       <AutonomyPanel
                         posterior={state.engine.posterior}
                         compositeScore={state.engine.compositeScore.total}
                       />
+                      <DMNRouter route={state.engine.dmnRoute} />
                     </div>
 
+                    {/* PROVE — Decision trail */}
                     <DecisionTrailMini
                       firedSignals={state.engine.firedSignals}
                       dmnRoute={state.engine.dmnRoute}
@@ -228,20 +218,57 @@ export default function PlaygroundPage() {
                       posterior={state.engine.posterior}
                     />
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <DecayCurve
-                        posterior={state.engine.posterior}
-                        decayRate={state.engine.persona.decayRate}
-                        currentTime={state.engine.simulatedTimeHours}
-                      />
-                      <PulseIndicator
-                        pulseRate={state.engine.pulseRate}
-                        signals={state.engine.firedSignals}
-                        currentTime={state.engine.simulatedTimeHours}
-                      />
-                    </div>
+                    {/* Advanced toggle */}
+                    <button
+                      onClick={() => setShowAdvanced(!showAdvanced)}
+                      className="w-full flex items-center justify-center gap-2 py-3 text-sm text-[#71717a] hover:text-[#a1a1aa] border border-[#27272a] rounded-lg hover:bg-white/[0.02] transition-all"
+                    >
+                      {showAdvanced ? 'Hide' : 'Show'} Advanced Panels
+                      <svg
+                        className={`w-4 h-4 transition-transform ${showAdvanced ? 'rotate-180' : ''}`}
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
 
-                    <SignalFeed entries={state.engine.firedSignals} />
+                    {/* Advanced panels — hidden by default */}
+                    {showAdvanced && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        className="space-y-6"
+                      >
+                        <SocialEnginePanel
+                          socialEnrichments={state.engine.socialEnrichments}
+                          latestSignalEngines={state.lastFiredEngines as any}
+                        />
+
+                        <QualificationBreakdown
+                          compositeScore={state.engine.compositeScore}
+                        />
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                          <VectorDisplay vector={state.engine.vector} />
+                          <TripleGate gates={state.engine.gates} />
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                          <DecayCurve
+                            posterior={state.engine.posterior}
+                            decayRate={state.engine.persona.decayRate}
+                            currentTime={state.engine.simulatedTimeHours}
+                          />
+                          <PulseIndicator
+                            pulseRate={state.engine.pulseRate}
+                            signals={state.engine.firedSignals}
+                            currentTime={state.engine.simulatedTimeHours}
+                          />
+                        </div>
+
+                        <SignalFeed entries={state.engine.firedSignals} />
+                      </motion.div>
+                    )}
                   </div>
                 </div>
               </motion.div>
