@@ -10,6 +10,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Name and email are required' }, { status: 400 })
     }
 
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      return NextResponse.json({ error: 'Invalid email address' }, { status: 400 })
+    }
+
     const payload = {
       type: 'demo_request',
       name,
