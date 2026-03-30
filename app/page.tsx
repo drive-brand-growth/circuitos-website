@@ -5,7 +5,6 @@ import Platform from '@/components/Platform'
 import HowItWorks from '@/components/HowItWorks'
 import Capabilities from '@/components/Capabilities'
 import Pricing from '@/components/Pricing'
-import BuildCalculator from '@/components/BuildCalculator'
 import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
 
@@ -59,58 +58,18 @@ const faqJsonLd = {
     },
     {
       '@type': 'Question',
-      name: 'How does the closed-loop learning work?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'CircuitOS scores leads and content, tracks real outcomes (conversions, engagement, GA4 metrics), and feeds that data back into the scoring model. The system continuously improves its predictions based on actual results.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can CircuitOS handle multiple businesses?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. CircuitOS supports unlimited verticals with isolated infrastructure per client. Each business gets its own scoring model, templates, CRM routing, and database. Currently battle-tested across 6 live verticals.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is content published automatically?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'No. All content and outreach requires explicit human approval. CircuitOS has governance gates that ensure nothing publishes or sends without your sign-off. Every action has a full audit trail.',
-      },
-    },
-    {
-      '@type': 'Question',
       name: 'How does lead scoring work?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Your ICP and qualification criteria are encoded into the system before launch. Every incoming lead is scored across 72+ signals including fit, intent, and timing. The model ships pre-calibrated to your vertical so scoring is intelligent from day one.',
+        text: 'Your ICP and qualification criteria are encoded before launch. Every lead is scored across 72+ signals for fit, intent, and timing. Pre-calibrated to your vertical — intelligent from day one, no training period.',
       },
     },
     {
       '@type': 'Question',
-      name: 'What integrations does CircuitOS support?',
+      name: 'Is anything published or sent automatically?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS connects to any CRM (HubSpot, Salesforce, and more), email automation platforms, and Google Analytics 4 for closed-loop feedback. It also provides a full REST API and webhook support for custom integrations.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How is content quality ensured?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Every piece of content goes through a multi-step pipeline: generation, source verification, fact-checking, and multi-model quality evaluation covering readability, competitive uniqueness, and brand voice alignment. Nothing publishes without passing all gates.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What does the onboarding process look like?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Onboarding follows five steps: Configure (encode your ICP, criteria, brand voice, and demand patterns into the system), Score (activate the pre-calibrated scoring model), Route (set up CRM routing and outreach channels), Engage (launch automated sequences with approval gates), and Learn (connect GA4 feedback for continuous improvement).',
+        text: 'Confidence-based governance determines what the system handles autonomously and what gets escalated to a human. Every action has a full audit trail. Nothing irreversible happens without your approval.',
       },
     },
     {
@@ -118,31 +77,15 @@ const faqJsonLd = {
       name: 'How much does CircuitOS cost?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS offers three monthly tiers: Growth ($3,500/month), Scale ($6,500/month), and Enterprise ($12,000/month). Implementation is priced transparently with a line-item build calculator on the website — select the modules you need and see exactly what your build costs before your first call.',
+        text: 'Three monthly tiers: Growth ($3,500/month), Scale ($6,500/month), and Enterprise ($12,000/month). One-time implementation fee covers platform setup, ICP encoding, and integrations.',
       },
     },
     {
       '@type': 'Question',
-      name: 'What industries does CircuitOS work for?',
+      name: 'Can I see a demo?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS is vertical-agnostic. Each deployment is configured for the specific industry, ICP, and demand patterns of the business. Current live deployments span licensing, events, fitness, apparel, and professional services.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is my data isolated from other clients?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. Every vertical runs in its own containerized stack with a dedicated database, scoring model, and workflow configuration. No data is shared between verticals or clients.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can I see a demo before committing?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. Request a demo at usecircuitos.com/demo and we will walk you through the entire pipeline using your business context — including live scoring, content intelligence, and outreach configuration. No commitment required.',
+        text: 'Yes. Try the interactive playground at usecircuitos.com/playground or request a personalized walkthrough at usecircuitos.com/demo. No commitment required.',
       },
     },
   ],
@@ -152,37 +95,25 @@ const howToJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
   name: 'How CircuitOS Works',
-  description: 'Five steps to predictable revenue with CircuitOS.',
+  description: 'Three steps to governed revenue intelligence with CircuitOS.',
   step: [
     {
       '@type': 'HowToStep',
       position: 1,
-      name: 'Configure',
-      text: 'Encode your ICP, qualification criteria, brand voice, and demand patterns into the system.',
+      name: 'Score',
+      text: 'Every lead evaluated across 72+ signals for fit, intent, and timing. Pre-calibrated to your vertical — intelligent from day one.',
     },
     {
       '@type': 'HowToStep',
       position: 2,
-      name: 'Score',
-      text: 'Every lead is scored across 72+ signals for fit, intent, and timing using the pre-calibrated model.',
+      name: 'Decide',
+      text: 'Confidence thresholds determine autonomous execution vs. human escalation. High confidence: execute. Low confidence: ask a human. Every action governed.',
     },
     {
       '@type': 'HowToStep',
       position: 3,
-      name: 'Route',
-      text: 'Qualified leads are routed to the right channel with the right message automatically.',
-    },
-    {
-      '@type': 'HowToStep',
-      position: 4,
-      name: 'Engage',
-      text: 'Personalized outreach sequences launch with human approval gates before anything sends.',
-    },
-    {
-      '@type': 'HowToStep',
-      position: 5,
-      name: 'Learn',
-      text: 'Real outcomes feed back into the model. Every conversion, reply, and engagement makes the next prediction better.',
+      name: 'Prove',
+      text: 'Full audit trail on every score, every gate evaluation, every routing decision. Outcomes feed back to improve the next cycle.',
     },
   ],
 }
@@ -212,7 +143,6 @@ export default function Home() {
       <HowItWorks />
       <Capabilities />
       <Pricing />
-      <BuildCalculator />
       <ContactForm />
       <Footer />
     </main>

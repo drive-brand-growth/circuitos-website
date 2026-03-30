@@ -9,7 +9,7 @@ export default function Footer() {
               <span className="text-blue-500">//</span> Circuit<span className="text-blue-500">OS</span>
             </span>
             <p className="text-sm text-[#71717a] mt-2 leading-relaxed">
-              Revenue intelligence that learns.
+              Score. Decide. Prove.
             </p>
           </div>
 
