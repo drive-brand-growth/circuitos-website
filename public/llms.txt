@@ -37,7 +37,7 @@ Monthly plans:
 Implementation (one-time build fee) — transparent, line-item pricing:
 - Core: Platform Provisioning ($2,500) + ICP Encoding ($2,000) = $4,500 base
 - Modules: Lead Scoring ($2,500), Outreach Automation ($2,000), Content Intelligence ($2,000), Social Distribution ($1,000), CRM Integration ($1,500), Attribution & Feedback Loop ($1,000)
-- Add-ons: Additional verticals ($3,500 each), data migration ($500/source), custom API integrations ($1,000 each), priority onboarding ($1,500), extended training ($750)
+- Add-ons: Additional verticals ($3,500 each), data migration ($500/source), custom API integrations ($1,000 each), extended training ($750)
 - Interactive build calculator: https://usecircuitos.com/#build-calculator
 
 ## Company
@@ -72,7 +72,7 @@ Q: Is content published automatically?
 A: No. All content and outreach requires explicit human approval. Every action has a full audit trail with confidence scoring and escalation reasoning.
 
 Q: What CRMs are supported?
-A: CircuitOS connects to any CRM — HubSpot, Salesforce, GoHighLevel, and more via native adapters or REST API/webhooks.
+A: CircuitOS connects to any CRM — HubSpot, Salesforce, and more via native adapters or REST API/webhooks.
 
 Q: How does the feedback loop work?
 A: Real engagement data from GA4 (time-on-page, conversions, bounce rate, scroll depth) feeds back into the scoring model automatically. Each cycle makes predictions more accurate.
