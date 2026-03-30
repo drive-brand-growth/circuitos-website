@@ -104,14 +104,6 @@ const defaultAddOns: AddOn[] = [
     max: 5,
   },
   {
-    id: 'priority',
-    name: 'Priority Onboarding',
-    description: 'Accelerate to 2 weeks instead of 4 — add-on to your implementation build',
-    price: 1500,
-    quantity: 0,
-    max: 1,
-  },
-  {
     id: 'training',
     name: 'Extended Training',
     description: '4 additional hands-on sessions for your team (beyond standard onboarding)',
