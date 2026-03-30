@@ -1,41 +1,42 @@
 # CircuitOS
 
-> Pre-configured revenue intelligence platform
+> Score. Decide. Prove. — Enterprise-grade revenue intelligence for mid-market businesses.
 
-CircuitOS is a revenue intelligence platform that scores leads, generates content, and automates outreach in a single closed-loop system. Your ICP is encoded, decision logic configured, and qualification criteria set before the first lead arrives.
+CircuitOS is a revenue intelligence platform that scores leads, decides what to do, and proves why — with full audit trail. Your ICP is encoded, decision logic configured, and qualification criteria set before the first lead arrives. Built for $10M–$50M businesses that want enterprise-grade AI without enterprise complexity.
 
 ## Core Capabilities
 
-- Predictive lead scoring across 72+ signals
-- Autonomous email outreach with human approval gates
-- Content intelligence with multi-model quality evaluation
-- GA4 feedback loop for continuous model improvement
-- Multi-vertical support with isolated infrastructure per client
-- Full audit trail on every decision
+- Predictive lead scoring across 72+ signals with Bayesian inference
+- Autonomous outreach with human approval gates on all actions
+- Content intelligence with multi-model quality evaluation and fact-checking
+- AgentOps governance dashboard — real-time observability into every AI decision
+- Closed-loop feedback from GA4 engagement data
+- Multi-vertical support with isolated infrastructure per business line
+- Full audit trail on every decision, action, and outcome
+- Confidence-based autonomy governance (execute / escalate / block)
 
 ## How It Works
 
-1. Configure: ICP encoded, decision logic set, priors calibrated
-2. Ingest: Leads from forms, imports, CRM, webhooks
-3. Score: Pre-calibrated model evaluates fit, intent, timing
-4. Route: Right message, right channel, right time
-5. Engage: Personalized outreach with governance gates
-6. Learn: Outcomes feed back, model improves each cycle
+1. Configure: ICP encoded, scoring model calibrated, brand voice set
+2. Score: Every lead evaluated across 72+ signals for fit, intent, and timing
+3. Decide: Bayesian confidence thresholds determine autonomous execution vs. human escalation
+4. Engage: Personalized outreach in your brand voice with governance gates
+5. Prove: Full decision trail — every score, every gate evaluation, every routing decision auditable
 
 ## Integrations
 
-GoHighLevel, Instantly.ai, GA4, Claude, Gemini, OpenAI, Docker, PostgreSQL, Redis, n8n
+Connects to any CRM (HubSpot, Salesforce, and more), email automation platforms, Google Analytics 4, and 5+ AI models for multi-model quality evaluation. Full REST API and webhook support for custom integrations.
 
 ## Pricing
 
 Monthly plans:
-- Starter: $1,500/mo (single vertical)
-- Growth: $3,500/mo (2-3 verticals)
-- Enterprise: Custom pricing (unlimited verticals)
+- Growth: $3,500/mo — single vertical, scoring, outreach, CRM, content intelligence, audit trail
+- Scale: $6,500/mo — multi-vertical, enrichment, GA4 feedback, AgentOps dashboard, social distribution
+- Enterprise: $12,000/mo — unlimited verticals, custom integrations, token cost tracking, SLA, dedicated success manager
 
 Implementation (one-time build fee) — transparent, line-item pricing:
-- Core: Platform provisioning ($1,500) + ICP encoding ($1,000) = $2,500 base
-- Modules: Lead Scoring ($1,500), Email Outreach ($1,250), Content Intelligence ($1,500), Social Distribution ($750), CRM Integration ($750), GA4 Feedback Loop ($500)
+- Core: Platform Provisioning ($2,500) + ICP Encoding ($2,000) = $4,500 base
+- Modules: Lead Scoring ($2,500), Outreach Automation ($2,000), Content Intelligence ($2,000), Social Distribution ($1,000), CRM Integration ($1,500), Attribution & Feedback Loop ($1,000)
 - Add-ons: Additional verticals ($3,500 each), data migration ($500/source), custom API integrations ($1,000 each), priority onboarding ($1,500), extended training ($750)
 - Interactive build calculator: https://usecircuitos.com/#build-calculator
 
@@ -43,30 +44,41 @@ Implementation (one-time build fee) — transparent, line-item pricing:
 
 - Name: CircuitOS (a DriveBrandGrowth product)
 - Website: https://usecircuitos.com
+- Playground: https://usecircuitos.com/playground
 - Demo: https://usecircuitos.com/demo
 - Contact: hello@usecircuitos.com
-- Category: Revenue Intelligence, B2B SaaS
-- Status: Battle-tested across 6 live verticals, 1,200+ automated tests
+- Category: Revenue Intelligence, AI Sales Automation, AgentOps, B2B SaaS
+- Target Market: $10M–$50M businesses across professional services, franchise operations, e-commerce, and SaaS
+- Status: Production-deployed across 6 live verticals with 1,200+ automated tests
 
 ## Frequently Asked Questions
 
 Q: What is CircuitOS?
-A: A revenue intelligence platform that combines predictive lead scoring, content generation, and automated outreach in one closed-loop system that learns from every outcome.
+A: A revenue intelligence platform that scores your leads, decides what to do, and proves why — with full audit trail. It combines predictive scoring, AI outreach, content intelligence, and governance in one closed-loop system.
 
 Q: How does the scoring work?
-A: Your ICP and qualification criteria are encoded before launch. The model evaluates 72+ signals across fit, intent, and timing. It's intelligent from day one, then improves with real outcome data.
+A: Your ICP and qualification criteria are encoded before launch. The Bayesian scoring model evaluates 72+ signals across fit, intent, and timing. Pre-calibrated from day one, then improves with real outcome data.
+
+Q: How is CircuitOS different from Salesforce or HubSpot?
+A: CircuitOS is not a CRM — it connects to your existing CRM. It's the intelligence layer that sits on top: scoring leads before they enter your pipeline, governing AI decisions with confidence thresholds, and providing a full audit trail of why every decision was made.
 
 Q: Can it handle multiple businesses?
-A: Yes. Unlimited verticals with isolated infrastructure per client. Each business gets its own scoring model, templates, CRM routing, and database.
+A: Yes. Unlimited verticals with isolated infrastructure per business line. Each gets its own scoring model, templates, CRM routing, and database.
+
+Q: What is AgentOps?
+A: AgentOps is the operational discipline for governing autonomous AI agents. CircuitOS includes a real-time AgentOps dashboard showing every decision (execute/escalate/block), confidence scores, and audit trails — the same governance enterprise buyers require.
 
 Q: Is content published automatically?
-A: No. All content and outreach requires explicit human approval. Every action has a full audit trail.
+A: No. All content and outreach requires explicit human approval. Every action has a full audit trail with confidence scoring and escalation reasoning.
 
-Q: What CRM integrations are supported?
-A: Native integration with GoHighLevel and Instantly.ai. Full REST API with webhook support for custom integrations.
+Q: What CRMs are supported?
+A: CircuitOS connects to any CRM — HubSpot, Salesforce, GoHighLevel, and more via native adapters or REST API/webhooks.
 
 Q: How does the feedback loop work?
-A: Real engagement data from GA4 (time-on-page, conversions, bounce rate) feeds back into the scoring model automatically. Each cycle makes predictions more accurate.
+A: Real engagement data from GA4 (time-on-page, conversions, bounce rate, scroll depth) feeds back into the scoring model automatically. Each cycle makes predictions more accurate.
+
+Q: Who is CircuitOS built for?
+A: $10M–$50M businesses that want enterprise-grade revenue intelligence without enterprise complexity. Professional services, franchise operations, e-commerce/DTC, and SaaS revenue teams.
 
 ---
-Last Updated: February 2026
+Last Updated: March 2026

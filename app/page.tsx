@@ -21,8 +21,8 @@ const jsonLd = {
   offers: {
     '@type': 'AggregateOffer',
     priceCurrency: 'USD',
-    lowPrice: '1500',
-    highPrice: '7500',
+    lowPrice: '3500',
+    highPrice: '12000',
     offerCount: 3,
     availability: 'https://schema.org/OnlineOnly',
   },
@@ -94,7 +94,7 @@ const faqJsonLd = {
       name: 'What integrations does CircuitOS support?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS integrates natively with GoHighLevel (CRM), Instantly.ai (email outreach), and Google Analytics 4 (feedback loop). It also provides a full REST API and webhook support for custom integrations.',
+        text: 'CircuitOS connects to any CRM (HubSpot, Salesforce, and more), email automation platforms, and Google Analytics 4 for closed-loop feedback. It also provides a full REST API and webhook support for custom integrations.',
       },
     },
     {

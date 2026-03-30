@@ -469,11 +469,11 @@ export async function POST(req: NextRequest) {
     // Infer lead tier from full conversation
     const fullConvo = [...history.map(m => m.content), message].join(' ').toLowerCase()
     let lead_tier = 'awareness'
-    if (/demo|book|get started|implement|onboard|sign up|trial|team size|budget|replace|switch|migrate/.test(fullConvo)) {
+    if (/demo|book|get started|implement|onboard|sign up|trial|team size|budget|replace|switch|migrate|automate|deploy|launch|go live/.test(fullConvo)) {
       lead_tier = 'qualified'
-    } else if (/pric|cost|how much|compar|budget|roi|timeline|compet|vs |versus|alternative/.test(fullConvo)) {
+    } else if (/pric|cost|how much|compar|budget|roi|timeline|compet|vs |versus|alternative|\$\d|revenue|leads per|pipeline|firm|company size/.test(fullConvo)) {
       lead_tier = 'hot'
-    } else if (/scor|outreach|content|integrat|feature|how does|crm|email|vertical|enrich|feedback|govern|multi/.test(fullConvo)) {
+    } else if (/scor|outreach|content|integrat|feature|how does|crm|email|vertical|enrich|feedback|govern|multi|attribution|analytics/.test(fullConvo)) {
       lead_tier = 'warm'
     }
 
