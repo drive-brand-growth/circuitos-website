@@ -43,8 +43,8 @@ function PerplexityLogo() {
 }
 
 const integrations = [
-  { name: 'GoHighLevel', icon: null },
-  { name: 'Instantly', icon: null },
+  { name: 'Any CRM', icon: null },
+  { name: 'Email Automation', icon: null },
   { name: 'Google Analytics', icon: GoogleAnalyticsLogo },
   { name: 'Claude', icon: AnthropicLogo },
   { name: 'Gemini', icon: GeminiLogo },

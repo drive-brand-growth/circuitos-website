@@ -14,33 +14,34 @@ const staggerContainer = {
 
 const plans = [
   {
-    name: 'Starter',
-    monthly: '$1,500',
-    desc: 'For brands launching their first automated revenue engine',
-    cta: 'Book a Demo',
+    name: 'Growth',
+    monthly: '$3,500',
+    desc: 'For revenue teams ready to automate scoring, outreach, and attribution across one business line',
+    cta: 'See It In Action',
     features: [
       'Predictive lead scoring (72+ signals)',
       'Pre-calibrated to your ICP from day one',
-      'Automated email sequences in your brand voice',
-      'CRM integration (GoHighLevel)',
-      'Human approval gates on all outreach',
+      'Automated outreach in your brand voice',
+      'CRM integration (any platform)',
+      'Human approval gates on all actions',
       'Content intelligence engine',
       'Full audit trail on every decision',
       'Email & chat support',
     ],
   },
   {
-    name: 'Growth',
-    monthly: '$3,500',
-    desc: 'For brands scaling across multiple business lines',
-    cta: 'Book a Demo',
+    name: 'Scale',
+    monthly: '$6,500',
+    desc: 'For companies running multiple revenue lines that need isolated scoring, attribution, and governance',
+    cta: 'See It In Action',
     features: [
-      'Everything in Starter',
-      'Multi-source lead enrichment',
-      'AI blog & social media generation',
-      'GA4 closed-loop performance feedback',
-      'Isolated infrastructure per vertical',
+      'Everything in Growth',
       'Multi-vertical scoring models',
+      'Isolated infrastructure per business line',
+      'Multi-source lead enrichment',
+      'AI content generation with fact-checking',
+      'Closed-loop performance feedback (GA4)',
+      'AgentOps governance dashboard',
       'Automated social distribution (4 channels)',
       'Priority support & quarterly reviews',
     ],
@@ -48,17 +49,18 @@ const plans = [
   },
   {
     name: 'Enterprise',
-    monthly: 'Custom',
-    desc: 'For organizations with complex, multi-brand operations',
-    cta: 'Contact Sales',
+    monthly: '$12,000',
+    desc: 'For organizations with complex operations that need full autonomy governance, custom integrations, and SLA',
+    cta: 'Contact Us',
     features: [
-      'Everything in Growth',
+      'Everything in Scale',
       'Unlimited vertical stacks',
-      'Custom integrations & API access',
+      'Custom CRM & API integrations',
       'Dedicated infrastructure',
       'Compliance & governance package',
+      'Token cost tracking & attribution',
       'Dedicated success manager',
-      'Custom AI model training',
+      'Custom model calibration',
       'SLA & uptime guarantees',
     ],
   },
@@ -74,8 +76,9 @@ export default function Pricing() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">Plans that scale with your business</h2>
-          <p className="text-[#a1a1aa] text-lg mb-5">One-time implementation fee applies</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">Enterprise-grade. Mid-market pricing.</h2>
+          <p className="text-[#a1a1aa] text-lg mb-2">Built for $10M–$50M businesses that want real revenue intelligence — not another dashboard.</p>
+          <p className="text-[#71717a] text-sm mb-5">One-time implementation fee applies. See the build calculator below.</p>
           <a
             href="#build-calculator"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-blue-500/50 bg-blue-500/10 text-blue-400 font-semibold text-sm hover:bg-blue-500/20 hover:border-blue-500 transition-all"
@@ -117,7 +120,7 @@ export default function Pricing() {
                 ))}
               </ul>
               <a
-                href="/demo"
+                href={plan.name === 'Enterprise' ? '/demo' : '/playground'}
                 className={`block text-center mt-10 py-3 rounded-lg font-semibold transition-all ${
                   plan.popular ? 'btn-primary text-white' : 'border border-[#27272a] hover:bg-white/5'
                 }`}

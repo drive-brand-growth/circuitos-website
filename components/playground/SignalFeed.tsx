@@ -60,7 +60,7 @@ export default function SignalFeed({ entries }: SignalFeedProps) {
               </span>
               <span className="text-[#71717a]">&rarr;</span>
               <span className={posteriorUp ? 'text-green-400' : 'text-red-400'}>
-                P={entry.posteriorAfter.toFixed(4)}
+                C={entry.posteriorAfter.toFixed(4)}
               </span>
               {primaryEngine && (
                 <span style={{ color: getEngineColor(primaryEngine) }}>

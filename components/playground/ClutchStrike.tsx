@@ -85,7 +85,7 @@ export default function ClutchStrike({
               <div className="font-mono text-3xl font-bold text-[#eab308]">
                 {posterior.toFixed(4)}
               </div>
-              <div className="text-xs text-[#a1a1aa] mt-1">Posterior</div>
+              <div className="text-xs text-[#a1a1aa] mt-1">Conviction</div>
             </div>
             <div>
               <div className="font-mono text-3xl font-bold text-[#eab308]">
@@ -122,16 +122,26 @@ export default function ClutchStrike({
             ))}
           </motion.div>
 
-          {/* Continue button */}
-          <motion.button
-            onClick={onDismiss}
-            className="btn-primary px-8 py-3 rounded-lg text-white font-medium"
+          {/* Action buttons */}
+          <motion.div
+            className="flex flex-col sm:flex-row items-center gap-3"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: delay ?? 3.2, duration: prefersReducedMotion ? 0 : 0.4 }}
           >
-            Continue
-          </motion.button>
+            <button
+              onClick={onDismiss}
+              className="btn-primary px-8 py-3 rounded-lg text-white font-medium"
+            >
+              Continue
+            </button>
+            <a
+              href="/demo"
+              className="px-8 py-3 rounded-lg text-sm font-medium text-blue-400 border border-blue-500/30 hover:bg-blue-500/10 transition-colors"
+            >
+              Explore AgentOps Dashboard &rarr;
+            </a>
+          </motion.div>
         </div>
       </motion.div>
     </AnimatePresence>

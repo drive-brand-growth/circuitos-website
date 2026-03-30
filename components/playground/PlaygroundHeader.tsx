@@ -14,7 +14,7 @@ export default function PlaygroundHeader({ persona, onReset }: PlaygroundHeaderP
         Revenue Physics Playground
       </h1>
       <p className="text-[#a1a1aa] text-sm md:text-base">
-        Interactive Bayesian scoring engine with social intelligence
+        Score. Decide. Prove. — Interactive revenue intelligence engine
       </p>
 
       {persona && (

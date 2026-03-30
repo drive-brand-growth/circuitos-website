@@ -18,10 +18,10 @@ interface LeadInfo {
 // Local fallback knowledge for when API is unavailable
 const fallbackKB: Record<string, string> = {
   'what is circuitos': 'CircuitOS is a pre-configured revenue intelligence platform. It scores leads, generates content, and automates outreach in a single closed-loop system — intelligent before your first lead arrives.',
-  'pricing': 'Three tiers: **Starter** ($1,500/mo), **Growth** ($3,500/mo), **Enterprise** (custom). Use our [build calculator](/#build-calculator) to estimate your implementation cost — full line-item transparency. [See pricing](/#pricing)',
+  'pricing': 'Three tiers: **Growth** ($3,500/mo), **Scale** ($6,500/mo), **Enterprise** ($12,000/mo). Use our [build calculator](/#build-calculator) to estimate your implementation cost — full line-item transparency. [See pricing](/#pricing)',
   'demo': 'You can [book a demo here](/demo) — 30-minute personalized walkthrough with your business context. No commitment.',
   'how': 'Five steps: Configure your ICP → Score every lead (72+ signals) → Route to the right channel → Engage with AI outreach → Learn from every outcome. [See how it works](/#how-it-works)',
-  'integration': 'Native integrations: GoHighLevel (CRM), Instantly.ai (email outreach), Google Analytics 4 (feedback loop). Plus Claude, Gemini, Perplexity for content quality. REST API + webhooks for custom.',
+  'integration': 'Connects to any CRM (HubSpot, Salesforce, GoHighLevel, and more), email automation platforms, and Google Analytics 4 for closed-loop feedback. Plus Claude, Gemini, and Perplexity for content quality. REST API + webhooks for custom integrations.',
   'contact': 'Reach us at hello@usecircuitos.com or [book a demo](/demo). We respond within 24 hours.',
   'hello': "Hey! I'm Aria X, the CircuitOS concierge. I can help with anything about the platform — scoring, outreach, content, pricing. What are you looking into?",
 }

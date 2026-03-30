@@ -21,7 +21,7 @@ export default function PosteriorMeter({ posterior, logOdds }: PosteriorMeterPro
   return (
     <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl p-6">
       <div className="flex items-baseline justify-between mb-4">
-        <h3 className="text-sm font-medium text-[#a1a1aa]">Posterior Probability</h3>
+        <h3 className="text-sm font-medium text-[#a1a1aa]">Conviction Score</h3>
         <span
           className="font-mono text-4xl font-bold"
           style={{ color }}

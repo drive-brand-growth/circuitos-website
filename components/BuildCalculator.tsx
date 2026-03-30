@@ -33,14 +33,14 @@ const coreModules: Module[] = [
     id: 'provisioning',
     name: 'Platform Provisioning',
     description: 'Dedicated infrastructure, database, Docker stack, and CI/CD pipeline',
-    price: 1500,
+    price: 2500,
     included: true,
   },
   {
     id: 'icp',
     name: 'ICP Encoding & Calibration',
     description: 'Your ideal customer profile, qualification criteria, and decision logic configured into the scoring model',
-    price: 1000,
+    price: 2000,
     included: true,
   },
 ]
@@ -50,37 +50,37 @@ const featureModules: Module[] = [
     id: 'scoring',
     name: 'Lead Scoring & Enrichment',
     description: 'Predictive scoring across 72+ signals with multi-source enrichment',
-    price: 1500,
+    price: 2500,
   },
   {
     id: 'outreach',
-    name: 'Email Outreach Automation',
+    name: 'Outreach Automation',
     description: 'AI-generated sequences in your brand voice with governance gates',
-    price: 1250,
+    price: 2000,
   },
   {
     id: 'content',
     name: 'Content Intelligence Engine',
-    description: 'AI blog generation, fact-checking, multi-model quality scoring',
-    price: 1500,
+    description: 'AI content generation, fact-checking, multi-model quality scoring',
+    price: 2000,
   },
   {
     id: 'social',
     name: 'Social Distribution',
-    description: 'Automated distribution to 4 channels (Facebook, Instagram, X, Google Business)',
-    price: 750,
+    description: 'Automated distribution to 4 channels with attribution tracking',
+    price: 1000,
   },
   {
     id: 'crm',
     name: 'CRM Integration',
-    description: 'GoHighLevel setup, contact sync, pipeline automation, booking flows',
-    price: 750,
+    description: 'Connect your CRM — contact sync, pipeline automation, booking flows',
+    price: 1500,
   },
   {
     id: 'analytics',
-    name: 'GA4 Feedback Loop',
+    name: 'Attribution & Feedback Loop',
     description: 'Closed-loop performance tracking — engagement data feeds back into the model',
-    price: 500,
+    price: 1000,
   },
 ]
 
@@ -177,14 +177,14 @@ export default function BuildCalculator() {
     const total = coreTotal + featureTotal + verticalCost + addOnTotal
 
     // Recommend a monthly tier
-    let recommendedPlan = 'Starter'
-    let monthlyPrice = 1500
+    let recommendedPlan = 'Growth'
+    let monthlyPrice = 3500
     if (verticalCount >= 4 || selectedModules.size >= 5) {
       recommendedPlan = 'Enterprise'
-      monthlyPrice = 0 // Custom
+      monthlyPrice = 12000
     } else if (verticalCount >= 2 || selectedModules.has('content') || selectedModules.has('analytics')) {
-      recommendedPlan = 'Growth'
-      monthlyPrice = 3500
+      recommendedPlan = 'Scale'
+      monthlyPrice = 6500
     }
 
     return {

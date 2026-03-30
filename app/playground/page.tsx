@@ -19,6 +19,8 @@ import DecayCurve from '@/components/playground/DecayCurve'
 import PulseIndicator from '@/components/playground/PulseIndicator'
 import SignalFeed from '@/components/playground/SignalFeed'
 import ClutchStrike from '@/components/playground/ClutchStrike'
+import AutonomyPanel from '@/components/playground/AutonomyPanel'
+import DecisionTrailMini from '@/components/playground/DecisionTrailMini'
 import {
   type PersonaId,
   type EngineState,
@@ -211,7 +213,20 @@ export default function PlaygroundPage() {
                       <TripleGate gates={state.engine.gates} />
                     </div>
 
-                    <DMNRouter route={state.engine.dmnRoute} />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <DMNRouter route={state.engine.dmnRoute} />
+                      <AutonomyPanel
+                        posterior={state.engine.posterior}
+                        compositeScore={state.engine.compositeScore.total}
+                      />
+                    </div>
+
+                    <DecisionTrailMini
+                      firedSignals={state.engine.firedSignals}
+                      dmnRoute={state.engine.dmnRoute}
+                      gates={state.engine.gates}
+                      posterior={state.engine.posterior}
+                    />
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <DecayCurve
