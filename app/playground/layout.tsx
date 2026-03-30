@@ -2,11 +2,17 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Revenue Physics Playground',
-  description: 'Interactive Bayesian scoring engine with social intelligence, DMN routing, and real-time lead qualification. See how CircuitOS evaluates leads in real-time.',
+  description: 'Interactive scoring engine — fire signals, watch conviction scores update, see autonomous decisions in real-time. Score. Decide. Prove.',
   openGraph: {
     title: 'Revenue Physics Playground | CircuitOS',
-    description: 'Interactive Bayesian scoring engine — fire signals, watch scores update, see DMN routing in real-time.',
+    description: 'Interactive scoring engine — fire signals, watch conviction scores update, see autonomous decisions in real-time.',
+    url: 'https://usecircuitos.com/playground',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Revenue Physics Playground | CircuitOS',
+    description: 'Interactive scoring engine — fire signals, watch conviction scores update, see autonomous decisions in real-time.',
   },
   alternates: { canonical: 'https://usecircuitos.com/playground' },
 }

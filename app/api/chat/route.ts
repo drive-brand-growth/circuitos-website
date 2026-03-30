@@ -190,7 +190,7 @@ CircuitOS is a pre-configured revenue intelligence platform that scores leads, g
 - Feedback Loop: GA4 data (time-on-page, bounce rate, conversions, scroll depth) feeds back continuously
 
 ### Integrations
-Connects to any CRM (HubSpot, Salesforce, GoHighLevel, and more), email automation platforms, Google Analytics 4 (feedback loop), Claude, Gemini, Perplexity (multi-model quality), Docker, PostgreSQL, Redis, workflow automation, REST API + webhooks
+Connects to any CRM (HubSpot, Salesforce, and more), email automation platforms, and Google Analytics 4 for closed-loop feedback. Multi-model AI evaluation for scoring and content quality. Containerized infrastructure (Docker, PostgreSQL, Redis). Workflow automation engine. Full REST API + webhooks for custom integrations.
 
 ### Pricing
 - Growth ($3,500/mo): Single vertical. Scoring, outreach, CRM integration, content intelligence, audit trail, support

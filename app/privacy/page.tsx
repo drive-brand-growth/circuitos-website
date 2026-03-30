@@ -5,6 +5,16 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Privacy Policy - CircuitOS',
   description: 'CircuitOS privacy policy. How we collect, use, and protect your information.',
+  openGraph: {
+    title: 'Privacy Policy | CircuitOS',
+    description: 'How CircuitOS collects, uses, and protects your information.',
+    url: 'https://usecircuitos.com/privacy',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Privacy Policy | CircuitOS',
+    description: 'How CircuitOS collects, uses, and protects your information.',
+  },
   alternates: { canonical: 'https://usecircuitos.com/privacy' },
 }
 

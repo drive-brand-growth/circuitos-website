@@ -5,6 +5,16 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Terms of Service - CircuitOS',
   description: 'CircuitOS terms of service. Terms and conditions for using our platform and services.',
+  openGraph: {
+    title: 'Terms of Service | CircuitOS',
+    description: 'Terms and conditions for using the CircuitOS platform.',
+    url: 'https://usecircuitos.com/terms',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Terms of Service | CircuitOS',
+    description: 'Terms and conditions for using the CircuitOS platform.',
+  },
   alternates: { canonical: 'https://usecircuitos.com/terms' },
 }
 

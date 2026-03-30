@@ -2,10 +2,16 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Demo - See CircuitOS In Action',
-  description: 'Interactive walkthrough of CircuitOS lead scoring and content intelligence pipelines. See how AI scores leads across 72+ signals and generates quality-assured content.',
+  description: 'See how CircuitOS scores leads across 72+ signals, makes autonomous decisions with governance, and proves every action with a full audit trail.',
   openGraph: {
     title: 'Demo - See CircuitOS In Action',
-    description: 'Interactive walkthrough of the CircuitOS scoring and content intelligence pipelines.',
+    description: 'See how CircuitOS scores leads, makes autonomous decisions, and proves every action with a full audit trail.',
+    url: 'https://usecircuitos.com/demo',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Demo - See CircuitOS In Action',
+    description: 'See how CircuitOS scores leads, makes autonomous decisions, and proves every action with a full audit trail.',
   },
   alternates: { canonical: 'https://usecircuitos.com/demo' },
 }

@@ -66,15 +66,42 @@ export const metadata: Metadata = {
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'DriveBrandGrowth',
-  url: 'https://drivebrandgrowth.com',
+  '@id': 'https://usecircuitos.com/#organization',
+  name: 'CircuitOS',
+  legalName: 'DriveBrandGrowth LLC',
+  url: 'https://usecircuitos.com',
   logo: 'https://usecircuitos.com/circuitos-logo-full.svg',
+  description: 'Enterprise-grade revenue intelligence platform for mid-market B2B companies. Predictive lead scoring, autonomous outreach, and closed-loop learning.',
+  founder: {
+    '@type': 'Person',
+    name: 'Noel Pena',
+    jobTitle: 'Founder & CEO',
+  },
   contactPoint: {
     '@type': 'ContactPoint',
     email: 'hello@usecircuitos.com',
     contactType: 'sales',
   },
+  parentOrganization: {
+    '@type': 'Organization',
+    name: 'DriveBrandGrowth',
+    url: 'https://drivebrandgrowth.com',
+  },
   sameAs: [],
+}
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://usecircuitos.com/#website',
+  name: 'CircuitOS',
+  url: 'https://usecircuitos.com',
+  publisher: { '@id': 'https://usecircuitos.com/#organization' },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://usecircuitos.com/?q={search_term_string}',
+    'query-input': 'required name=search_term_string',
+  },
 }
 
 export default function RootLayout({
@@ -90,6 +117,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
       <body className="antialiased overflow-x-hidden">
