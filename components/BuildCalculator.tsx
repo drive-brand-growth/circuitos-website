@@ -106,7 +106,7 @@ const defaultAddOns: AddOn[] = [
   {
     id: 'priority',
     name: 'Priority Onboarding',
-    description: 'Go live in 2 weeks instead of 4 — dedicated implementation sprint',
+    description: 'Accelerate to 2 weeks instead of 4 — add-on to your implementation build',
     price: 1500,
     quantity: 0,
     max: 1,

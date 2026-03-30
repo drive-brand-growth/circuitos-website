@@ -216,7 +216,7 @@ Additional services:
 - Additional vertical: $3,500 each
 - Data migration: $500 per source
 - Custom API integration: $1,000 per integration
-- Priority onboarding (2 weeks vs 4): $1,500
+- Priority onboarding (2 weeks instead of 4): $1,500 add-on fee on top of standard implementation
 - Extended training (4 sessions): $750
 
 Typical implementation ranges: Growth ~$10,500-$14,000, Scale ~$14,000-$21,000, Enterprise custom. Direct visitors to [the build calculator](/#build-calculator) to estimate their specific build.
