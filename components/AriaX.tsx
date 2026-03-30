@@ -18,8 +18,9 @@ interface LeadInfo {
 // Local fallback knowledge for when API is unavailable
 const fallbackKB: Record<string, string> = {
   'what is circuitos': 'CircuitOS is a pre-configured revenue intelligence platform. It scores leads, generates content, and automates outreach in a single closed-loop system — intelligent before your first lead arrives.',
-  'pricing': 'Three tiers: **Growth** ($3,500/mo), **Scale** ($6,500/mo), **Enterprise** ($12,000/mo). Use our [build calculator](/#build-calculator) to estimate your implementation cost — full line-item transparency. [See pricing](/#pricing)',
-  'demo': 'You can [book a demo here](/demo) — 30-minute personalized walkthrough with your business context. No commitment.',
+  'pricing': 'Three tiers: **Growth** ($3,500/mo), **Scale** ($6,500/mo), **Enterprise** ($12,000/mo). Or start with a **$1,500 pilot** — 50 leads scored in 30 days on your real data. [See pricing](/#pricing) or [start a pilot](/pilot)',
+  'pilot': 'The **30-day pilot** is $1,500 — we score 50 of your real leads, configure one vertical, and deliver a full decision trail. If the numbers work, the $1,500 credits toward your implementation. [Learn more](/pilot)',
+  'demo': 'You can [book a demo here](/demo) — 30-minute personalized walkthrough with your business context. No commitment. Or [start with a pilot](/pilot) — 50 leads scored on your real data.',
   'how': 'Three steps: Score every lead (72+ signals) → Decide autonomously or escalate to a human → Prove every action with a full audit trail. [See how it works](/#how-it-works)',
   'integration': 'Connects to any CRM (HubSpot, Salesforce, GoHighLevel, and more), email automation platforms, and Google Analytics 4 for closed-loop feedback. Plus Claude, Gemini, and Perplexity for content quality. REST API + webhooks for custom integrations.',
   'contact': 'Reach us at hello@usecircuitos.com or [book a demo](/demo). We respond within 24 hours.',
