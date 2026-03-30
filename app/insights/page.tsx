@@ -37,7 +37,7 @@ export default function InsightsPage() {
                 href={`/insights/${article.slug}`}
                 className="block group"
               >
-                <article className="card rounded-xl p-8 transition-all hover:border-blue-500/30 hover:translate-y-[-2px]">
+                <article className="card rounded-xl p-5 md:p-8 transition-all hover:border-blue-500/30 hover:translate-y-[-2px]">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-xs font-medium text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded-full border border-blue-500/20">
                       {article.tag}

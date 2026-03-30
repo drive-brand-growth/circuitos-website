@@ -34,14 +34,14 @@ const jsonLd = {
 
 function TerminalBlock({ children }: { children: React.ReactNode }) {
   return (
-    <div className="my-8 rounded-xl overflow-hidden border border-[#27272a]">
-      <div className="flex items-center gap-1.5 px-4 py-2.5 bg-[#18181b] border-b border-[#27272a]">
-        <div className="w-2.5 h-2.5 rounded-full bg-[#3f3f46]" />
-        <div className="w-2.5 h-2.5 rounded-full bg-[#3f3f46]" />
-        <div className="w-2.5 h-2.5 rounded-full bg-[#3f3f46]" />
-        <span className="text-[10px] text-[#52525b] ml-2 font-mono">circuitos — decision-trail</span>
+    <div className="my-6 md:my-8 rounded-xl overflow-hidden border border-[#27272a]">
+      <div className="flex items-center gap-1.5 px-3 md:px-4 py-2 md:py-2.5 bg-[#18181b] border-b border-[#27272a]">
+        <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-[#3f3f46]" />
+        <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-[#3f3f46]" />
+        <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-[#3f3f46]" />
+        <span className="text-[9px] md:text-[10px] text-[#52525b] ml-2 font-mono">circuitos — decision-trail</span>
       </div>
-      <div className="bg-[#09090b] p-5 font-mono text-sm leading-7">
+      <div className="bg-[#09090b] p-3 md:p-5 font-mono text-[11px] md:text-sm leading-5 md:leading-7 overflow-x-auto">
         {children}
       </div>
     </div>
@@ -78,9 +78,9 @@ export default function LeadWalkThrough() {
           </div>
 
           {/* Body */}
-          <div className="[&_p]:text-[#a1a1aa] [&_p]:leading-relaxed [&_p]:mb-6 [&_p]:text-base [&_h2]:text-white [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mt-12 [&_h2]:mb-4">
+          <div className="[&_p]:text-[#a1a1aa] [&_p]:leading-relaxed [&_p]:mb-5 [&_p]:text-sm [&_p]:md:text-base [&_h2]:text-white [&_h2]:text-xl [&_h2]:md:text-2xl [&_h2]:font-bold [&_h2]:mt-10 [&_h2]:md:mt-12 [&_h2]:mb-3 [&_h2]:md:mb-4">
 
-            <p className="text-lg text-white leading-relaxed">
+            <p className="text-base md:text-lg text-white leading-relaxed">
               It is 2:47 PM on a Wednesday. A VP of Operations at a $22M professional services firm in Austin, Texas fills out a contact form on a client&apos;s website. She has twelve minutes before her next meeting. She will not remember this form by Thursday.
             </p>
 

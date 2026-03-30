@@ -72,9 +72,9 @@ export default function GovernanceManifesto() {
           </div>
 
           {/* Body */}
-          <div className="prose prose-invert prose-lg max-w-none [&_p]:text-[#a1a1aa] [&_p]:leading-relaxed [&_p]:mb-6 [&_h2]:text-white [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mt-12 [&_h2]:mb-4 [&_strong]:text-white [&_blockquote]:border-l-2 [&_blockquote]:border-blue-500 [&_blockquote]:pl-6 [&_blockquote]:italic [&_blockquote]:text-[#a1a1aa]">
+          <div className="max-w-none [&_p]:text-[#a1a1aa] [&_p]:leading-relaxed [&_p]:mb-5 [&_p]:text-sm [&_p]:md:text-base [&_h2]:text-white [&_h2]:text-xl [&_h2]:md:text-2xl [&_h2]:font-bold [&_h2]:mt-10 [&_h2]:md:mt-12 [&_h2]:mb-3 [&_h2]:md:mb-4 [&_strong]:text-white [&_blockquote]:border-l-2 [&_blockquote]:border-blue-500 [&_blockquote]:pl-4 [&_blockquote]:md:pl-6 [&_blockquote]:italic [&_blockquote]:text-[#a1a1aa] [&_blockquote]:text-sm [&_blockquote]:md:text-base">
 
-            <p className="text-lg text-white leading-relaxed">
+            <p className="text-base md:text-lg text-white leading-relaxed">
               Right now, somewhere in your company, an AI agent is about to send an email to your highest-value prospect. It will choose the subject line, the tone, the timing, and the call to action. It will make that decision in milliseconds. And nobody in your organization can explain why it chose that approach over any other.
             </p>
 
