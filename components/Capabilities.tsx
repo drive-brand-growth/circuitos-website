@@ -9,28 +9,40 @@ const fadeInUp = {
 }
 
 const staggerContainer = {
-  animate: { transition: { staggerChildren: 0.15 } }
+  animate: { transition: { staggerChildren: 0.12 } }
 }
 
 const capabilities = [
   {
     title: 'Predictive scoring from day one',
-    desc: 'Your qualification criteria are encoded before launch. Every lead scored on fit, intent, and timing across 72+ signals. No training period. Intelligent immediately.',
+    desc: 'Your qualification criteria and demand patterns are encoded before launch. Every lead scored on fit, intent, and timing across 72+ signals. No training period. Intelligent immediately.',
   },
   {
     title: 'Personalized outreach in your voice',
-    desc: 'AI writes emails that match how your team talks. Each prospect gets a tailored sequence based on their score. You review and approve before anything sends.',
+    desc: 'AI writes emails that match how your team talks. Each prospect gets a tailored sequence based on their score and profile. You review and approve before anything sends.',
+  },
+  {
+    title: 'Content generated, scored, and published',
+    desc: 'Blog posts written, fact-checked against real sources, and scored for quality by multiple AI models. Social distribution across four channels. All with your sign-off.',
+  },
+  {
+    title: 'One system from lead to closed deal',
+    desc: 'Scoring, outreach, content, CRM, and analytics in a single pipeline. No duct-taping five platforms together. One place to see what\'s working and why.',
+  },
+  {
+    title: 'Every outcome improves the next prediction',
+    desc: 'Real engagement data feeds back into the model automatically. Open rates, reply rates, conversions, GA4 metrics. The system learns from every cycle.',
   },
   {
     title: 'Every action auditable. Every escalation earned.',
-    desc: 'Confidence-based governance determines what the system handles alone and what gets routed to a human. Full decision trail on every score, every action, every outcome.',
+    desc: 'Confidence-based governance determines what the system handles alone and what gets routed to a human. Full decision trail on every score, every action, every outcome. Your AI proves its work.',
   },
 ]
 
 export default function Capabilities() {
   return (
     <section id="capabilities" className="section-padding px-6 border-t border-[#27272a]">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,11 +57,11 @@ export default function Capabilities() {
           viewport={{ once: true }}
           className="text-[#a1a1aa] text-center mb-16 text-lg max-w-2xl mx-auto"
         >
-          Three capabilities. One closed-loop system.
+          Six capabilities that work together as one governed system
         </motion.p>
 
         <motion.div
-          className="grid md:grid-cols-3 gap-6"
+          className="grid md:grid-cols-2 gap-6"
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}

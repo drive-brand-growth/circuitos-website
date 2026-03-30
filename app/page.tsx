@@ -67,6 +67,22 @@ const faqJsonLd = {
     },
     {
       '@type': 'Question',
+      name: 'How does the closed-loop learning work?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'CircuitOS scores leads, tracks real outcomes (conversions, engagement, GA4 metrics), and feeds that data back into the scoring model. The system continuously improves its predictions based on actual results.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can CircuitOS handle multiple businesses?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. CircuitOS supports unlimited verticals with isolated infrastructure per business line. Each gets its own scoring model, templates, CRM routing, and database. No data is shared between verticals or clients.',
+      },
+    },
+    {
+      '@type': 'Question',
       name: 'Is anything published or sent automatically?',
       acceptedAnswer: {
         '@type': 'Answer',
@@ -75,10 +91,42 @@ const faqJsonLd = {
     },
     {
       '@type': 'Question',
+      name: 'What integrations does CircuitOS support?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'CircuitOS connects to any CRM (HubSpot, Salesforce, and more), email automation platforms, and Google Analytics 4 for closed-loop feedback. Full REST API and webhook support for custom integrations.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What does onboarding look like?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Four weeks from contract to live scoring. We encode your ICP, configure scoring logic, integrate your CRM, and activate lead flow. You confirm lead sources and CRM mapping — we handle the rest.',
+      },
+    },
+    {
+      '@type': 'Question',
       name: 'How much does CircuitOS cost?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Three monthly tiers: Growth ($3,500/month), Scale ($6,500/month), and Enterprise ($12,000/month). One-time implementation fee covers platform setup, ICP encoding, and integrations.',
+        text: 'Three monthly tiers: Growth ($3,500/month), Scale ($6,500/month), and Enterprise ($12,000/month). One-time implementation fee covers platform setup, ICP encoding, and integrations. Use the build calculator on our site for exact line-item costs.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What industries does CircuitOS work for?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'CircuitOS is vertical-agnostic. Each deployment is configured for the specific industry, ICP, and demand patterns of the business. Current deployments span professional services, franchise operations, e-commerce, and SaaS.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is my data isolated from other clients?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Every vertical runs in its own containerized stack with a dedicated database, scoring model, and workflow configuration. No data is shared between verticals or clients.',
       },
     },
     {
