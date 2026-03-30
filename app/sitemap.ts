@@ -23,6 +23,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/insights`,
+      lastModified: new Date('2026-03-30'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/insights/governance-manifesto`,
+      lastModified: new Date('2026-03-30'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/insights/lead-walk-through`,
+      lastModified: new Date('2026-03-30'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/privacy`,
       lastModified: new Date('2026-02-15'),
       changeFrequency: 'yearly',
