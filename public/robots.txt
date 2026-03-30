@@ -29,6 +29,18 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
 # Crawl delay for politeness
 Crawl-delay: 1
 

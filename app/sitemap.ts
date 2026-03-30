@@ -2,36 +2,35 @@ import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://usecircuitos.com'
-  const lastModified = new Date()
 
   return [
     {
       url: baseUrl,
-      lastModified,
+      lastModified: new Date('2026-03-30'),
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${baseUrl}/demo`,
-      lastModified,
+      lastModified: new Date('2026-03-30'),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/playground`,
-      lastModified,
+      lastModified: new Date('2026-03-30'),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/privacy`,
-      lastModified,
+      lastModified: new Date('2026-02-15'),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
       url: `${baseUrl}/terms`,
-      lastModified,
+      lastModified: new Date('2026-02-15'),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
