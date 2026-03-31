@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Noel Pena", url: "https://drivebrandgrowth.com" }],
   icons: {
-    icon: "/circuitos-icon.svg",
-    apple: "/circuitos-icon.svg",
+    icon: "/dbg-icon.svg",
+    apple: "/dbg-icon.svg",
   },
   openGraph: {
     title: "Drive Brand Growth | Revenue Operating Systems",
