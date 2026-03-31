@@ -69,7 +69,7 @@ export default function RootLayout({
                   url: 'https://drivebrandgrowth.com',
                   image: 'https://drivebrandgrowth.com/headshot.jpg',
                   jobTitle: 'Founder, Drive Brand Growth',
-                  description: 'Retail data strategist with over 20 years of experience in car wash marketing, retail marketing, LPR marketing, and international brand licensing. Coined the terms Distance Data and Transactional Blindness. Strategic partner with Capture Data Services (CDS). Director of MetroFlex Gym international licensing across the United States and Japan.',
+                  description: 'Retail data strategist with over 20 years of experience in car wash marketing, retail marketing, LPR marketing, and international brand licensing. Coined the terms Distance Data and Transactional Blindness. Director of MetroFlex Gym international licensing across the United States and Japan. Founder of Drive Brand Growth.',
                   knowsAbout: [
                     'Distance Data',
                     'Transactional Blindness',
