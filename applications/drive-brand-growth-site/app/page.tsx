@@ -225,19 +225,36 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-5xl md:text-6xl lg:text-7xl font-semibold mb-8 leading-[1.1] tracking-tight"
           >
-            <span className="text-white">Revenue Prediction</span>{" "}
-            <span className="text-blue-400">That Ships</span>
+            <span className="text-white">We Build Revenue</span>{" "}
+            <span className="text-blue-400">Operating Systems</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-neutral-500 max-w-2xl mb-14 leading-relaxed"
+            className="text-lg md:text-xl text-neutral-500 max-w-2xl mb-6 leading-relaxed"
           >
-            AI systems that tell you which deals close. Not which ones you hope will.
-            Built by someone who closed the deals, not just analyzed them.
+            AI systems that score your leads, decide what to do, and prove every decision.
+            Built by a CDAO who closed the deals, not just analyzed them.
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="flex items-center gap-3 mb-14"
+          >
+            <span className="text-sm text-neutral-600">Powered by</span>
+            <a href="https://usecircuitos.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/5 hover:bg-blue-500/10 transition-colors">
+              <span className="text-sm font-bold tracking-tight">
+                <span className="text-blue-400">//</span>{" "}
+                <span className="text-white">Circuit</span>
+                <span className="text-blue-400">OS</span>
+              </span>
+              <ArrowUpRight className="w-3 h-3 text-blue-400" />
+            </a>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -296,7 +313,7 @@ export default function Home() {
               {/* Info */}
               <div className="flex-1">
                 <span className="inline-block px-3 py-1 text-[10px] bg-neutral-900/50 border border-neutral-800/50 rounded-md text-neutral-500 font-mono tracking-wider mb-4">
-                  FOUNDER & CHIEF AI ARCHITECT
+                  FOUNDER & CHIEF DATA + AI OFFICER
                 </span>
 
                 <div className="flex items-center gap-3 mb-6">
@@ -309,13 +326,13 @@ export default function Home() {
 
                 <div className="mb-4">
                   <div className="text-[10px] text-neutral-600 font-mono tracking-wider mb-3">BACKGROUND</div>
-                  <p className="text-sm text-neutral-400 mb-4">15 years enterprise B2B sales. Serial entrepreneur and advisor.</p>
+                  <p className="text-sm text-neutral-400 mb-4">15 years enterprise B2B sales. CDAO at a Fortune 500 company. Builder of CircuitOS — the revenue intelligence platform deployed as your own branded operating system.</p>
                 </div>
 
                 <div className="mb-6">
                   <div className="text-[10px] text-neutral-600 font-mono tracking-wider mb-3">SPECIALIZATIONS</div>
                   <div className="flex flex-wrap gap-2">
-                    {["Revenue Prediction", "ML Pipeline Scoring", "DMN Governance", "Sales Automation"].map((spec) => (
+                    {["Revenue Operating Systems", "Bayesian Lead Scoring", "AI Governance", "Enterprise Sales Automation"].map((spec) => (
                       <span key={spec} className="px-3 py-1.5 text-sm rounded-md bg-neutral-900/50 border border-neutral-800/50 text-neutral-500">
                         {spec}
                       </span>
@@ -686,12 +703,13 @@ export default function Home() {
               <Terminal className="w-4 h-4 text-white" />
             </div>
             <span className="text-sm text-neutral-600" suppressHydrationWarning>
-              © 2025 Drive Brand Growth
+              © 2026 Drive Brand Growth
             </span>
           </div>
           <div className="flex items-center gap-8 text-sm text-neutral-600">
             <a href="#systems" className="hover:text-white transition-colors">Systems</a>
             <a href="#approach" className="hover:text-white transition-colors">Approach</a>
+            <a href="https://usecircuitos.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">CircuitOS</a>
             <a href="#contact" className="hover:text-white transition-colors">Contact</a>
           </div>
         </div>

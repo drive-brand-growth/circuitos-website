@@ -6,9 +6,9 @@ const inter = Inter({ subsets: ["latin"], display: 'swap' });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://drivebrandgrowth.com'),
-  title: "Drive Brand Growth | Revenue Prediction Systems",
+  title: "Drive Brand Growth | Revenue Operating Systems",
   description:
-    "AI systems that predict which deals close. Built by someone who closed the deals, not just analyzed them. Production-grade ML scoring, DMN decision tables, and autonomous agents.",
+    "We build revenue operating systems for $10M-$50M companies. AI that scores leads, decides what to do, and proves every decision. Powered by CircuitOS.",
   keywords: [
     "revenue prediction",
     "AI lead scoring",
@@ -25,18 +25,18 @@ export const metadata: Metadata = {
     apple: "/circuitos-icon.svg",
   },
   openGraph: {
-    title: "Drive Brand Growth | Revenue Prediction Systems",
+    title: "Drive Brand Growth | Revenue Operating Systems",
     description:
-      "AI systems that predict which deals close. Production-grade ML scoring with explainable DMN decision tables.",
+      "We build revenue operating systems for $10M-$50M companies. AI that scores, decides, and proves. Powered by CircuitOS.",
     url: "https://drivebrandgrowth.com",
     siteName: "Drive Brand Growth",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Drive Brand Growth | Revenue Prediction Systems",
+    title: "Drive Brand Growth | Revenue Operating Systems",
     description:
-      "AI systems that predict which deals close. Production-grade ML scoring with explainable DMN decision tables.",
+      "We build revenue operating systems for $10M-$50M companies. AI that scores, decides, and proves. Powered by CircuitOS.",
   },
   alternates: { canonical: 'https://drivebrandgrowth.com' },
   robots: {
