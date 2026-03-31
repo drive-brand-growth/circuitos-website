@@ -66,16 +66,18 @@ export default function ChatWidget() {
     setMessages((prev) => [...prev, newUserMessage]);
 
     try {
-      const response = await fetch("/api/chat", {
+      const response = await fetch("https://usecircuitos.com/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           message: userMessage,
-          session_id: sessionId,
+          history: messages.slice(-20).map(m => ({ role: m.role, content: m.content })),
+          page_url: window.location.href,
+          referrer: document.referrer || undefined,
         }),
       });
 
-      const data: ChatResponse = await response.json();
+      const data = await response.json() as ChatResponse;
 
       // Update session ID if provided
       if (data.session_id) {
@@ -211,12 +213,12 @@ export default function ChatWidget() {
           {/* Header */}
           <div className="bg-neutral-900 px-4 py-3 rounded-t-xl flex items-center justify-between border-b border-neutral-800">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-                <span className="text-black font-bold text-sm">DBG</span>
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                <span className="text-white font-bold text-xs">AX</span>
               </div>
               <div>
                 <h3 className="text-white font-semibold text-sm">
-                  Drive Brand Growth
+                  Aria X
                 </h3>
                 <div className="flex items-center gap-2">
                   <span className={`w-2 h-2 rounded-full ${getTierColor()}`}></span>
@@ -232,10 +234,10 @@ export default function ChatWidget() {
           <div className="flex-1 overflow-y-auto p-4 space-y-4">
             {messages.length === 0 && (
               <div className="text-center text-neutral-500 mt-8">
-                <p className="text-sm mb-2 text-neutral-400">Welcome to Drive Brand Growth</p>
+                <p className="text-sm mb-2 text-neutral-400">Hey, I&apos;m Aria X</p>
                 <p className="text-xs">
-                  Ask me about our AI automation systems, case studies, or book a
-                  technical walkthrough.
+                  Ask me about CircuitOS, revenue operating systems, or how we work with
+                  $10M-$50M companies.
                 </p>
               </div>
             )}
