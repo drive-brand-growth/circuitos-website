@@ -2,7 +2,24 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
+  // Handle CORS preflight for API routes (allows drivebrandgrowth.com to call Aria X)
+  if (request.method === 'OPTIONS' && request.nextUrl.pathname.startsWith('/api/')) {
+    const preflight = new NextResponse(null, { status: 204 })
+    preflight.headers.set('Access-Control-Allow-Origin', '*')
+    preflight.headers.set('Access-Control-Allow-Methods', 'POST, OPTIONS')
+    preflight.headers.set('Access-Control-Allow-Headers', 'Content-Type')
+    preflight.headers.set('Access-Control-Max-Age', '86400')
+    return preflight
+  }
+
   const response = NextResponse.next()
+
+  // Add CORS headers to API responses
+  if (request.nextUrl.pathname.startsWith('/api/')) {
+    response.headers.set('Access-Control-Allow-Origin', '*')
+    response.headers.set('Access-Control-Allow-Methods', 'POST, OPTIONS')
+    response.headers.set('Access-Control-Allow-Headers', 'Content-Type')
+  }
 
   response.headers.set('X-Content-Type-Options', 'nosniff')
   response.headers.set('X-Frame-Options', 'DENY')
