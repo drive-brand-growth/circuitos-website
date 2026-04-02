@@ -16,7 +16,7 @@ const plans = [
   {
     name: 'Growth',
     monthly: '$3,500',
-    desc: 'For revenue teams ready to automate scoring, outreach, and attribution across one business line',
+    desc: 'For revenue teams automating one business line. All AI actions require human approval before execution.',
     cta: 'See It In Action',
     features: [
       'Predictive lead scoring (72+ signals)',
@@ -32,7 +32,7 @@ const plans = [
   {
     name: 'Scale',
     monthly: '$6,500',
-    desc: 'For companies running multiple revenue lines that need isolated scoring, attribution, and governance',
+    desc: 'For companies running multiple revenue lines. Confidence-based autonomy — low-risk actions execute automatically, high-risk actions escalate.',
     cta: 'See It In Action',
     features: [
       'Everything in Growth',
@@ -50,15 +50,17 @@ const plans = [
   {
     name: 'Enterprise',
     monthly: '$12,000',
-    desc: 'For organizations with complex operations that need full autonomy governance, custom integrations, and SLA',
+    desc: 'For organizations where AI governance is a competitive advantage. Full autonomous execution with escalation rules, custom integrations, and SLA.',
     cta: 'Contact Us',
     features: [
       'Everything in Scale',
       'Unlimited vertical stacks',
       'Custom CRM & API integrations',
       'Dedicated infrastructure',
-      'Compliance & governance package',
-      'Token cost tracking & attribution',
+      'Security controls informed by NIST CSF 2.0',
+      'AI threat detection mapped to MITRE ATLAS',
+      'Automated PII redaction before model processing',
+      'LLM cost circuit breaker & budget controls',
       'Dedicated success manager',
       'Custom model calibration',
       'SLA & uptime guarantees',
@@ -76,8 +78,8 @@ export default function Pricing() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">Enterprise-grade. Mid-market pricing.</h2>
-          <p className="text-[#a1a1aa] text-lg">Built for $10M–$50M businesses that want real revenue intelligence — not another dashboard.</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">Governed AI. Mid-market pricing.</h2>
+          <p className="text-[#a1a1aa] text-lg">Built for $10M–$50M businesses that need auditable revenue intelligence — not another AI wrapper.</p>
         </motion.div>
 
         <motion.div

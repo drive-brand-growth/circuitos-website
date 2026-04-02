@@ -15,27 +15,27 @@ const staggerContainer = {
 const capabilities = [
   {
     title: 'Predictive scoring from day one',
-    desc: 'Your qualification criteria and demand patterns are encoded before launch. Every lead scored on fit, intent, and timing across 72+ signals. No training period. Intelligent immediately.',
+    desc: 'Your ICP and qualification criteria are encoded before launch — no training period, no cold start. Every lead scored on fit, intent, and timing across 72+ signals using Bayesian inference. You see the math, not a magic number.',
   },
   {
     title: 'Personalized outreach in your voice',
-    desc: 'AI writes emails that match how your team talks. Each prospect gets a tailored sequence based on their score and profile. You review and approve before anything sends.',
+    desc: 'Your brand voice is encoded, not templated. AI generates unique copy per prospect based on their score, profile, and engagement signals. Every email is scanned for brand compliance before delivery.',
   },
   {
-    title: 'Content generated, scored, and published',
-    desc: 'Blog posts written, fact-checked against real sources, and scored for quality by multiple AI models. Social distribution across four channels. All with your sign-off.',
+    title: 'Content generated, fact-checked, and published',
+    desc: 'Blog posts written by AI, fact-checked against verifiable sources, and scored for quality by multiple independent models. Social distribution across four channels. Nothing publishes without your sign-off.',
   },
   {
-    title: 'One system from lead to closed deal',
-    desc: 'Scoring, outreach, content, CRM, and analytics in a single pipeline. No duct-taping five platforms together. One place to see what\'s working and why.',
+    title: 'Full-cycle, not half-cycle',
+    desc: 'Scoring, qualification, outreach, nurture, content, CRM sync, and attribution in a single governed pipeline. Not an outbound email tool. A complete revenue system from first signal to closed deal.',
   },
   {
-    title: 'Every outcome improves the next prediction',
-    desc: 'Real engagement data feeds back into the model automatically. Open rates, reply rates, conversions, GA4 metrics. The system learns from every cycle.',
+    title: 'Closed-loop learning',
+    desc: 'Real engagement data — open rates, reply rates, conversions, GA4 attribution — feeds back into the scoring model. Every outcome refines the next prediction. The system improves with every cycle.',
   },
   {
     title: 'Every action auditable. Every escalation earned.',
-    desc: 'Confidence-based governance determines what the system handles alone and what gets routed to a human. Full decision trail on every score, every action, every outcome. Your AI proves its work.',
+    desc: 'Confidence thresholds mapped to risk classes determine what the system handles alone and what gets routed to a human. Complete decision trail on every score, every action, every outcome. Indefinite retention.',
   },
 ]
 
@@ -57,7 +57,7 @@ export default function Capabilities() {
           viewport={{ once: true }}
           className="text-[#a1a1aa] text-center mb-16 text-lg max-w-2xl mx-auto"
         >
-          Six capabilities that work together as one governed system
+          Six capabilities that work together as one governed system — not six tools duct-taped together
         </motion.p>
 
         <motion.div
