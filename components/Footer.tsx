@@ -30,7 +30,6 @@ export default function Footer() {
             <h4 className="text-sm font-semibold uppercase tracking-wider text-[#a1a1aa] mb-4">Company</h4>
             <ul className="space-y-3 text-sm text-[#71717a]">
               <li><a href="/#contact" className="hover:text-white transition-colors">Contact</a></li>
-              <li><a href="https://www.linkedin.com/company/drivebrandgrowth" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a></li>
             </ul>
           </div>
 
