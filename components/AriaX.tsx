@@ -178,20 +178,36 @@ export default function AriaX() {
       }]
     })
 
-    // Send lead info to API with visitor metadata
+    // Send lead info to API with visitor metadata — retry once on failure, backup to localStorage
     const metadata = getVisitorMetadata()
-    fetch('/api/chat', {
+    const leadPayload = {
+      message: pendingCaptureRef.current?.message || '[lead captured]',
+      history: [],
+      lead_info: info,
+      lead_captured: true,
+      lead_tier: pendingCaptureRef.current?.tier || leadTier,
+      ...metadata,
+    }
+    const sendLead = () => fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        message: pendingCaptureRef.current?.message || '[lead captured]',
-        history: [],
-        lead_info: info,
-        lead_captured: true,
-        lead_tier: pendingCaptureRef.current?.tier || leadTier,
-        ...metadata,
-      }),
-    }).catch(() => {})
+      body: JSON.stringify(leadPayload),
+    })
+    sendLead()
+      .then(res => { if (!res.ok) throw new Error(`${res.status}`) })
+      .catch(() => {
+        // Retry once after 2 seconds
+        setTimeout(() => {
+          sendLead().catch(() => {
+            // Both attempts failed — save to localStorage so it's not lost
+            try {
+              const pending = JSON.parse(localStorage.getItem('cos_pending_leads') || '[]')
+              pending.push({ ...leadPayload, failed_at: new Date().toISOString() })
+              localStorage.setItem('cos_pending_leads', JSON.stringify(pending))
+            } catch { /* localStorage unavailable */ }
+          })
+        }, 2000)
+      })
     pendingCaptureRef.current = null
   }, [leadTier])
 

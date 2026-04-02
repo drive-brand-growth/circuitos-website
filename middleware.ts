@@ -1,22 +1,43 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
+// Allowed origins for CORS (restrict API access to our own domains)
+const ALLOWED_ORIGINS = new Set([
+  'https://usecircuitos.com',
+  'https://www.usecircuitos.com',
+  'https://drivebrandgrowth.com',
+  'https://www.drivebrandgrowth.com',
+])
+
+function getCorsOrigin(request: NextRequest): string {
+  const origin = request.headers.get('origin') || ''
+  // Allow listed origins, plus localhost for dev
+  if (ALLOWED_ORIGINS.has(origin) || origin.startsWith('http://localhost')) {
+    return origin
+  }
+  return ''  // Empty string = browser blocks the request
+}
+
 export function middleware(request: NextRequest) {
-  // Handle CORS preflight for API routes (allows drivebrandgrowth.com to call Aria X)
+  const corsOrigin = getCorsOrigin(request)
+
+  // Handle CORS preflight for API routes
   if (request.method === 'OPTIONS' && request.nextUrl.pathname.startsWith('/api/')) {
     const preflight = new NextResponse(null, { status: 204 })
-    preflight.headers.set('Access-Control-Allow-Origin', '*')
-    preflight.headers.set('Access-Control-Allow-Methods', 'POST, OPTIONS')
-    preflight.headers.set('Access-Control-Allow-Headers', 'Content-Type')
-    preflight.headers.set('Access-Control-Max-Age', '86400')
+    if (corsOrigin) {
+      preflight.headers.set('Access-Control-Allow-Origin', corsOrigin)
+      preflight.headers.set('Access-Control-Allow-Methods', 'POST, OPTIONS')
+      preflight.headers.set('Access-Control-Allow-Headers', 'Content-Type')
+      preflight.headers.set('Access-Control-Max-Age', '86400')
+    }
     return preflight
   }
 
   const response = NextResponse.next()
 
   // Add CORS headers to API responses
-  if (request.nextUrl.pathname.startsWith('/api/')) {
-    response.headers.set('Access-Control-Allow-Origin', '*')
+  if (request.nextUrl.pathname.startsWith('/api/') && corsOrigin) {
+    response.headers.set('Access-Control-Allow-Origin', corsOrigin)
     response.headers.set('Access-Control-Allow-Methods', 'POST, OPTIONS')
     response.headers.set('Access-Control-Allow-Headers', 'Content-Type')
   }
@@ -34,7 +55,7 @@ export function middleware(request: NextRequest) {
   )
   response.headers.set(
     'Content-Security-Policy',
-    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; img-src 'self' data: https:; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://api.drivebrandgrowth.com; frame-ancestors 'none';"
+    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; img-src 'self' data: https:; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://api.drivebrandgrowth.com; frame-ancestors 'none';"
   )
 
   return response
