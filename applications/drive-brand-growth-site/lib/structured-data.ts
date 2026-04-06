@@ -29,7 +29,7 @@ const faqData = [
   },
   {
     question: 'What makes Drive Brand Growth different from other AI consultants?',
-    answer: 'We ship code, not PowerPoint. Most "AI consultants" bolt ChatGPT onto your CRM and call it transformation. We build custom automation infrastructure: lead scoring engines, decision intelligence systems, and revenue operations automation that runs in production. No consulting theater—actual deployed systems.',
+    answer: 'We ship code, not PowerPoint. Most "AI consultants" bolt a chatbot onto your CRM and call it transformation. We build custom automation infrastructure: lead scoring engines, decision intelligence systems, and revenue operations automation that runs in production. No consulting theater—actual deployed systems.',
   },
   // Technical Capabilities
   {
@@ -38,7 +38,7 @@ const faqData = [
   },
   {
     question: 'What technology stack does Drive Brand Growth use?',
-    answer: 'Our systems are built on Python, FastAPI, PostgreSQL, and modern ML frameworks. We integrate with CRMs (HubSpot, Salesforce, GHL), automation platforms (n8n, Make), and leverage OpenAI, Anthropic, and custom ML models. All systems are production-grade with monitoring, alerting, and continuous improvement loops.',
+    answer: 'Our systems are built on Python, FastAPI, PostgreSQL, and modern ML frameworks. We integrate with CRMs (HubSpot, Salesforce, GHL), automation platforms (n8n, Make), and leverage proprietary multi-model AI pipelines and custom ML models. All systems are production-grade with monitoring, alerting, and continuous improvement loops.',
   },
   {
     question: 'Can Drive Brand Growth integrate with our existing CRM?',

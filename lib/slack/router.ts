@@ -75,7 +75,7 @@ export async function classifyIntent(message: string): Promise<SlackIntent> {
     })
 
     if (!response.ok) {
-      console.error('Intent classification failed:', response.status)
+      console.error('LLM intent classification failed:', response.status)
       return { intent: 'unknown', action: 'fallback', params: {} }
     }
 

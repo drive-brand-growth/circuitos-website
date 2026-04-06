@@ -5,7 +5,7 @@
  * 1. Bi-encoder semantic search (fast, broad recall)
  * 2. Cross-encoder reranking (accurate, precise)
  *
- * Uses OpenAI embeddings + Anthropic Claude for generation
+ * Multi-model embedding + generation pipeline
  */
 
 import { KNOWLEDGE_BASE, KnowledgeChunk } from './knowledge-base';
@@ -104,7 +104,7 @@ async function getEmbedding(text: string): Promise<number[]> {
     clearTimeout(timeoutId);
 
     if (!response.ok) {
-      console.error('[RAG] OpenAI embedding error:', await response.text());
+      console.error('[RAG] Embedding API error:', await response.text());
       return getFallbackEmbedding(text);
     }
 
@@ -356,7 +356,7 @@ export function buildRAGContext(
 }
 
 // ============================================
-// LLM GENERATION (Claude)
+// LLM GENERATION
 // ============================================
 
 export async function generateRAGResponse(
@@ -413,7 +413,7 @@ ${historyContext ? `CONVERSATION HISTORY:\n${historyContext}\n` : ''}`;
 }
 
 // ============================================
-// CLAUDE GENERATION
+// PRIMARY LLM GENERATION
 // ============================================
 
 async function generateWithClaude(
@@ -439,7 +439,7 @@ async function generateWithClaude(
     });
 
     if (!response.ok) {
-      console.error('[RAG] Claude error:', await response.text());
+      console.error('[RAG] Primary LLM error:', await response.text());
       return generateFallbackResponse(query, results, 'L1');
     }
 
@@ -457,13 +457,13 @@ async function generateWithClaude(
       tokensUsed: data.usage?.input_tokens + data.usage?.output_tokens,
     };
   } catch (error) {
-    console.error('[RAG] Claude request failed:', error);
+    console.error('[RAG] Primary LLM request failed:', error);
     return generateFallbackResponse(query, results, 'L1');
   }
 }
 
 // ============================================
-// OPENAI GENERATION (GPT-4)
+// SECONDARY LLM GENERATION
 // ============================================
 
 async function generateWithOpenAI(
@@ -490,7 +490,7 @@ async function generateWithOpenAI(
     });
 
     if (!response.ok) {
-      console.error('[RAG] OpenAI error:', await response.text());
+      console.error('[RAG] Secondary LLM error:', await response.text());
       return generateFallbackResponse(query, results, 'L1');
     }
 
@@ -508,7 +508,7 @@ async function generateWithOpenAI(
       tokensUsed: data.usage?.total_tokens,
     };
   } catch (error) {
-    console.error('[RAG] OpenAI request failed:', error);
+    console.error('[RAG] Secondary LLM request failed:', error);
     return generateFallbackResponse(query, results, 'L1');
   }
 }

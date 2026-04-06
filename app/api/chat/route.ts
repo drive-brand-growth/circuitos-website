@@ -456,7 +456,7 @@ export async function POST(req: NextRequest) {
 
     if (!response.ok) {
       const errText = await response.text()
-      console.error('Anthropic API error:', response.status, errText)
+      console.error('LLM API error:', response.status, errText)
       return NextResponse.json({
         response: "I'm having a moment — let me connect you with the team. You can [book a demo](/demo) or email us at hello@usecircuitos.com.",
         lead_tier: 'awareness',

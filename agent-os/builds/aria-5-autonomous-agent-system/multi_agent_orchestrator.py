@@ -68,18 +68,18 @@ class AgentInstance:
             )
             
             llm_config = {
-                "claude_api_key": os.getenv("ANTHROPIC_API_KEY", ""),
-                "gemini_api_key": os.getenv("GEMINI_API_KEY", ""),
-                "grok_api_key": os.getenv("GROK_API_KEY", ""),
+                "primary_api_key": os.getenv("ANTHROPIC_API_KEY", ""),
+                "synthesis_api_key": os.getenv("GEMINI_API_KEY", ""),
+                "social_api_key": os.getenv("GROK_API_KEY", ""),
             }
             
-            claude_key = llm_config["claude_api_key"]
-            if claude_key and claude_key != "placeholder" and not claude_key.startswith("sk-ant-api03-placeholder"):
+            primary_key = llm_config["primary_api_key"]
+            if primary_key and primary_key != "placeholder" and not primary_key.startswith("sk-ant-api03-placeholder"):
                 self.agent_brain = AgentBrain(brand_config, llm_config)
                 logger.info(f"Agent {self.agent_id} ({self.agent_type}) initialized")
                 return True
             else:
-                logger.warning(f"Agent {self.agent_id} - Claude API key not configured")
+                logger.warning(f"Agent {self.agent_id} - Primary LLM API key not configured")
                 return False
                 
         except Exception as e:
