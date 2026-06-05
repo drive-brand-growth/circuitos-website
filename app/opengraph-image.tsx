@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'CircuitOS - Autonomous Revenue Intelligence Platform'
+export const alt = 'CircuitOS Pro — Governed AI Decisioning'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -88,6 +88,16 @@ export default async function OGImage() {
           >
             OS
           </span>
+          <span
+            style={{
+              fontSize: '36px',
+              fontWeight: 600,
+              color: '#ffffff',
+              letterSpacing: '-0.02em',
+            }}
+          >
+            Pro
+          </span>
         </div>
 
         {/* Headline */}
@@ -102,7 +112,7 @@ export default async function OGImage() {
             letterSpacing: '-0.02em',
           }}
         >
-          Revenue Intelligence
+          Governed AI
         </h1>
         <h1
           style={{
@@ -117,7 +127,7 @@ export default async function OGImage() {
             letterSpacing: '-0.02em',
           }}
         >
-          That Learns
+          Decisioning
         </h1>
 
         {/* Subhead */}
@@ -130,7 +140,7 @@ export default async function OGImage() {
             lineHeight: 1.4,
           }}
         >
-          Score. Route. Engage. Learn. Repeat.
+          Observe. Decide. Act. Prove.
         </p>
 
         {/* Metrics bar */}
@@ -144,10 +154,10 @@ export default async function OGImage() {
           }}
         >
           {[
-            { value: '72', label: 'Signals' },
-            { value: '6', label: 'Verticals' },
-            { value: '3', label: 'AI Models' },
-            { value: '24/7', label: 'Autonomous' },
+            { value: 'Observe', label: '01' },
+            { value: 'Decide', label: '02' },
+            { value: 'Act', label: '03' },
+            { value: 'Prove', label: '04' },
           ].map((m) => (
             <div
               key={m.label}

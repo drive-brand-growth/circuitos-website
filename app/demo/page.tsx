@@ -129,7 +129,7 @@ const wizardQuestions = [
   },
   {
     title: 'What\'s your current stack?',
-    subtitle: 'We\'ll show how CircuitOS fits in',
+    subtitle: 'We\'ll show how CircuitOS Pro fits in',
     options: [
       { value: 'spreadsheets', label: 'Spreadsheets / Manual', sublabel: 'Google Sheets, Excel, or manual tracking', icon: '▦' },
       { value: 'basic_crm', label: 'Basic CRM', sublabel: 'HubSpot, Salesforce, or similar', icon: '◫' },
@@ -166,10 +166,10 @@ const scoringPath: DemoStepData[] = [
     module: 'scoring',
     headline: 'Raw leads land in the pipeline',
     narrative: {
-      spreadsheets: 'Right now you\'re tracking leads in spreadsheets. Watch what happens when they flow into CircuitOS instead.',
-      basic_crm: 'Your CRM captures the data. CircuitOS starts scoring the moment a lead enters.',
-      marketing_auto: 'Your marketing automation sends the leads. CircuitOS picks up where it leaves off.',
-      custom: 'Your system pushes leads via API. CircuitOS ingests and starts scoring instantly.',
+      spreadsheets: 'Right now you\'re tracking leads in spreadsheets. Watch what happens when they flow into CircuitOS Pro instead.',
+      basic_crm: 'Your CRM captures the data. CircuitOS Pro starts scoring the moment a lead enters.',
+      marketing_auto: 'Your marketing automation sends the leads. CircuitOS Pro picks up where it leaves off.',
+      custom: 'Your system pushes leads via API. CircuitOS Pro ingests and starts scoring instantly.',
     },
     metrics: [
       { label: 'Leads Incoming', base: 47, suffix: '' },
@@ -192,8 +192,8 @@ const scoringPath: DemoStepData[] = [
     headline: 'Bayesian model applies 72+ signals',
     narrative: {
       spreadsheets: 'Instead of gut feel, every lead gets scored against behavioral and firmographic data — automatically.',
-      basic_crm: 'Your CRM has the basics. CircuitOS layers on web behavior, firmographics, and engagement signals.',
-      marketing_auto: 'You already track engagement. CircuitOS adds Bayesian inference on top for predictive accuracy.',
+      basic_crm: 'Your CRM has the basics. CircuitOS Pro layers on web behavior, firmographics, and engagement signals.',
+      marketing_auto: 'You already track engagement. CircuitOS Pro adds Bayesian inference on top for predictive accuracy.',
       custom: 'Your custom signals flow right in. The Bayesian model combines them with 72+ additional data points.',
     },
     metrics: [
@@ -216,10 +216,10 @@ const scoringPath: DemoStepData[] = [
     module: 'scoring',
     headline: 'Confidence intervals, not just numbers',
     narrative: {
-      spreadsheets: 'Most tools give you a single score. CircuitOS shows the confidence range — so you know how sure the model is.',
+      spreadsheets: 'Most tools give you a single score. CircuitOS Pro shows the confidence range — so you know how sure the model is.',
       basic_crm: 'Your CRM lead score is a black box. Here you see the confidence interval and why.',
-      marketing_auto: 'Marketo gives you a number. CircuitOS gives you a range, a confidence level, and an explanation.',
-      custom: 'Your scoring model outputs a number. CircuitOS wraps it in Bayesian confidence bands.',
+      marketing_auto: 'Marketo gives you a number. CircuitOS Pro gives you a range, a confidence level, and an explanation.',
+      custom: 'Your scoring model outputs a number. CircuitOS Pro wraps it in Bayesian confidence bands.',
     },
     metrics: [
       { label: 'Leads Scored', base: 47, suffix: '' },
@@ -242,9 +242,9 @@ const scoringPath: DemoStepData[] = [
     headline: 'Triple-gate approval fires',
     narrative: {
       spreadsheets: 'Before any action fires, three independent gates must approve. Nothing happens without your rules.',
-      basic_crm: 'Your CRM auto-assigns leads blindly. CircuitOS requires three gates to agree before routing.',
-      marketing_auto: 'Your automation has rules. CircuitOS adds a triple-gate: ICP match, score threshold, and governance.',
-      custom: 'Your custom logic decides. CircuitOS adds three independent approval gates on top.',
+      basic_crm: 'Your CRM auto-assigns leads blindly. CircuitOS Pro requires three gates to agree before routing.',
+      marketing_auto: 'Your automation has rules. CircuitOS Pro adds a triple-gate: ICP match, score threshold, and governance.',
+      custom: 'Your custom logic decides. CircuitOS Pro adds three independent approval gates on top.',
     },
     metrics: [
       { label: 'Gate 1: ICP', base: 1, suffix: '' },
@@ -267,8 +267,8 @@ const scoringPath: DemoStepData[] = [
     headline: 'High-score leads auto-route to sales',
     narrative: {
       spreadsheets: 'No more forgetting to follow up. High-scoring leads are instantly routed to your sales sequence.',
-      basic_crm: 'Instead of manual assignment, CircuitOS routes high-score leads directly into active sequences.',
-      marketing_auto: 'Your automation handles the nurture. CircuitOS routes the hot leads to human reps immediately.',
+      basic_crm: 'Instead of manual assignment, CircuitOS Pro routes high-score leads directly into active sequences.',
+      marketing_auto: 'Your automation handles the nurture. CircuitOS Pro routes the hot leads to human reps immediately.',
       custom: 'Your system gets a webhook. The high-score lead is routed before your team even checks Slack.',
     },
     metrics: [
@@ -292,8 +292,8 @@ const scoringPath: DemoStepData[] = [
     headline: 'Low-score leads auto-nurture',
     narrative: {
       spreadsheets: 'Leads that aren\'t ready get nurtured automatically. No lead falls through the cracks.',
-      basic_crm: 'Your CRM would let these sit. CircuitOS assigns them to drip campaigns tailored to their score.',
-      marketing_auto: 'Your existing nurture flows run. CircuitOS decides which track based on score and behavior.',
+      basic_crm: 'Your CRM would let these sit. CircuitOS Pro assigns them to drip campaigns tailored to their score.',
+      marketing_auto: 'Your existing nurture flows run. CircuitOS Pro decides which track based on score and behavior.',
       custom: 'Your system receives the nurture webhook with score context, so your custom flows can act on it.',
     },
     metrics: [
@@ -319,7 +319,7 @@ const scoringPath: DemoStepData[] = [
       spreadsheets: 'You\'ve seen the scoring engine in action. Ready to see it with your data?',
       basic_crm: 'Imagine this running on top of your CRM. Let\'s set it up.',
       marketing_auto: 'This intelligence layer plugs right into your existing stack. Let\'s talk specifics.',
-      custom: 'CircuitOS integrates via API. Let\'s scope your custom implementation.',
+      custom: 'CircuitOS Pro integrates via API. Let\'s scope your custom implementation.',
     },
     metrics: [
       { label: 'Leads Scored', base: 847, suffix: '' },
@@ -342,8 +342,8 @@ const scoringPath: DemoStepData[] = [
     headline: 'Revenue impact projection',
     narrative: {
       spreadsheets: 'Here\'s the before and after. Manual tracking vs. intelligent scoring — the numbers speak.',
-      basic_crm: 'Your CRM gets you part of the way. See the incremental revenue from adding CircuitOS scoring.',
-      marketing_auto: 'You\'re already automating. CircuitOS adds the intelligence layer. Here\'s the projected uplift.',
+      basic_crm: 'Your CRM gets you part of the way. See the incremental revenue from adding CircuitOS Pro scoring.',
+      marketing_auto: 'You\'re already automating. CircuitOS Pro adds the intelligence layer. Here\'s the projected uplift.',
       custom: 'Your custom stack does the basics. Here\'s what Bayesian scoring adds to your bottom line.',
     },
     metrics: [
@@ -367,8 +367,8 @@ const scoringPath: DemoStepData[] = [
     headline: 'Model retrains on new data',
     narrative: {
       spreadsheets: 'Every conversion teaches the model. Your scoring gets smarter every week — automatically.',
-      basic_crm: 'Your CRM stores outcomes. CircuitOS feeds them back into the model to improve predictions.',
-      marketing_auto: 'Your analytics track conversions. CircuitOS uses that data to retrain the scoring model.',
+      basic_crm: 'Your CRM stores outcomes. CircuitOS Pro feeds them back into the model to improve predictions.',
+      marketing_auto: 'Your analytics track conversions. CircuitOS Pro uses that data to retrain the scoring model.',
       custom: 'Conversion events flow back via webhook. The Bayesian model updates its priors automatically.',
     },
     metrics: [
@@ -416,72 +416,72 @@ const scoringPath: DemoStepData[] = [
 
 const outreachPath: DemoStepData[] = [
   {
-    module: 'outreach', headline: 'Qualified lead enters sequence queue',
-    narrative: { spreadsheets: 'Instead of remembering to follow up, qualified leads automatically enter your outreach queue.', basic_crm: 'Your CRM flags the lead. CircuitOS immediately queues it for a personalized sequence.', marketing_auto: 'Your automation identified the lead. CircuitOS takes over with AI-crafted outreach.', custom: 'Your system sends the qualified signal. CircuitOS starts the sequence instantly.' },
+    module: 'outreach', headline: 'High-conviction deal enters the action queue',
+    narrative: { spreadsheets: 'Instead of remembering to follow up, every high-conviction deal automatically enters a governed action queue.', basic_crm: 'Your CRM flags the deal. CircuitOS Pro decides the next move and queues it — within your rules.', marketing_auto: 'Your automation fired a generic sequence. CircuitOS Pro decides the right action per deal, governed.', custom: 'Your system sends the high-conviction signal. CircuitOS Pro queues the governed next move instantly.' },
     metrics: [{ label: 'Queue Depth', base: 23, suffix: '' }, { label: 'Avg Wait', base: 0, suffix: 'min' }, { label: 'Sequences', base: 8, suffix: '' }, { label: 'Active', base: 156, suffix: '' }],
     leads: [{ name: 'Sarah Chen', score: 92.4, status: 'Queued', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: 'Queued', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: 'Pending', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: 'Pending', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: 'Nurture', tier: 'LOW' }],
-    activeTab: 'Sequences', statusMessage: 'New leads entering sequence queue...',
+    activeTab: 'Sequences', statusMessage: 'High-conviction deals entering action queue...',
   },
   {
-    module: 'outreach', headline: 'AI drafts personalized first touch',
-    narrative: { spreadsheets: 'No more copy-paste templates. AI writes a unique email for each lead based on their profile.', basic_crm: 'Your CRM has the contact data. CircuitOS uses it to craft a personalized opening email.', marketing_auto: 'Your templates are good. CircuitOS makes each one unique to the recipient.', custom: 'Your lead data flows in. The AI uses every field to personalize the outreach.' },
+    module: 'outreach', headline: 'AI drafts the next move, in your voice',
+    narrative: { spreadsheets: 'No more copy-paste templates. The recommended action is drafted for each deal from its profile and score.', basic_crm: 'Your CRM has the contact data. CircuitOS Pro uses it to draft the recommended move in your brand voice.', marketing_auto: 'Your templates are generic. CircuitOS Pro tailors each action to the specific deal and its conviction.', custom: 'Your deal data flows in. The recommended action is drafted from every field — scanned for brand compliance.' },
     metrics: [{ label: 'Drafts Created', base: 23, suffix: '' }, { label: 'Personalization', base: 94, suffix: '%' }, { label: 'Brand Match', base: 0.91, suffix: '' }, { label: 'Pending Review', base: 23, suffix: '' }],
-    leads: [{ name: 'Sarah Chen', score: 92.4, status: 'Email Drafted', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: 'Email Drafted', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: 'Drafting...', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: 'Queued', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: 'Nurture Drip', tier: 'LOW' }],
-    activeTab: 'Sequences', statusMessage: 'AI generating personalized emails...',
+    leads: [{ name: 'Sarah Chen', score: 92.4, status: 'Drafted', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: 'Drafted', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: 'Drafting...', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: 'Queued', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: 'Nurture', tier: 'LOW' }],
+    activeTab: 'Sequences', statusMessage: 'Drafting recommended actions...',
   },
   {
-    module: 'outreach', headline: 'Multi-channel sequence activated',
-    narrative: { spreadsheets: 'Email alone isn\'t enough. CircuitOS orchestrates email, LinkedIn, and SMS in one sequence.', basic_crm: 'Your CRM sends emails. CircuitOS adds LinkedIn and SMS to create a multi-touch sequence.', marketing_auto: 'You already do email sequences. CircuitOS adds LinkedIn and SMS channels seamlessly.', custom: 'Your system handles one channel. CircuitOS orchestrates all three from one sequence.' },
-    metrics: [{ label: 'Email', base: 23, suffix: ' sent' }, { label: 'LinkedIn', base: 18, suffix: ' sent' }, { label: 'SMS', base: 12, suffix: ' sent' }, { label: 'Touch Points', base: 53, suffix: '' }],
-    leads: [{ name: 'Sarah Chen', score: 92.4, status: 'Email → LI', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: 'Email Sent', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: 'Email Sent', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: 'SMS Queued', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: 'Drip #2', tier: 'LOW' }],
-    activeTab: 'Sequences', statusMessage: 'Multi-channel sequences active',
+    module: 'outreach', headline: 'Action executes within governed rules',
+    narrative: { spreadsheets: 'Nothing fires blindly. Each action runs only when confidence and risk class allow — every step logged.', basic_crm: 'Your CRM just sends. CircuitOS Pro executes the move only within your governance rules, fully logged.', marketing_auto: 'You already run sequences. CircuitOS Pro adds confidence-and-risk gating so only the right moves fire.', custom: 'Your system handles delivery. CircuitOS Pro governs which actions are allowed to run, and records each one.' },
+    metrics: [{ label: 'Executed', base: 23, suffix: '' }, { label: 'Within Rules', base: 100, suffix: '%' }, { label: 'Logged', base: 53, suffix: '' }, { label: 'Touch Points', base: 53, suffix: '' }],
+    leads: [{ name: 'Sarah Chen', score: 92.4, status: 'Executed', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: 'Executed', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: 'Executed', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: 'Gated', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: 'Nurture', tier: 'LOW' }],
+    activeTab: 'Sequences', statusMessage: 'Actions executing within governed rules',
   },
   {
-    module: 'outreach', headline: 'Engagement signals detected',
-    narrative: { spreadsheets: 'You\'d never know who opened what. CircuitOS tracks every open, click, and reply in real-time.', basic_crm: 'Your CRM tracks opens. CircuitOS goes deeper — click patterns, reply sentiment, LinkedIn engagement.', marketing_auto: 'You track engagement already. CircuitOS adds sentiment analysis and cross-channel correlation.', custom: 'Engagement events flow back to your system via webhook, enriched with AI analysis.' },
-    metrics: [{ label: 'Opens', base: 18, suffix: '' }, { label: 'Clicks', base: 7, suffix: '' }, { label: 'Replies', base: 3, suffix: '' }, { label: 'Hot Signals', base: 2, suffix: '' }],
-    leads: [{ name: 'Sarah Chen', score: 92.4, status: 'Opened + Clicked', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: 'Replied ✓', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: 'Opened', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: 'No Activity', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: 'Opened', tier: 'LOW' }],
-    activeTab: 'Sequences', statusMessage: 'Hot signals detected — 2 leads engaging',
+    module: 'outreach', headline: 'Live signals update the decision',
+    narrative: { spreadsheets: 'You\'d never know who engaged. CircuitOS Pro reads every response signal and updates the conviction in real-time.', basic_crm: 'Your CRM tracks opens. CircuitOS Pro folds engagement back into the deal\'s calibrated probability.', marketing_auto: 'You track engagement already. CircuitOS Pro turns it into an updated win probability, not just a metric.', custom: 'Engagement events flow back via webhook and re-score the deal — the decision stays current.' },
+    metrics: [{ label: 'Signals In', base: 18, suffix: '' }, { label: 'Re-scored', base: 7, suffix: '' }, { label: 'Replies', base: 3, suffix: '' }, { label: 'Conviction ↑', base: 2, suffix: '' }],
+    leads: [{ name: 'Sarah Chen', score: 92.4, status: 'Engaged → ↑', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: 'Replied ✓', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: 'Opened', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: 'No Activity', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: 'Opened', tier: 'LOW' }],
+    activeTab: 'Sequences', statusMessage: 'Conviction updated — 2 deals strengthening',
   },
   {
-    module: 'outreach', headline: 'Auto-escalation on hot signals',
-    narrative: { spreadsheets: 'When someone clicks your pricing page twice, you\'d never know. CircuitOS auto-escalates to a phone call.', basic_crm: 'Your CRM shows activity. CircuitOS triggers an immediate phone task for your rep.', marketing_auto: 'Your scoring catches it eventually. CircuitOS escalates in real-time — minutes, not hours.', custom: 'A hot-signal webhook fires instantly. Your team gets the alert before the lead goes cold.' },
-    metrics: [{ label: 'Escalated', base: 2, suffix: '' }, { label: 'Avg Escalation', base: 3.2, suffix: 'min' }, { label: 'Call Tasks', base: 2, suffix: '' }, { label: 'Rep Notified', base: 2, suffix: '' }],
-    leads: [{ name: 'Sarah Chen', score: 92.4, status: '☎ Call Now', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: '☎ Call Now', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: 'Seq Active', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: 'Seq Active', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: 'Drip', tier: 'LOW' }],
-    activeTab: 'Sequences', statusMessage: 'Auto-escalation: 2 leads → phone queue',
+    module: 'outreach', headline: 'Confidence spikes → escalate to a human',
+    narrative: { spreadsheets: 'When a deal heats up, you\'d never catch it in time. CircuitOS Pro escalates high-confidence moments to a person.', basic_crm: 'Your CRM shows activity. CircuitOS Pro routes the high-conviction deal to your rep the moment it crosses threshold.', marketing_auto: 'Your scoring catches it eventually. CircuitOS Pro escalates in real-time when confidence demands a human.', custom: 'A threshold-crossing event fires instantly. Your team is in the loop before the moment passes.' },
+    metrics: [{ label: 'Escalated', base: 2, suffix: '' }, { label: 'Avg Escalation', base: 3.2, suffix: 'min' }, { label: 'To Human', base: 2, suffix: '' }, { label: 'Rep Notified', base: 2, suffix: '' }],
+    leads: [{ name: 'Sarah Chen', score: 92.4, status: '☎ Human Now', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: '☎ Human Now', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: 'Autonomous', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: 'Autonomous', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: 'Nurture', tier: 'LOW' }],
+    activeTab: 'Sequences', statusMessage: 'Escalation: 2 high-conviction deals → human',
   },
   {
-    module: 'outreach', headline: 'Smart pause on negative signals',
-    narrative: { spreadsheets: 'You\'d keep emailing someone on vacation. CircuitOS detects OOO replies and pauses automatically.', basic_crm: 'Your CRM keeps sending. CircuitOS pauses sequences on out-of-office or unsubscribe signals.', marketing_auto: 'Your automation has suppression lists. CircuitOS adds real-time signal detection.', custom: 'Your system gets a pause event. CircuitOS handles the logic — you handle the edge cases.' },
-    metrics: [{ label: 'Paused', base: 4, suffix: '' }, { label: 'OOO Detected', base: 2, suffix: '' }, { label: 'Unsub', base: 1, suffix: '' }, { label: 'Resume Queue', base: 3, suffix: '' }],
-    leads: [{ name: 'Sarah Chen', score: 92.4, status: 'In Call', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: 'In Call', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: 'Paused (OOO)', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: 'Active', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: 'Paused', tier: 'LOW' }],
-    activeTab: 'Sequences', statusMessage: 'Smart pause: 4 sequences paused on signals',
+    module: 'outreach', headline: 'Negative signal → governed auto-pause',
+    narrative: { spreadsheets: 'You\'d keep pushing a cooling deal. CircuitOS Pro detects negative signals and pauses the action automatically.', basic_crm: 'Your CRM keeps sending. CircuitOS Pro pauses on out-of-office, unsubscribe, or a dropping conviction.', marketing_auto: 'Your automation has suppression lists. CircuitOS Pro adds real-time, governance-aware pausing.', custom: 'Your system gets a pause event. CircuitOS Pro handles the decision logic — you handle the edge cases.' },
+    metrics: [{ label: 'Paused', base: 4, suffix: '' }, { label: 'OOO Detected', base: 2, suffix: '' }, { label: 'Conviction ↓', base: 1, suffix: '' }, { label: 'Resume Queue', base: 3, suffix: '' }],
+    leads: [{ name: 'Sarah Chen', score: 92.4, status: 'With Rep', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: 'With Rep', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: 'Paused (OOO)', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: 'Active', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: 'Paused', tier: 'LOW' }],
+    activeTab: 'Sequences', statusMessage: 'Governed pause: 4 actions held on signals',
   },
   {
     module: 'outreach', headline: 'CTA checkpoint',
-    narrative: { spreadsheets: 'From manual follow-ups to automated multi-channel sequences. Ready to see it live?', basic_crm: 'CircuitOS turns your CRM contacts into active pipeline. Let\'s set it up.', marketing_auto: 'The outreach intelligence your automation stack needs. Let\'s discuss your setup.', custom: 'Full API access. Plug CircuitOS outreach into your existing workflow.' },
-    metrics: [{ label: 'Sequences Active', base: 8, suffix: '' }, { label: 'Emails Sent', base: 234, suffix: '' }, { label: 'Reply Rate', base: 34, suffix: '%' }, { label: 'Meetings Set', base: 12, suffix: '' }],
+    narrative: { spreadsheets: 'From manual follow-ups to governed, auto-paced action on every deal. Ready to see it live?', basic_crm: 'CircuitOS Pro turns your CRM contacts into governed pipeline action. Let\'s set it up.', marketing_auto: 'The governed action layer your automation stack is missing. Let\'s discuss your setup.', custom: 'Full API access. Plug CircuitOS Pro\'s governed action engine into your existing workflow.' },
+    metrics: [{ label: 'Actions Run', base: 234, suffix: '' }, { label: 'Within Rules', base: 100, suffix: '%' }, { label: 'Reply Rate', base: 34, suffix: '%' }, { label: 'Meetings Set', base: 12, suffix: '' }],
     leads: [{ name: 'Sarah Chen', score: 92.4, status: 'Meeting Set', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: 'Meeting Set', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: 'Replied', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: 'Engaged', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: 'Warming', tier: 'LOW' }],
-    activeTab: 'Sequences', statusMessage: 'Outreach engine fully operational',
+    activeTab: 'Sequences', statusMessage: 'Action engine fully operational',
   },
   {
-    module: 'outreach', headline: 'AI classifies reply sentiment',
-    narrative: { spreadsheets: 'Is that reply interested or annoyed? AI reads every response and classifies the sentiment.', basic_crm: 'Your CRM shows "replied." CircuitOS tells you if they\'re interested, neutral, or negative.', marketing_auto: 'Your automation counts replies. CircuitOS classifies the sentiment and adjusts the sequence.', custom: 'Sentiment classification via API. Your system knows intent, not just activity.' },
+    module: 'outreach', headline: 'Every reply scored for intent',
+    narrative: { spreadsheets: 'Is that reply interested or annoyed? Each response is read and scored for intent — feeding the next decision.', basic_crm: 'Your CRM shows "replied." CircuitOS Pro tells you the intent — and adjusts the deal\'s conviction.', marketing_auto: 'Your automation counts replies. CircuitOS Pro scores the intent and re-decides the next move.', custom: 'Intent classification via API. Your system knows the decision input, not just the activity.' },
     metrics: [{ label: 'Positive', base: 8, suffix: '' }, { label: 'Neutral', base: 12, suffix: '' }, { label: 'Negative', base: 3, suffix: '' }, { label: 'Accuracy', base: 94, suffix: '%' }],
-    leads: [{ name: 'Sarah Chen', score: 92.4, status: '😊 Positive', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: '😊 Positive', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: '😐 Neutral', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: '😐 Neutral', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: '😊 Warming', tier: 'LOW' }],
-    activeTab: 'Sequences', statusMessage: 'Sentiment analysis: 8 positive, 12 neutral, 3 negative',
+    leads: [{ name: 'Sarah Chen', score: 92.4, status: 'Positive', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: 'Positive', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: 'Neutral', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: 'Neutral', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: 'Warming', tier: 'LOW' }],
+    activeTab: 'Sequences', statusMessage: 'Intent scored: 8 positive, 12 neutral, 3 negative',
   },
   {
-    module: 'outreach', headline: 'Meeting booked — CRM updated',
-    narrative: { spreadsheets: 'The meeting is booked and your CRM is updated automatically. No manual data entry.', basic_crm: 'Your CRM gets updated the instant the meeting is confirmed. No lag, no manual steps.', marketing_auto: 'Meeting data flows back into your automation platform. The loop is closed.', custom: 'Booking event fires to your webhook. CRM, calendar, and pipeline all update at once.' },
-    metrics: [{ label: 'Meetings', base: 12, suffix: '' }, { label: 'CRM Synced', base: 12, suffix: '' }, { label: 'Calendar', base: 12, suffix: '' }, { label: 'Pipeline $', base: 384, suffix: 'K' }],
+    module: 'outreach', headline: 'Meeting booked — written to the audit trail',
+    narrative: { spreadsheets: 'The meeting is booked and the decision is logged automatically. No manual data entry.', basic_crm: 'Your CRM updates the instant the meeting confirms — and the action lands on a signed audit trail.', marketing_auto: 'Meeting data flows back to your platform, and every decision behind it is recorded.', custom: 'Booking event fires to your webhook. CRM, calendar, pipeline, and the audit trail all update at once.' },
+    metrics: [{ label: 'Meetings', base: 12, suffix: '' }, { label: 'CRM Synced', base: 12, suffix: '' }, { label: 'Audited', base: 12, suffix: '' }, { label: 'Pipeline $', base: 384, suffix: 'K' }],
     leads: [{ name: 'Sarah Chen', score: 92.4, status: 'Meeting 3/12', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: 'Meeting 3/13', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: 'Follow-Up', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: 'Engaged', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: 'Nurturing', tier: 'LOW' }],
-    activeTab: 'Sequences', statusMessage: '12 meetings booked — CRM synced',
+    activeTab: 'Sequences', statusMessage: '12 meetings booked — logged to audit trail',
   },
   {
-    module: 'outreach', headline: 'Sequence performance dashboard',
-    narrative: { spreadsheets: 'From manual spreadsheet tracking to this. Full visibility into every sequence, every channel.', basic_crm: 'Your CRM tracks contacts. CircuitOS tracks performance across every channel in one view.', marketing_auto: 'The outreach analytics your platform is missing. Cross-channel, AI-powered insights.', custom: 'Full performance data available via API. Dashboard included.' },
-    metrics: [{ label: 'Emails Sent', base: 847, suffix: '' }, { label: 'Reply Rate', base: 34, suffix: '%' }, { label: 'Meetings', base: 12, suffix: '' }, { label: 'Pipeline', base: 384, suffix: 'K' }],
+    module: 'outreach', headline: 'Action performance, fully auditable',
+    narrative: { spreadsheets: 'From manual follow-ups to this. Every action, every outcome, every decision — on one auditable trail.', basic_crm: 'Your CRM tracks contacts. CircuitOS Pro tracks every governed action and its outcome in one view.', marketing_auto: 'The action analytics your platform is missing — tied to the decision that triggered each one.', custom: 'Full performance and audit data available via API. Dashboard included.' },
+    metrics: [{ label: 'Actions Run', base: 847, suffix: '' }, { label: 'Reply Rate', base: 34, suffix: '%' }, { label: 'Meetings', base: 12, suffix: '' }, { label: 'Pipeline', base: 384, suffix: 'K' }],
     leads: [{ name: 'Sarah Chen', score: 94.1, status: 'Won', tier: 'HIGH' }, { name: 'Marcus Webb', score: 88.3, status: 'Proposal', tier: 'HIGH' }, { name: 'Lisa Park', score: 78.9, status: 'Engaged', tier: 'MEDIUM' }, { name: 'James Torres', score: 62.1, status: 'Nurturing', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 44.7, status: 'Warming', tier: 'LOW' }],
     activeTab: 'Sequences', statusMessage: 'All systems operational · 12 meetings this week',
   },
@@ -489,147 +489,147 @@ const outreachPath: DemoStepData[] = [
 
 const integrationPath: DemoStepData[] = [
   {
-    module: 'integration', headline: 'Data sources connect',
-    narrative: { spreadsheets: 'Your spreadsheets become one of many inputs. CircuitOS connects CRM, email, analytics, and more.', basic_crm: 'Your CRM is source one. CircuitOS connects your email, analytics, and every other tool.', marketing_auto: 'Your marketing stack is already complex. CircuitOS unifies all of it into one data layer.', custom: 'Your custom systems connect via REST API. CircuitOS becomes the integration hub.' },
+    module: 'integration', headline: 'Signal sources connect',
+    narrative: { spreadsheets: 'Your spreadsheets become one of many inputs. CircuitOS Pro observes CRM, email, analytics, and more.', basic_crm: 'Your CRM is signal one. CircuitOS Pro ingests your email, analytics, and every other source.', marketing_auto: 'Your stack is already complex. CircuitOS Pro unifies every signal into one decisioning layer.', custom: 'Your custom systems connect via REST API. CircuitOS Pro becomes the signal hub for every decision.' },
     metrics: [{ label: 'Sources', base: 0, suffix: '' }, { label: 'Connected', base: 0, suffix: '' }, { label: 'Events/hr', base: 0, suffix: '' }, { label: 'Status', base: 0, suffix: '' }],
     leads: [{ name: 'CRM', score: 0, status: 'Connecting...', tier: 'LOW' }, { name: 'Email', score: 0, status: 'Connecting...', tier: 'LOW' }, { name: 'Analytics', score: 0, status: 'Pending', tier: 'LOW' }, { name: 'Webhooks', score: 0, status: 'Pending', tier: 'LOW' }, { name: 'Custom API', score: 0, status: 'Pending', tier: 'LOW' }],
-    activeTab: 'Integrations', statusMessage: 'Connecting data sources...',
+    activeTab: 'Integrations', statusMessage: 'Connecting signal sources...',
   },
   {
-    module: 'integration', headline: 'Unified lead profile assembled',
-    narrative: { spreadsheets: 'One lead, scattered across 3 spreadsheets. CircuitOS merges them into a single rich profile.', basic_crm: 'Your CRM has the basics. CircuitOS enriches with email engagement, web analytics, and social data.', marketing_auto: 'Your platforms each have a piece. CircuitOS assembles the complete picture.', custom: 'Every system contributes data. CircuitOS builds a unified profile from all sources.' },
+    module: 'integration', headline: 'Unified deal profile assembled',
+    narrative: { spreadsheets: 'One deal, scattered across 3 spreadsheets. CircuitOS Pro merges them into a single decision-ready profile.', basic_crm: 'Your CRM has the basics. CircuitOS Pro enriches with engagement, attribution, and activity signals.', marketing_auto: 'Your platforms each hold a piece. CircuitOS Pro assembles the complete picture a decision needs.', custom: 'Every system contributes signals. CircuitOS Pro builds one unified, decision-ready profile.' },
     metrics: [{ label: 'Sources', base: 5, suffix: '' }, { label: 'Connected', base: 5, suffix: '' }, { label: 'Profiles Built', base: 47, suffix: '' }, { label: 'Fields Merged', base: 23, suffix: '' }],
     leads: [{ name: 'Sarah Chen', score: 92.4, status: '3 sources', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: '4 sources', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: '3 sources', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: '2 sources', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: '2 sources', tier: 'LOW' }],
     activeTab: 'Integrations', statusMessage: 'Unified profiles assembled from 5 sources',
   },
   {
     module: 'integration', headline: 'Deduplication engine fires',
-    narrative: { spreadsheets: 'The same lead in 3 spreadsheets? CircuitOS finds and merges duplicates automatically.', basic_crm: 'CRM duplicates are a nightmare. CircuitOS deduplicates across all connected sources.', marketing_auto: 'Your platforms create duplicate records. CircuitOS merges them with confidence scoring.', custom: 'Dedup runs across all sources. Merge events fire to your system via webhook.' },
+    narrative: { spreadsheets: 'The same deal in 3 spreadsheets? CircuitOS Pro finds and merges duplicates so decisions run on clean data.', basic_crm: 'CRM duplicates skew every score. CircuitOS Pro deduplicates across all connected sources.', marketing_auto: 'Your platforms create duplicate records. CircuitOS Pro merges them with confidence scoring.', custom: 'Dedup runs across all sources. Merge events fire to your system via webhook.' },
     metrics: [{ label: 'Records Scanned', base: 847, suffix: '' }, { label: 'Duplicates', base: 34, suffix: '' }, { label: 'Merged', base: 34, suffix: '' }, { label: 'Accuracy', base: 99.2, suffix: '%' }],
     leads: [{ name: 'Sarah Chen', score: 92.4, status: 'Merged (3→1)', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: 'Merged (2→1)', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: 'Clean', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: 'Clean', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: 'Merged (2→1)', tier: 'LOW' }],
     activeTab: 'Integrations', statusMessage: 'Dedup complete: 34 duplicates merged',
   },
   {
-    module: 'integration', headline: 'Real-time event stream',
-    narrative: { spreadsheets: 'No more batch exports. Every lead action shows up in the event stream in real-time.', basic_crm: 'Your CRM syncs every 15 minutes. CircuitOS streams events in real-time.', marketing_auto: 'Your automation batches updates. CircuitOS processes events as they happen.', custom: 'Your system receives events via webhooks. Sub-second latency.' },
+    module: 'integration', headline: 'Real-time signal stream',
+    narrative: { spreadsheets: 'No more batch exports. Every deal activity hits the signal stream in real-time, ready to re-score.', basic_crm: 'Your CRM syncs every 15 minutes. CircuitOS Pro streams signals in real-time so decisions stay current.', marketing_auto: 'Your automation batches updates. CircuitOS Pro processes signals as they happen.', custom: 'Your system emits events via webhooks. Sub-second latency into the decision engine.' },
     metrics: [{ label: 'Events/hr', base: 1247, suffix: '' }, { label: 'Latency', base: 120, suffix: 'ms' }, { label: 'Sources', base: 5, suffix: '' }, { label: 'Uptime', base: 99.9, suffix: '%' }],
     leads: [{ name: 'Sarah Chen', score: 92.4, status: 'Email Opened', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: 'Page Visit', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: 'Form Submit', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: 'Email Click', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: 'Ad Click', tier: 'LOW' }],
-    activeTab: 'Integrations', statusMessage: 'Event stream: 1,247 events/hr across 5 sources',
+    activeTab: 'Integrations', statusMessage: 'Signal stream: 1,247 events/hr across 5 sources',
   },
   {
-    module: 'integration', headline: 'Webhook fires to external system',
-    narrative: { spreadsheets: 'CircuitOS can push data anywhere — your accounting tool, your project manager, anywhere.', basic_crm: 'When a lead converts, CircuitOS fires webhooks to update every connected system.', marketing_auto: 'Your automation platforms receive structured webhooks for every significant event.', custom: 'Your webhook endpoints receive typed, versioned payloads for every event.' },
+    module: 'integration', headline: 'Governed action fires to your systems',
+    narrative: { spreadsheets: 'CircuitOS Pro can push a decision anywhere — your CRM, Slack, accounting tool, anywhere.', basic_crm: 'When a decision is made, CircuitOS Pro fires webhooks to update every connected system.', marketing_auto: 'Your platforms receive structured webhooks for every governed action and outcome.', custom: 'Your endpoints receive typed, versioned payloads for every decision and action.' },
     metrics: [{ label: 'Webhooks Fired', base: 234, suffix: '' }, { label: 'Success Rate', base: 99.7, suffix: '%' }, { label: 'Avg Latency', base: 89, suffix: 'ms' }, { label: 'Endpoints', base: 8, suffix: '' }],
     leads: [{ name: 'Sarah Chen', score: 92.4, status: '→ CRM + Slack', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: '→ CRM', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: '→ Email Tool', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: '→ CRM', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: '→ Nurture', tier: 'LOW' }],
     activeTab: 'Integrations', statusMessage: '234 webhooks fired — 99.7% success rate',
   },
   {
-    module: 'integration', headline: 'Bi-directional sync demo',
-    narrative: { spreadsheets: 'Changes in your tools flow to CircuitOS. Changes in CircuitOS flow back. Two-way sync.', basic_crm: 'Update a lead in your CRM — CircuitOS sees it instantly. And vice versa.', marketing_auto: 'Your automation and CircuitOS stay in perfect sync. No manual reconciliation.', custom: 'Full bi-directional sync via API. Your system of record stays yours.' },
+    module: 'integration', headline: 'Bi-directional sync',
+    narrative: { spreadsheets: 'Changes in your tools flow to CircuitOS Pro. Decisions flow back. Two-way sync, no drift.', basic_crm: 'Update a deal in your CRM — CircuitOS Pro sees it instantly. And the decision flows back.', marketing_auto: 'Your automation and CircuitOS Pro stay in perfect sync. No manual reconciliation.', custom: 'Full bi-directional sync via API. Your system of record stays yours.' },
     metrics: [{ label: 'Syncs/hr', base: 456, suffix: '' }, { label: 'Bi-directional', base: 5, suffix: '' }, { label: 'Conflicts', base: 0, suffix: '' }, { label: 'Latency', base: 200, suffix: 'ms' }],
     leads: [{ name: 'CRM → COS', score: 0, status: 'Synced ✓', tier: 'HIGH' }, { name: 'COS → CRM', score: 0, status: 'Synced ✓', tier: 'HIGH' }, { name: 'Email ↔ COS', score: 0, status: 'Synced ✓', tier: 'MEDIUM' }, { name: 'Analytics →', score: 0, status: 'Synced ✓', tier: 'MEDIUM' }, { name: 'Webhooks ↔', score: 0, status: 'Synced ✓', tier: 'HIGH' }],
     activeTab: 'Integrations', statusMessage: 'Bi-directional sync: 0 conflicts',
   },
   {
     module: 'integration', headline: 'CTA checkpoint',
-    narrative: { spreadsheets: 'From disconnected spreadsheets to a unified data platform. Ready to connect your tools?', basic_crm: 'CircuitOS becomes the connective tissue between all your tools. Let\'s set it up.', marketing_auto: 'The integration layer your marketing stack needs. Let\'s map your connections.', custom: 'Full API documentation and webhook specs. Let\'s plan your integration.' },
+    narrative: { spreadsheets: 'From disconnected spreadsheets to one decision-ready signal layer. Ready to connect your tools?', basic_crm: 'CircuitOS Pro becomes the signal layer feeding every decision. Let\'s set it up.', marketing_auto: 'The unified signal layer your decisions need. Let\'s map your connections.', custom: 'Full API documentation and webhook specs. Let\'s plan your integration.' },
     metrics: [{ label: 'Sources', base: 5, suffix: '' }, { label: 'Events/hr', base: 1247, suffix: '' }, { label: 'Uptime', base: 99.9, suffix: '%' }, { label: 'Syncs', base: 456, suffix: '/hr' }],
     leads: [{ name: 'Sarah Chen', score: 92.4, status: 'Full Profile', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: 'Full Profile', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: 'Full Profile', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: 'Enriching', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: 'Basic', tier: 'LOW' }],
-    activeTab: 'Integrations', statusMessage: 'Integration engine fully operational',
+    activeTab: 'Integrations', statusMessage: 'Signal layer fully operational',
   },
   {
-    module: 'integration', headline: 'Error handling with retry',
-    narrative: { spreadsheets: 'When a connection hiccups, CircuitOS retries with exponential backoff. No data lost.', basic_crm: 'API timeouts happen. CircuitOS handles retries automatically — your data stays consistent.', marketing_auto: 'Integration failures are invisible to you. CircuitOS retries and logs everything.', custom: 'Retry policies are configurable per endpoint. Exponential backoff with dead-letter queues.' },
+    module: 'integration', headline: 'Self-healing with retry',
+    narrative: { spreadsheets: 'When a connection hiccups, CircuitOS Pro retries with exponential backoff. No signal lost.', basic_crm: 'API timeouts happen. CircuitOS Pro handles retries automatically — your data stays consistent.', marketing_auto: 'Integration failures are invisible to you. CircuitOS Pro retries and logs everything.', custom: 'Retry policies are configurable per endpoint. Exponential backoff with dead-letter queues.' },
     metrics: [{ label: 'Retries', base: 12, suffix: '' }, { label: 'Recovered', base: 12, suffix: '' }, { label: 'Failed', base: 0, suffix: '' }, { label: 'DLQ', base: 0, suffix: '' }],
     leads: [{ name: 'CRM Sync', score: 0, status: 'Retry → OK', tier: 'HIGH' }, { name: 'Email API', score: 0, status: 'Retry → OK', tier: 'HIGH' }, { name: 'Webhook #3', score: 0, status: 'Retry → OK', tier: 'MEDIUM' }, { name: 'Analytics', score: 0, status: 'OK', tier: 'HIGH' }, { name: 'Custom API', score: 0, status: 'OK', tier: 'HIGH' }],
-    activeTab: 'Integrations', statusMessage: '12 retries — all recovered, 0 data loss',
+    activeTab: 'Integrations', statusMessage: '12 retries — all recovered, 0 signal loss',
   },
   {
-    module: 'integration', headline: 'Full audit log',
-    narrative: { spreadsheets: 'Every data movement is logged. Full audit trail for compliance and debugging.', basic_crm: 'Your CRM has limited logs. CircuitOS logs every sync, every transform, every route.', marketing_auto: 'Complete audit trail across all platforms. One place to check when something looks off.', custom: 'Audit logs accessible via API. Every event, every transformation, every decision.' },
-    metrics: [{ label: 'Log Entries', base: 12847, suffix: '' }, { label: 'Retention', base: 90, suffix: 'days' }, { label: 'Searchable', base: 1, suffix: '' }, { label: 'Export', base: 1, suffix: '' }],
-    leads: [{ name: '12:01 PM', score: 0, status: 'Lead Created', tier: 'HIGH' }, { name: '12:01 PM', score: 0, status: 'Score: 92.4', tier: 'HIGH' }, { name: '12:02 PM', score: 0, status: 'Route → Sales', tier: 'HIGH' }, { name: '12:02 PM', score: 0, status: 'CRM Updated', tier: 'MEDIUM' }, { name: '12:03 PM', score: 0, status: 'Webhook Fired', tier: 'MEDIUM' }],
-    activeTab: 'Integrations', statusMessage: '12,847 audit log entries — 90-day retention',
+    module: 'integration', headline: 'Signed, tamper-evident audit log',
+    narrative: { spreadsheets: 'Every signal and decision is logged to a signed, tamper-evident trail — for compliance and proof.', basic_crm: 'Your CRM has limited logs. CircuitOS Pro signs every signal, score, action, and route.', marketing_auto: 'A complete, tamper-evident trail across all platforms — one place to prove what happened.', custom: 'Signed audit logs accessible via API. Every event, every transformation, every decision.' },
+    metrics: [{ label: 'Log Entries', base: 12847, suffix: '' }, { label: 'Retention', base: 90, suffix: 'days' }, { label: 'Signed', base: 1, suffix: '' }, { label: 'Export', base: 1, suffix: '' }],
+    leads: [{ name: '12:01 PM', score: 0, status: 'Deal Observed', tier: 'HIGH' }, { name: '12:01 PM', score: 0, status: 'Scored: 92.4', tier: 'HIGH' }, { name: '12:02 PM', score: 0, status: 'Decision Logged', tier: 'HIGH' }, { name: '12:02 PM', score: 0, status: 'CRM Updated', tier: 'MEDIUM' }, { name: '12:03 PM', score: 0, status: 'Signed ✓', tier: 'MEDIUM' }],
+    activeTab: 'Integrations', statusMessage: '12,847 signed audit entries — 90-day retention',
   },
   {
-    module: 'integration', headline: 'Integration health dashboard',
-    narrative: { spreadsheets: 'One dashboard for all your connections. See health, latency, and throughput at a glance.', basic_crm: 'Every integration in one view. Health status, sync frequency, and error rates.', marketing_auto: 'The integration monitoring your stack is missing. Full visibility, zero blind spots.', custom: 'Health metrics available via API. Dashboard included for visual monitoring.' },
+    module: 'integration', headline: 'Signal health dashboard',
+    narrative: { spreadsheets: 'One dashboard for every connection. See health, latency, and throughput at a glance.', basic_crm: 'Every source in one view. Health status, sync frequency, and error rates.', marketing_auto: 'The signal monitoring your stack is missing. Full visibility, zero blind spots.', custom: 'Health metrics available via API. Dashboard included for visual monitoring.' },
     metrics: [{ label: 'Connections', base: 5, suffix: '' }, { label: 'Healthy', base: 5, suffix: '' }, { label: 'Throughput', base: 1247, suffix: '/hr' }, { label: 'Uptime', base: 99.9, suffix: '%' }],
     leads: [{ name: 'CRM', score: 0, status: 'Healthy ✓', tier: 'HIGH' }, { name: 'Email', score: 0, status: 'Healthy ✓', tier: 'HIGH' }, { name: 'Analytics', score: 0, status: 'Healthy ✓', tier: 'HIGH' }, { name: 'Webhooks', score: 0, status: 'Healthy ✓', tier: 'HIGH' }, { name: 'Custom API', score: 0, status: 'Healthy ✓', tier: 'HIGH' }],
-    activeTab: 'Integrations', statusMessage: 'All integrations healthy · 99.9% uptime',
+    activeTab: 'Integrations', statusMessage: 'All sources healthy · 99.9% uptime',
   },
 ]
 
 const intelligencePath: DemoStepData[] = [
   {
-    module: 'intelligence', headline: 'Pipeline data aggregated',
-    narrative: { spreadsheets: 'Your spreadsheets give you a snapshot. CircuitOS aggregates data from every source in real-time.', basic_crm: 'Your CRM reports are a start. CircuitOS pulls from every source for the full picture.', marketing_auto: 'Your dashboards show marketing metrics. CircuitOS adds sales, engagement, and revenue data.', custom: 'Your data warehouse feeds in. CircuitOS aggregates and analyzes across all sources.' },
+    module: 'intelligence', headline: 'Pipeline + attribution aggregated',
+    narrative: { spreadsheets: 'Your spreadsheets give you a snapshot. CircuitOS Pro aggregates pipeline and attribution from every source in real-time.', basic_crm: 'Your CRM reports are a start. CircuitOS Pro pulls pipeline, attribution, and activity for the full picture.', marketing_auto: 'Your dashboards show marketing metrics. CircuitOS Pro ties them to sales outcomes and revenue.', custom: 'Your data warehouse feeds in. CircuitOS Pro aggregates and analyzes across every source.' },
     metrics: [{ label: 'Sources', base: 5, suffix: '' }, { label: 'Data Points', base: 12847, suffix: '' }, { label: 'Updated', base: 0, suffix: 'min ago' }, { label: 'Coverage', base: 100, suffix: '%' }],
-    leads: [{ name: 'Q1 Pipeline', score: 0, status: 'Aggregating...', tier: 'HIGH' }, { name: 'Q2 Forecast', score: 0, status: 'Pending', tier: 'MEDIUM' }, { name: 'Win/Loss', score: 0, status: 'Pending', tier: 'MEDIUM' }, { name: 'Competitors', score: 0, status: 'Pending', tier: 'LOW' }, { name: 'Market', score: 0, status: 'Pending', tier: 'LOW' }],
-    activeTab: 'Intelligence', statusMessage: 'Aggregating pipeline data from 5 sources...',
+    leads: [{ name: 'Q1 Pipeline', score: 0, status: 'Aggregating...', tier: 'HIGH' }, { name: 'Q2 Forecast', score: 0, status: 'Pending', tier: 'MEDIUM' }, { name: 'Win/Loss', score: 0, status: 'Pending', tier: 'MEDIUM' }, { name: 'Attribution', score: 0, status: 'Pending', tier: 'LOW' }, { name: 'Market', score: 0, status: 'Pending', tier: 'LOW' }],
+    activeTab: 'Intelligence', statusMessage: 'Aggregating pipeline + attribution from 5 sources...',
   },
   {
-    module: 'intelligence', headline: 'Conversion funnel visualization',
-    narrative: { spreadsheets: 'No more manually counting rows. CircuitOS builds your conversion funnel automatically.', basic_crm: 'Your CRM has basic funnel reports. CircuitOS shows where leads actually drop off and why.', marketing_auto: 'Your platform tracks the marketing funnel. CircuitOS extends it through sales to close.', custom: 'Funnel data available via API. The visualization is included in your dashboard.' },
+    module: 'intelligence', headline: 'Attribution traces revenue to its source',
+    narrative: { spreadsheets: 'No more guessing what worked. CircuitOS Pro traces each won deal back to the marketing that actually drove it.', basic_crm: 'Your CRM shows the funnel. CircuitOS Pro credits the touchpoints that moved each deal — not just last click.', marketing_auto: 'Your platform tracks the marketing funnel. CircuitOS Pro extends attribution through sales to closed revenue.', custom: 'Multi-touch attribution available via API. Know what to spend more on and what to cut.' },
     metrics: [{ label: 'Top of Funnel', base: 847, suffix: '' }, { label: 'Qualified', base: 234, suffix: '' }, { label: 'Proposals', base: 67, suffix: '' }, { label: 'Won', base: 23, suffix: '' }],
-    leads: [{ name: 'Awareness', score: 0, status: '847 leads', tier: 'HIGH' }, { name: 'Qualified', score: 0, status: '234 leads', tier: 'HIGH' }, { name: 'Proposal', score: 0, status: '67 deals', tier: 'MEDIUM' }, { name: 'Negotiation', score: 0, status: '34 deals', tier: 'MEDIUM' }, { name: 'Won', score: 0, status: '23 deals', tier: 'HIGH' }],
-    activeTab: 'Intelligence', statusMessage: 'Funnel built: 847 → 234 → 67 → 23 won',
+    leads: [{ name: 'Paid Search', score: 0, status: '$420K won', tier: 'HIGH' }, { name: 'Referral', score: 0, status: '$310K won', tier: 'HIGH' }, { name: 'Content', score: 0, status: '$180K won', tier: 'MEDIUM' }, { name: 'Events', score: 0, status: '$90K won', tier: 'MEDIUM' }, { name: 'Cold Outbound', score: 0, status: '$40K won', tier: 'LOW' }],
+    activeTab: 'Intelligence', statusMessage: 'Attribution mapped: paid search led $420K won',
   },
   {
-    module: 'intelligence', headline: 'At-risk deals identified',
-    narrative: { spreadsheets: 'You\'d never spot a deal going cold until it\'s too late. CircuitOS flags at-risk deals in real-time.', basic_crm: 'Your CRM shows pipeline. CircuitOS predicts which deals are about to stall.', marketing_auto: 'Your automation tracks engagement. CircuitOS correlates it with deal health.', custom: 'At-risk predictions available via API. Trigger your own intervention workflows.' },
-    metrics: [{ label: 'Active Deals', base: 67, suffix: '' }, { label: 'At Risk', base: 8, suffix: '' }, { label: 'Stalling', base: 5, suffix: '' }, { label: 'Intervention', base: 3, suffix: '' }],
-    leads: [{ name: 'Apex Digital', score: 89, status: 'On Track', tier: 'HIGH' }, { name: 'Rivera & Co', score: 72, status: 'AT RISK', tier: 'MEDIUM' }, { name: 'Summit Health', score: 45, status: 'STALLING', tier: 'LOW' }, { name: 'BlueLine Mfg', score: 81, status: 'On Track', tier: 'HIGH' }, { name: 'NovaPoint', score: 38, status: 'AT RISK', tier: 'LOW' }],
-    activeTab: 'Intelligence', statusMessage: 'Alert: 8 deals at risk of stalling',
+    module: 'intelligence', headline: 'Deal Risk Score flags at-risk deals',
+    narrative: { spreadsheets: 'You\'d never spot a deal going cold until it\'s too late. The Deal Risk Score flags at-risk deals in real-time.', basic_crm: 'Your CRM shows pipeline. CircuitOS Pro scores which deals are about to slip — before the loss.', marketing_auto: 'Your automation tracks engagement. CircuitOS Pro correlates it into a calibrated deal-risk score.', custom: 'Deal Risk Scores available via API. Trigger your own intervention workflows on the red flags.' },
+    metrics: [{ label: 'Active Deals', base: 67, suffix: '' }, { label: 'At Risk', base: 8, suffix: '' }, { label: 'Slipping', base: 5, suffix: '' }, { label: 'Intervention', base: 3, suffix: '' }],
+    leads: [{ name: 'Apex Digital', score: 89, status: 'On Track', tier: 'HIGH' }, { name: 'Rivera & Co', score: 72, status: 'AT RISK', tier: 'MEDIUM' }, { name: 'Summit Health', score: 45, status: 'SLIPPING', tier: 'LOW' }, { name: 'BlueLine Mfg', score: 81, status: 'On Track', tier: 'HIGH' }, { name: 'NovaPoint', score: 38, status: 'AT RISK', tier: 'LOW' }],
+    activeTab: 'Intelligence', statusMessage: 'Deal Risk: 8 deals flagged before they slip',
   },
   {
     module: 'intelligence', headline: 'Competitor mention alert',
-    narrative: { spreadsheets: 'You\'d never know a prospect is also talking to competitors. CircuitOS detects the signals.', basic_crm: 'Your CRM doesn\'t track competitor mentions. CircuitOS does — across email, web, and social.', marketing_auto: 'Your automation can\'t see competitor activity. CircuitOS monitors mentions across channels.', custom: 'Competitor alerts fire to your webhook. React in real-time to competitive threats.' },
+    narrative: { spreadsheets: 'You\'d never know a prospect is also talking to competitors. CircuitOS Pro detects the signal and folds it into the score.', basic_crm: 'Your CRM doesn\'t track competitor mentions. CircuitOS Pro does — across email, web, and activity.', marketing_auto: 'Your automation can\'t see competitive risk. CircuitOS Pro monitors it across channels.', custom: 'Competitor signals fire to your webhook and adjust the deal\'s risk in real-time.' },
     metrics: [{ label: 'Mentions', base: 12, suffix: '' }, { label: 'Competitors', base: 4, suffix: '' }, { label: 'Deals Affected', base: 6, suffix: '' }, { label: 'Alerts Sent', base: 6, suffix: '' }],
     leads: [{ name: 'Rivera & Co', score: 72, status: 'Competitor A', tier: 'MEDIUM' }, { name: 'Summit Health', score: 45, status: 'Competitor B', tier: 'LOW' }, { name: 'NovaPoint', score: 38, status: 'Competitor A', tier: 'LOW' }, { name: 'Apex Digital', score: 89, status: 'No Mentions', tier: 'HIGH' }, { name: 'BlueLine Mfg', score: 81, status: 'No Mentions', tier: 'HIGH' }],
     activeTab: 'Intelligence', statusMessage: '12 competitor mentions across 6 deals',
   },
   {
-    module: 'intelligence', headline: 'Weekly briefing auto-generates',
-    narrative: { spreadsheets: 'No more building reports manually. CircuitOS generates a weekly briefing automatically.', basic_crm: 'Your CRM has basic reports. CircuitOS generates an AI-written executive briefing every week.', marketing_auto: 'Your platform sends weekly emails. CircuitOS sends actionable intelligence briefings.', custom: 'Briefing data available via API. AI-written summary included.' },
+    module: 'intelligence', headline: 'Weekly decision briefing auto-generates',
+    narrative: { spreadsheets: 'No more building reports manually. CircuitOS Pro generates a weekly decision briefing automatically.', basic_crm: 'Your CRM has basic reports. CircuitOS Pro writes an executive briefing grounded only in your real numbers.', marketing_auto: 'Your platform sends weekly emails. CircuitOS Pro sends a briefing tied to decisions and outcomes.', custom: 'Briefing data available via API. A grounded, zero-fabrication summary included.' },
     metrics: [{ label: 'Briefing', base: 1, suffix: '' }, { label: 'Insights', base: 12, suffix: '' }, { label: 'Action Items', base: 5, suffix: '' }, { label: 'Confidence', base: 0.92, suffix: '' }],
-    leads: [{ name: 'Pipeline Health', score: 0, status: 'Strong ↑', tier: 'HIGH' }, { name: 'Win Rate', score: 0, status: '34% (+2%)', tier: 'HIGH' }, { name: 'At-Risk Deals', score: 0, status: '8 flagged', tier: 'MEDIUM' }, { name: 'Top Rep', score: 0, status: 'Sarah — 5 won', tier: 'HIGH' }, { name: 'Forecast', score: 0, status: '$1.2M Q1', tier: 'HIGH' }],
+    leads: [{ name: 'Pipeline Health', score: 0, status: 'Strong ↑', tier: 'HIGH' }, { name: 'Win Rate', score: 0, status: '34% (+2%)', tier: 'HIGH' }, { name: 'At-Risk Deals', score: 0, status: '8 flagged', tier: 'MEDIUM' }, { name: 'Top Source', score: 0, status: 'Paid search', tier: 'HIGH' }, { name: 'Forecast', score: 0, status: '$1.2M Q1', tier: 'HIGH' }],
     activeTab: 'Intelligence', statusMessage: 'Weekly briefing generated — 12 insights, 5 actions',
   },
   {
-    module: 'intelligence', headline: 'Anomaly detection flags pattern',
-    narrative: { spreadsheets: 'A sudden drop in lead volume? You\'d notice next month. CircuitOS flags anomalies in real-time.', basic_crm: 'Your CRM shows last month\'s data. CircuitOS detects anomalies as they happen.', marketing_auto: 'Your platform tracks trends. CircuitOS spots when something breaks the pattern.', custom: 'Anomaly events fire to your webhook. Investigate before the damage spreads.' },
+    module: 'intelligence', headline: 'Anomaly detection flags a pattern break',
+    narrative: { spreadsheets: 'A sudden drop in pipeline? You\'d notice next month. CircuitOS Pro flags anomalies in real-time.', basic_crm: 'Your CRM shows last month\'s data. CircuitOS Pro detects anomalies as they happen.', marketing_auto: 'Your platform tracks trends. CircuitOS Pro spots when something breaks the pattern.', custom: 'Anomaly events fire to your webhook. Investigate before the damage spreads.' },
     metrics: [{ label: 'Anomalies', base: 2, suffix: '' }, { label: 'Severity', base: 0, suffix: '' }, { label: 'Detected', base: 3, suffix: 'min ago' }, { label: 'Impact', base: 0, suffix: '' }],
-    leads: [{ name: 'Lead Volume', score: 0, status: '↓ 34% (anomaly)', tier: 'LOW' }, { name: 'Email Opens', score: 0, status: 'Normal', tier: 'HIGH' }, { name: 'Conv Rate', score: 0, status: '↑ 12% (good)', tier: 'HIGH' }, { name: 'Response Time', score: 0, status: '↑ 2hr (flag)', tier: 'MEDIUM' }, { name: 'Pipeline $', score: 0, status: 'Normal', tier: 'HIGH' }],
-    activeTab: 'Intelligence', statusMessage: 'Anomaly detected: Lead volume ↓ 34%',
+    leads: [{ name: 'New Pipeline', score: 0, status: '↓ 34% (anomaly)', tier: 'LOW' }, { name: 'Engagement', score: 0, status: 'Normal', tier: 'HIGH' }, { name: 'Win Rate', score: 0, status: '↑ 12% (good)', tier: 'HIGH' }, { name: 'Cycle Time', score: 0, status: '↑ 2d (flag)', tier: 'MEDIUM' }, { name: 'Pipeline $', score: 0, status: 'Normal', tier: 'HIGH' }],
+    activeTab: 'Intelligence', statusMessage: 'Anomaly detected: new pipeline ↓ 34%',
   },
   {
     module: 'intelligence', headline: 'CTA checkpoint',
-    narrative: { spreadsheets: 'From flying blind to complete pipeline intelligence. Ready to see your data?', basic_crm: 'The intelligence layer your CRM is missing. Let\'s connect your data.', marketing_auto: 'Actionable intelligence for your entire revenue pipeline. Let\'s set it up.', custom: 'Full API access to all intelligence features. Let\'s plan your integration.' },
+    narrative: { spreadsheets: 'From flying blind to provable decision intelligence. Ready to see your data?', basic_crm: 'The decision intelligence layer your CRM is missing. Let\'s connect your data.', marketing_auto: 'Provable intelligence for your entire revenue pipeline. Let\'s set it up.', custom: 'Full API access to attribution, risk, and forecasting. Let\'s plan your integration.' },
     metrics: [{ label: 'Insights/wk', base: 12, suffix: '' }, { label: 'Accuracy', base: 94, suffix: '%' }, { label: 'Time Saved', base: 8, suffix: 'hrs' }, { label: 'Coverage', base: 100, suffix: '%' }],
     leads: [{ name: 'Pipeline', score: 0, status: '$1.2M', tier: 'HIGH' }, { name: 'Win Rate', score: 0, status: '34%', tier: 'HIGH' }, { name: 'At-Risk', score: 0, status: '8 deals', tier: 'MEDIUM' }, { name: 'Briefings', score: 0, status: 'Weekly', tier: 'HIGH' }, { name: 'Anomalies', score: 0, status: '2 flagged', tier: 'MEDIUM' }],
-    activeTab: 'Intelligence', statusMessage: 'Intelligence engine fully operational',
+    activeTab: 'Intelligence', statusMessage: 'Decision intelligence fully operational',
   },
   {
-    module: 'intelligence', headline: 'Revenue forecast with confidence',
-    narrative: { spreadsheets: 'Your spreadsheet forecast is a guess. CircuitOS builds probabilistic forecasts with confidence bands.', basic_crm: 'Your CRM forecast is weighted pipeline. CircuitOS adds predictive modeling and confidence intervals.', marketing_auto: 'Your attribution model shows history. CircuitOS predicts the future with confidence.', custom: 'Forecast data and confidence bands available via API for your own dashboards.' },
+    module: 'intelligence', headline: 'Calibrated revenue forecast with confidence',
+    narrative: { spreadsheets: 'Your spreadsheet forecast is a guess. CircuitOS Pro builds a calibrated, probabilistic forecast with confidence bands.', basic_crm: 'Your CRM forecast is weighted pipeline. CircuitOS Pro adds calibrated probability and confidence intervals.', marketing_auto: 'Your attribution shows history. CircuitOS Pro forecasts forward with calibrated confidence.', custom: 'Forecast and confidence bands available via API for your own dashboards.' },
     metrics: [{ label: 'Q1 Forecast', base: 1.2, suffix: 'M' }, { label: 'Confidence', base: 87, suffix: '%' }, { label: 'Best Case', base: 1.5, suffix: 'M' }, { label: 'Worst Case', base: 0.9, suffix: 'M' }],
     leads: [{ name: 'March', score: 0, status: '$420K ±$60K', tier: 'HIGH' }, { name: 'April', score: 0, status: '$380K ±$80K', tier: 'HIGH' }, { name: 'May', score: 0, status: '$400K ±$90K', tier: 'MEDIUM' }, { name: 'Q1 Total', score: 0, status: '$1.2M ±$180K', tier: 'HIGH' }, { name: 'Q2 Est', score: 0, status: '$1.4M ±$250K', tier: 'MEDIUM' }],
-    activeTab: 'Intelligence', statusMessage: 'Revenue forecast: $1.2M Q1 (87% confidence)',
+    activeTab: 'Intelligence', statusMessage: 'Calibrated forecast: $1.2M Q1 (87% confidence)',
   },
   {
-    module: 'intelligence', headline: 'Recommended actions queue',
-    narrative: { spreadsheets: 'Instead of wondering what to do next, CircuitOS tells you. Prioritized actions, every morning.', basic_crm: 'Your CRM shows tasks. CircuitOS recommends the highest-impact actions based on AI analysis.', marketing_auto: 'Your platform suggests A/B tests. CircuitOS recommends revenue-maximizing actions.', custom: 'Action recommendations available via API. Integrate into your own task management.' },
-    metrics: [{ label: 'Actions', base: 8, suffix: '' }, { label: 'High Priority', base: 3, suffix: '' }, { label: 'Est Impact', base: 45, suffix: 'K' }, { label: 'Time to Act', base: 15, suffix: 'min' }],
+    module: 'intelligence', headline: 'Recommended next decisions',
+    narrative: { spreadsheets: 'Instead of wondering what to do next, CircuitOS Pro tells you — the highest-impact decisions, prioritized.', basic_crm: 'Your CRM shows tasks. CircuitOS Pro recommends the highest-impact next decisions, with the reasoning.', marketing_auto: 'Your platform suggests A/B tests. CircuitOS Pro recommends the revenue-maximizing next move.', custom: 'Decision recommendations available via API. Integrate into your own workflow.' },
+    metrics: [{ label: 'Decisions', base: 8, suffix: '' }, { label: 'High Priority', base: 3, suffix: '' }, { label: 'Est Impact', base: 45, suffix: 'K' }, { label: 'Time to Act', base: 15, suffix: 'min' }],
     leads: [{ name: '#1 Call Rivera', score: 0, status: 'High — at risk', tier: 'HIGH' }, { name: '#2 Follow up Apex', score: 0, status: 'High — hot', tier: 'HIGH' }, { name: '#3 Resend Summit', score: 0, status: 'Medium', tier: 'MEDIUM' }, { name: '#4 Update forecast', score: 0, status: 'Medium', tier: 'MEDIUM' }, { name: '#5 Review anomaly', score: 0, status: 'Low', tier: 'LOW' }],
-    activeTab: 'Intelligence', statusMessage: '8 recommended actions — 3 high priority',
+    activeTab: 'Intelligence', statusMessage: '8 recommended decisions — 3 high priority',
   },
   {
-    module: 'intelligence', headline: 'Intelligence summary dashboard',
-    narrative: { spreadsheets: 'From no visibility to complete pipeline intelligence. Every signal, every insight, one dashboard.', basic_crm: 'The intelligence layer that transforms your CRM from a database into a decision engine.', marketing_auto: 'Full-funnel intelligence from awareness to close. The missing piece of your stack.', custom: 'Enterprise intelligence via API. Dashboard included. Full data ownership.' },
+    module: 'intelligence', headline: 'Decision intelligence dashboard',
+    narrative: { spreadsheets: 'From no visibility to provable decision intelligence. Every signal, every decision, one dashboard.', basic_crm: 'The layer that turns your CRM from a database into a governed decision engine.', marketing_auto: 'Full-funnel decision intelligence from first signal to closed, proven revenue.', custom: 'Enterprise decision intelligence via API. Dashboard included. Full data ownership.' },
     metrics: [{ label: 'Pipeline', base: 1.2, suffix: 'M' }, { label: 'Win Rate', base: 34, suffix: '%' }, { label: 'Insights/wk', base: 12, suffix: '' }, { label: 'Forecast Acc', base: 87, suffix: '%' }],
-    leads: [{ name: 'Scoring', score: 0, status: 'Active ✓', tier: 'HIGH' }, { name: 'Outreach', score: 0, status: 'Active ✓', tier: 'HIGH' }, { name: 'Intelligence', score: 0, status: 'Active ✓', tier: 'HIGH' }, { name: 'Integrations', score: 0, status: '5 connected', tier: 'HIGH' }, { name: 'Forecast', score: 0, status: '$1.2M Q1', tier: 'HIGH' }],
-    activeTab: 'Intelligence', statusMessage: 'All intelligence systems operational',
+    leads: [{ name: 'Observe', score: 0, status: 'Active ✓', tier: 'HIGH' }, { name: 'Decide', score: 0, status: 'Active ✓', tier: 'HIGH' }, { name: 'Act', score: 0, status: 'Active ✓', tier: 'HIGH' }, { name: 'Prove', score: 0, status: 'Signed ✓', tier: 'HIGH' }, { name: 'Forecast', score: 0, status: '$1.2M Q1', tier: 'HIGH' }],
+    activeTab: 'Intelligence', statusMessage: 'All decision systems operational',
   },
 ]
 
@@ -799,7 +799,7 @@ function DemoDashboard({
         </div>
         <div className="ml-3 flex-1">
           <div className="bg-[#1a1a1a] rounded-md px-3 py-1 text-[11px] text-[#71717a] max-w-xs font-mono">
-            app.circuitos.ai/dashboard
+            app.usecircuitos.com/dashboard
           </div>
         </div>
       </div>
@@ -808,7 +808,7 @@ function DemoDashboard({
       <div className="px-4 py-2.5 border-b border-[#27272a] flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="text-blue-400 font-semibold text-sm">//</span>
-          <span className="text-white font-semibold text-sm">CircuitOS</span>
+          <span className="text-white font-semibold text-sm">CircuitOS Pro</span>
         </div>
         <div className="flex items-center gap-1">
           {tabs.map((tab) => (
@@ -1189,7 +1189,7 @@ export default function DemoPage() {
               >
                 <motion.div {...fadeInUp} className="text-center mb-10">
                   <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text mb-4 hero-headline">
-                    See CircuitOS in action
+                    See CircuitOS Pro in action
                   </h1>
                   <p className="text-[#a1a1aa] text-lg">
                     Answer 4 quick questions and we&apos;ll build a personalized demo.

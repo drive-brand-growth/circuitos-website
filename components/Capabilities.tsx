@@ -14,28 +14,28 @@ const staggerContainer = {
 
 const capabilities = [
   {
-    title: 'Predictive scoring from day one',
-    desc: 'Your ICP and qualification criteria are encoded before launch — no training period, no cold start. Every lead scored on fit, intent, and timing across 72+ signals using Bayesian inference. You see the math, not a magic number.',
+    title: 'Calibrated win-probability scoring',
+    desc: 'Every deal gets a calibrated probability it closes — with the confidence tier and the signals behind it. You see the conviction and the reasoning, never a magic number with no explanation.',
   },
   {
-    title: 'Personalized outreach in your voice',
-    desc: 'Your brand voice is encoded, not templated. AI generates unique copy per prospect based on their score, profile, and engagement signals. Every email is scanned for brand compliance before delivery.',
+    title: 'Multi-touch attribution',
+    desc: 'Trace revenue back to the marketing that actually drove it. Credit the touchpoints that moved the deal, not the last click. Know what to spend more on — and what to cut.',
   },
   {
-    title: 'Content generated, fact-checked, and published',
-    desc: 'Blog posts written by AI, fact-checked against verifiable sources, and scored for quality by multiple independent models. Social distribution across four channels. Nothing publishes without your sign-off.',
+    title: 'Deal Risk Score',
+    desc: 'Red flags surface on a deal before it slips, not after the loss. The system watches activity, timing, and engagement and tells you which deals need attention now.',
   },
   {
-    title: 'Full-cycle, not half-cycle',
-    desc: 'Scoring, qualification, outreach, nurture, content, CRM sync, and attribution in a single governed pipeline. Not an outbound email tool. A complete revenue system from first signal to closed deal.',
+    title: 'Proof of decision quality',
+    desc: 'After the outcome, every decision is scored for whether its confidence was honest — proof the call was sound independent of luck. The one thing a black-box recommendation can never give you.',
+  },
+  {
+    title: 'Governed by rules. Escalates by design.',
+    desc: 'Confidence mapped to risk class determines what runs autonomously and what routes to a human. Every score, action, and outcome on a signed, tamper-evident audit trail with indefinite retention.',
   },
   {
     title: 'Closed-loop learning',
-    desc: 'Real engagement data — open rates, reply rates, conversions, GA4 attribution — feeds back into the scoring model. Every outcome refines the next prediction. The system improves with every cycle.',
-  },
-  {
-    title: 'Every action auditable. Every escalation earned.',
-    desc: 'Confidence thresholds mapped to risk classes determine what the system handles alone and what gets routed to a human. Complete decision trail on every score, every action, every outcome. Indefinite retention.',
+    desc: 'Real outcomes and engagement data feed back into the model. Every result refines the next prediction. The system gets sharper with every cycle — on your data, not a generic benchmark.',
   },
 ]
 
@@ -57,7 +57,7 @@ export default function Capabilities() {
           viewport={{ once: true }}
           className="text-[#a1a1aa] text-center mb-16 text-lg max-w-2xl mx-auto"
         >
-          Six capabilities that work together as one governed system — not six tools duct-taped together
+          Six capabilities that work together as one governed decisioning system — not six tools duct-taped together
         </motion.p>
 
         <motion.div

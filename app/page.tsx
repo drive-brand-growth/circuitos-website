@@ -12,8 +12,8 @@ import Footer from '@/components/Footer'
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'CircuitOS',
-  description: 'Pre-configured revenue intelligence platform with predictive scoring, content intelligence, and closed-loop learning. One system, measurable results.',
+  name: 'CircuitOS Pro',
+  description: 'Governed AI decisioning platform. Calibrated win-probability scoring, multi-touch attribution, and a signed audit trail that proves decision quality before the outcome is known.',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web-based',
   url: 'https://usecircuitos.com',
@@ -27,16 +27,16 @@ const jsonLd = {
     availability: 'https://schema.org/OnlineOnly',
   },
   featureList: [
-    'Predictive Lead Scoring',
-    'Autonomous Email Outreach',
-    'Content Intelligence Engine',
-    'Proprietary Multi-Model Quality Assurance',
-    'GA4 Feedback Loop',
-    'Multi-Vertical Support',
+    'Calibrated Win-Probability Scoring',
+    'Multi-Touch Attribution',
+    'Deal Risk Score',
+    'Decision-Quality Calibration',
+    'Signed, Tamper-Evident Audit Trail',
     'Human-in-the-Loop Governance',
-    'Full Audit Trail',
-    'Multi-Source Enrichment',
+    'Confidence-Based Escalation',
+    'Closed-Loop Learning',
     'CRM Integration',
+    'Content Intelligence (optional module)',
   ],
   author: {
     '@type': 'Organization',
@@ -51,18 +51,18 @@ const faqJsonLd = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'What is CircuitOS?',
+      name: 'What is CircuitOS Pro?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS is a pre-configured revenue intelligence platform that combines predictive lead scoring, content generation, and automated outreach into a single closed-loop system. It learns from every outcome to improve future predictions.',
+        text: 'CircuitOS Pro is a governed AI decisioning platform. It tells growth-stage businesses which deals will close and which marketing is actually working — and proves the decision was sound before the outcome is known, with a signed audit trail every time.',
       },
     },
     {
       '@type': 'Question',
-      name: 'How does lead scoring work?',
+      name: 'How is this different from a black-box AI tool?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Your ICP and qualification criteria are encoded before launch. Every lead is scored across 72+ signals for fit, intent, and timing. Pre-calibrated to your vertical — intelligent from day one, no training period.',
+        text: 'Most AI tools give you a recommendation with no audit trail and no way to know if it was right. CircuitOS Pro produces a calibrated probability with a confidence tier, governs the action with rules, and scores the decision afterward for whether its confidence was honest — proof of decision quality independent of outcome luck.',
       },
     },
     {
@@ -70,15 +70,15 @@ const faqJsonLd = {
       name: 'How does the closed-loop learning work?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS scores leads, tracks real outcomes (conversions, engagement, GA4 metrics), and feeds that data back into the scoring model. The system continuously improves its predictions based on actual results.',
+        text: 'CircuitOS Pro tracks real outcomes (conversions, engagement, attribution) and feeds them back into the scoring model. Every result refines the next prediction, so the system gets sharper over time — on your data, not a generic benchmark.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Can CircuitOS handle multiple businesses?',
+      name: 'Can CircuitOS Pro handle multiple businesses?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. CircuitOS supports unlimited verticals with isolated infrastructure per business line. Each gets its own scoring model, templates, CRM routing, and database. No data is shared between verticals or clients.',
+        text: 'Yes. Higher tiers support multiple business lines, each in its own isolated stack with a dedicated scoring model, configuration, and database. No data is shared between business lines or clients.',
       },
     },
     {
@@ -86,15 +86,15 @@ const faqJsonLd = {
       name: 'Is anything published or sent automatically?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Confidence-based governance determines what the system handles autonomously and what gets escalated to a human. Every action has a full audit trail. Nothing irreversible happens without your approval.',
+        text: 'Confidence-based governance determines what the system handles autonomously and what gets escalated to a human. Every action lands on a signed audit trail. Nothing irreversible happens without your approval.',
       },
     },
     {
       '@type': 'Question',
-      name: 'What integrations does CircuitOS support?',
+      name: 'What integrations does CircuitOS Pro support?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS connects to any CRM (HubSpot, Salesforce, and more), email automation platforms, and Google Analytics 4 for closed-loop feedback. Full REST API and webhook support for custom integrations.',
+        text: 'CircuitOS Pro connects to any CRM (HubSpot, Salesforce, and more), email automation platforms, and Google Analytics 4 for closed-loop feedback. Full REST API and webhook support for custom integrations.',
       },
     },
     {
@@ -102,23 +102,23 @@ const faqJsonLd = {
       name: 'What does onboarding look like?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Four weeks from contract to live scoring. We encode your ICP, configure scoring logic, integrate your CRM, and activate lead flow. You confirm lead sources and CRM mapping — we handle the rest.',
+        text: 'Roughly four weeks from contract to live decisioning. We encode your ICP, configure the decision logic, integrate your CRM, and activate the signal flow. You confirm your sources and mapping — we handle the rest.',
       },
     },
     {
       '@type': 'Question',
-      name: 'How much does CircuitOS cost?',
+      name: 'How much does CircuitOS Pro cost?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Three monthly tiers: Growth ($3,500/month), Scale ($6,500/month), and Enterprise ($12,000/month). One-time implementation fee covers platform setup, ICP encoding, and integrations. Use the build calculator on our site for exact line-item costs.',
+        text: 'Three monthly tiers: Growth ($3,500/month), Scale ($6,500/month), and Enterprise ($12,000/month). A one-time implementation fee covers platform setup, configuration, and integrations. Use the build calculator on our site for exact line-item costs.',
       },
     },
     {
       '@type': 'Question',
-      name: 'What industries does CircuitOS work for?',
+      name: 'What industries does CircuitOS Pro work for?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS is vertical-agnostic. Each deployment is configured for the specific industry, ICP, and demand patterns of the business. Current deployments span professional services, franchise operations, e-commerce, and SaaS.',
+        text: 'CircuitOS Pro is industry-agnostic — each deployment is configured for the specific business, ICP, and demand patterns. We run it on our own businesses today, including Drive Brand Growth and MetroFlex, and CircuitOS Pro itself runs on the platform.',
       },
     },
     {
@@ -126,7 +126,7 @@ const faqJsonLd = {
       name: 'Is my data isolated from other clients?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. Every vertical runs in its own containerized stack with a dedicated database, scoring model, and workflow configuration. No data is shared between verticals or clients.',
+        text: 'Yes. Each deployment runs in its own containerized stack with a dedicated database, scoring model, and configuration. No data is shared between business lines or clients, and deployment can run on your own infrastructure.',
       },
     },
     {
@@ -143,26 +143,32 @@ const faqJsonLd = {
 const howToJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
-  name: 'How CircuitOS Works',
-  description: 'Three steps to governed revenue intelligence with CircuitOS.',
+  name: 'How CircuitOS Pro Works',
+  description: 'The Circuit Method — the four-move loop every decision runs in CircuitOS Pro.',
   step: [
     {
       '@type': 'HowToStep',
       position: 1,
-      name: 'Score',
-      text: 'Every lead evaluated across 72+ signals for fit, intent, and timing. Pre-calibrated to your vertical — intelligent from day one.',
+      name: 'Observe',
+      text: 'Ingest the signals — pipeline data, attribution touchpoints, deal activity, and market context — from your CRM, analytics, and engagement sources.',
     },
     {
       '@type': 'HowToStep',
       position: 2,
       name: 'Decide',
-      text: 'Confidence thresholds determine autonomous execution vs. human escalation. High confidence: execute. Low confidence: ask a human. Every action governed.',
+      text: 'Produce a calibrated probability with a confidence tier, governed by rules — not a black-box guess. You see the conviction and the signals behind it.',
     },
     {
       '@type': 'HowToStep',
       position: 3,
+      name: 'Act',
+      text: 'Execute the recommended action with full parameter logging, or escalate to a human when confidence or risk demands it.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 4,
       name: 'Prove',
-      text: 'Full audit trail on every score, every gate evaluation, every routing decision. Outcomes feed back to improve the next cycle.',
+      text: 'After the outcome, score the decision for whether its confidence was honest, and write a signed, tamper-evident audit entry. Outcomes feed back to sharpen the next call.',
     },
   ],
 }

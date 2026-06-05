@@ -79,7 +79,7 @@ export default function Pricing() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">Governed AI. Mid-market pricing.</h2>
-          <p className="text-[#a1a1aa] text-lg">Built for $10M–$50M businesses that need auditable revenue intelligence — not another AI wrapper.</p>
+          <p className="text-[#a1a1aa] text-lg">Built for $10M–$50M businesses that need auditable, governed decisioning — not another AI wrapper.</p>
         </motion.div>
 
         <motion.div

@@ -2,16 +2,16 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Insights',
-  description: 'Revenue intelligence insights from CircuitOS. Governance, scoring, and the future of autonomous revenue operations.',
+  description: 'Governed AI decisioning insights from CircuitOS Pro. Calibration, governance, and provable decision quality.',
   openGraph: {
-    title: 'Insights | CircuitOS',
-    description: 'Revenue intelligence insights from CircuitOS. Governance, scoring, and autonomous revenue operations.',
+    title: 'Insights | CircuitOS Pro',
+    description: 'Governed AI decisioning insights from CircuitOS Pro. Calibration, governance, and provable decision quality.',
     url: 'https://usecircuitos.com/insights',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Insights | CircuitOS',
-    description: 'Revenue intelligence insights. Governance, scoring, and autonomous revenue operations.',
+    title: 'Insights | CircuitOS Pro',
+    description: 'Governed AI decisioning insights. Calibration, governance, and provable decision quality.',
   },
   alternates: { canonical: 'https://usecircuitos.com/insights' },
 }

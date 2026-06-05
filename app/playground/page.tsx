@@ -193,7 +193,7 @@ export default function PlaygroundPage() {
                     </div>
                   </div>
 
-                  {/* Right column — focused story: Score → Decide → Prove */}
+                  {/* Right column — the Circuit Method: Observe → Decide → Act → Prove */}
                   <div className="lg:col-span-7 space-y-6">
                     {/* SCORE — Conviction meter */}
                     <PosteriorMeter
@@ -294,10 +294,10 @@ export default function PlaygroundPage() {
               className="mt-20 text-center border-t border-[#27272a] pt-16 pb-8"
             >
               <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                See this on your real data
+                See this on your real pipeline
               </h2>
               <p className="text-[#a1a1aa] mb-8 max-w-lg mx-auto">
-                This playground uses simulated signals. The real engine runs on your CRM data, social profiles, and live engagement signals.
+                This playground runs on simulated signals. On your data, CircuitOS Pro decisions run on your CRM, attribution, and live deal activity — every call calibrated, governed, and proven on a signed audit trail.
               </p>
               <Link
                 href="/demo"

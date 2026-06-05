@@ -17,13 +17,13 @@ interface LeadInfo {
 
 // Local fallback knowledge for when API is unavailable
 const fallbackKB: Record<string, string> = {
-  'what is circuitos': 'CircuitOS is a pre-configured revenue intelligence platform. It scores leads, generates content, and automates outreach in a single closed-loop system — intelligent before your first lead arrives.',
-  'pricing': 'Three tiers: **Growth** ($3,500/mo), **Scale** ($6,500/mo), **Enterprise** ($12,000/mo). One-time implementation fee covers setup, ICP encoding, and integrations. [See pricing](/#pricing)',
+  'what is circuitos': 'CircuitOS Pro is a governed AI decisioning platform. It tells you which deals will close and which marketing is actually working — and proves the decision was sound before the outcome is known, with a signed audit trail every time.',
+  'pricing': 'Three tiers: **Growth** ($3,500/mo), **Scale** ($6,500/mo), **Enterprise** ($12,000/mo). One-time implementation fee covers setup, configuration, and integrations. [See pricing](/#pricing)',
   'demo': 'You can [book a demo here](/demo) — 30-minute personalized walkthrough with your business context. No commitment.',
-  'how': 'Three steps: Score every lead (72+ signals) → Decide autonomously or escalate to a human → Prove every action with a full audit trail. [See how it works](/#how-it-works)',
-  'integration': 'Connects to any CRM (HubSpot, Salesforce, GoHighLevel, and more), email automation platforms, and Google Analytics 4 for closed-loop feedback. Multi-model AI evaluation for content quality. REST API + webhooks for custom integrations.',
+  'how': 'Every decision runs one loop: **Observe** the signals → **Decide** with calibrated confidence → **Act** (autonomously or escalate to a human) → **Prove** it with a signed audit trail. [See how it works](/#how-it-works)',
+  'integration': 'Connects to any CRM (HubSpot, Salesforce, GoHighLevel, and more), email automation platforms, and Google Analytics 4 for closed-loop feedback. REST API + webhooks for custom integrations.',
   'contact': 'Reach us at hello@usecircuitos.com or [book a demo](/demo). We respond within 24 hours.',
-  'hello': "Hey! I'm Aria X, the CircuitOS concierge. I can help with anything about the platform — scoring, outreach, content, pricing. What are you looking into?",
+  'hello': "Hey! I'm Aria X, the CircuitOS Pro concierge. I can help with anything about the platform — deal scoring, attribution, governance, pricing. What are you looking into?",
 }
 
 function localFallback(query: string): string {
@@ -74,7 +74,7 @@ export default function AriaX() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState('')
-  const [quickReplies, setQuickReplies] = useState<string[]>(['What is CircuitOS?', 'How does it work?', 'See pricing'])
+  const [quickReplies, setQuickReplies] = useState<string[]>(['What is CircuitOS Pro?', 'How does it work?', 'See pricing'])
   const [isTyping, setIsTyping] = useState(false)
   const [leadTier, setLeadTier] = useState('awareness')
   const [hasNotification, setHasNotification] = useState(false)
@@ -96,7 +96,7 @@ export default function AriaX() {
       setTimeout(() => {
         setMessages([{
           role: 'assistant',
-          content: "Hey, I'm Aria X — the CircuitOS concierge. I can walk you through the platform, answer questions about scoring, outreach, content intelligence, or pricing. What can I help with?",
+          content: "Hey, I'm Aria X — the CircuitOS Pro concierge. I can walk you through the platform, answer questions about deal scoring, attribution, governance, or pricing. What can I help with?",
         }])
         setIsTyping(false)
       }, 600)
@@ -377,7 +377,7 @@ export default function AriaX() {
                       sendMessage()
                     }
                   }}
-                  placeholder="Ask about CircuitOS..."
+                  placeholder="Ask about CircuitOS Pro..."
                   className="flex-1 bg-[#18181b] text-white border border-[#27272a] rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-500/50 placeholder:text-[#52525b]"
                   disabled={isTyping}
                   aria-label="Chat message"

@@ -27,7 +27,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#27272a] bg-[#27272a]/30 text-sm text-[#a1a1aa] mb-8"
         >
           <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-          Governed AI &mdash; battle-tested across 6 live verticals
+          Governed AI decisioning &mdash; running live in production
         </motion.div>
 
         <motion.h1
@@ -35,14 +35,14 @@ export default function Hero() {
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold gradient-text mb-10 hero-headline"
         >
 
-          Your revenue runs.<br />Every decision traceable.
+          Which deals close.<br />Which marketing works. Proven.
         </motion.h1>
 
         <motion.p
           variants={fadeInUp}
           className="text-lg sm:text-xl md:text-2xl text-[#a1a1aa] max-w-2xl mx-auto mb-10 leading-[1.6]"
         >
-          AI that scores leads in seconds, acts with calibrated confidence, and proves why &mdash; with a complete decision trail. Auditable by morning.
+          CircuitOS Pro scores every decision with calibrated confidence, acts within governed rules, and proves the call was sound &mdash; before the outcome is in. A signed audit trail, every time.
         </motion.p>
 
         <motion.div

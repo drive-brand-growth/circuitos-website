@@ -6,10 +6,10 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <span className="text-xl font-semibold">
-              <span className="text-blue-500">//</span> Circuit<span className="text-blue-500">OS</span>
+              <span className="text-blue-500">//</span> Circuit<span className="text-blue-500">OS</span> Pro
             </span>
             <p className="text-sm text-[#71717a] mt-2 leading-relaxed">
-              Score. Decide. Prove.
+              Observe. Decide. Act. Prove.
             </p>
           </div>
 
@@ -44,7 +44,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-[#27272a] text-center text-sm text-[#71717a]" suppressHydrationWarning>
-          &copy; {new Date().getFullYear()} CircuitOS. All rights reserved.
+          &copy; {new Date().getFullYear()} CircuitOS Pro. All rights reserved.
         </div>
       </div>
     </footer>

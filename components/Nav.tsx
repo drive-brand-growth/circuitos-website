@@ -11,7 +11,7 @@ export default function Nav() {
         <div className="flex items-center gap-10">
           <a href="/" className="flex items-center gap-2">
             <span className="text-xl font-semibold tracking-tight">
-              <span className="text-blue-500">//</span> Circuit<span className="text-blue-500">OS</span>
+              <span className="text-blue-500">//</span> Circuit<span className="text-blue-500">OS</span> Pro
             </span>
           </a>
           <div className="hidden md:flex items-center gap-8 text-sm text-[#a1a1aa]">

@@ -27,7 +27,7 @@ export default function InsightsPage() {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">Insights</h1>
           <p className="text-[#a1a1aa] text-lg mb-16">
-            How autonomous revenue intelligence works — and why governance changes everything.
+            How governed AI decisioning works — and why provable decision quality changes everything.
           </p>
 
           <div className="space-y-8">

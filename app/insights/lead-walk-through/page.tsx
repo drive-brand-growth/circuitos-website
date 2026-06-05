@@ -207,7 +207,7 @@ export default function LeadWalkThrough() {
             </p>
 
             <p className="text-white text-lg font-bold">
-              That is what governed revenue intelligence looks like. Score. Decide. Prove.
+              That is what governed AI decisioning looks like. Observe. Decide. Act. Prove.
             </p>
           </div>
 

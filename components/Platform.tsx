@@ -3,18 +3,18 @@
 import { motion, useInView } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 
-// Animated content pipeline terminal
+// Animated decision pipeline terminal — the Circuit Method running on one deal
 const pipelineSteps = [
-  { label: 'generate', text: 'Topic: "Lead Nurturing Best Practices"', color: 'text-blue-400' },
-  { label: 'generate', text: 'AI engine generating 1,200-word article...', color: 'text-[#a1a1aa]' },
-  { label: 'verify', text: 'Fact-checker: 12 claims validated against 5 sources', color: 'text-green-400' },
-  { label: 'score', text: 'readability_model: 0.84', color: 'text-green-400' },
-  { label: 'score', text: 'uniqueness_model: 0.78', color: 'text-green-400' },
-  { label: 'score', text: 'brand_voice_model: 0.92', color: 'text-green-400' },
-  { label: 'infer', text: 'Multi-model evaluation → composite: 84.7 → Tier: HIGH', color: 'text-blue-400' },
-  { label: 'distribute', text: 'Blog → 4 social channels queued', color: 'text-[#a1a1aa]' },
-  { label: 'govern', text: 'Status: PENDING_REVIEW', color: 'text-yellow-400' },
-  { label: 'learn', text: 'Feedback loop registered. Model update in 48h.', color: 'text-[#a1a1aa]' },
+  { label: 'observe', text: 'Deal: "Acme Corp — Q3 renewal · $48k"', color: 'text-blue-400' },
+  { label: 'observe', text: 'Ingesting pipeline + attribution + activity signals...', color: 'text-[#a1a1aa]' },
+  { label: 'decide', text: 'win_probability: 0.78 → confidence tier B', color: 'text-green-400' },
+  { label: 'decide', text: 'attribution: 3 touchpoints credited → paid search led', color: 'text-green-400' },
+  { label: 'decide', text: 'deal_risk: LOW — no red flags', color: 'text-green-400' },
+  { label: 'act', text: 'Recommended: advance to proposal, draft follow-up', color: 'text-blue-400' },
+  { label: 'govern', text: 'risk_class MEDIUM → human approval gate: PASSED', color: 'text-yellow-400' },
+  { label: 'act', text: 'Action executed within governed rules', color: 'text-[#a1a1aa]' },
+  { label: 'prove', text: 'Decision scored for calibration → confidence honest', color: 'text-green-400' },
+  { label: 'prove', text: 'Signed audit entry written — tamper-evident, retained', color: 'text-[#a1a1aa]' },
 ]
 
 function ContentPipelineTerminal() {
@@ -53,7 +53,7 @@ function ContentPipelineTerminal() {
             <div className="w-3 h-3 rounded-full bg-[#eab308]/80"></div>
             <div className="w-3 h-3 rounded-full bg-[#22c55e]/80"></div>
           </div>
-          <span className="ml-4 text-xs text-[#71717a] font-mono">circuitos — content intelligence pipeline</span>
+          <span className="ml-4 text-xs text-[#71717a] font-mono">circuitos pro — decision pipeline</span>
         </div>
         <div className="p-6 font-mono text-sm space-y-2 min-h-[300px]">
           {isInView && visibleSteps === 0 && (
@@ -88,7 +88,7 @@ function ContentPipelineTerminal() {
               transition={{ delay: 0.3 }}
               className="mt-4 pt-4 border-t border-[#27272a] text-[#a1a1aa] font-sans text-sm"
             >
-              Every piece of content goes through source verification, fact-checking, multi-AI scoring, and governance gates before publication.
+              Every decision runs the same loop — observe the signals, decide with calibrated confidence, act within governed rules, and prove the call was sound on a signed audit trail.
             </motion.div>
           )}
         </div>
@@ -107,9 +107,9 @@ export default function Platform() {
           viewport={{ once: true }}
           className="text-center mb-4"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">One pipeline, start to finish</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">One decision, start to finish</h2>
           <p className="text-[#a1a1aa] max-w-2xl mx-auto text-lg leading-[1.6]">
-            From content generation through fact-checking, scoring, and distribution — watch what a single pipeline run looks like in production.
+            From raw signals through a calibrated call, a governed action, and a signed proof — watch a single decision run in production.
           </p>
         </motion.div>
 

@@ -16,38 +16,50 @@ const staggerContainer = {
 const steps = [
   {
     step: '01',
-    title: 'Score',
-    headline: 'Every lead evaluated in seconds',
-    desc: 'A pre-calibrated Bayesian model evaluates fit, intent, and timing across 72+ signals. Your ICP encoded before launch — no training period, no cold start. You see the conviction score and every signal that produced it.',
+    title: 'Observe',
+    headline: 'Ingest every signal that matters',
+    desc: 'Pipeline data, attribution touchpoints, deal activity, and market context flow in continuously from your CRM, analytics, and engagement sources. The full picture, in one place, before a decision is made.',
     code: [
-      { label: 'signals', text: '72 evaluated', color: 'text-blue-400' },
-      { label: 'conviction', text: '0.784', color: 'text-green-400' },
-      { label: 'tier', text: 'B — HIGH PRIORITY', color: 'text-green-400' },
-      { label: 'latency', text: '0.8s', color: 'text-[#a1a1aa]' },
+      { label: 'sources', text: 'CRM · attribution · GA4', color: 'text-blue-400' },
+      { label: 'signals', text: 'fit · intent · timing', color: 'text-[#a1a1aa]' },
+      { label: 'context', text: 'pipeline + market', color: 'text-[#a1a1aa]' },
+      { label: 'status', text: 'INGESTED', color: 'text-green-400' },
     ],
   },
   {
     step: '02',
     title: 'Decide',
-    headline: 'Autonomous when confident, human when not',
-    desc: 'Confidence thresholds mapped to risk classes determine what executes and what escalates. A low-risk action at 65% confidence runs autonomously. A high-risk action at 88% still escalates. Every action governed by rules, not guesses.',
+    headline: 'A calibrated probability, not a black-box guess',
+    desc: 'Every decision gets a calibrated probability and a confidence tier — the likelihood a deal closes, governed by rules. You see the conviction and the signals behind it, never a number with no explanation.',
     code: [
-      { label: 'confidence', text: '78.4% > threshold 78.0%', color: 'text-green-400' },
-      { label: 'decision', text: 'EXECUTE', color: 'text-green-400' },
-      { label: 'risk_class', text: 'MEDIUM', color: 'text-blue-400' },
-      { label: 'outreach', text: 'personalized, brand voice', color: 'text-[#a1a1aa]' },
+      { label: 'win_probability', text: '0.784', color: 'text-green-400' },
+      { label: 'confidence', text: 'tier B', color: 'text-green-400' },
+      { label: 'governed', text: 'rules, not guesses', color: 'text-blue-400' },
+      { label: 'explainable', text: 'signals shown', color: 'text-[#a1a1aa]' },
     ],
   },
   {
     step: '03',
-    title: 'Prove',
-    headline: 'Full audit trail on every decision',
-    desc: 'Every score, gate evaluation, and routing decision logged to a searchable decision trail with indefinite retention. If it happened, you can trace why. Outcomes feed back to refine the next prediction.',
+    title: 'Act',
+    headline: 'Autonomous when confident, human when not',
+    desc: 'Confidence mapped to risk class determines what runs and what escalates. A low-risk action at 65% executes; a high-risk one at 88% still routes to a person. Every action taken with full parameter logging.',
     code: [
-      { label: 'trail', text: 'decision → action → outcome', color: 'text-blue-400' },
-      { label: 'audit', text: 'COMPLETE', color: 'text-green-400' },
+      { label: 'action', text: 'EXECUTE', color: 'text-green-400' },
+      { label: 'risk_class', text: 'MEDIUM', color: 'text-blue-400' },
+      { label: 'escalation', text: 'rules-based', color: 'text-[#a1a1aa]' },
+      { label: 'logged', text: 'full parameters', color: 'text-[#a1a1aa]' },
+    ],
+  },
+  {
+    step: '04',
+    title: 'Prove',
+    headline: 'Proof the decision was sound — before the outcome',
+    desc: 'After the result, the decision is scored for whether its confidence was honest — proof of decision quality independent of outcome luck — and written to a signed, tamper-evident audit trail. Outcomes feed back to sharpen the next call.',
+    code: [
+      { label: 'decision_quality', text: 'calibrated', color: 'text-green-400' },
+      { label: 'audit', text: 'SIGNED', color: 'text-green-400' },
       { label: 'retention', text: 'indefinite', color: 'text-[#a1a1aa]' },
-      { label: 'feedback', text: 'GA4 closed-loop', color: 'text-green-400' },
+      { label: 'feedback', text: 'closed-loop', color: 'text-blue-400' },
     ],
   },
 ]
@@ -94,14 +106,14 @@ export default function HowItWorks() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">Score. Decide. Prove.</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">Observe. Decide. Act. Prove.</h2>
           <p className="text-[#a1a1aa] max-w-2xl mx-auto text-lg leading-[1.6]">
-            Three steps. Every lead scored, every action governed, every decision auditable.
+            The Circuit Method — the four-move loop every decision runs. Calibrated, governed, and proven on a signed audit trail.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid md:grid-cols-3 gap-6"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
@@ -127,7 +139,7 @@ export default function HowItWorks() {
               <p className="text-[#a1a1aa] text-sm leading-relaxed">{item.desc}</p>
               <StepCode code={item.code} isVisible={activeStep === i} />
               {i < steps.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-[#3f3f46] text-xl">&#8250;</div>
+                <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-[#3f3f46] text-xl">&#8250;</div>
               )}
             </motion.div>
           ))}
