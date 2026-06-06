@@ -12,7 +12,7 @@ import Footer from '@/components/Footer'
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'CircuitOS Pro',
+  name: 'CircuitOS',
   description: 'Governed AI decisioning platform. Calibrated win-probability scoring, multi-touch attribution, and a signed audit trail that proves decision quality before the outcome is known.',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web-based',
@@ -51,10 +51,10 @@ const faqJsonLd = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'What is CircuitOS Pro?',
+      name: 'What is CircuitOS?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS Pro is a governed AI decisioning platform. It tells growth-stage businesses which deals will close and which marketing is actually working — and proves the decision was sound before the outcome is known, with a signed audit trail every time.',
+        text: 'CircuitOS is a governed AI decisioning platform. It tells growth-stage businesses which deals will close and which marketing is actually working — and proves the decision was sound before the outcome is known, with a signed audit trail every time.',
       },
     },
     {
@@ -62,7 +62,7 @@ const faqJsonLd = {
       name: 'How is this different from a black-box AI tool?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Most AI tools give you a recommendation with no audit trail and no way to know if it was right. CircuitOS Pro produces a calibrated probability with a confidence tier, governs the action with rules, and scores the decision afterward for whether its confidence was honest — proof of decision quality independent of outcome luck.',
+        text: 'Most AI tools give you a recommendation with no audit trail and no way to know if it was right. CircuitOS produces a calibrated probability with a confidence tier, governs the action with rules, and scores the decision afterward for whether its confidence was honest — proof of decision quality independent of outcome luck.',
       },
     },
     {
@@ -70,12 +70,12 @@ const faqJsonLd = {
       name: 'How does the closed-loop learning work?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS Pro tracks real outcomes (conversions, engagement, attribution) and feeds them back into the scoring model. Every result refines the next prediction, so the system gets sharper over time — on your data, not a generic benchmark.',
+        text: 'CircuitOS tracks real outcomes (conversions, engagement, attribution) and feeds them back into the scoring model. Every result refines the next prediction, so the system gets sharper over time — on your data, not a generic benchmark.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Can CircuitOS Pro handle multiple businesses?',
+      name: 'Can CircuitOS handle multiple businesses?',
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'Yes. Higher tiers support multiple business lines, each in its own isolated stack with a dedicated scoring model, configuration, and database. No data is shared between business lines or clients.',
@@ -91,10 +91,10 @@ const faqJsonLd = {
     },
     {
       '@type': 'Question',
-      name: 'What integrations does CircuitOS Pro support?',
+      name: 'What integrations does CircuitOS support?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS Pro connects to any CRM (HubSpot, Salesforce, and more), email automation platforms, and Google Analytics 4 for closed-loop feedback. Full REST API and webhook support for custom integrations.',
+        text: 'CircuitOS connects to any CRM (HubSpot, Salesforce, and more), email automation platforms, and Google Analytics 4 for closed-loop feedback. Full REST API and webhook support for custom integrations.',
       },
     },
     {
@@ -107,7 +107,7 @@ const faqJsonLd = {
     },
     {
       '@type': 'Question',
-      name: 'How much does CircuitOS Pro cost?',
+      name: 'How much does CircuitOS cost?',
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'Three monthly tiers: Growth ($3,500/month), Scale ($6,500/month), and Enterprise ($12,000/month). A one-time implementation fee covers platform setup, configuration, and integrations. Use the build calculator on our site for exact line-item costs.',
@@ -115,10 +115,10 @@ const faqJsonLd = {
     },
     {
       '@type': 'Question',
-      name: 'What industries does CircuitOS Pro work for?',
+      name: 'What industries does CircuitOS work for?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS Pro is industry-agnostic — each deployment is configured for the specific business, ICP, and demand patterns. We run it on our own businesses today, including Drive Brand Growth and MetroFlex, and CircuitOS Pro itself runs on the platform.',
+        text: 'CircuitOS is industry-agnostic — each deployment is configured for the specific business, ICP, and demand patterns. We run it on our own businesses today, including Drive Brand Growth and MetroFlex, and CircuitOS itself runs on the platform.',
       },
     },
     {
@@ -143,8 +143,8 @@ const faqJsonLd = {
 const howToJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
-  name: 'How CircuitOS Pro Works',
-  description: 'The Circuit Method — the four-move loop every decision runs in CircuitOS Pro.',
+  name: 'How CircuitOS Works',
+  description: 'The Circuit Method — the four-move loop every decision runs in CircuitOS.',
   step: [
     {
       '@type': 'HowToStep',

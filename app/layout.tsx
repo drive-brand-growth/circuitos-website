@@ -14,8 +14,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://usecircuitos.com'),
   title: {
-    default: 'CircuitOS Pro — Governed AI Decisioning',
-    template: '%s | CircuitOS Pro'
+    default: 'CircuitOS — Governed AI Decisioning',
+    template: '%s | CircuitOS'
   },
   description: 'Governed AI decisioning. Know which deals will close and which marketing is working — and prove the decision was sound before the outcome is known, with a signed audit trail every time.',
   keywords: [
@@ -30,20 +30,20 @@ export const metadata: Metadata = {
     'revenue decisioning',
     'mid-market AI platform',
   ],
-  authors: [{ name: 'CircuitOS Pro', url: 'https://usecircuitos.com' }],
+  authors: [{ name: 'CircuitOS', url: 'https://usecircuitos.com' }],
   creator: 'DriveBrandGrowth',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://usecircuitos.com',
-    siteName: 'CircuitOS Pro',
-    title: 'CircuitOS Pro — Governed AI Decisioning',
+    siteName: 'CircuitOS',
+    title: 'CircuitOS — Governed AI Decisioning',
     description: 'Know which deals will close and which marketing is working — and prove the decision was sound before the outcome is known, with a signed audit trail every time.',
     images: ['https://usecircuitos.com/opengraph-image'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CircuitOS Pro — Governed AI Decisioning',
+    title: 'CircuitOS — Governed AI Decisioning',
     description: 'Know which deals will close and which marketing is working — and prove it, with a signed audit trail every time.',
     images: ['https://usecircuitos.com/opengraph-image'],
   },
@@ -67,7 +67,7 @@ const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   '@id': 'https://usecircuitos.com/#organization',
-  name: 'CircuitOS Pro',
+  name: 'CircuitOS',
   legalName: 'DriveBrandGrowth LLC',
   url: 'https://usecircuitos.com',
   logo: 'https://usecircuitos.com/circuitos-logo-full.svg',
@@ -94,7 +94,7 @@ const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   '@id': 'https://usecircuitos.com/#website',
-  name: 'CircuitOS Pro',
+  name: 'CircuitOS',
   url: 'https://usecircuitos.com',
   publisher: { '@id': 'https://usecircuitos.com/#organization' },
   potentialAction: {

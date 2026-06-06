@@ -28,12 +28,12 @@ export default function TermsPage() {
           <p className="text-[#a1a1aa] mb-4">Last updated: February 17, 2026</p>
 
           <p className="text-[#a1a1aa] leading-relaxed">
-            These Terms of Service (&quot;Terms&quot;) govern your access to and use of the services provided by DriveBrandGrowth LLC (&quot;CircuitOS Pro,&quot; &quot;CircuitOS,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), including our website at usecircuitos.com and the CircuitOS Pro platform.
+            These Terms of Service (&quot;Terms&quot;) govern your access to and use of the services provided by DriveBrandGrowth LLC (&quot;CircuitOS,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), including our website at usecircuitos.com and the CircuitOS platform.
           </p>
 
           <h2 className="text-xl font-semibold mt-10 mb-4">Services</h2>
           <p className="text-[#a1a1aa] leading-relaxed">
-            CircuitOS Pro provides a governed AI decisioning platform that may include calibrated lead and deal scoring, attribution, automated outreach, content intelligence, audit-trail governance, and analytics services. Specific service terms, scope, and pricing are defined in individual service agreements between CircuitOS Pro and each client.
+            CircuitOS provides a governed AI decisioning platform that may include calibrated lead and deal scoring, attribution, automated outreach, content intelligence, audit-trail governance, and analytics services. Specific service terms, scope, and pricing are defined in individual service agreements between CircuitOS and each client.
           </p>
 
           <h2 className="text-xl font-semibold mt-10 mb-4">Account and Access</h2>
