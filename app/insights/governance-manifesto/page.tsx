@@ -163,7 +163,7 @@ export default function GovernanceManifesto() {
             </p>
 
             <p>
-              Seventy-two signals fire. Revenue fit scores 0.82 — the company has the budget and the profile. Decision authority scores 0.71 — the contact is a VP, not the final buyer but close. Market density scores 0.89 — the Austin market has strong demand and low competition.
+              Signals fire. Revenue fit scores 0.82 — the company has the budget and the profile. Decision authority scores 0.71 — the contact is a VP, not the final buyer but close. Market density scores 0.89 — the Austin market has strong demand and low competition.
             </p>
 
             <p>

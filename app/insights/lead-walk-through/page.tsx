@@ -5,17 +5,17 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'A Lead Enters CircuitOS at 2:47 PM',
-  description: 'In 4.2 seconds, 72 signals fire, a conviction score calculates, a governance gate evaluates, and an autonomous decision executes. Here\'s what it looks like.',
+  description: 'Signals fire, a conviction score calculates, a governance gate evaluates, and an autonomous decision executes. Here\'s what it looks like.',
   openGraph: {
     title: 'A Lead Enters CircuitOS at 2:47 PM. Here\'s What Happened Next.',
-    description: 'In 4.2 seconds, 72 signals fire, a conviction score calculates, and an autonomous decision executes.',
+    description: 'Signals fire, a conviction score calculates, and an autonomous decision executes.',
     url: 'https://usecircuitos.com/insights/lead-walk-through',
     type: 'article',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'A Lead Enters CircuitOS at 2:47 PM',
-    description: 'In 4.2 seconds, 72 signals fire and an autonomous decision executes.',
+    description: 'Signals fire and an autonomous decision executes.',
   },
   alternates: { canonical: 'https://usecircuitos.com/insights/lead-walk-through' },
 }
@@ -24,7 +24,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'A Lead Enters CircuitOS at 2:47 PM. Here\'s What Happened Next.',
-  description: 'In 4.2 seconds, 72 signals fire, a conviction score calculates, a governance gate evaluates, and an autonomous decision executes.',
+  description: 'Signals fire, a conviction score calculates, a governance gate evaluates, and an autonomous decision executes.',
   author: { '@type': 'Organization', name: 'CircuitOS', url: 'https://usecircuitos.com' },
   publisher: { '@type': 'Organization', name: 'CircuitOS', url: 'https://usecircuitos.com', logo: 'https://usecircuitos.com/circuitos-logo-full.svg' },
   datePublished: '2026-03-30',
@@ -103,7 +103,7 @@ export default function LeadWalkThrough() {
             <h2>T+0.8s — Scoring</h2>
 
             <p>
-              Seventy-two signals fire simultaneously. Not sequentially. The scoring engine evaluates five dimensions in parallel, each producing a likelihood ratio that updates the system&apos;s belief about whether this prospect will convert.
+              Signals fire simultaneously. Not sequentially. The scoring engine evaluates five dimensions in parallel, each producing a likelihood ratio that updates the system&apos;s belief about whether this prospect will convert.
             </p>
 
             <TerminalBlock>
@@ -199,7 +199,7 @@ export default function LeadWalkThrough() {
             <h2>What Happened at 2:47 PM</h2>
 
             <p>
-              At 2:47 PM, a VP of Operations filled out a form. At 2:47 PM and 4.2 seconds, the system had scored her across 72 signals, evaluated its own confidence, determined it had the authority to act, routed her to the right engagement sequence, drafted a personalized outreach in the client&apos;s voice, and logged every step of its reasoning.
+              At 2:47 PM, a VP of Operations filled out a form. Seconds later, the system had scored her across every signal that fired, evaluated its own confidence, determined it had the authority to act, routed her to the right engagement sequence, drafted a personalized outreach in the client&apos;s voice, and logged every step of its reasoning.
             </p>
 
             <p>
