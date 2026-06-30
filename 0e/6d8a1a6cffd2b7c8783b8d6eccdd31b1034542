@@ -1,0 +1,37 @@
+components/BuildCalculator.tsx
+  s_3daabc217bdddc::t_a654925c636411 52
+app/insights/lead-walk-through/page.tsx
+  s_3daabc217bdddc::t_9f31fbfc70fcb7 8
+  s_3daabc217bdddc::t_4678cac698c11e 18
+  s_3daabc217bdddc::t_b3c159bde5d416 27
+  s_3daabc217bdddc::t_238830c3bf459b 11
+  s_3daabc217bdddc::t_df64f3b45a8f07 202
+app/insights/page.tsx
+  s_3daabc217bdddc::t_fb45a18c5d766e 16
+app/demo/page.tsx
+  s_3daabc217bdddc::t_6bf9e24040672e 192
+public/llms.txt
+  s_3daabc217bdddc::t_c0b21131a87468 9
+  s_3daabc217bdddc::t_df4a51272b1210 60
+  s_3daabc217bdddc::t_347984dab28f65 21
+components/Pricing.tsx
+  s_3daabc217bdddc::t_7482bf96fec789 22
+components/DashboardPreview.tsx
+  s_3daabc217bdddc::t_3bdd887a23406c 132
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.5",
+  "base_commit_sha": "0e6d8a1a6cffd2b7c8783b8d6eccdd31b1034542",
+  "prompts": {},
+  "sessions": {
+    "s_3daabc217bdddc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "83b085e6-f7ae-43dc-8590-495924354fc8",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}
