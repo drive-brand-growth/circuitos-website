@@ -14,8 +14,8 @@ const staggerContainer = {
 
 const capabilities = [
   {
-    title: 'Calibrated win-probability scoring',
-    desc: 'Every deal gets a calibrated probability it closes — with the confidence tier and the signals behind it. You see the conviction and the reasoning, never a magic number with no explanation.',
+    title: 'Bayesian win-probability scoring',
+    desc: 'Every deal gets a Bayesian probability it closes — with the confidence tier and the signals behind it. You see the conviction and the reasoning, never a magic number with no explanation.',
   },
   {
     title: 'Multi-touch attribution',

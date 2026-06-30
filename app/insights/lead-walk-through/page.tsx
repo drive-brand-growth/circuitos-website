@@ -119,11 +119,11 @@ export default function LeadWalkThrough() {
             </TerminalBlock>
 
             <p>
-              Revenue fit is high. She runs a firm that matches the ideal customer profile the system was calibrated against before it ever saw its first lead. Decision authority is moderate — she can champion internally but probably needs a co-signer. Market density is excellent. Austin has the demand and the competitive landscape is favorable.
+              Revenue fit is high. She runs a firm that matches the ideal customer profile the system was configured against before it ever saw its first lead. Decision authority is moderate — she can champion internally but probably needs a co-signer. Market density is excellent. Austin has the demand and the competitive landscape is favorable.
             </p>
 
             <p>
-              The conviction score lands at 78.4%. This is not a random number. It is a Bayesian posterior — a calibrated probability, updated from a prior belief using the evidence of every signal that fired. It means: given everything the system knows, there is a 78.4% chance this prospect belongs in the active pipeline.
+              The conviction score lands at 78.4%. This is not a random number. It is a Bayesian posterior — a probability updated from a prior belief using the evidence of every signal that fired. It means: given everything the system knows, there is a 78.4% chance this prospect belongs in the active pipeline.
             </p>
 
             <h2>T+1.2s — The Gate</h2>

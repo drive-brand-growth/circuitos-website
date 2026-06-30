@@ -17,7 +17,7 @@ CircuitOS is a revenue intelligence platform that scores leads, decides what to 
 
 ## How It Works
 
-1. Configure: ICP encoded, scoring model calibrated, brand voice set
+1. Configure: ICP encoded, scoring model configured, brand voice set
 2. Score: Every lead evaluated with Bayesian inference across fit, intent, and timing signals
 3. Decide: Bayesian confidence thresholds determine autonomous execution vs. human escalation
 4. Engage: Personalized outreach in your brand voice with governance gates

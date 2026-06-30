@@ -20,7 +20,7 @@ const fallbackKB: Record<string, string> = {
   'what is circuitos': 'CircuitOS is a governed AI decisioning platform. It tells you which deals will close and which marketing is actually working — and proves the decision was sound before the outcome is known, with a signed audit trail every time.',
   'pricing': 'Three tiers: **Growth** ($3,500/mo), **Scale** ($6,500/mo), **Enterprise** ($12,000/mo). One-time implementation fee covers setup, configuration, and integrations. [See pricing](/#pricing)',
   'demo': 'You can [book a demo here](/demo) — 30-minute personalized walkthrough with your business context. No commitment.',
-  'how': 'Every decision runs one loop: **Observe** the signals → **Decide** with calibrated confidence → **Act** (autonomously or escalate to a human) → **Prove** it with a signed audit trail. [See how it works](/#how-it-works)',
+  'how': 'Every decision runs one loop: **Observe** the signals → **Decide** with Bayesian confidence → **Act** (autonomously or escalate to a human) → **Prove** it with a signed audit trail. [See how it works](/#how-it-works)',
   'integration': 'Connects to any CRM (HubSpot, Salesforce, GoHighLevel, and more), email automation platforms, and Google Analytics 4 for closed-loop feedback. REST API + webhooks for custom integrations.',
   'contact': 'Reach us at hello@usecircuitos.com or [book a demo](/demo). We respond within 24 hours.',
   'hello': "Hey! I'm Aria X, the CircuitOS concierge. I can help with anything about the platform — deal scoring, attribution, governance, pricing. What are you looking into?",

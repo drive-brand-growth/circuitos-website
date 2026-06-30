@@ -29,8 +29,8 @@ const steps = [
   {
     step: '02',
     title: 'Decide',
-    headline: 'A calibrated probability, not a black-box guess',
-    desc: 'Every decision gets a calibrated probability and a confidence tier — the likelihood a deal closes, governed by rules. You see the conviction and the signals behind it, never a number with no explanation.',
+    headline: 'A Bayesian probability, not a black-box guess',
+    desc: 'Every decision gets a Bayesian probability and a confidence tier — the likelihood a deal closes, governed by rules. You see the conviction and the signals behind it, never a number with no explanation.',
     code: [
       { label: 'win_probability', text: '0.784', color: 'text-green-400' },
       { label: 'confidence', text: 'tier B', color: 'text-green-400' },
@@ -56,7 +56,7 @@ const steps = [
     headline: 'Proof the decision was sound — before the outcome',
     desc: 'After the result, the decision is scored for whether its confidence was honest — proof of decision quality independent of outcome luck — and written to a signed, tamper-evident audit trail. Outcomes feed back to sharpen the next call.',
     code: [
-      { label: 'decision_quality', text: 'calibrated', color: 'text-green-400' },
+      { label: 'decision_quality', text: 'scored', color: 'text-green-400' },
       { label: 'audit', text: 'SIGNED', color: 'text-green-400' },
       { label: 'retention', text: 'indefinite', color: 'text-[#a1a1aa]' },
       { label: 'feedback', text: 'closed-loop', color: 'text-blue-400' },
@@ -108,7 +108,7 @@ export default function HowItWorks() {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">Observe. Decide. Act. Prove.</h2>
           <p className="text-[#a1a1aa] max-w-2xl mx-auto text-lg leading-[1.6]">
-            The Circuit Method — the four-move loop every decision runs. Calibrated, governed, and proven on a signed audit trail.
+            The Circuit Method — the four-move loop every decision runs. Bayesian, governed, and proven on a signed audit trail.
           </p>
         </motion.div>
 

@@ -88,7 +88,7 @@ function ContentPipelineTerminal() {
               transition={{ delay: 0.3 }}
               className="mt-4 pt-4 border-t border-[#27272a] text-[#a1a1aa] font-sans text-sm"
             >
-              Every decision runs the same loop — observe the signals, decide with calibrated confidence, act within governed rules, and prove the call was sound on a signed audit trail.
+              Every decision runs the same loop — observe the signals, decide with Bayesian confidence, act within governed rules, and prove the call was sound on a signed audit trail.
             </motion.div>
           )}
         </div>
@@ -109,7 +109,7 @@ export default function Platform() {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">One decision, start to finish</h2>
           <p className="text-[#a1a1aa] max-w-2xl mx-auto text-lg leading-[1.6]">
-            From raw signals through a calibrated call, a governed action, and a signed proof — watch a single decision run in production.
+            From raw signals through a scored call, a governed action, and a signed proof — watch a single decision run in production.
           </p>
         </motion.div>
 

@@ -42,7 +42,7 @@ export default function Hero() {
           variants={fadeInUp}
           className="text-lg sm:text-xl md:text-2xl text-[#a1a1aa] max-w-2xl mx-auto mb-10 leading-[1.6]"
         >
-          CircuitOS scores every decision with calibrated confidence, acts within governed rules, and proves the call was sound &mdash; before the outcome is in. A signed audit trail, every time.
+          CircuitOS scores every decision with Bayesian confidence, acts within governed rules, and proves the call was sound &mdash; before the outcome is in. A signed audit trail, every time.
         </motion.p>
 
         <motion.div

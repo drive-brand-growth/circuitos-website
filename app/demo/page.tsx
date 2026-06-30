@@ -438,7 +438,7 @@ const outreachPath: DemoStepData[] = [
   },
   {
     module: 'outreach', headline: 'Live signals update the decision',
-    narrative: { spreadsheets: 'You\'d never know who engaged. CircuitOS reads every response signal and updates the conviction in real-time.', basic_crm: 'Your CRM tracks opens. CircuitOS folds engagement back into the deal\'s calibrated probability.', marketing_auto: 'You track engagement already. CircuitOS turns it into an updated win probability, not just a metric.', custom: 'Engagement events flow back via webhook and re-score the deal — the decision stays current.' },
+    narrative: { spreadsheets: 'You\'d never know who engaged. CircuitOS reads every response signal and updates the conviction in real-time.', basic_crm: 'Your CRM tracks opens. CircuitOS folds engagement back into the deal\'s Bayesian probability.', marketing_auto: 'You track engagement already. CircuitOS turns it into an updated win probability, not just a metric.', custom: 'Engagement events flow back via webhook and re-score the deal — the decision stays current.' },
     metrics: [{ label: 'Signals In', base: 18, suffix: '' }, { label: 'Re-scored', base: 7, suffix: '' }, { label: 'Replies', base: 3, suffix: '' }, { label: 'Conviction ↑', base: 2, suffix: '' }],
     leads: [{ name: 'Sarah Chen', score: 92.4, status: 'Engaged → ↑', tier: 'HIGH' }, { name: 'Marcus Webb', score: 87.1, status: 'Replied ✓', tier: 'HIGH' }, { name: 'Lisa Park', score: 76.3, status: 'Opened', tier: 'MEDIUM' }, { name: 'James Torres', score: 64.8, status: 'No Activity', tier: 'MEDIUM' }, { name: 'Alex Kim', score: 41.2, status: 'Opened', tier: 'LOW' }],
     activeTab: 'Sequences', statusMessage: 'Conviction updated — 2 deals strengthening',
@@ -577,7 +577,7 @@ const intelligencePath: DemoStepData[] = [
   },
   {
     module: 'intelligence', headline: 'Deal Risk Score flags at-risk deals',
-    narrative: { spreadsheets: 'You\'d never spot a deal going cold until it\'s too late. The Deal Risk Score flags at-risk deals in real-time.', basic_crm: 'Your CRM shows pipeline. CircuitOS scores which deals are about to slip — before the loss.', marketing_auto: 'Your automation tracks engagement. CircuitOS correlates it into a calibrated deal-risk score.', custom: 'Deal Risk Scores available via API. Trigger your own intervention workflows on the red flags.' },
+    narrative: { spreadsheets: 'You\'d never spot a deal going cold until it\'s too late. The Deal Risk Score flags at-risk deals in real-time.', basic_crm: 'Your CRM shows pipeline. CircuitOS scores which deals are about to slip — before the loss.', marketing_auto: 'Your automation tracks engagement. CircuitOS correlates it into a Bayesian deal-risk score.', custom: 'Deal Risk Scores available via API. Trigger your own intervention workflows on the red flags.' },
     metrics: [{ label: 'Active Deals', base: 67, suffix: '' }, { label: 'At Risk', base: 8, suffix: '' }, { label: 'Slipping', base: 5, suffix: '' }, { label: 'Intervention', base: 3, suffix: '' }],
     leads: [{ name: 'Apex Digital', score: 89, status: 'On Track', tier: 'HIGH' }, { name: 'Rivera & Co', score: 72, status: 'AT RISK', tier: 'MEDIUM' }, { name: 'Summit Health', score: 45, status: 'SLIPPING', tier: 'LOW' }, { name: 'BlueLine Mfg', score: 81, status: 'On Track', tier: 'HIGH' }, { name: 'NovaPoint', score: 38, status: 'AT RISK', tier: 'LOW' }],
     activeTab: 'Intelligence', statusMessage: 'Deal Risk: 8 deals flagged before they slip',
@@ -611,11 +611,11 @@ const intelligencePath: DemoStepData[] = [
     activeTab: 'Intelligence', statusMessage: 'Decision intelligence fully operational',
   },
   {
-    module: 'intelligence', headline: 'Calibrated revenue forecast with confidence',
-    narrative: { spreadsheets: 'Your spreadsheet forecast is a guess. CircuitOS builds a calibrated, probabilistic forecast with confidence bands.', basic_crm: 'Your CRM forecast is weighted pipeline. CircuitOS adds calibrated probability and confidence intervals.', marketing_auto: 'Your attribution shows history. CircuitOS forecasts forward with calibrated confidence.', custom: 'Forecast and confidence bands available via API for your own dashboards.' },
+    module: 'intelligence', headline: 'Sample revenue forecast with confidence',
+    narrative: { spreadsheets: 'Your spreadsheet forecast is a guess. CircuitOS builds a probabilistic forecast with confidence bands.', basic_crm: 'Your CRM forecast is weighted pipeline. CircuitOS adds Bayesian probability and confidence intervals.', marketing_auto: 'Your attribution shows history. CircuitOS forecasts forward with Bayesian confidence.', custom: 'Forecast and confidence bands available via API for your own dashboards.' },
     metrics: [{ label: 'Q1 Forecast', base: 1.2, suffix: 'M' }, { label: 'Confidence', base: 87, suffix: '%' }, { label: 'Best Case', base: 1.5, suffix: 'M' }, { label: 'Worst Case', base: 0.9, suffix: 'M' }],
     leads: [{ name: 'March', score: 0, status: '$420K ±$60K', tier: 'HIGH' }, { name: 'April', score: 0, status: '$380K ±$80K', tier: 'HIGH' }, { name: 'May', score: 0, status: '$400K ±$90K', tier: 'MEDIUM' }, { name: 'Q1 Total', score: 0, status: '$1.2M ±$180K', tier: 'HIGH' }, { name: 'Q2 Est', score: 0, status: '$1.4M ±$250K', tier: 'MEDIUM' }],
-    activeTab: 'Intelligence', statusMessage: 'Calibrated forecast: $1.2M Q1 (87% confidence)',
+    activeTab: 'Intelligence', statusMessage: 'Sample forecast: $1.2M Q1 (87% confidence)',
   },
   {
     module: 'intelligence', headline: 'Recommended next decisions',
@@ -809,6 +809,7 @@ function DemoDashboard({
         <div className="flex items-center gap-2">
           <span className="text-blue-400 font-semibold text-sm">//</span>
           <span className="text-white font-semibold text-sm">CircuitOS</span>
+          <span className="ml-1 text-[9px] uppercase tracking-wider text-[#71717a] border border-[#27272a] rounded px-1.5 py-0.5">Simulated demo · illustrative data</span>
         </div>
         <div className="flex items-center gap-1">
           {tabs.map((tab) => (

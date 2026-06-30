@@ -21,11 +21,11 @@ export const metadata: Metadata = {
   keywords: [
     'governed AI decisioning',
     'AI decision governance',
-    'calibrated lead scoring',
+    'Bayesian lead scoring',
     'win probability scoring',
     'multi-touch attribution',
     'AI audit trail',
-    'decision quality calibration',
+    'decision quality scoring',
     'auditable AI',
     'revenue decisioning',
     'mid-market AI platform',
@@ -71,7 +71,7 @@ const orgJsonLd = {
   legalName: 'DriveBrandGrowth LLC',
   url: 'https://usecircuitos.com',
   logo: 'https://usecircuitos.com/circuitos-logo-full.svg',
-  description: 'Governed AI decisioning platform for mid-market B2B companies. Calibrated win-probability scoring, multi-touch attribution, and a signed audit trail that proves decision quality before the outcome is known.',
+  description: 'Governed AI decisioning platform for mid-market B2B companies. Bayesian win-probability scoring, multi-touch attribution, and a signed audit trail that proves decision quality before the outcome is known.',
   founder: {
     '@type': 'Person',
     name: 'Noel Pena',

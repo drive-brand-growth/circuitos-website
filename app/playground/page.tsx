@@ -297,7 +297,7 @@ export default function PlaygroundPage() {
                 See this on your real pipeline
               </h2>
               <p className="text-[#a1a1aa] mb-8 max-w-lg mx-auto">
-                This playground runs on simulated signals. On your data, CircuitOS decisions run on your CRM, attribution, and live deal activity — every call calibrated, governed, and proven on a signed audit trail.
+                This playground runs on simulated signals. On your data, CircuitOS decisions run on your CRM, attribution, and live deal activity — every call scored, governed, and proven on a signed audit trail.
               </p>
               <Link
                 href="/demo"

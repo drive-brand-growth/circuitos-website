@@ -33,7 +33,7 @@ export default function TermsPage() {
 
           <h2 className="text-xl font-semibold mt-10 mb-4">Services</h2>
           <p className="text-[#a1a1aa] leading-relaxed">
-            CircuitOS provides a governed AI decisioning platform that may include calibrated lead and deal scoring, attribution, automated outreach, content intelligence, audit-trail governance, and analytics services. Specific service terms, scope, and pricing are defined in individual service agreements between CircuitOS and each client.
+            CircuitOS provides a governed AI decisioning platform that may include Bayesian lead and deal scoring, attribution, automated outreach, content intelligence, audit-trail governance, and analytics services. Specific service terms, scope, and pricing are defined in individual service agreements between CircuitOS and each client.
           </p>
 
           <h2 className="text-xl font-semibold mt-10 mb-4">Account and Access</h2>
