@@ -1,0 +1,53 @@
+app/demo/page.tsx
+  s_3daabc217bdddc::t_cc2ff3a949c0e3 618
+  s_3daabc217bdddc::t_fde563ff5a71ec 812
+app/insights/lead-walk-through/page.tsx
+  s_3daabc217bdddc::t_901ca479d5194e 126
+  s_3daabc217bdddc::t_a583df65210fe9 122
+app/api/chat/route.ts
+  s_3daabc217bdddc::t_d67c76809ddf58 118,154,177,182,187,190,226,247,294,296,304
+app/demo/layout.tsx
+  s_3daabc217bdddc::t_f31dcaeeab4b02 5,8,14
+app/insights/governance-manifesto/page.tsx
+  s_3daabc217bdddc::t_f345b7617c9c14 148,202
+app/insights/layout.tsx
+  s_3daabc217bdddc::t_20f0adff85bf86 5,8,14
+app/layout.tsx
+  s_3daabc217bdddc::t_63dd9c67c5b22e 24,28,74
+app/page.tsx
+  s_3daabc217bdddc::t_7707d39e458a30 16,30,33,65,159
+app/playground/layout.tsx
+  s_3daabc217bdddc::t_db5ea504464859 5,8,15
+app/playground/page.tsx
+  s_3daabc217bdddc::t_3355f44895c9c4 300
+app/terms/page.tsx
+  s_3daabc217bdddc::t_983258e0661d65 36
+components/AriaX.tsx
+  s_3daabc217bdddc::t_069f1825b4fd13 23
+components/Capabilities.tsx
+  s_3daabc217bdddc::t_d11531865bfde2 17-18
+components/Hero.tsx
+  s_3daabc217bdddc::t_f60ab4c89b1257 45
+components/HowItWorks.tsx
+  s_3daabc217bdddc::t_a2182c9a614799 32-33,59,111
+components/Platform.tsx
+  s_3daabc217bdddc::t_19d875035b88bb 91,112
+public/llms.txt
+  s_3daabc217bdddc::t_e9e32ac8a42fd9 20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.5",
+  "base_commit_sha": "2ca74920759e94c9e0f88648d730dd3d5283e734",
+  "prompts": {},
+  "sessions": {
+    "s_3daabc217bdddc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "83b085e6-f7ae-43dc-8590-495924354fc8",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}
