@@ -1,0 +1,33 @@
+app/insights/page.tsx
+  s_3daabc217bdddc::t_6e0a9e94662a07 16
+app/insights/lead-walk-through/page.tsx
+  s_3daabc217bdddc::t_8ab036657d05e1 11
+  s_3daabc217bdddc::t_9475f54c99f1fc 27
+  s_3daabc217bdddc::t_bf1357df7426b2 202
+  s_3daabc217bdddc::t_586fa4920e69f3 18
+  s_3daabc217bdddc::t_92bfa824e619ef 8
+components/DashboardPreview.tsx
+  s_3daabc217bdddc::t_a724a94e75c6b5 133
+app/demo/page.tsx
+  s_3daabc217bdddc::t_053d482d221a00 388
+components/Pricing.tsx
+  s_3daabc217bdddc::t_92ae1e991aeed1 23
+public/llms.txt
+  s_3daabc217bdddc::t_177cda172f1333 60
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.5",
+  "base_commit_sha": "56925bb149f5d4876a91fc54b57302975dc09af5",
+  "prompts": {},
+  "sessions": {
+    "s_3daabc217bdddc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "83b085e6-f7ae-43dc-8590-495924354fc8",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}
