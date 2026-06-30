@@ -13,7 +13,7 @@ const articles = [
   {
     slug: 'lead-walk-through',
     title: 'A Lead Enters CircuitOS at 2:47 PM. Here\'s What Happened Next.',
-    description: 'In 4.2 seconds, 72 signals fire, a conviction score calculates, a governance gate evaluates, and an autonomous decision executes. This is what it looks like.',
+    description: 'In 4.2 seconds, signals fire across fit, intent, and timing, a conviction score calculates, a governance gate evaluates, and an autonomous decision executes. This is what it looks like.',
     tag: 'Product',
     readTime: '5 min read',
   },

@@ -189,7 +189,7 @@ const scoringPath: DemoStepData[] = [
   },
   {
     module: 'scoring',
-    headline: 'Bayesian model applies 72+ signals',
+    headline: 'Bayesian model applies fit, intent & timing signals',
     narrative: {
       spreadsheets: 'Instead of gut feel, every lead gets scored against behavioral and firmographic data — automatically.',
       basic_crm: 'Your CRM has the basics. CircuitOS layers on web behavior, firmographics, and engagement signals.',
