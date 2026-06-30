@@ -13,7 +13,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'CircuitOS',
-  description: 'Governed AI decisioning platform. Calibrated win-probability scoring, multi-touch attribution, and a signed audit trail that proves decision quality before the outcome is known.',
+  description: 'Governed AI decisioning platform. Bayesian win-probability scoring, multi-touch attribution, and a signed audit trail that proves decision quality before the outcome is known.',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web-based',
   url: 'https://usecircuitos.com',
@@ -27,10 +27,10 @@ const jsonLd = {
     availability: 'https://schema.org/OnlineOnly',
   },
   featureList: [
-    'Calibrated Win-Probability Scoring',
+    'Bayesian Win-Probability Scoring',
     'Multi-Touch Attribution',
     'Deal Risk Score',
-    'Decision-Quality Calibration',
+    'Decision-Quality Scoring',
     'Signed, Tamper-Evident Audit Trail',
     'Human-in-the-Loop Governance',
     'Confidence-Based Escalation',
@@ -62,7 +62,7 @@ const faqJsonLd = {
       name: 'How is this different from a black-box AI tool?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Most AI tools give you a recommendation with no audit trail and no way to know if it was right. CircuitOS produces a calibrated probability with a confidence tier, governs the action with rules, and scores the decision afterward for whether its confidence was honest — proof of decision quality independent of outcome luck.',
+        text: 'Most AI tools give you a recommendation with no audit trail and no way to know if it was right. CircuitOS produces a Bayesian probability with a confidence tier, governs the action with rules, and scores the decision afterward for whether its confidence was honest — proof of decision quality independent of outcome luck.',
       },
     },
     {
@@ -156,7 +156,7 @@ const howToJsonLd = {
       '@type': 'HowToStep',
       position: 2,
       name: 'Decide',
-      text: 'Produce a calibrated probability with a confidence tier, governed by rules — not a black-box guess. You see the conviction and the signals behind it.',
+      text: 'Produce a Bayesian probability with a confidence tier, governed by rules — not a black-box guess. You see the conviction and the signals behind it.',
     },
     {
       '@type': 'HowToStep',

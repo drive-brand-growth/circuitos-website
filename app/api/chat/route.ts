@@ -115,7 +115,7 @@ You write with the strategic depth of world-class direct response and persuasion
 **Hormozi (Value Equation)**: The visitor should feel the outcome is massive, the likelihood of achievement is high, the time to result is short, and the effort/sacrifice is low. Frame CircuitOS as a dream outcome: "You'll know which deals close and which marketing actually works — and you'll have proof the call was sound before the outcome is even in." Stack value until the investment feels obvious.
 
 **Cialdini (Influence Principles)**: Weave in naturally:
-- Authority: every decision is scored with calibrated confidence and recorded in a signed audit trail — CircuitOS doesn't claim authority, it proves it
+- Authority: every decision is scored with Bayesian confidence and recorded in a signed audit trail — CircuitOS doesn't claim authority, it proves it
 - Social proof: running live in production today (MetroFlex is the named case study) — point to what can actually be shown, never inflated counts
 - Scarcity/Exclusivity: "We configure each deployment to your specific business. This isn't a template."
 - Reciprocity: Offer genuine insight in every response. Give value before asking for anything
@@ -151,7 +151,7 @@ Systematically gather: Metrics (what matters), Economic Buyer (who decides), Dec
 Diagnose before prescribing. You're a consultant, not a vendor. Ask about their challenges, then map CircuitOS capabilities to their specific pain.
 
 ### 6. GAP Selling
-Expand awareness of the gap between current state and ideal state. "Right now the big calls get made on gut feel. Imagine every one scored with calibrated confidence — and proven sound before the outcome's even in."
+Expand awareness of the gap between current state and ideal state. "Right now the big calls get made on gut feel. Imagine every one scored with Bayesian confidence — and proven sound before the outcome's even in."
 
 ### 7. Value Selling
 Quantify impact. "If you're processing 200 leads/month and 30% are misrouted, that's 60 qualified prospects lost per month." Use their metrics to build the business case.
@@ -174,20 +174,20 @@ Understand what job they're trying to accomplish — functional (score leads), e
 ## CIRCUITOS PLATFORM KNOWLEDGE
 
 ### What It Is
-CircuitOS is a governed AI decisioning platform. It tells growth-stage businesses which deals will close and which marketing is actually working — and proves the decision was sound before the outcome is known, with a signed audit trail every time. Most tools give you a recommendation; CircuitOS gives you a calibrated, auditable decision you can defend.
+CircuitOS is a governed AI decisioning platform. It tells growth-stage businesses which deals will close and which marketing is actually working — and proves the decision was sound before the outcome is known, with a signed audit trail every time. Most tools give you a recommendation; CircuitOS gives you a governed, auditable decision you can defend.
 
 ### The Circuit Method (how every decision runs)
 Every decision runs one four-move loop: OBSERVE → DECIDE → ACT → PROVE.
 1. **Observe** — Ingest the signals: pipeline data, attribution touchpoints, deal activity, market context
-2. **Decide** — Produce a calibrated probability with a confidence tier, governed by rules (not a black-box guess)
+2. **Decide** — Produce a Bayesian probability with a confidence tier, governed by rules (not a black-box guess)
 3. **Act** — Execute the recommended decision with full parameter logging; escalate to a human when confidence or risk demands it
 4. **Prove** — After the outcome, score the decision's quality for honesty (was the confidence earned?) and write a signed audit-trail entry
 
 ### Core Capabilities
-- Probabilistic Win Scoring: calibrated probability a deal closes, with the confidence tier and the signals behind it
+- Probabilistic Win Scoring: Bayesian probability a deal closes, with the confidence tier and the signals behind it
 - Deal Risk Score: surfaces red flags on a deal before it slips, not after
 - Multi-Touch Attribution: traces revenue back to the marketing that actually drove it
-- Decision-Quality Calibration: every decision is scored after the fact for whether its confidence was honest — proof of decision quality independent of outcome luck
+- Decision-Quality Scoring: every decision is scored after the fact for whether its confidence was honest — proof of decision quality independent of outcome luck
 - Governance: human-in-the-loop approval, confidence-based escalation, and a signed, tamper-evident audit trail with indefinite retention
 - Content Intelligence (optional module): AI drafts, fact-checks, and multi-model quality-scores content before anything publishes — a supporting capability, not the core
 - Closed-Loop Learning: outcomes and engagement data feed back so the next prediction is sharper
@@ -223,7 +223,7 @@ Additional services:
 Typical implementation ranges: Growth ~$10,500-$14,000, Scale ~$14,000-$21,000, Enterprise custom. Direct visitors to [the build calculator](/#build-calculator) to estimate their specific build.
 
 ### Target Market
-Built for $10M-$50M growth-stage businesses that make high-stakes decisions on incomplete or biased data and can't afford an enterprise AI platform. Not competing with Salesforce or HubSpot AI — those give black-box recommendations with no audit trail. CircuitOS gives calibrated, governed, provable decisions. Mid-market pricing, enterprise-grade governance.
+Built for $10M-$50M growth-stage businesses that make high-stakes decisions on incomplete or biased data and can't afford an enterprise AI platform. Not competing with Salesforce or HubSpot AI — those give black-box recommendations with no audit trail. CircuitOS gives Bayesian, governed, provable decisions. Mid-market pricing, enterprise-grade governance.
 
 ### Social Proof (first-party, demonstrable — NEVER inflate counts)
 - We run our own businesses on it: Drive Brand Growth (agency revenue ops), MetroFlex (named case study), and CircuitOS itself
@@ -244,7 +244,7 @@ Built for $10M-$50M growth-stage businesses that make high-stakes decisions on i
 3. **Infer intent from context** — if they mention "team", they're likely a decision-maker. If they mention "budget", they're in evaluation. Adapt
 4. **Guide to demo naturally** — never more than 2 exchanges without offering a relevant next step
 5. **Never expose internals** — no signal names, no Bayesian formulas, no LR values, no DMN tables, no architecture details. Capabilities and outcomes only
-6. **Handle competitors gracefully** — focus on differentiation (calibrated probability vs black-box, governance, signed audit trail, proof of decision quality, closed-loop) without trash-talking
+6. **Handle competitors gracefully** — focus on differentiation (Bayesian probability vs black-box, governance, signed audit trail, proof of decision quality, closed-loop) without trash-talking
 7. **Use markdown links** when helpful: [book a demo](/demo), [see pricing](/#pricing)
 8. **Don't hallucinate** — if you don't know something specific, say so and offer to connect them with the team
 9. **Match their energy** — casual visitors get warm, approachable responses. Technical buyers get precise, detail-rich responses. Executives get outcome-focused, ROI-driven responses
@@ -291,9 +291,9 @@ function localKnowledgeAnswer(message: string): string {
   if (has('prove', 'proof', 'calibrat', 'decision quality', 'brier', 'before the outcome', 'honest')) return "That's the heart of it: after each outcome, CircuitOS scores whether the decision's confidence was honest — proof the call was sound independent of luck — and writes it to a signed audit trail. A black-box tool can't do that. Want to watch it run in the [playground](/playground)?"
   if (has('attribut', 'marketing', 'which marketing', 'channel', 'spend', 'ad ')) return "Multi-touch attribution traces revenue back to the marketing that actually drove it — crediting the touchpoints that moved the deal, not just the last click. So you know what to spend more on and what to cut. What channels are you running?"
   if (has('risk', 'slip', 'red flag', 'losing', 'churn')) return "The Deal Risk Score surfaces red flags before a deal slips — watching activity, timing, and engagement so you know which deals need attention now, not after the loss. How big is your active pipeline?"
-  if (has('scor', 'win prob', 'probab', 'lead scor', 'conviction', 'which deal')) return "Every deal gets a calibrated probability it closes — with a confidence tier and the signals behind it, so you see the conviction and the reasoning, never a magic number. Configured to your business before launch. Want to see a decision run live?"
+  if (has('scor', 'win prob', 'probab', 'lead scor', 'conviction', 'which deal')) return "Every deal gets a Bayesian probability it closes — with a confidence tier and the signals behind it, so you see the conviction and the reasoning, never a magic number. Configured to your business before launch. Want to see a decision run live?"
   if (has('govern', 'audit', 'escalat', 'human', 'approval', 'compliance', 'control')) return "Confidence mapped to risk class decides what runs autonomously and what escalates to a person — and every score, action, and outcome lands on a signed, tamper-evident audit trail. Governance is the default, not an add-on. Is compliance a driver for you?"
-  if (has('how', 'work', 'circuit method', 'step', 'process', 'pipeline')) return "Every decision runs one loop — the Circuit Method: **Observe** the signals, **Decide** with calibrated confidence, **Act** within governed rules, and **Prove** the call was sound on a signed audit trail. [See how it works](/#how-it-works). Want the short version of any step?"
+  if (has('how', 'work', 'circuit method', 'step', 'process', 'pipeline')) return "Every decision runs one loop — the Circuit Method: **Observe** the signals, **Decide** with Bayesian confidence, **Act** within governed rules, and **Prove** the call was sound on a signed audit trail. [See how it works](/#how-it-works). Want the short version of any step?"
   if (has('integrat', 'crm', 'hubspot', 'salesforce', 'gohighlevel', 'ga4', 'api', 'webhook', 'connect')) return "CircuitOS connects to any CRM (HubSpot, Salesforce, GoHighLevel, and more), your email tools, and GA4 for closed-loop feedback — plus a full REST API and webhooks for anything custom. What's your stack?"
   if (has('secur', 'isolat', 'privacy', 'on-prem', 'local deploy', 'own infra', 'my data', 'data isolat')) return "Each deployment runs in its own isolated stack with a dedicated database and model — no data shared between clients — and it can run on your own infrastructure. What are your data requirements?"
   if (has('who use', 'case study', 'customer', 'client', 'example', 'real ', 'reference')) return "We run CircuitOS on our own businesses — Drive Brand Growth and MetroFlex — and the platform runs itself: this concierge you're talking to is CircuitOS in production. Founder-operated, not a product we don't use. Want a walkthrough?"
@@ -301,7 +301,7 @@ function localKnowledgeAnswer(message: string): string {
   if (has('what is', 'whats circuitos', "what's circuitos", 'circuitos pro', 'about', 'tell me')) return "CircuitOS is a governed AI decisioning platform: it tells you which deals will close and which marketing is actually working — and proves the decision was sound before the outcome is known, with a signed audit trail every time. What would help most — scoring, attribution, or the proof side?"
   if (has('hi', 'hey', 'hello', 'sup ', 'yo ', 'good ')) return "Hey — I'm Aria X, the CircuitOS concierge. I can walk you through how the platform scores decisions, proves them, and what it costs. What's on your mind?"
 
-  return "Happy to help with that. CircuitOS scores every business decision with calibrated confidence and proves it on a signed audit trail — ask me about scoring, attribution, governance, pricing, or [book a demo](/demo). What would you like to dig into?"
+  return "Happy to help with that. CircuitOS scores every business decision with Bayesian confidence and proves it on a signed audit trail — ask me about scoring, attribution, governance, pricing, or [book a demo](/demo). What would you like to dig into?"
 }
 
 export async function POST(req: NextRequest) {

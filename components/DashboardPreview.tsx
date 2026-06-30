@@ -129,8 +129,8 @@ export default function DashboardPreview() {
 
             {/* Bottom status bar */}
             <div className="px-6 py-2.5 border-t border-[#27272a] flex items-center justify-between text-[11px] text-[#71717a]">
-              <span>72 signals · ICP-configured · Decision logic active</span>
-              <span>Model v3.2 · Last calibration: 2h ago</span>
+              <span>Bayesian scoring · ICP-configured · Decision logic active</span>
+              <span>Model v3.2 · Audit trail on</span>
             </div>
           </div>
         </div>

@@ -19,8 +19,8 @@ const plans = [
     desc: 'For revenue teams automating one business line. All AI actions require human approval before execution.',
     cta: 'See It In Action',
     features: [
-      'Predictive lead scoring (72+ signals)',
-      'Pre-calibrated to your ICP from day one',
+      'Predictive lead scoring across fit, intent & timing',
+      'Configured to your ICP from day one',
       'Automated outreach in your brand voice',
       'CRM integration (any platform)',
       'Human approval gates on all actions',

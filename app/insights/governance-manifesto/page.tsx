@@ -145,7 +145,7 @@ export default function GovernanceManifesto() {
             </p>
 
             <p>
-              <strong>A confidence threshold.</strong> Not a binary pass/fail, but a calibrated probability that the action will produce the intended outcome. Bayesian inference is the foundation — prior beliefs updated with evidence from every signal the system observes. When the posterior probability exceeds the threshold for that action&apos;s risk class, the system acts. When it doesn&apos;t, it escalates.
+              <strong>A confidence threshold.</strong> Not a binary pass/fail, but a Bayesian probability that the action will produce the intended outcome. Bayesian inference is the foundation — prior beliefs updated with evidence from every signal the system observes. When the posterior probability exceeds the threshold for that action&apos;s risk class, the system acts. When it doesn&apos;t, it escalates.
             </p>
 
             <p>
@@ -199,7 +199,7 @@ export default function GovernanceManifesto() {
             </p>
 
             <p className="text-white text-xl font-bold">
-              Score every lead. Decide with calibrated confidence. Prove every action with a complete trail.
+              Score every lead. Decide with Bayesian confidence. Prove every action with a complete trail.
             </p>
 
             <p>

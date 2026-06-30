@@ -6,7 +6,7 @@ CircuitOS is a revenue intelligence platform that scores leads, decides what to 
 
 ## Core Capabilities
 
-- Predictive lead scoring across 72+ signals with Bayesian inference
+- Predictive lead scoring with Bayesian inference across fit, intent, and timing signals
 - Autonomous outreach with human approval gates on all actions
 - Content intelligence with multi-model quality evaluation and fact-checking
 - AgentOps governance dashboard — real-time observability into every AI decision
@@ -17,8 +17,8 @@ CircuitOS is a revenue intelligence platform that scores leads, decides what to 
 
 ## How It Works
 
-1. Configure: ICP encoded, scoring model calibrated, brand voice set
-2. Score: Every lead evaluated across 72+ signals for fit, intent, and timing
+1. Configure: ICP encoded, scoring model configured, brand voice set
+2. Score: Every lead evaluated with Bayesian inference across fit, intent, and timing signals
 3. Decide: Bayesian confidence thresholds determine autonomous execution vs. human escalation
 4. Engage: Personalized outreach in your brand voice with governance gates
 5. Prove: Full decision trail — every score, every gate evaluation, every routing decision auditable
@@ -57,7 +57,7 @@ Q: What is CircuitOS?
 A: A revenue intelligence platform that scores your leads, decides what to do, and proves why — with full audit trail. It combines predictive scoring, AI outreach, content intelligence, and governance in one closed-loop system.
 
 Q: How does the scoring work?
-A: Your ICP and qualification criteria are encoded before launch. The Bayesian scoring model evaluates 72+ signals across fit, intent, and timing. Pre-calibrated from day one, then improves with real outcome data.
+A: Your ICP and qualification criteria are encoded before launch. The Bayesian scoring model evaluates each lead across fit, intent, and timing signals. Configured to your ICP from day one, then calibrates with real outcome data.
 
 Q: How is CircuitOS different from Salesforce or HubSpot?
 A: CircuitOS is not a CRM — it connects to your existing CRM. It's the intelligence layer that sits on top: scoring leads before they enter your pipeline, governing AI decisions with confidence thresholds, and providing a full audit trail of why every decision was made.
