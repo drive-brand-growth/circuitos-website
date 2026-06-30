@@ -20,7 +20,7 @@ const plans = [
     cta: 'See It In Action',
     features: [
       'Predictive lead scoring across fit, intent & timing',
-      'Pre-calibrated to your ICP from day one',
+      'Configured to your ICP from day one',
       'Automated outreach in your brand voice',
       'CRM integration (any platform)',
       'Human approval gates on all actions',

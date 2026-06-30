@@ -385,7 +385,7 @@ const scoringPath: DemoStepData[] = [
       { name: 'Alex Kim', score: 44.7, status: 'Score Revised', tier: 'LOW' },
     ],
     activeTab: 'Leads',
-    statusMessage: 'Model v3.4 — retrained on 234 events',
+    statusMessage: 'Model v3.4 — retrained on recent outcomes',
   },
   {
     module: 'scoring',

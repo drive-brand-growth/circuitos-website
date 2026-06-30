@@ -57,7 +57,7 @@ Q: What is CircuitOS?
 A: A revenue intelligence platform that scores your leads, decides what to do, and proves why — with full audit trail. It combines predictive scoring, AI outreach, content intelligence, and governance in one closed-loop system.
 
 Q: How does the scoring work?
-A: Your ICP and qualification criteria are encoded before launch. The Bayesian scoring model evaluates each lead across fit, intent, and timing signals. Pre-calibrated from day one, then improves with real outcome data.
+A: Your ICP and qualification criteria are encoded before launch. The Bayesian scoring model evaluates each lead across fit, intent, and timing signals. Configured to your ICP from day one, then calibrates with real outcome data.
 
 Q: How is CircuitOS different from Salesforce or HubSpot?
 A: CircuitOS is not a CRM — it connects to your existing CRM. It's the intelligence layer that sits on top: scoring leads before they enter your pipeline, governing AI decisions with confidence thresholds, and providing a full audit trail of why every decision was made.
