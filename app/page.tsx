@@ -14,7 +14,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'CircuitOS',
-  description: 'Governed AI for revenue teams. Stochastic models propose. Deterministic factories commit. Ledgers prove. Calibrated scoring, attribution, and signed audit trails.',
+  description: 'Governed AI for revenue teams. Know which deals close and which marketing works — with proof before the outcome is in. Calibrated scoring, attribution, and signed audit trails.',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web-based',
   url: 'https://usecircuitos.com',
