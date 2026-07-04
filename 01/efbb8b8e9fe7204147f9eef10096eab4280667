@@ -1,0 +1,71 @@
+components/TruthSection.tsx
+  s_23e18d52c9b626::t_eb021f734cd67f 49-51
+  s_23e18d52c9b626::t_c38c6140fcd1d9 1-9,11-13,15-48,52-110
+  s_23e18d52c9b626::t_58701700f9abb8 10
+  s_23e18d52c9b626::t_5deb62d5113136 14
+app/insights/page.tsx
+  s_23e18d52c9b626::t_032880ed0f9341 7,9-13
+  s_23e18d52c9b626::t_bb68e86f0b780c 8
+  s_23e18d52c9b626::t_66fc1460283f26 24
+  s_23e18d52c9b626::t_f37e2e68339a9e 6
+components/Hero.tsx
+  s_23e18d52c9b626::t_ad4cf070334906 43-44,46-47
+  s_23e18d52c9b626::t_2a82da2b37c090 45
+  s_80a12953175d44::t_e6719414c945ff 41-42
+components/Pricing.tsx
+  s_23e18d52c9b626::t_e5190dbd9b824f 22
+components/BuildCalculator.tsx
+  s_23e18d52c9b626::t_9f1672a7917bb9 52
+app/insights/lead-walk-through/page.tsx
+  s_23e18d52c9b626::t_683c3309707bba 202
+  s_23e18d52c9b626::t_f18d4df9647503 18
+  s_23e18d52c9b626::t_740e9b68490559 27
+  s_23e18d52c9b626::t_8d28923322be6b 8,11
+app/demo/page.tsx
+  s_23e18d52c9b626::t_914e65e119bbe3 192
+  s_23e18d52c9b626::t_5bdbf8bd570d1b 197
+  s_23e18d52c9b626::t_2bc431f2fff69d 201
+app/insights/deterministic-factory/page.tsx
+  s_23e18d52c9b626::t_c689e967daa440 23
+  s_23e18d52c9b626::t_8572a61594df49 67
+  s_23e18d52c9b626::t_2a2278934d3ca7 7,11
+  s_23e18d52c9b626::t_fcae2de86436fa 89,92
+  s_23e18d52c9b626::t_308885837c420c 1-6,8-10,12-22,24-58,60-66,68-88,90-91,93-135
+  s_23e18d52c9b626::t_dfaa551a63bfbd 59
+app/page.tsx
+  s_23e18d52c9b626::t_7b9374c08bc7da 199
+  s_23e18d52c9b626::t_3bcde2108b3007 6
+  s_23e18d52c9b626::t_9bfb8873b4841f 17
+public/llms.txt
+  s_23e18d52c9b626::t_294ed8791dba7d 9
+  s_23e18d52c9b626::t_cea8715f649748 52
+  s_23e18d52c9b626::t_eeaceb4d4f7c7c 3,5
+  s_23e18d52c9b626::t_62b13375a177f1 60
+  s_23e18d52c9b626::t_87e531fb9bc4ef 21
+components/DashboardPreview.tsx
+  s_23e18d52c9b626::t_c2205876d1440c 132
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "01efbb8b8e9fe7204147f9eef10096eab4280667",
+  "prompts": {},
+  "sessions": {
+    "s_23e18d52c9b626": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "d8633e87-232e-4ebc-a2ca-5b9fb5076b03",
+        "model": "composer-2.5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    },
+    "s_80a12953175d44": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c439c333-7059-41a4-8b08-c73b52162941",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}
