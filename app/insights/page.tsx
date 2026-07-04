@@ -4,6 +4,14 @@ import Footer from '@/components/Footer'
 
 const articles = [
   {
+    slug: 'deterministic-factory',
+    title: 'Stochastic Models Propose. Factories Commit. Ledgers Prove.',
+    description:
+      'The market ships demos. CircuitOS ships demonstrable governance — what, why, how, cost, and risk on every job.',
+    tag: 'Platform',
+    readTime: '6 min read',
+  },
+  {
     slug: 'governance-manifesto',
     title: 'Your AI Is Making Decisions It Can\'t Explain. That Should Terrify You.',
     description: 'Every company is deploying AI agents. Almost none can explain why the AI did what it did. This is not a technology problem — it\'s a governance problem.',
@@ -13,7 +21,7 @@ const articles = [
   {
     slug: 'lead-walk-through',
     title: 'A Lead Enters CircuitOS at 2:47 PM. Here\'s What Happened Next.',
-    description: 'In 4.2 seconds, 72 signals fire, a conviction score calculates, a governance gate evaluates, and an autonomous decision executes. This is what it looks like.',
+    description: 'In seconds, registered signals fire, a conviction score calculates, a governance gate evaluates, and a governed decision executes. This is what it looks like.',
     tag: 'Product',
     readTime: '5 min read',
   },

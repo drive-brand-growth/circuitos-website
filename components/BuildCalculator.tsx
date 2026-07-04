@@ -49,7 +49,7 @@ const featureModules: Module[] = [
   {
     id: 'scoring',
     name: 'Lead Scoring & Enrichment',
-    description: 'Predictive scoring across 72+ signals with multi-source enrichment',
+    description: 'Predictive scoring across your registered signal registry with multi-source enrichment',
     price: 2500,
   },
   {

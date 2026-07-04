@@ -40,6 +40,13 @@ export default function Hero() {
 
         <motion.p
           variants={fadeInUp}
+          className="text-base sm:text-lg text-blue-300/90 max-w-2xl mx-auto mb-6 leading-relaxed font-medium"
+        >
+          Stochastic models propose. Deterministic factories commit. Ledgers prove.
+        </motion.p>
+
+        <motion.p
+          variants={fadeInUp}
           className="text-lg sm:text-xl md:text-2xl text-[#a1a1aa] max-w-2xl mx-auto mb-10 leading-[1.6]"
         >
           CircuitOS scores every decision with calibrated confidence, acts within governed rules, and proves the call was sound &mdash; before the outcome is in. A signed audit trail, every time.
