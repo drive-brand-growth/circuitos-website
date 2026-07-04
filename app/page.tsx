@@ -3,6 +3,7 @@ import Hero from '@/components/Hero'
 import IntegrationBar from '@/components/IntegrationBar'
 import Platform from '@/components/Platform'
 import HowItWorks from '@/components/HowItWorks'
+import TruthSection from '@/components/TruthSection'
 import Capabilities from '@/components/Capabilities'
 import Pricing from '@/components/Pricing'
 import BuildCalculator from '@/components/BuildCalculator'
@@ -13,7 +14,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'CircuitOS',
-  description: 'Governed AI decisioning platform. Calibrated win-probability scoring, multi-touch attribution, and a signed audit trail that proves decision quality before the outcome is known.',
+  description: 'Governed AI for revenue teams. Stochastic models propose. Deterministic factories commit. Ledgers prove. Calibrated scoring, attribution, and signed audit trails.',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web-based',
   url: 'https://usecircuitos.com',
@@ -195,6 +196,7 @@ export default function Home() {
       <Hero />
       <IntegrationBar />
       <Platform />
+      <TruthSection />
       <HowItWorks />
       <Capabilities />
       <Pricing />

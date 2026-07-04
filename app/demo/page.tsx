@@ -189,16 +189,16 @@ const scoringPath: DemoStepData[] = [
   },
   {
     module: 'scoring',
-    headline: 'Bayesian model applies 72+ signals',
+    headline: 'Bayesian model applies registered signals',
     narrative: {
       spreadsheets: 'Instead of gut feel, every lead gets scored against behavioral and firmographic data — automatically.',
       basic_crm: 'Your CRM has the basics. CircuitOS layers on web behavior, firmographics, and engagement signals.',
       marketing_auto: 'You already track engagement. CircuitOS adds Bayesian inference on top for predictive accuracy.',
-      custom: 'Your custom signals flow right in. The Bayesian model combines them with 72+ additional data points.',
+      custom: 'Your custom signals flow right in. The Bayesian model combines them with the registered signal registry.',
     },
     metrics: [
       { label: 'Leads Incoming', base: 47, suffix: '' },
-      { label: 'Signals Active', base: 72, suffix: '' },
+      { label: 'Signals Active', base: 24, suffix: '+' },
       { label: 'Processing', base: 5, suffix: '' },
       { label: 'Model Confidence', base: 0.87, suffix: '' },
     ],
