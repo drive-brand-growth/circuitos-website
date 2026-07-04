@@ -32,35 +32,37 @@ export default function Hero() {
 
         <motion.h1
           variants={fadeInUp}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold gradient-text mb-10 hero-headline"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold gradient-text mb-8 hero-headline"
         >
-
           Which deals close.<br />Which marketing works. Proven.
         </motion.h1>
 
         <motion.p
           variants={fadeInUp}
-          className="text-base sm:text-lg text-blue-300/90 max-w-2xl mx-auto mb-6 leading-relaxed font-medium"
+          className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-2xl mx-auto mb-6 leading-[1.5] font-medium"
         >
-          Stochastic models propose. Deterministic factories commit. Ledgers prove.
+          Governed AI that proves every decision &mdash; before the outcome is in.
         </motion.p>
 
         <motion.p
           variants={fadeInUp}
-          className="text-lg sm:text-xl md:text-2xl text-[#a1a1aa] max-w-2xl mx-auto mb-10 leading-[1.6]"
+          className="text-base sm:text-lg text-[#a1a1aa] max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          CircuitOS scores every decision with calibrated confidence, acts within governed rules, and proves the call was sound &mdash; before the outcome is in. A signed audit trail, every time.
+          CircuitOS scores with calibrated confidence, acts within governed rules, and gives you a signed audit trail every time.
         </motion.p>
 
         <motion.div
           variants={fadeInUp}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-2"
         >
           <a href="/demo" className="w-full sm:w-auto px-8 py-3.5 btn-primary text-white rounded-lg font-semibold text-base">
             See It In Action
           </a>
           <a href="#how-it-works" className="w-full sm:w-auto px-8 py-3.5 border border-[#27272a] rounded-lg font-semibold hover:bg-white/5 transition-colors text-base">
             How It Works
+          </a>
+          <a href="#the-truth" className="w-full sm:w-auto px-8 py-3.5 text-[#a1a1aa] hover:text-white transition-colors text-sm font-medium underline-offset-4 hover:underline">
+            How we&apos;re different
           </a>
         </motion.div>
       </motion.div>
