@@ -1,0 +1,30 @@
+components/Hero.tsx
+  s_23e18d52c9b626::t_8ae094e7cbb20c 35,42,44,49,51,56
+  s_80a12953175d44::t_91dbc21d369437 64-66
+app/page.tsx
+  s_23e18d52c9b626::t_fff3fb6ea7f68f 17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "e95c0116bbe10c3b54f7b84c48aaa3c7fe6e07e5",
+  "prompts": {},
+  "sessions": {
+    "s_23e18d52c9b626": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "d8633e87-232e-4ebc-a2ca-5b9fb5076b03",
+        "model": "composer-2.5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    },
+    "s_80a12953175d44": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c439c333-7059-41a4-8b08-c73b52162941",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}
