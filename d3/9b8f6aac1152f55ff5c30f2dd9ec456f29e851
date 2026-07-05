@@ -1,0 +1,22 @@
+app/insights/honesty-gap/page.tsx
+  s_0eea92d6c355b5::t_a339c4fd214e54 8,11,27,88,92,116-117,129,136,151,154,168,175
+  s_0eea92d6c355b5::t_74a96947c3a781 78,96,106,112,137,141,164
+app/insights/page.tsx
+  s_0eea92d6c355b5::t_74a96947c3a781 9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "d39b8f6aac1152f55ff5c30f2dd9ec456f29e851",
+  "prompts": {},
+  "sessions": {
+    "s_0eea92d6c355b5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3e619eee-e2b9-48a5-b018-9c922970b274",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}
