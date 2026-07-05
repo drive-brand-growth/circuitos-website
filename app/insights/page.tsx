@@ -4,6 +4,13 @@ import Footer from '@/components/Footer'
 
 const articles = [
   {
+    slug: 'honesty-gap',
+    title: 'The Honesty Gap: Your Attribution Dashboard Is Flattering You',
+    description: 'Every marketing tool shows you credit. Credit is not causation. Here\'s the gap between them — and the engine that refuses to show any number it can\'t prove.',
+    tag: 'Measurement',
+    readTime: '7 min read',
+  },
+  {
     slug: 'deterministic-factory',
     title: 'Stochastic Models Propose. Factories Commit. Ledgers Prove.',
     description:
