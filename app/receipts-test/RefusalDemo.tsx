@@ -91,7 +91,7 @@ export default function RefusalDemo() {
       </div>
 
       <p className="text-[#71717a] text-xs leading-relaxed">
-        This is the pending state from our production API. Where every other tool shows you a
+        This is the same pending state our production API serves. Where every other tool shows you a
         number, we show you the truth. Synthetic data; the rule is real.
       </p>
     </div>
