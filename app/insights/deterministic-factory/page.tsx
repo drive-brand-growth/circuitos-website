@@ -6,11 +6,11 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Stochastic Models Propose. Factories Commit. Ledgers Prove.',
   description:
-    'The market ships AI hype. CircuitOS ships demonstrable governance — deterministic factories, adversarial verify, and hash-chained receipts for operators who need proof, not promises.',
+    'The market ships AI hype. CircuitOS ships demonstrable governance: deterministic factories, adversarial verify, and hash-chained receipts for operators who need proof, not promises.',
   openGraph: {
     title: 'Stochastic Models Propose. Factories Commit. Ledgers Prove. | CircuitOS',
     description:
-      'Why governed AI needs deterministic factories and ledgers — not another agent demo.',
+      'Why governed AI needs deterministic factories and ledgers, not another agent demo.',
     url: 'https://usecircuitos.com/insights/deterministic-factory',
     type: 'article',
   },
@@ -22,7 +22,7 @@ const jsonLd = {
   '@type': 'Article',
   headline: 'Stochastic Models Propose. Factories Commit. Ledgers Prove.',
   description:
-    'The market ships AI hype. CircuitOS ships demonstrable governance — deterministic factories, adversarial verify, and hash-chained receipts.',
+    'The market ships AI hype. CircuitOS ships demonstrable governance: deterministic factories, adversarial verify, and hash-chained receipts.',
   author: { '@type': 'Organization', name: 'CircuitOS', url: 'https://usecircuitos.com' },
   publisher: {
     '@type': 'Organization',
@@ -68,7 +68,7 @@ export default function DeterministicFactoryArticle() {
             </blockquote>
 
             <p className="text-base md:text-lg text-white leading-relaxed">
-              The world is shipping AI hype — and some of it is good. Most vendors still cannot
+              The world is shipping AI hype. Some of it is good. Most vendors still cannot
               explain the <strong>what</strong>, <strong>why</strong>, or <strong>how</strong> of
               their systems. They cannot prove value, tokenization cost, or governance risk. They
               ship demos. You need receipts.
@@ -84,40 +84,40 @@ export default function DeterministicFactoryArticle() {
 
             <h2>What CircuitOS Pro ships</h2>
             <p>
-              <strong>Propose.</strong> Agents run at the gates — draft copy, classify signals,
+              <strong>Propose.</strong> Agents run at the gates: draft copy, classify signals,
               adversarial review. Local models handle bounded loops; cloud models handle judgment.
               They never commit alone.
             </p>
             <p>
               <strong>Commit.</strong> Deterministic factories: ingest files, hash inputs, infer
               the job, dry-run, apply on approval, verify with exit 1 on failure. Same manifest →
-              same SKU map → same verdict. Apparel, licensing, events — swap the job contract,
+              same SKU map → same verdict. Apparel, licensing, events: swap the job contract,
               keep the harness.
             </p>
             <p>
               <strong>Prove.</strong> Hash-chained ledgers and decision receipts: inputs, outputs,
               model string, token cost, operator gate. Replay for a board, an auditor, or a
-              regulator — without asking the model to remember.
+              regulator, without asking the model to remember.
             </p>
 
             <h2>The visionary magnifier</h2>
             <p>
               CircuitOS is not headcount. It is governed throughput for operators and small teams
-              who run multiple businesses without hiring an army. Connect API accounts — Shopify,
-              HubSpot, your CRM — drop files, read a dry-run report, approve once. Non-technical
+              who run multiple businesses without hiring an army. Connect API accounts (Shopify,
+              HubSpot, your CRM), drop files, read a dry-run report, approve once. Non-technical
               principals get world-class infrastructure without world-class payroll.
             </p>
 
             <h2>Honesty is the brand</h2>
             <p>
               We do not ship performance numbers without minted manifests. We label inference
-              tiers — associative vs. causally identified — so marketing claims cannot outrun
+              tiers (associative vs. causally identified) so marketing claims cannot outrun
               evidence. We fail closed when verify fails. That discipline is the moat competitors
               structurally cannot claim while they are still selling chat wrappers.
             </p>
 
             <p>
-              MetroFlex Apparel is tenant #1 — the first full loop from factory to attribution to
+              MetroFlex Apparel is tenant #1: the first full loop from factory to attribution to
               operator gate. Not a keynote. A proof artifact.
             </p>
 

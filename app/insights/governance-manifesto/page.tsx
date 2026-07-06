@@ -83,7 +83,7 @@ export default function GovernanceManifesto() {
             </p>
 
             <p>
-              Every company deploying AI agents for revenue operations — lead scoring, outreach automation, content generation, pipeline management — is making a bet. The bet is that the AI will get it right more often than it gets it wrong, and that the upside of speed outweighs the downside of opacity.
+              Every company deploying AI agents for revenue operations (lead scoring, outreach automation, content generation, pipeline management) is making a bet. The bet is that the AI will get it right more often than it gets it wrong, and that the upside of speed outweighs the downside of opacity.
             </p>
 
             <p>
@@ -131,7 +131,7 @@ export default function GovernanceManifesto() {
             </blockquote>
 
             <p>
-              A low-risk action — adding a tag to a CRM record — might be autonomous at 65% confidence. A high-risk action — sending a personalized outreach email to a Tier A prospect — might require 88%. A critical action — committing to pricing or scheduling a meeting — might require 92% confidence and still route to a human for final approval.
+              A low-risk action (adding a tag to a CRM record) might be autonomous at 65% confidence. A high-risk action (sending a personalized outreach email to a Tier A prospect) might require 88%. A critical action (committing to pricing or scheduling a meeting) might require 92% confidence and still route to a human for final approval.
             </p>
 
             <p>
@@ -145,15 +145,15 @@ export default function GovernanceManifesto() {
             </p>
 
             <p>
-              <strong>A confidence threshold.</strong> Not a binary pass/fail, but a calibrated probability that the action will produce the intended outcome. Bayesian inference is the foundation — prior beliefs updated with evidence from every signal the system observes. When the posterior probability exceeds the threshold for that action&apos;s risk class, the system acts. When it doesn&apos;t, it escalates.
+              <strong>A confidence threshold.</strong> Not a binary pass/fail, but a calibrated probability that the action will produce the intended outcome. Bayesian inference is the foundation: prior beliefs updated with evidence from every signal the system observes. When the posterior probability exceeds the threshold for that action&apos;s risk class, the system acts. When it does not, it escalates.
             </p>
 
             <p>
-              <strong>An escalation path.</strong> When the system is uncertain, it needs a clear route to a human who can review the evidence and make the call. Not a generic &quot;human in the loop&quot; checkbox — a specific escalation to the right person, with the full context of why the system paused. The human should see: what was scored, what the confidence level was, what threshold it fell below, and what the system would have done if autonomous.
+              <strong>An escalation path.</strong> When the system is uncertain, it needs a clear route to a human who can review the evidence and make the call. Not a generic &quot;human in the loop&quot; checkbox. A specific escalation to the right person, with the full context of why the system paused. The human should see: what was scored, what the confidence level was, what threshold it fell below, and what the system would have done if autonomous.
             </p>
 
             <p>
-              <strong>A decision trail.</strong> Every action the system takes — whether autonomous or human-approved — needs a complete audit record. Not a log file buried in a database. A visible, searchable trail that shows: what was decided, what evidence informed the decision, what confidence level triggered the action, and what the outcome was. If you cannot reconstruct the reasoning chain for any decision your AI made in the last 90 days, you do not have governance. You have hope.
+              <strong>A decision trail.</strong> Every action the system takes (whether autonomous or human-approved) needs a complete audit record. Not a log file buried in a database. A visible, searchable trail that shows: what was decided, what evidence informed the decision, what confidence level triggered the action, and what the outcome was. If you cannot reconstruct the reasoning chain for any decision your AI made in the last 90 days, you do not have governance. You have hope.
             </p>
 
             <h2>What This Looks Like in Practice</h2>
@@ -163,15 +163,15 @@ export default function GovernanceManifesto() {
             </p>
 
             <p>
-              Seventy-two signals fire. Revenue fit scores 0.82 — the company has the budget and the profile. Decision authority scores 0.71 — the contact is a VP, not the final buyer but close. Market density scores 0.89 — the Austin market has strong demand and low competition.
+              Seventy-two signals fire. Revenue fit scores 0.82: the company has the budget and the profile. Decision authority scores 0.71: the contact is a VP, not the final buyer but close. Market density scores 0.89: the Austin market has strong demand and low competition.
             </p>
 
             <p>
-              The system computes a conviction score of 78.4%. This is Tier B — strong but not exceptional. The governance gate evaluates: 78.4% exceeds the 78% threshold for Type 2 autonomous actions. Decision: <strong>EXECUTE.</strong> A personalized outreach sequence initiates, drafted in the client&apos;s brand voice, referencing the Austin market specifically.
+              The system computes a conviction score of 78.4%. This is Tier B: strong but not exceptional. The governance gate evaluates: 78.4% exceeds the 78% threshold for Type 2 autonomous actions. Decision: <strong>EXECUTE.</strong> A personalized outreach sequence initiates, drafted in the client&apos;s brand voice, referencing the Austin market specifically.
             </p>
 
             <p>
-              The entire chain — every signal, every score, the gate evaluation, the routing decision, the outreach content — logs to a decision trail. Auditable. Provable. If the prospect converts, the system learns. If they don&apos;t, the system learns that too.
+              The entire chain (every signal, every score, the gate evaluation, the routing decision, the outreach content) logs to a decision trail. Auditable. Provable. If the prospect converts, the system learns. If they do not, the system learns that too.
             </p>
 
             <p>

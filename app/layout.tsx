@@ -14,10 +14,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://usecircuitos.com'),
   title: {
-    default: 'CircuitOS — Governed AI Decisioning',
+    default: 'CircuitOS: Governed AI Decisioning',
     template: '%s | CircuitOS'
   },
-  description: 'Governed AI decisioning. Know which deals will close and which marketing is working — and prove the decision was sound before the outcome is known, with a signed audit trail every time.',
+  description: 'Governed AI decisioning. Know which deals will close and which marketing is working. Prove the decision was sound before the outcome is known, with a signed audit trail every time.',
   keywords: [
     'governed AI decisioning',
     'AI decision governance',
@@ -37,14 +37,14 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://usecircuitos.com',
     siteName: 'CircuitOS',
-    title: 'CircuitOS — Governed AI Decisioning',
-    description: 'Know which deals will close and which marketing is working — and prove the decision was sound before the outcome is known, with a signed audit trail every time.',
+    title: 'CircuitOS: Governed AI Decisioning',
+    description: 'Know which deals will close and which marketing is working. Prove the decision was sound before the outcome is known, with a signed audit trail every time.',
     images: ['https://usecircuitos.com/opengraph-image'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CircuitOS — Governed AI Decisioning',
-    description: 'Know which deals will close and which marketing is working — and prove it, with a signed audit trail every time.',
+    title: 'CircuitOS: Governed AI Decisioning',
+    description: 'Know which deals will close and which marketing is working. Prove it, with a signed audit trail every time.',
     images: ['https://usecircuitos.com/opengraph-image'],
   },
   robots: {

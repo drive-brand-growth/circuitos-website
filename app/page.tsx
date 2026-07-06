@@ -14,7 +14,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'CircuitOS',
-  description: 'Governed AI for revenue teams. Know which deals close and which marketing works — with proof before the outcome is in. Calibrated scoring, attribution, and signed audit trails.',
+  description: 'Governed AI for revenue teams. Know which deals close and which marketing works, with proof before the outcome is in. Calibrated scoring, attribution, and signed audit trails.',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web-based',
   url: 'https://usecircuitos.com',
@@ -55,7 +55,7 @@ const faqJsonLd = {
       name: 'What is CircuitOS?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS is a governed AI decisioning platform. It tells growth-stage businesses which deals will close and which marketing is actually working — and proves the decision was sound before the outcome is known, with a signed audit trail every time.',
+        text: 'CircuitOS is a governed AI decisioning platform. It tells growth-stage businesses which deals will close and which marketing is actually working. It proves the decision was sound before the outcome is known, with a signed audit trail every time.',
       },
     },
     {
@@ -63,7 +63,7 @@ const faqJsonLd = {
       name: 'How is this different from a black-box AI tool?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Most AI tools give you a recommendation with no audit trail and no way to know if it was right. CircuitOS produces a calibrated probability with a confidence tier, governs the action with rules, and scores the decision afterward for whether its confidence was honest — proof of decision quality independent of outcome luck.',
+        text: 'Most AI tools give you a recommendation with no audit trail and no way to know if it was right. CircuitOS produces a calibrated probability with a confidence tier, governs the action with rules, and scores the decision afterward for whether its confidence was honest. That is proof of decision quality independent of outcome luck.',
       },
     },
     {
@@ -71,7 +71,7 @@ const faqJsonLd = {
       name: 'How does the closed-loop learning work?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS tracks real outcomes (conversions, engagement, attribution) and feeds them back into the scoring model. Every result refines the next prediction, so the system gets sharper over time — on your data, not a generic benchmark.',
+        text: 'CircuitOS tracks real outcomes (conversions, engagement, attribution) and feeds them back into the scoring model. Every result refines the next prediction, so the system gets sharper over time, calibrated on your data, not a generic benchmark.',
       },
     },
     {
@@ -103,7 +103,7 @@ const faqJsonLd = {
       name: 'What does onboarding look like?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Roughly four weeks from contract to live decisioning. We encode your ICP, configure the decision logic, integrate your CRM, and activate the signal flow. You confirm your sources and mapping — we handle the rest.',
+        text: 'Roughly four weeks from contract to live decisioning. We encode your ICP, configure the decision logic, integrate your CRM, and activate the signal flow. You confirm your sources and mapping. We handle the rest.',
       },
     },
     {
@@ -119,7 +119,7 @@ const faqJsonLd = {
       name: 'What industries does CircuitOS work for?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS is industry-agnostic — each deployment is configured for the specific business, ICP, and demand patterns. We run it on our own businesses today, including Drive Brand Growth and MetroFlex, and CircuitOS itself runs on the platform.',
+        text: 'CircuitOS is industry-agnostic. Each deployment is configured for the specific business, ICP, and demand patterns. We run it on our own businesses today, including Drive Brand Growth and MetroFlex, and CircuitOS itself runs on the platform.',
       },
     },
     {
@@ -145,19 +145,19 @@ const howToJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
   name: 'How CircuitOS Works',
-  description: 'The Circuit Method — the four-move loop every decision runs in CircuitOS.',
+  description: 'The Circuit Method: the four-move loop every decision runs in CircuitOS.',
   step: [
     {
       '@type': 'HowToStep',
       position: 1,
       name: 'Observe',
-      text: 'Ingest the signals — pipeline data, attribution touchpoints, deal activity, and market context — from your CRM, analytics, and engagement sources.',
+      text: 'Ingest the signals (pipeline data, attribution touchpoints, deal activity, and market context) from your CRM, analytics, and engagement sources.',
     },
     {
       '@type': 'HowToStep',
       position: 2,
       name: 'Decide',
-      text: 'Produce a calibrated probability with a confidence tier, governed by rules — not a black-box guess. You see the conviction and the signals behind it.',
+      text: 'Produce a calibrated probability with a confidence tier, governed by rules, not a black-box guess. You see the conviction and the signals behind it.',
     },
     {
       '@type': 'HowToStep',
