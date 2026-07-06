@@ -74,6 +74,15 @@ export default function HonestyGapManifesto() {
           {/* Body */}
           <div className="max-w-none [&_p]:text-[#a1a1aa] [&_p]:leading-relaxed [&_p]:mb-5 [&_p]:text-sm [&_p]:md:text-base [&_h2]:text-white [&_h2]:text-xl [&_h2]:md:text-2xl [&_h2]:font-bold [&_h2]:mt-10 [&_h2]:md:mt-12 [&_h2]:mb-3 [&_h2]:md:mb-4 [&_strong]:text-white [&_blockquote]:border-l-2 [&_blockquote]:border-blue-500 [&_blockquote]:pl-4 [&_blockquote]:md:pl-6 [&_blockquote]:italic [&_blockquote]:text-[#a1a1aa] [&_blockquote]:text-sm [&_blockquote]:md:text-base [&_ul]:mb-5 [&_li]:text-[#a1a1aa] [&_li]:text-sm [&_li]:md:text-base [&_li]:leading-relaxed [&_li]:mb-2">
 
+            <div className="border-l-2 border-blue-500 pl-4 md:pl-6 mb-10">
+              <p className="text-white text-xl md:text-2xl font-bold mb-2 tracking-[-0.01em]">
+                Your AI lied. We have receipts.
+              </p>
+              <p>
+                Every dashboard shows you credit. Credit is not causation. CircuitOS measures what your marketing actually caused, and refuses to show a number it can&apos;t prove.
+              </p>
+            </div>
+
             <p className="text-base md:text-lg text-white leading-relaxed">
               Open your attribution dashboard. Pick your best-performing campaign. That number next to it, the 40% credit or the 3.2x ROAS, answers a question you didn&apos;t ask. You asked: <strong>what did this campaign cause?</strong> It answered: <strong>what was this campaign near?</strong>
             </p>
