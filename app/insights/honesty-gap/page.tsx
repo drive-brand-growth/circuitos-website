@@ -215,6 +215,12 @@ export default function HonestyGapManifesto() {
               >
                 Walk through the demo
               </Link>
+              <Link
+                href="/receipts-test"
+                className="block mt-3 text-sm text-[#71717a] hover:text-blue-400 transition-colors"
+              >
+                Or run the Receipts Test on your current vendor
+              </Link>
             </div>
 
           </div>
