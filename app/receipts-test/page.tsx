@@ -3,6 +3,8 @@ import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import { Metadata } from 'next'
 import Scorecard from './Scorecard'
+import RefusalDemo from './RefusalDemo'
+import TamperDemo from './TamperDemo'
 
 export const metadata: Metadata = {
   title: 'The Receipts Test: Audit Your Attribution Vendor in Two Minutes',
@@ -105,6 +107,12 @@ export default function ReceiptsTest() {
 
           {/* Scorecard */}
           <Scorecard />
+
+          {/* Interactive proof demos */}
+          <section className="mt-16 space-y-6">
+            <RefusalDemo />
+            <TamperDemo />
+          </section>
 
           {/* Our own answers */}
           <section className="mt-16">
