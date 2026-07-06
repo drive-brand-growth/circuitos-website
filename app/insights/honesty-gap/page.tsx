@@ -165,15 +165,15 @@ export default function HonestyGapManifesto() {
             </p>
 
             <ul>
-              <li>Every causal result is born <strong>uncitable</strong>. The flag is <code className="text-blue-400">citable = false</code> by default, and no code path flips it except one gated on a passing calibration report and an explicit human confirmation.</li>
-              <li>Attempting to export, render, or attest an unproven number doesn&apos;t quietly pass it through. <strong>It raises an exception.</strong> The refusal is enforced, not requested.</li>
+              <li>Every causal result is born <strong>uncitable</strong>. The flag is <code className="text-blue-400">citable = false</code> by default, and the engine exposes exactly one path that flips it: a passing calibration report bound to that result, plus a named human confirmation. A repo-wide static test enforces that no other assignment exists.</li>
+              <li>Exporting or attesting an unproven number doesn&apos;t quietly pass it through. <strong>It raises an exception.</strong> Rendering one is structurally refused: the interface omits the digit entirely, and a test asserts none can appear. Enforced, not requested.</li>
               <li>Lift is mathematically undefined without a measured baseline. An empty confounder set is an error, not a default.</li>
-              <li>Psychological triggers (scarcity, social proof, authority) enter the engine only as coded variables tested for measured lift. A static check proves no path lets a trigger claim credit without passing through the causal estimator. Naming a trigger is a hypothesis; only measurement can promote it to a finding.</li>
+              <li>Psychological triggers (scarcity, social proof, authority) enter the engine only as coded variables tested for measured lift. A static check over the engine&apos;s source proves no path in it lets a trigger claim credit without passing through the causal estimator. Naming a trigger is a hypothesis; only measurement can promote it to a finding.</li>
               <li>The estimator is verified against synthetic data with a known, planted effect. The test fails if the engine cannot recover the truth we buried.</li>
             </ul>
 
             <p>
-              And the rule extends to every surface we ship, including this website: <strong>no citable flag, no digit.</strong> When measurement is still pending, the screen says so, in words. No grayed-out numbers. No teased placeholder values. You will see the word &quot;pending&quot; on our own product pages, and that is not an apology. It&apos;s the entire point.
+              And the rule extends to every surface we ship, including this website: <strong>no citable flag, no digit.</strong> When measurement is still pending, the screen says so, in words. No grayed-out numbers. No teased placeholder values. You will see the word &quot;pending&quot; on our own operator screens, and that is not an apology. It&apos;s the entire point.
             </p>
 
             <h2>Ask Your Vendor</h2>
