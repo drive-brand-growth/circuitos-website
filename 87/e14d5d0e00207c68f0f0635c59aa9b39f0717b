@@ -1,0 +1,21 @@
+app/insights/page.tsx
+  s_0eea92d6c355b5::t_dc17ec2eff7807 35-41
+app/insights/agentforce-gap/page.tsx
+  s_0eea92d6c355b5::t_586b74571b43e6 1-206
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "87e14d5d0e00207c68f0f0635c59aa9b39f0717b",
+  "prompts": {},
+  "sessions": {
+    "s_0eea92d6c355b5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3e619eee-e2b9-48a5-b018-9c922970b274",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}
