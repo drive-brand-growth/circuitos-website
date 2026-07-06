@@ -292,3 +292,12 @@ button:focus-visible,
 .terminal-cursor {
   animation: blink 1s step-end infinite;
 }
+
+/* Wrap discipline: no orphan words, even heading lines (CSS Text 4, progressive enhancement) */
+h1, h2, h3, blockquote {
+  text-wrap: balance;
+}
+
+p, li {
+  text-wrap: pretty;
+}

@@ -5,10 +5,10 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'The Honesty Gap: Your Attribution Dashboard Is Flattering You',
-  description: 'Every marketing tool shows you credit. Credit is not causation. CircuitOS measures the gap between them — and refuses to show any number it can\'t prove.',
+  description: 'Every marketing tool shows you credit. Credit is not causation. CircuitOS measures the gap between them and refuses to show any number it can\'t prove.',
   openGraph: {
     title: 'The Honesty Gap | CircuitOS',
-    description: 'Every marketing tool shows you credit. Credit is not causation. Here\'s the gap between them — and the engine that refuses to lie about it.',
+    description: 'Every marketing tool shows you credit. Credit is not causation. Here is the gap between them, and the engine that refuses to lie about it.',
     url: 'https://usecircuitos.com/insights/honesty-gap',
     type: 'article',
   },
@@ -24,7 +24,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'The Honesty Gap: Your Attribution Dashboard Is Flattering You',
-  description: 'Every marketing tool shows you credit. Credit is not causation. CircuitOS measures the gap between them — and refuses to show any number it can\'t prove.',
+  description: 'Every marketing tool shows you credit. Credit is not causation. CircuitOS measures the gap between them and refuses to show any number it can\'t prove.',
   author: {
     '@type': 'Organization',
     name: 'CircuitOS',
@@ -74,8 +74,17 @@ export default function HonestyGapManifesto() {
           {/* Body */}
           <div className="max-w-none [&_p]:text-[#a1a1aa] [&_p]:leading-relaxed [&_p]:mb-5 [&_p]:text-sm [&_p]:md:text-base [&_h2]:text-white [&_h2]:text-xl [&_h2]:md:text-2xl [&_h2]:font-bold [&_h2]:mt-10 [&_h2]:md:mt-12 [&_h2]:mb-3 [&_h2]:md:mb-4 [&_strong]:text-white [&_blockquote]:border-l-2 [&_blockquote]:border-blue-500 [&_blockquote]:pl-4 [&_blockquote]:md:pl-6 [&_blockquote]:italic [&_blockquote]:text-[#a1a1aa] [&_blockquote]:text-sm [&_blockquote]:md:text-base [&_ul]:mb-5 [&_li]:text-[#a1a1aa] [&_li]:text-sm [&_li]:md:text-base [&_li]:leading-relaxed [&_li]:mb-2">
 
+            <div className="border-l-2 border-blue-500 pl-4 md:pl-6 mb-10">
+              <p className="text-white text-xl md:text-2xl font-bold mb-2 tracking-[-0.01em]">
+                Your AI lied. We have receipts.
+              </p>
+              <p>
+                Every dashboard shows you credit. Credit is not causation. CircuitOS measures what your marketing actually caused, and refuses to show a number it can&apos;t prove.
+              </p>
+            </div>
+
             <p className="text-base md:text-lg text-white leading-relaxed">
-              Open your attribution dashboard. Pick your best-performing campaign. That number next to it — the 40% credit, the 3.2x ROAS, whatever your tool of choice serves you — answers a question you didn&apos;t ask. You asked: <strong>what did this campaign cause?</strong> It answered: <strong>what was this campaign near?</strong>
+              Open your attribution dashboard. Pick your best-performing campaign. That number next to it, the 40% credit or the 3.2x ROAS, answers a question you didn&apos;t ask. You asked: <strong>what did this campaign cause?</strong> It answered: <strong>what was this campaign near?</strong>
             </p>
 
             <p>
@@ -85,15 +94,15 @@ export default function HonestyGapManifesto() {
             <h2>Credit Is Not Causation</h2>
 
             <p>
-              Multi-touch attribution — first-touch, last-touch, linear, time-decay, position-based, even Shapley — is credit assignment. It takes the conversions that happened and divides them among the touchpoints that were present. It is bookkeeping, not measurement. Useful bookkeeping. But it cannot tell you the one thing you actually pay for: how many of those buyers <strong>would have converted anyway</strong>.
+              Multi-touch attribution is credit assignment: first-touch, last-touch, linear, time-decay, position-based, even Shapley. It takes the conversions that happened and divides them among the touchpoints that were present. It is bookkeeping, not measurement. Useful bookkeeping. But it cannot tell you the one thing you actually pay for: how many of those buyers <strong>would have converted anyway</strong>.
             </p>
 
             <p>
-              To answer that, you need a counterfactual — a measured baseline of what happens without the touchpoint — and you need to control for the boring truth that campaigns get aimed at people who were already likely to buy. High-intent leads get more email. Then email gets credit for high-intent leads. Every correlational model in existence falls for this, because it was never designed not to.
+              To answer that, you need a counterfactual: a measured baseline of what happens without the touchpoint. And you need to control for the boring truth that campaigns get aimed at people who were already likely to buy. High-intent leads get more email. Then email gets credit for high-intent leads. Every correlational model in existence falls for this, because it was never designed not to.
             </p>
 
             <blockquote>
-              An illustrative example: last-touch credits a nurture sequence with 40% of conversions. Measured against baseline, holding buyer intent and origin constant, its incremental lift might be a fraction of that. The remainder was buyers who were already on their way. (Illustrative numbers — and that&apos;s exactly the point. We won&apos;t publish a real one until our engine marks it proven.)
+              An illustrative example: last-touch credits a nurture sequence with 40% of conversions. Measured against baseline, holding buyer intent and origin constant, its incremental lift might be a fraction of that. The remainder was buyers who were already on their way. (Illustrative numbers. That is exactly the point. We publish nothing real until our engine marks it proven.)
             </blockquote>
 
             <h2>Why Every Tool Shows You the Flattering Number</h2>
@@ -103,18 +112,18 @@ export default function HonestyGapManifesto() {
             </p>
 
             <p>
-              This is not a conspiracy. It&apos;s an incentive. The tools aren&apos;t lying — they&apos;re answering the easier question and letting you assume it was the hard one. The industry-wide result is that marketing measurement runs on numbers nobody would defend under oath.
+              This is not a conspiracy. It is an incentive. The tools are not lying. They answer the easier question and let you assume it was the hard one. The industry-wide result is that marketing measurement runs on numbers nobody would defend under oath.
             </p>
 
             <h2>What Honest Measurement Actually Requires</h2>
 
             <p>
-              None of this is exotic. The methodology has existed for decades — it&apos;s the same causal-inference discipline used in clinical trials and econometrics, and it makes four demands:
+              None of this is exotic. The methodology has existed for decades. It is the same causal-inference discipline used in clinical trials and econometrics, and it makes four demands:
             </p>
 
             <ul>
-              <li><strong>A measured baseline.</strong> The conversion rate without the treatment, per segment. No baseline, no lift claim — the counterfactual is the claim.</li>
-              <li><strong>Confounders held constant.</strong> The variables that drive both exposure and conversion — segment, origin, pre-existing intent — must be adjusted for, explicitly and by name.</li>
+              <li><strong>A measured baseline.</strong> The conversion rate without the treatment, per segment. No baseline, no lift claim. The counterfactual is the claim.</li>
+              <li><strong>Confounders held constant.</strong> The variables that drive both exposure and conversion (segment, origin, pre-existing intent) must be adjusted for, explicitly and by name.</li>
               <li><strong>A confidence interval.</strong> A point estimate without its uncertainty is a decoration, not a measurement.</li>
               <li><strong>Calibration.</strong> The system&apos;s stated confidence has to be checked against reality, on data it couldn&apos;t optimize against.</li>
             </ul>
@@ -126,19 +135,19 @@ export default function HonestyGapManifesto() {
             <h2>The Refusal, in Code</h2>
 
             <p>
-              We built the causal attribution engine inside CircuitOS to a rule most software never states: <strong>a number is a liability until it is measured and confirmed.</strong> Not a value in a slide deck — an invariant in the code:
+              We built the causal attribution engine inside CircuitOS to a rule most software never states: <strong>a number is a liability until it is measured and confirmed.</strong> Not a value in a slide deck. An invariant in the code:
             </p>
 
             <ul>
               <li>Every causal result is born <strong>uncitable</strong>. The flag is <code className="text-blue-400">citable = false</code> by default, and no code path flips it except one gated on a passing calibration report and an explicit human confirmation.</li>
               <li>Attempting to export, render, or attest an unproven number doesn&apos;t quietly pass it through. <strong>It raises an exception.</strong> The refusal is enforced, not requested.</li>
               <li>Lift is mathematically undefined without a measured baseline. An empty confounder set is an error, not a default.</li>
-              <li>Psychological triggers — scarcity, social proof, authority — enter the engine only as coded variables tested for measured lift. A static check proves no path lets a trigger claim credit without passing through the causal estimator. Naming a trigger is a hypothesis; only measurement can promote it to a finding.</li>
-              <li>The estimator is verified against synthetic data with a known, planted effect — the test fails if the engine can&apos;t recover the truth we buried.</li>
+              <li>Psychological triggers (scarcity, social proof, authority) enter the engine only as coded variables tested for measured lift. A static check proves no path lets a trigger claim credit without passing through the causal estimator. Naming a trigger is a hypothesis; only measurement can promote it to a finding.</li>
+              <li>The estimator is verified against synthetic data with a known, planted effect. The test fails if the engine cannot recover the truth we buried.</li>
             </ul>
 
             <p>
-              And the rule extends to every surface we ship, including this website: <strong>no citable flag, no digit.</strong> When measurement is still pending, the screen says so, in words — no grayed-out numbers, no teased placeholder values. You will see the word &quot;pending&quot; on our own product pages, and that is not an apology. It&apos;s the entire point.
+              And the rule extends to every surface we ship, including this website: <strong>no citable flag, no digit.</strong> When measurement is still pending, the screen says so, in words. No grayed-out numbers. No teased placeholder values. You will see the word &quot;pending&quot; on our own product pages, and that is not an apology. It&apos;s the entire point.
             </p>
 
             <h2>Ask Your Vendor</h2>
@@ -148,10 +157,10 @@ export default function HonestyGapManifesto() {
             </p>
 
             <ul>
-              <li>What is your identification strategy — how do you separate causation from correlation, specifically?</li>
+              <li>What is your identification strategy? How do you separate causation from correlation, specifically?</li>
               <li>What baseline is my &quot;lift&quot; measured against, and where is it stored?</li>
               <li>Where is the confidence interval on this number?</li>
-              <li>What happens in your product when a number <em>isn&apos;t</em> proven — does it refuse, or does it round up?</li>
+              <li>What happens in your product when a number <em>isn&apos;t</em> proven? Does it refuse, or does it round up?</li>
             </ul>
 
             <p>
@@ -161,18 +170,18 @@ export default function HonestyGapManifesto() {
             <h2>Proof Compounds</h2>
 
             <p>
-              Here is the part that matters if you run a business rather than a dashboard: flattering numbers depreciate. Every quarter they fail to predict, you trust them less. Proof moves the other way. Baselines mature. Calibration histories accumulate. Every measured segment makes the next measurement sharper. A system that refuses to guess gets more valuable every week it runs — because the evidence it accrues is yours, and it can&apos;t be bought, backfilled, or faked.
+              Here is the part that matters if you run a business rather than a dashboard: flattering numbers depreciate. Every quarter they fail to predict, you trust them less. Proof moves the other way. Baselines mature. Calibration histories accumulate. Every measured segment makes the next measurement sharper. A system that refuses to guess gets more valuable every week it runs. The evidence it accrues is yours. It cannot be bought, backfilled, or faked.
             </p>
 
             <p className="text-white">
-              Everyone else sells the number. We sell the proof. <strong>In a world of hype, that&apos;s our flag — planted.</strong>
+              Everyone else sells the number. We sell the proof. <strong>In a world of hype, that is our flag. Planted.</strong>
             </p>
 
             {/* CTA */}
             <div className="mt-12 card rounded-xl p-6 md:p-8 border border-blue-500/20">
               <p className="text-white font-bold mb-2">See the refusal for yourself</p>
               <p className="mb-4">
-                The demo runs on labeled synthetic data — because our own claim gate applies to demos too.
+                The demo runs on labeled synthetic data. Our claim gate applies to demos too.
               </p>
               <Link
                 href="/demo"
