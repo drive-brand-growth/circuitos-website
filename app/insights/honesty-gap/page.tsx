@@ -42,6 +42,28 @@ const jsonLd = {
   url: 'https://usecircuitos.com/insights/honesty-gap',
 }
 
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How do I know if an attribution tool measures causation or just correlation?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Ask four questions. What is your identification strategy? What baseline is lift measured against, and where is it stored? Where is the confidence interval? What does the product do when a number is not proven: refuse, or round up? A tool with real causal machinery has a designed refusal state. Attribution theater always has a number.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the honesty gap in marketing attribution?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The gap between correlational credit (what multi-touch attribution assigns) and measured causal lift (the incremental effect versus a baseline, holding confounders constant). Most tools show only the flattering credit number. CircuitOS renders the gap itself.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Why does CircuitOS refuse to show some numbers?',
+      acceptedAnswer: { '@type': 'Answer', text: 'A number is a liability until it is measured and confirmed. Every causal result starts uncitable and becomes citable only after a calibration harness pass plus a named human confirmation. Exporting an unproven number raises an exception in the engine. The refusal is enforced in code, not requested in a style guide.' },
+    },
+  ],
+}
+
 export default function HonestyGapManifesto() {
   return (
     <main className="min-h-screen grid-bg">
@@ -49,6 +71,10 @@ export default function HonestyGapManifesto() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
       <article className="pt-28 pb-20 px-6">
