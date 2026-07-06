@@ -1,0 +1,21 @@
+app/insights/honesty-gap/page.tsx
+  s_0eea92d6c355b5::t_8117119762099d 168-169,171,176
+public/llms.txt
+  s_0eea92d6c355b5::t_3e06dc4746202f 5,15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "dd9350961159b9d1e94ca8bc3bce8c049e2f3e76",
+  "prompts": {},
+  "sessions": {
+    "s_0eea92d6c355b5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3e619eee-e2b9-48a5-b018-9c922970b274",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}
