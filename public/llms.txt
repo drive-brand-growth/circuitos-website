@@ -2,7 +2,7 @@
 
 > Stochastic models propose. Deterministic factories commit. Ledgers prove. — Governed AI for revenue teams.
 
-CircuitOS is a governed revenue platform: agents propose at the gates, deterministic factories commit with verify, and hash-chained ledgers prove every move. Built for $10M–$50M businesses that need AI that moves fast and survives a security review.
+CircuitOS is a governed revenue platform: agents propose at the gates, deterministic factories commit with verify, and an append-only, hash-chained decision ledger records the moves (live in tenant deployments; platform-wide attestation ledger in rollout). Built for $10M–$50M businesses that need AI that moves fast and survives a security review.
 
 ## Core Capabilities
 
@@ -12,7 +12,7 @@ CircuitOS is a governed revenue platform: agents propose at the gates, determini
 - AgentOps governance dashboard — real-time observability into every AI decision
 - Closed-loop feedback from GA4 engagement data
 - Multi-vertical support with isolated infrastructure per business line
-- Full audit trail on every decision, action, and outcome
+- Append-only decision trail on scored and governed actions (hash-chained, verifiable)
 - Confidence-based autonomy governance (execute / escalate / block)
 
 ## How It Works
