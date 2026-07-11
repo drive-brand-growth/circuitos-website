@@ -7,28 +7,28 @@ const pillars = [
   {
     title: 'Propose',
     subtitle: 'Stochastic models',
-    body: 'Agents draft, classify, and suggest at the gates — they never commit alone. Cheap loops stay on local models; judgment escalates when risk rises.',
+    body: 'Agents draft scores, risk flags, and next actions. They never commit alone.',
     accent: 'text-blue-400',
   },
   {
     title: 'Commit',
-    subtitle: 'Deterministic factories',
-    body: 'Same inputs → same manifests, SKU maps, and verify verdicts. Ingest, diff, dry-run, apply. Verify exits 1 on drift — nothing ships on vibes.',
+    subtitle: 'Deterministic rules',
+    body: 'Risk class plus confidence decide what runs, what waits, and what escalates to a human. Same inputs, same governed outcome. Nothing ships on vibes.',
     accent: 'text-green-400',
   },
   {
     title: 'Prove',
     subtitle: 'Ledgers',
-    body: 'Hash-chained receipts: what changed, why, which model, what it cost. Replay for your board, auditor, or regulator — without asking the model to remember.',
+    body: 'Hash-chained receipts: what was decided, why, which model, what it cost. Replayable for your board, auditor, or regulator.',
     accent: 'text-yellow-400',
   },
 ]
 
 const hypeGap = [
-  { hype: '“AI agents for your business”', truth: 'What artifact changed? Show the diff and hash.' },
-  { hype: '“10× productivity”', truth: 'Why that action? DMN score + evidence tier on every recommendation.' },
-  { hype: '“Autonomous workflows”', truth: 'How do you know it didn’t fabricate? Adversarial verify before merge.' },
-  { hype: 'Flat SaaS with no receipts', truth: 'Token cost per job on the ledger — local models for bounded work.' },
+  { hype: '“AI agents for your business”', truth: 'What changed? Diff and hash.' },
+  { hype: '“10× productivity”', truth: 'Why that action? Evidence tier and rule path on every recommendation.' },
+  { hype: '“Autonomous workflows”', truth: 'Did it fabricate? Verified before side effects.' },
+  { hype: 'Flat SaaS with no receipts', truth: 'Every decision on a tamper-evident ledger.' },
 ]
 
 export default function TruthSection() {
@@ -47,14 +47,13 @@ export default function TruthSection() {
           </p>
           <blockquote className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-snug tracking-[-0.02em] mb-6">
             Stochastic models propose.<br className="hidden sm:block" />
-            Deterministic factories commit.<br className="hidden sm:block" />
+            Deterministic rules commit.<br className="hidden sm:block" />
             Ledgers prove.
           </blockquote>
           <p className="text-[#a1a1aa] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Most AI ships demos. CircuitOS ships{' '}
-            <strong className="text-white font-semibold">demonstrable governance</strong> — the
-            visionary magnifier for operators who can&apos;t hire fifty PhDs, but still need to
-            defend every move.
+            <strong className="text-white font-semibold">receipts</strong>: proof of what was
+            decided, why, and what it cost.
           </p>
         </motion.div>
 
@@ -87,10 +86,28 @@ export default function TruthSection() {
             <h3 className="text-sm font-semibold text-white">What the market ships vs. what we prove</h3>
           </div>
           <ul className="divide-y divide-[#27272a]">
-            {hypeGap.map((row) => (
+            {hypeGap.map((row, i) => (
               <li key={row.hype} className="grid md:grid-cols-2 gap-2 px-6 py-4 text-sm">
-                <span className="text-[#71717a] line-through decoration-[#3f3f46]">{row.hype}</span>
-                <span className="text-[#e4e4e7]">{row.truth}</span>
+                <span className="relative inline-block w-fit text-[#71717a]">
+                  {row.hype}
+                  <motion.span
+                    aria-hidden
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.45, delay: 0.3 + i * 0.15, ease: [0.4, 0, 0.2, 1] }}
+                    className="absolute left-0 top-1/2 h-px w-full origin-left bg-[#71717a]"
+                  />
+                </span>
+                <motion.span
+                  initial={{ opacity: 0, x: -6 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.55 + i * 0.15 }}
+                  className="text-[#e4e4e7]"
+                >
+                  {row.truth}
+                </motion.span>
               </li>
             ))}
           </ul>

@@ -16,54 +16,47 @@ const plans = [
   {
     name: 'Growth',
     monthly: '$3,500',
-    desc: 'For revenue teams automating one business line. All AI actions require human approval before execution.',
+    desc: 'One revenue line. Every AI action requires human approval before execution.',
     cta: 'See It In Action',
     features: [
-      'Predictive lead scoring (registered signal registry)',
-      'Pre-calibrated to your ICP from day one',
-      'Automated outreach in your brand voice',
+      'Calibrated deal and lead scoring, tuned to your ICP',
+      'Deal risk flags before the slip',
       'CRM integration (any platform)',
       'Human approval gates on all actions',
-      'Content intelligence engine',
       'Full audit trail on every decision',
       'Email & chat support',
+      'Add-ons available: outreach, content, enrichment',
     ],
   },
   {
     name: 'Scale',
     monthly: '$6,500',
-    desc: 'For companies running multiple revenue lines. Confidence-based autonomy — low-risk actions execute automatically, high-risk actions escalate.',
+    desc: 'Multiple revenue lines, or confidence-based autonomy. Low-risk actions execute automatically; high-risk actions escalate to a human.',
     cta: 'See It In Action',
     features: [
       'Everything in Growth',
-      'Multi-vertical scoring models',
+      'Governed Act: low-risk auto-executes, high-risk escalates',
+      'Multi-touch attribution + closed-loop feedback (GA4)',
       'Isolated infrastructure per business line',
-      'Multi-source lead enrichment',
-      'AI content generation with fact-checking',
-      'Closed-loop performance feedback (GA4)',
       'AgentOps governance dashboard',
-      'Automated social distribution (4 channels)',
+      'Outreach, content, and social modules available',
       'Priority support & quarterly reviews',
     ],
     popular: true,
   },
   {
     name: 'Enterprise',
-    monthly: '$12,000',
-    desc: 'For organizations where AI governance is a competitive advantage. Full autonomous execution with escalation rules, custom integrations, and SLA.',
+    monthly: 'From $12,000',
+    desc: 'Sovereign deployment. The decision loop runs on your infrastructure, on dedicated models. Your data never leaves.',
     cta: 'Contact Us',
     features: [
       'Everything in Scale',
-      'Unlimited vertical stacks',
+      'Sovereign option: local models on your infrastructure, no external AI APIs in the loop',
       'Custom CRM & API integrations',
       'Dedicated infrastructure',
-      'Security controls informed by NIST CSF 2.0',
-      'AI threat detection mapped to MITRE ATLAS',
-      'Automated PII redaction before model processing',
-      'LLM cost circuit breaker & budget controls',
+      'Security pack: NIST CSF-informed controls, PII redaction, cost circuit breakers',
+      'Custom model calibration & SLA',
       'Dedicated success manager',
-      'Custom model calibration',
-      'SLA & uptime guarantees',
     ],
   },
 ]
@@ -79,7 +72,7 @@ export default function Pricing() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">Governed AI. Mid-market pricing.</h2>
-          <p className="text-[#a1a1aa] text-lg">Built for $10M–$50M businesses that need auditable, governed decisioning — not another AI wrapper.</p>
+          <p className="text-[#a1a1aa] text-lg">Built for $10M to $50M operators who need auditable decisioning: revenue leaders who can&apos;t hire a data science bench, but still have to defend every move to a board, partner, or regulator.</p>
         </motion.div>
 
         <motion.div

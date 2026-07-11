@@ -26,7 +26,7 @@ export default function Nav() {
         <div className="flex items-center gap-4">
           <a href="/#contact" className="hidden sm:inline text-sm font-medium text-[#a1a1aa] hover:text-white transition-colors">Contact</a>
           <a href="/demo" className="text-sm btn-primary text-white px-4 py-2 rounded-lg font-medium">
-            See It In Action
+            Book a Demo
           </a>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
