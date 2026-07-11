@@ -46,8 +46,8 @@ export default function TruthSection() {
             The anti-hype contract
           </p>
           <blockquote className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-snug tracking-[-0.02em] mb-6">
-            Stochastic models propose.<br className="hidden sm:block" />
-            Deterministic rules commit.<br className="hidden sm:block" />
+            Stochastic models propose.<br className="hidden sm:block" />{' '}
+            Deterministic rules commit.<br className="hidden sm:block" />{' '}
             Ledgers prove.
           </blockquote>
           <p className="text-[#a1a1aa] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">

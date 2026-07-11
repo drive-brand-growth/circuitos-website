@@ -49,7 +49,7 @@ export default function Capabilities() {
           viewport={{ once: true }}
           className="text-[#a1a1aa] text-center mb-16 text-lg max-w-2xl mx-auto"
         >
-          Four capabilities that work together as one governed decision loop, not six tools duct-taped together
+          Four capabilities that work together as one governed decision loop, not six tools duct-taped together.
         </motion.p>
 
         <motion.div

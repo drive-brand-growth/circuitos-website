@@ -82,7 +82,7 @@ export default function DeterministicFactoryArticle() {
               until an agent emails the wrong customer and nobody can replay why.
             </p>
 
-            <h2>What CircuitOS Pro ships</h2>
+            <h2>What CircuitOS ships</h2>
             <p>
               <strong>Propose.</strong> Agents run at the gates: draft copy, classify signals,
               adversarial review. Local models handle bounded loops; cloud models handle judgment.

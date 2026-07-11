@@ -347,10 +347,10 @@ const scoringPath: DemoStepData[] = [
       custom: 'Your custom stack does the basics. Here\'s what Bayesian scoring adds to your bottom line.',
     },
     metrics: [
-      { label: 'Before: Conv Rate', base: 2.1, suffix: '%' },
-      { label: 'After: Conv Rate', base: 4.8, suffix: '%' },
-      { label: 'Revenue Lift', base: 128, suffix: '%' },
-      { label: 'Time Saved', base: 23, suffix: 'hrs/wk' },
+      { label: 'Before: Conv Rate (simulated)', base: 2.1, suffix: '%' },
+      { label: 'After: Conv Rate (simulated)', base: 4.8, suffix: '%' },
+      { label: 'Simulated Lift', base: 128, suffix: '%' },
+      { label: 'Time Saved (simulated)', base: 23, suffix: 'hrs/wk' },
     ],
     leads: [
       { name: 'Sarah Chen', score: 92.4, status: 'Won: $48K', tier: 'HIGH' },
@@ -762,7 +762,7 @@ function DemoTransition() {
       />
       <div className="text-center">
         <h2 className="text-2xl font-bold mb-2">Building your demo...</h2>
-        <p className="text-[#a1a1aa]">Personalizing the experience based on your answers</p>
+        <p className="text-[#a1a1aa]">Configuring your decision scenario</p>
       </div>
     </motion.div>
   )
@@ -1023,8 +1023,8 @@ function InlineDemoForm({
         <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
           <span className="text-green-400 text-2xl">&#10003;</span>
         </div>
-        <h4 className="text-lg font-semibold mb-1">Thanks for reaching out!</h4>
-        <p className="text-[#a1a1aa] text-sm">We&apos;ll be in touch within 24 hours.</p>
+        <h4 className="text-lg font-semibold mb-1">Got it.</h4>
+        <p className="text-[#a1a1aa] text-sm">We&apos;ll get back to you within 24 hours.</p>
       </motion.div>
     )
   }
