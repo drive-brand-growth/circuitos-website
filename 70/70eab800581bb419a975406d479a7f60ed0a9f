@@ -1,0 +1,59 @@
+app/page.tsx
+  s_316f27f869eeab::t_ce91c524d50aed 122
+  s_316f27f869eeab::t_a6e4b8ba37c4aa 58,66,74,106
+app/api/chat/route.ts
+  s_316f27f869eeab::t_f310f52fad4ad2 299
+  s_316f27f869eeab::t_cc393c1f4f0444 119
+  s_316f27f869eeab::t_e56dc78a7aefef 229
+app/insights/deterministic-factory/page.tsx
+  s_316f27f869eeab::t_464e631741b9ef 120-121
+  s_316f27f869eeab::t_c1f4462eacdfe7 9,13,25,71,87,94,100,106-107,114
+app/demo/page.tsx
+  s_316f27f869eeab::t_e037140759a199 125-126,194,219,288,344,356-357,369,388,392,394-395,420,427,434,441,444,455,469,475-476,479,483,521,524,528,542,545,549,552,573,580,587,597,622,624-625
+app/globals.css
+  s_316f27f869eeab::t_629ddd2e58c4d2 295-303
+app/insights/governance-manifesto/page.tsx
+  s_316f27f869eeab::t_5e32d5706e0d90 86,134,148,152,156,166,170,174
+app/insights/honesty-gap/page.tsx
+  s_316f27f869eeab::t_71e95e58626fe1 1-233
+app/insights/lead-walk-through/page.tsx
+  s_316f27f869eeab::t_f77bdf47cf1985 42,91,98,103,110,112-116,122,126,129,149,156,164,170,180,183,196
+app/insights/page.tsx
+  s_316f27f869eeab::t_ce81401813c79f 6-12,17,24,45
+app/layout.tsx
+  s_316f27f869eeab::t_97c6e94ca03c22 17,20,40-41,46-47
+app/opengraph-image.tsx
+  s_316f27f869eeab::t_c64c265d73c6af 4
+app/playground/layout.tsx
+  s_316f27f869eeab::t_075b3a9c87a789 5,8,15
+app/playground/page.tsx
+  s_316f27f869eeab::t_e5db571b802df0 300
+app/receipts-test/RefusalDemo.tsx
+  s_316f27f869eeab::t_d7bc85c372f11c 1-99
+app/receipts-test/Scorecard.tsx
+  s_316f27f869eeab::t_2ac91cf6c3e613 1-143
+app/receipts-test/TamperDemo.tsx
+  s_316f27f869eeab::t_e30de7ec3575dc 1-131
+app/receipts-test/page.tsx
+  s_316f27f869eeab::t_22428f579bf5a7 1-162
+app/sitemap.ts
+  s_316f27f869eeab::t_735226141dc678 27,31-48
+public/llms.txt
+  s_316f27f869eeab::t_fa8ae10868263f 5,15,85-102
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.11",
+  "base_commit_sha": "7070eab800581bb419a975406d479a7f60ed0a9f",
+  "prompts": {},
+  "sessions": {
+    "s_316f27f869eeab": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bed68343-cd16-4901-bf7b-e97479aff3b3",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}
