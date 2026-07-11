@@ -1,14 +1,27 @@
 'use client'
 
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { motion, useInView, useMotionValue, useTransform, animate } from 'framer-motion'
+import { useEffect, useRef } from 'react'
 
 const metrics = [
-  { value: '847', label: 'Leads Scored', trend: '+12%' },
-  { value: '73%', label: 'Route Rate', trend: '+4%' },
-  { value: '12', label: 'Active Sequences', trend: '' },
-  { value: '0.91', label: 'Model Confidence', trend: '+0.03' },
+  { value: 847, decimals: 0, suffix: '', label: 'Leads Scored' },
+  { value: 73, decimals: 0, suffix: '%', label: 'Route Rate' },
+  { value: 12, decimals: 0, suffix: '', label: 'Active Sequences' },
+  { value: 0.91, decimals: 2, suffix: '', label: 'Model Confidence' },
 ]
+
+function CountUp({ value, decimals, suffix, start }: { value: number, decimals: number, suffix: string, start: boolean }) {
+  const motionValue = useMotionValue(0)
+  const display = useTransform(motionValue, (v) => `${v.toFixed(decimals)}${suffix}`)
+
+  useEffect(() => {
+    if (!start) return
+    const controls = animate(motionValue, value, { duration: 1.2, ease: [0.4, 0, 0.2, 1] })
+    return controls.stop
+  }, [start, value, motionValue])
+
+  return <motion.span>{display}</motion.span>
+}
 
 const leads = [
   { name: 'Sarah Chen', company: 'Apex Digital', score: 92.4, tier: 'HIGH', action: 'Routed to Rep', tierColor: 'text-green-400', actionColor: 'text-green-400' },
@@ -57,8 +70,8 @@ export default function DashboardPreview() {
               </div>
               <div className="flex items-center gap-4 text-xs text-[#71717a]">
                 <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
-                  All systems operational
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+                  Sample decision view · illustrative data
                 </span>
               </div>
             </div>
@@ -74,8 +87,9 @@ export default function DashboardPreview() {
                   className="px-6 py-4 border-r border-[#27272a] last:border-r-0"
                 >
                   <div className="flex items-baseline gap-2">
-                    <span className="text-xl font-bold text-white">{m.value}</span>
-                    {m.trend && <span className="text-[10px] text-green-400">{m.trend}</span>}
+                    <span className="text-xl font-bold text-white">
+                      <CountUp value={m.value} decimals={m.decimals} suffix={m.suffix} start={isInView} />
+                    </span>
                   </div>
                   <span className="text-[11px] text-[#71717a]">{m.label}</span>
                 </motion.div>
@@ -86,7 +100,7 @@ export default function DashboardPreview() {
             <div className="px-6 py-3">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-sm font-medium text-[#a1a1aa]">Recent Leads</span>
-                <span className="text-[11px] text-[#71717a]">Updated 2m ago</span>
+                <span className="text-[11px] text-[#71717a]">Illustrative data</span>
               </div>
 
               {/* Table header */}
@@ -130,7 +144,7 @@ export default function DashboardPreview() {
             {/* Bottom status bar */}
             <div className="px-6 py-2.5 border-t border-[#27272a] flex items-center justify-between text-[11px] text-[#71717a]">
               <span>Registered signals · ICP-configured · Decision logic active</span>
-              <span>Model v3.2 · Last calibration: 2h ago</span>
+              <span>Example UI, not a customer KPI</span>
             </div>
           </div>
         </div>

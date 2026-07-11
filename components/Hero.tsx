@@ -27,7 +27,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#27272a] bg-[#27272a]/30 text-sm text-[#a1a1aa] mb-8"
         >
           <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-          Governed AI decisioning &mdash; running live in production
+          Governed AI decisioning for mid-market operators
         </motion.div>
 
         <motion.h1
@@ -41,14 +41,14 @@ export default function Hero() {
           variants={fadeInUp}
           className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-2xl mx-auto mb-6 leading-[1.5] font-medium"
         >
-          Governed AI that proves every decision &mdash; before the outcome is in.
+          Governed AI that proves every decision before the outcome is in.
         </motion.p>
 
         <motion.p
           variants={fadeInUp}
           className="text-base sm:text-lg text-[#a1a1aa] max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          CircuitOS scores with calibrated confidence, acts within governed rules, and gives you a signed audit trail every time.
+          CircuitOS turns CRM and pipeline signals into calibrated decisions, then writes a signed receipt for every call. Models propose. Rules commit. Ledgers prove.
         </motion.p>
 
         <motion.div
@@ -56,7 +56,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-2"
         >
           <a href="/demo" className="w-full sm:w-auto px-8 py-3.5 btn-primary text-white rounded-lg font-semibold text-base">
-            See It In Action
+            Book a Demo
           </a>
           <a href="#how-it-works" className="w-full sm:w-auto px-8 py-3.5 border border-[#27272a] rounded-lg font-semibold hover:bg-white/5 transition-colors text-base">
             How It Works

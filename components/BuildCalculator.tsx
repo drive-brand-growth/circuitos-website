@@ -25,7 +25,7 @@ const verticalOptions = [
   { count: 1, label: '1 Vertical', sublabel: 'Single business line' },
   { count: 2, label: '2-3 Verticals', sublabel: 'Multi-brand portfolio' },
   { count: 4, label: '4-6 Verticals', sublabel: 'Enterprise portfolio' },
-  { count: 7, label: '7+ Verticals', sublabel: 'Custom — let\'s talk' },
+  { count: 7, label: '7+ Verticals', sublabel: 'Custom. Let\'s talk' },
 ]
 
 const coreModules: Module[] = [
@@ -73,13 +73,13 @@ const featureModules: Module[] = [
   {
     id: 'crm',
     name: 'CRM Integration',
-    description: 'Connect your CRM — contact sync, pipeline automation, booking flows',
+    description: 'Connect your CRM: contact sync, pipeline automation, booking flows',
     price: 1500,
   },
   {
     id: 'analytics',
     name: 'Attribution & Feedback Loop',
-    description: 'Closed-loop performance tracking — engagement data feeds back into the model',
+    description: 'Closed-loop performance tracking: engagement data feeds back into the model',
     price: 1000,
   },
 ]
@@ -204,7 +204,7 @@ export default function BuildCalculator() {
             Estimate your build
           </h2>
           <p className="text-[#a1a1aa] text-lg max-w-2xl mx-auto">
-            Transparent pricing. Select the modules you need and see exactly what your implementation costs — no surprises on the demo call.
+            Transparent pricing. Select the modules you need and see exactly what your onboarding costs. No surprises on the demo call.
           </p>
         </motion.div>
 
@@ -247,7 +247,7 @@ export default function BuildCalculator() {
 
             {/* Core — always included */}
             <div className="mb-6">
-              <p className="text-xs text-[#71717a] uppercase tracking-wider mb-3 font-medium">Core — included with every build</p>
+              <p className="text-xs text-[#71717a] uppercase tracking-wider mb-3 font-medium">Core onboarding, included with every deployment</p>
               <div className="space-y-3">
                 {coreModules.map((mod) => (
                   <div
@@ -467,7 +467,7 @@ export default function BuildCalculator() {
                 Get your exact quote
               </a>
               <p className="text-xs text-[#71717a] text-center mt-3">
-                Your estimate is a starting point — we finalize pricing on your demo call based on exact requirements.
+                Your estimate is a starting point. We finalize pricing on your demo call based on exact requirements.
               </p>
             </div>
           </motion.div>

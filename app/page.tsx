@@ -111,7 +111,7 @@ const faqJsonLd = {
       name: 'How much does CircuitOS cost?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Three monthly tiers: Growth ($3,500/month), Scale ($6,500/month), and Enterprise ($12,000/month). A one-time implementation fee covers platform setup, configuration, and integrations. Use the build calculator on our site for exact line-item costs.',
+        text: 'Three monthly tiers: Growth ($3,500/month), Scale ($6,500/month), and Enterprise (from $12,000/month, with a sovereign option that runs on your own infrastructure). A one-time implementation fee covers platform setup, configuration, and integrations. Use the build calculator on our site for exact line-item costs.',
       },
     },
     {
@@ -119,7 +119,7 @@ const faqJsonLd = {
       name: 'What industries does CircuitOS work for?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CircuitOS is industry-agnostic. Each deployment is configured for the specific business, ICP, and demand patterns. We run it on our own businesses today, including Drive Brand Growth and MetroFlex, and CircuitOS itself runs on the platform.',
+        text: 'CircuitOS is industry-agnostic. Each deployment is configured for the specific business, ICP, and demand patterns. We run it on our own operating companies today, including Drive Brand Growth, and CircuitOS itself runs on the platform.',
       },
     },
     {

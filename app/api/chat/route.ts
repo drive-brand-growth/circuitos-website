@@ -116,7 +116,7 @@ You write with the strategic depth of world-class direct response and persuasion
 
 **Cialdini (Influence Principles)**: Weave in naturally:
 - Authority: every decision is scored with calibrated confidence and recorded in a signed audit trail — CircuitOS doesn't claim authority, it proves it
-- Social proof: running live in production today (MetroFlex is the named case study) — point to what can actually be shown, never inflated counts
+- Social proof: running live in production today on our own operating companies — point to what can actually be shown, never inflated counts
 - Scarcity/Exclusivity: "We configure each deployment to your specific business. This isn't a template."
 - Reciprocity: Offer genuine insight in every response. Give value before asking for anything
 
@@ -226,7 +226,7 @@ Typical implementation ranges: Growth ~$10,500-$14,000, Scale ~$14,000-$21,000, 
 Built for $10M-$50M growth-stage businesses that make high-stakes decisions on incomplete or biased data and can't afford an enterprise AI platform. Not competing with Salesforce or HubSpot AI — those give black-box recommendations with no audit trail. CircuitOS gives calibrated, governed, provable decisions. Mid-market pricing, enterprise-grade governance.
 
 ### Social Proof (first-party, demonstrable — NEVER inflate counts)
-- We run our own businesses on it: Drive Brand Growth (agency revenue ops), MetroFlex (named case study), and CircuitOS itself
+- We run our own businesses on it: Drive Brand Growth (agency revenue ops), our other operating companies, and CircuitOS itself
 - The concierge you're talking to right now IS the platform in production — scoring this conversation, governing the response, capturing the lead. That's the strongest proof there is: you're using it
 - Founder-operated: we don't sell a product we don't run ourselves
 - Every decision recorded in a signed, tamper-evident audit trail
@@ -296,7 +296,7 @@ function localKnowledgeAnswer(message: string): string {
   if (has('how', 'work', 'circuit method', 'step', 'process', 'pipeline')) return "Every decision runs one loop — the Circuit Method: **Observe** the signals, **Decide** with calibrated confidence, **Act** within governed rules, and **Prove** the call was sound on a signed audit trail. [See how it works](/#how-it-works). Want the short version of any step?"
   if (has('integrat', 'crm', 'hubspot', 'salesforce', 'gohighlevel', 'ga4', 'api', 'webhook', 'connect')) return "CircuitOS connects to any CRM (HubSpot, Salesforce, GoHighLevel, and more), your email tools, and GA4 for closed-loop feedback — plus a full REST API and webhooks for anything custom. What's your stack?"
   if (has('secur', 'isolat', 'privacy', 'on-prem', 'local deploy', 'own infra', 'my data', 'data isolat')) return "Each deployment runs in its own isolated stack with a dedicated database and model — no data shared between clients — and it can run on your own infrastructure. What are your data requirements?"
-  if (has('who use', 'case study', 'customer', 'client', 'example', 'real ', 'reference')) return "We run CircuitOS on our own businesses — Drive Brand Growth and MetroFlex — and the platform runs itself: this concierge you're talking to is CircuitOS in production. Founder-operated, not a product we don't use. Want a walkthrough?"
+  if (has('who use', 'case study', 'customer', 'client', 'example', 'real ', 'reference')) return "We run CircuitOS on our own operating companies, including Drive Brand Growth, and the platform runs itself: this concierge you're talking to is CircuitOS in production. Founder-operated, not a product we don't use. Want a walkthrough?"
   if (has('contact', 'email', 'reach', 'talk to', 'sales', 'call')) return "Reach us at hello@usecircuitos.com or [book a demo](/demo) — we respond within 24 hours. Anything I can answer for you right now?"
   if (has('what is', 'whats circuitos', "what's circuitos", 'circuitos pro', 'about', 'tell me')) return "CircuitOS is a governed AI decisioning platform: it tells you which deals will close and which marketing is actually working — and proves the decision was sound before the outcome is known, with a signed audit trail every time. What would help most — scoring, attribution, or the proof side?"
   if (has('hi', 'hey', 'hello', 'sup ', 'yo ', 'good ')) return "Hey — I'm Aria X, the CircuitOS concierge. I can walk you through how the platform scores decisions, proves them, and what it costs. What's on your mind?"

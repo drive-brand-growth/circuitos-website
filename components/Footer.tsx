@@ -11,6 +11,10 @@ export default function Footer() {
             <p className="text-sm text-[#71717a] mt-2 leading-relaxed">
               Observe. Decide. Act. Prove.
             </p>
+            <p className="text-xs text-[#52525b] mt-4 leading-relaxed">
+              CircuitOS is the productization of a design-science approach to governed AI
+              decisioning: calibrated confidence, fail-closed action, and tamper-evident proof.
+            </p>
           </div>
 
           {/* Product */}

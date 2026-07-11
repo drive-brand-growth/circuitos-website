@@ -15,27 +15,19 @@ const staggerContainer = {
 const capabilities = [
   {
     title: 'Calibrated win-probability scoring',
-    desc: 'Every deal gets a calibrated probability it closes — with the confidence tier and the signals behind it. You see the conviction and the reasoning, never a magic number with no explanation.',
+    desc: 'Every deal gets a calibrated probability it closes, with the confidence tier and the signals behind it. You see the conviction and the reasoning, never a magic number with no explanation.',
   },
   {
-    title: 'Multi-touch attribution',
-    desc: 'Trace revenue back to the marketing that actually drove it. Credit the touchpoints that moved the deal, not the last click. Know what to spend more on — and what to cut.',
-  },
-  {
-    title: 'Deal Risk Score',
+    title: 'Deal risk before the slip',
     desc: 'Red flags surface on a deal before it slips, not after the loss. The system watches activity, timing, and engagement and tells you which deals need attention now.',
   },
   {
+    title: 'Attribution you can defend',
+    desc: 'Credit the touchpoints that moved revenue, not last-click folklore. Know what to fund and what to cut.',
+  },
+  {
     title: 'Proof of decision quality',
-    desc: 'After the outcome, every decision is scored for whether its confidence was honest — proof the call was sound independent of luck. The one thing a black-box recommendation can never give you.',
-  },
-  {
-    title: 'Governed by rules. Escalates by design.',
-    desc: 'Confidence mapped to risk class determines what runs autonomously and what routes to a human. Every score, action, and outcome on a signed, tamper-evident audit trail with indefinite retention.',
-  },
-  {
-    title: 'Closed-loop learning',
-    desc: 'Real outcomes and engagement data feed back into the model. Every result refines the next prediction. The system gets sharper with every cycle — on your data, not a generic benchmark.',
+    desc: 'After the outcome, every decision is scored for whether its confidence was honest: proof the call was sound independent of luck. The one thing a black-box recommendation can never give you.',
   },
 ]
 
@@ -57,7 +49,7 @@ export default function Capabilities() {
           viewport={{ once: true }}
           className="text-[#a1a1aa] text-center mb-16 text-lg max-w-2xl mx-auto"
         >
-          Six capabilities that work together as one governed decisioning system — not six tools duct-taped together
+          Four capabilities that work together as one governed decision loop, not six tools duct-taped together
         </motion.p>
 
         <motion.div
@@ -78,6 +70,16 @@ export default function Capabilities() {
             </motion.div>
           ))}
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-center text-sm text-[#71717a] mt-10 max-w-2xl mx-auto"
+        >
+          Optional modules: governed outreach, content with fact-check gates, and social
+          distribution. Available on Scale and Enterprise, or as add-ons.
+        </motion.p>
       </div>
     </section>
   )

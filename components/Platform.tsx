@@ -5,16 +5,16 @@ import { useEffect, useRef, useState } from 'react'
 
 // Animated decision pipeline terminal — the Circuit Method running on one deal
 const pipelineSteps = [
-  { label: 'observe', text: 'Deal: "Acme Corp — Q3 renewal · $48k"', color: 'text-blue-400' },
+  { label: 'observe', text: 'Deal: "Acme Corp · Q3 renewal · $48k"', color: 'text-blue-400' },
   { label: 'observe', text: 'Ingesting pipeline + attribution + activity signals...', color: 'text-[#a1a1aa]' },
   { label: 'decide', text: 'win_probability: 0.78 → confidence tier B', color: 'text-green-400' },
   { label: 'decide', text: 'attribution: 3 touchpoints credited → paid search led', color: 'text-green-400' },
-  { label: 'decide', text: 'deal_risk: LOW — no red flags', color: 'text-green-400' },
+  { label: 'decide', text: 'deal_risk: LOW · no red flags', color: 'text-green-400' },
   { label: 'act', text: 'Recommended: advance to proposal, draft follow-up', color: 'text-blue-400' },
   { label: 'govern', text: 'risk_class MEDIUM → human approval gate: PASSED', color: 'text-yellow-400' },
   { label: 'act', text: 'Action executed within governed rules', color: 'text-[#a1a1aa]' },
   { label: 'prove', text: 'Decision scored for calibration → confidence honest', color: 'text-green-400' },
-  { label: 'prove', text: 'Signed audit entry written — tamper-evident, retained', color: 'text-[#a1a1aa]' },
+  { label: 'prove', text: 'Signed audit entry written · tamper-evident, retained', color: 'text-[#a1a1aa]' },
 ]
 
 function ContentPipelineTerminal() {
@@ -53,7 +53,7 @@ function ContentPipelineTerminal() {
             <div className="w-3 h-3 rounded-full bg-[#eab308]/80"></div>
             <div className="w-3 h-3 rounded-full bg-[#22c55e]/80"></div>
           </div>
-          <span className="ml-4 text-xs text-[#71717a] font-mono">circuitos pro — decision pipeline</span>
+          <span className="ml-4 text-xs text-[#71717a] font-mono">circuitos pro · decision pipeline · sample data</span>
         </div>
         <div className="p-6 font-mono text-sm space-y-2 min-h-[300px]">
           {isInView && visibleSteps === 0 && (
@@ -88,7 +88,7 @@ function ContentPipelineTerminal() {
               transition={{ delay: 0.3 }}
               className="mt-4 pt-4 border-t border-[#27272a] text-[#a1a1aa] font-sans text-sm"
             >
-              Every decision runs the same loop — observe the signals, decide with calibrated confidence, act within governed rules, and prove the call was sound on a signed audit trail.
+              Every decision runs the same loop: observe the signals, decide with calibrated confidence, act within governed rules, and prove the call was sound on a signed audit trail.
             </motion.div>
           )}
         </div>
@@ -109,7 +109,7 @@ export default function Platform() {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">One decision, start to finish</h2>
           <p className="text-[#a1a1aa] max-w-2xl mx-auto text-lg leading-[1.6]">
-            From raw signals through a calibrated call, a governed action, and a signed proof — watch a single decision run in production.
+            From raw signals through a calibrated call, a governed action, and a signed proof. Watch one decision run the full loop, end to end.
           </p>
         </motion.div>
 

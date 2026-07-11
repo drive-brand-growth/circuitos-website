@@ -117,8 +117,8 @@ export default function DeterministicFactoryArticle() {
             </p>
 
             <p>
-              MetroFlex Apparel is tenant #1: the first full loop from factory to attribution to
-              operator gate. Not a keynote. A proof artifact.
+              Our own apparel operating company is tenant #1: the first full loop from factory to
+              attribution to operator gate. Not a keynote. A proof artifact.
             </p>
 
             <p>
