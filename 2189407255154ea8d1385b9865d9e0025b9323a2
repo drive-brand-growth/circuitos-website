@@ -1,0 +1,19 @@
+app/receipts-test/RefusalDemo.tsx
+  s_0eea92d6c355b5::t_9e73f59e669b5b 94
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "2189407255154ea8d1385b9865d9e0025b9323a2",
+  "prompts": {},
+  "sessions": {
+    "s_0eea92d6c355b5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3e619eee-e2b9-48a5-b018-9c922970b274",
+        "model": "unknown"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}

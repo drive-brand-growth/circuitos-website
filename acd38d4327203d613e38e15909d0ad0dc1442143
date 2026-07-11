@@ -1,0 +1,24 @@
+app/receipts-test/TamperDemo.tsx
+  s_0eea92d6c355b5::t_7dd2ce1d61f603 1-131
+app/receipts-test/page.tsx
+  s_0eea92d6c355b5::t_b559c20a855137 6-7
+  s_0eea92d6c355b5::t_22aec68dd048da 111-116
+app/receipts-test/RefusalDemo.tsx
+  s_0eea92d6c355b5::t_a2e2c2a867efaa 1-99
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "acd38d4327203d613e38e15909d0ad0dc1442143",
+  "prompts": {},
+  "sessions": {
+    "s_0eea92d6c355b5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3e619eee-e2b9-48a5-b018-9c922970b274",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}

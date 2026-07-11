@@ -1,0 +1,29 @@
+app/receipts-test/page.tsx
+  s_0eea92d6c355b5::t_6074a055e2afe0 1-154
+app/sitemap.ts
+  s_0eea92d6c355b5::t_c89e79274cddb9 38-42
+  s_0eea92d6c355b5::t_a607fbd7ff1d2f 37
+public/llms.txt
+  s_0eea92d6c355b5::t_48f3af71f9f292 97
+app/receipts-test/Scorecard.tsx
+  s_0eea92d6c355b5::t_e54681754154a8 8-11,16-17,22-23,27-30,34,36-39,58-69,71-73,79-80,83,101-119
+  s_0eea92d6c355b5::t_b161efba194907 1-7,12-15,18-21,24-26,31-33,35,40-57,70,74-78,81-82,84-100,120-143
+app/insights/honesty-gap/page.tsx
+  s_0eea92d6c355b5::t_3891f79c84b6eb 218-223
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "8d01ae953e8893c96eee77d22173ecab25053cf8",
+  "prompts": {},
+  "sessions": {
+    "s_0eea92d6c355b5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3e619eee-e2b9-48a5-b018-9c922970b274",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}

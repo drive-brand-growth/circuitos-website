@@ -1,0 +1,115 @@
+app/opengraph-image.tsx
+  s_0eea92d6c355b5::t_daec6d1f2c84f1 4
+app/page.tsx
+  s_0eea92d6c355b5::t_fe89e426b68a2b 122
+  s_0eea92d6c355b5::t_47091253c5cd3c 17
+  s_0eea92d6c355b5::t_51f1c73dfb407c 66
+  s_0eea92d6c355b5::t_29d7da8d7fa6c6 154
+  s_0eea92d6c355b5::t_afe692695f79b5 160
+  s_0eea92d6c355b5::t_c3f04651167ce8 58
+  s_0eea92d6c355b5::t_ceb51dc291d7bd 74
+  s_0eea92d6c355b5::t_63a5829eeb894b 148
+  s_0eea92d6c355b5::t_bd9aeb675ac230 106
+app/insights/page.tsx
+  s_0eea92d6c355b5::t_711c8b96b5df90 17
+  s_0eea92d6c355b5::t_4eeb6db8388098 24
+  s_0eea92d6c355b5::t_3baaaf6a510cad 45
+app/demo/page.tsx
+  s_0eea92d6c355b5::t_0b46611beadd8d 427
+  s_0eea92d6c355b5::t_82b60af92cc9d3 469
+  s_0eea92d6c355b5::t_24c5b9b4e3387e 597
+  s_0eea92d6c355b5::t_84b994632c6280 528
+  s_0eea92d6c355b5::t_e9f1d15b2afc14 479
+  s_0eea92d6c355b5::t_41e759b431d23d 369
+  s_0eea92d6c355b5::t_3c6cfaddb796d0 624
+  s_0eea92d6c355b5::t_d44ea875cd0fac 441
+  s_0eea92d6c355b5::t_b26d1749f14dd1 521
+  s_0eea92d6c355b5::t_33ee6ea74f6099 545
+  s_0eea92d6c355b5::t_6619e6b33b91e0 125-126
+  s_0eea92d6c355b5::t_8d548b6ff2e60e 356-357
+  s_0eea92d6c355b5::t_7eb3cd2fe01bcc 392
+  s_0eea92d6c355b5::t_69087f985e619f 434
+  s_0eea92d6c355b5::t_8eb26a43b52a46 288
+  s_0eea92d6c355b5::t_6223f2aa3ba896 580
+  s_0eea92d6c355b5::t_43decc1067626f 573
+  s_0eea92d6c355b5::t_1027706dd6a12f 394-395
+  s_0eea92d6c355b5::t_cb58cd5493c3df 542
+  s_0eea92d6c355b5::t_aa2b1b184559c9 219
+  s_0eea92d6c355b5::t_bf7cc3029f33a8 194
+  s_0eea92d6c355b5::t_9a43d5cfcff452 475
+  s_0eea92d6c355b5::t_a7f69d00d1d930 625
+  s_0eea92d6c355b5::t_89f43880a2b7c4 587
+  s_0eea92d6c355b5::t_4da79fabebf8a7 476
+  s_0eea92d6c355b5::t_ba6e195a9eac32 444
+  s_0eea92d6c355b5::t_e9a37f03212a08 344
+  s_0eea92d6c355b5::t_9c24390129d33f 622
+  s_0eea92d6c355b5::t_784c2dd43d0a48 420
+  s_0eea92d6c355b5::t_91c9dba3d2acde 388
+  s_0eea92d6c355b5::t_69af19b8916169 549
+  s_0eea92d6c355b5::t_54f886e0107541 483
+  s_0eea92d6c355b5::t_f8b9d275beae88 552
+  s_0eea92d6c355b5::t_29773aea286ad8 524
+  s_0eea92d6c355b5::t_7e75cdd1df0348 455
+app/insights/deterministic-factory/page.tsx
+  s_0eea92d6c355b5::t_e7cc22092980a0 120
+  s_0eea92d6c355b5::t_44158b1370234e 71
+  s_0eea92d6c355b5::t_39e8e654dfcd81 13
+  s_0eea92d6c355b5::t_e3fb5a122dfc6b 114
+  s_0eea92d6c355b5::t_e27d1640f56e01 9
+  s_0eea92d6c355b5::t_f63457dd7269e8 87
+  s_0eea92d6c355b5::t_61dd855992469a 106-107
+  s_0eea92d6c355b5::t_db15c90731c78a 100
+  s_0eea92d6c355b5::t_3e8dc5bdcbf54f 94
+  s_0eea92d6c355b5::t_e8341c853ab355 25
+app/insights/governance-manifesto/page.tsx
+  s_0eea92d6c355b5::t_cd29a4ced49336 86
+  s_0eea92d6c355b5::t_ffaac3040d3c6b 174
+  s_0eea92d6c355b5::t_390a2d7cf1599c 166
+  s_0eea92d6c355b5::t_3f78b99ce86729 156
+  s_0eea92d6c355b5::t_e4c15fd03cfeaf 134
+  s_0eea92d6c355b5::t_b5de6d069cee64 152
+  s_0eea92d6c355b5::t_e067fab1a981d1 148
+  s_0eea92d6c355b5::t_8045eef4f153c3 170
+app/insights/lead-walk-through/page.tsx
+  s_0eea92d6c355b5::t_834aa60ed37c89 122
+  s_0eea92d6c355b5::t_98b81f7a01895a 91
+  s_0eea92d6c355b5::t_89a7f008473345 110
+  s_0eea92d6c355b5::t_81690684c358eb 196
+  s_0eea92d6c355b5::t_17fc8e4f2a28d1 129
+  s_0eea92d6c355b5::t_6b2265d87c3fc7 170
+  s_0eea92d6c355b5::t_3de2067af58e73 156
+  s_0eea92d6c355b5::t_eb728f82394635 103
+  s_0eea92d6c355b5::t_7e29085c350be8 98
+  s_0eea92d6c355b5::t_66e04cb99cccb4 126
+  s_0eea92d6c355b5::t_84abddc3644a17 149
+  s_0eea92d6c355b5::t_35ce400454c63b 183
+  s_0eea92d6c355b5::t_fc7947923c6abc 180
+  s_0eea92d6c355b5::t_fa900c55c7c949 42
+  s_0eea92d6c355b5::t_24c22ef0ed0854 112-116
+  s_0eea92d6c355b5::t_6610e076c4e343 164
+app/playground/layout.tsx
+  s_0eea92d6c355b5::t_1163b963623936 5,8,15
+app/layout.tsx
+  s_0eea92d6c355b5::t_d704d373ddd799 40-41
+  s_0eea92d6c355b5::t_b393e85aa0d89b 20
+  s_0eea92d6c355b5::t_417731b05b5814 17
+  s_0eea92d6c355b5::t_afb6622d8852e8 46-47
+app/playground/page.tsx
+  s_0eea92d6c355b5::t_2294cecb7433ce 300
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "05874d5ddd8c524409daa05929398f61f77db9d9",
+  "prompts": {},
+  "sessions": {
+    "s_0eea92d6c355b5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3e619eee-e2b9-48a5-b018-9c922970b274",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}
