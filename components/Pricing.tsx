@@ -95,7 +95,7 @@ export default function Pricing() {
               <p className="text-sm text-[#a1a1aa] mt-1">{plan.desc}</p>
               <div className="mt-6 mb-8">
                 <span className="text-4xl font-bold">{plan.monthly}</span>
-                {plan.monthly !== 'Custom' && <span className="text-[#a1a1aa] text-sm ml-1">/month</span>}
+                <span className="text-[#a1a1aa] text-sm ml-1">/month</span>
               </div>
               <ul className="space-y-4 text-sm pt-8 border-t border-[#27272a]">
                 {plan.features.map((f) => (

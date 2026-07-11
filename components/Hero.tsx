@@ -34,7 +34,7 @@ export default function Hero() {
           variants={fadeInUp}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold gradient-text mb-8 hero-headline"
         >
-          Which deals close.<br />Which marketing works. Proven.
+          Which deals close.<br />{' '}Which marketing works. Proven.
         </motion.h1>
 
         <motion.p
