@@ -1,0 +1,29 @@
+scripts/vercel-ignore-build.sh
+  s_316f27f869eeab::t_d69f013e385374 1-32
+vercel.json
+  s_7317aa58811552::t_9d8453be0bf803 1-3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.11",
+  "base_commit_sha": "edcf58ae9f665a13755e44c9fc1abb024b585a1b",
+  "prompts": {},
+  "sessions": {
+    "s_316f27f869eeab": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bed68343-cd16-4901-bf7b-e97479aff3b3",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    },
+    "s_7317aa58811552": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40a7c004-db43-42b2-8194-e66c9d8e3fe8",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}
