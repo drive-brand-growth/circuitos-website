@@ -2,7 +2,7 @@
 
 > Stochastic models propose. Deterministic factories commit. Ledgers prove. — Governed AI for revenue teams.
 
-CircuitOS is a governed revenue platform: agents propose at the gates, deterministic factories commit with verify, and hash-chained ledgers prove every move. Built for $10M–$50M businesses that need AI that moves fast and survives a security review.
+CircuitOS is a governed revenue platform: agents propose at the gates, deterministic factories commit with verify, and an append-only, hash-chained decision ledger records the moves (live in tenant deployments; platform-wide attestation ledger in rollout). Built for $10M–$50M businesses that need AI that moves fast and survives a security review.
 
 ## Core Capabilities
 
@@ -12,7 +12,7 @@ CircuitOS is a governed revenue platform: agents propose at the gates, determini
 - AgentOps governance dashboard — real-time observability into every AI decision
 - Closed-loop feedback from GA4 engagement data
 - Multi-vertical support with isolated infrastructure per business line
-- Full audit trail on every decision, action, and outcome
+- Append-only decision trail on scored and governed actions (hash-chained, verifiable)
 - Confidence-based autonomy governance (execute / escalate / block)
 
 ## How It Works
@@ -82,3 +82,21 @@ A: $10M–$50M businesses that want enterprise-grade revenue intelligence withou
 
 ---
 Last Updated: March 2026
+
+## Causal Attribution (the Honesty Gap)
+
+Your AI lied. We have receipts. Every dashboard shows you credit. Credit is not causation. CircuitOS measures what your marketing actually caused, and refuses to show a number it can't prove.
+
+- Correlational multi-touch attribution (first-touch, last-touch, linear, time-decay, position, Shapley) is rendered as heuristic credit, never as causal lift
+- Causal lift is measured with backdoor confounder adjustment and FWL residualization against a measured per-segment baseline, always with a confidence interval
+- Every causal result is born uncitable; it becomes citable only after a calibration-harness pass plus a named human confirmation, and exporting an unproven number raises an exception
+- When measurement is pending, the product says "pending" in words. No placeholder digits. The refusal is the feature.
+
+## Key Pages
+
+- [The Receipts Test](https://usecircuitos.com/receipts-test): four questions that expose attribution theater
+- [The Honesty Gap manifesto](https://usecircuitos.com/insights/honesty-gap): why attribution dashboards flatter you and how the refusal works
+- [Deterministic factory](https://usecircuitos.com/insights/deterministic-factory): stochastic models propose, factories commit, ledgers prove
+- [Governance manifesto](https://usecircuitos.com/insights/governance-manifesto): why ungoverned AI decisions are a liability
+- [Lead walk-through](https://usecircuitos.com/insights/lead-walk-through): a governed decision in real time
+- [Live demo](https://usecircuitos.com/demo): labeled synthetic data, because the claim gate applies to demos too

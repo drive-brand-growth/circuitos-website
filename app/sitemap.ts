@@ -24,9 +24,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/insights`,
-      lastModified: new Date('2026-03-30'),
+      lastModified: new Date('2026-07-05'),
       changeFrequency: 'monthly',
       priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/insights/honesty-gap`,
+      lastModified: new Date('2026-07-05'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/receipts-test`,
+      lastModified: new Date('2026-07-05'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/insights/deterministic-factory`,
+      lastModified: new Date('2026-07-03'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/insights/governance-manifesto`,
