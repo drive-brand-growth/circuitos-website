@@ -1,0 +1,38 @@
+components/AriaX.tsx
+  s_3e40cf59f0b293::t_fc4b150cc6cce8 5
+  s_3e40cf59f0b293::t_caae95903d2621 319
+lib/prompt-security.ts
+  s_68067f8e17a490::t_a19baa4eccde7f 66-67
+  s_68067f8e17a490::t_08569191a4c414 110-114
+  s_3e40cf59f0b293::t_7980e4615446db 1-65,68-109,115-126
+app/api/chat/route.ts
+  s_3e40cf59f0b293::t_e0c6f3d2ea454a 5
+  s_3e40cf59f0b293::t_f4411e87799652 23-27,34-35,37
+  s_3e40cf59f0b293::t_3a7ddde24414f5 427,429
+  s_3e40cf59f0b293::t_7989d4b5d3b2db 440
+  s_3e40cf59f0b293::t_575573f7bfdfd5 495-496
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "a1549522022ce4f6f6f8dcc00c3239155621ec39",
+  "prompts": {},
+  "sessions": {
+    "s_3e40cf59f0b293": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "1acb67f8-b88f-4ea0-ad3a-4d837dd1d770",
+        "model": "composer-2.5-fast"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    },
+    "s_68067f8e17a490": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "d593454c-cd4b-454c-8ffc-8f1e84a9a6a9",
+        "model": "grok-4.5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}
