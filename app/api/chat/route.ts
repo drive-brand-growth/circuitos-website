@@ -2,7 +2,15 @@ import { NextRequest, NextResponse } from 'next/server'
 import { notifyHotLead } from '@/lib/slack/notify'
 import { syncLeadToGHL } from '@/lib/ghl'
 import { waitUntil } from '@vercel/functions'
-import { detectInjection, filterModelOutputLeak } from '@/lib/prompt-security'
+import {
+  detectInjection,
+  filterModelOutputLeak,
+  historyHasInjection,
+  sanitizeAttrString,
+  sanitizeLeadEmail,
+  sanitizeLeadField,
+  sanitizeUserMessage,
+} from '@/lib/prompt-security'
 
 // --- SECURITY: Rate limiting (in-memory, per-IP, resets on cold start) ---
 const rateLimits = new Map<string, { count: number; resetAt: number }>()
@@ -27,26 +35,46 @@ function safeModelResponse(text: string): string {
   return filterModelOutputLeak(text, ARIA_INJECTION_REDIRECT).text
 }
 
-// --- SECURITY: Input sanitization ---
-function sanitizeMessage(text: string): string {
-  // Trim and limit length
-  let clean = text.trim().slice(0, 1000)
-  // NFKC normalize + strip control / invisible unicode
-  clean = clean.normalize('NFKC')
-  clean = clean.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '')
-  clean = clean.replace(/[\u200B-\u200F\u2028-\u202F\uFEFF\u00AD]/g, '')
-  return clean
+const INJECTION_BLOCK_RESPONSE = {
+  response: ARIA_INJECTION_REDIRECT,
+  lead_tier: 'awareness' as const,
+  quick_replies: ['What is CircuitOS?', 'How does it work?', 'Book a demo'],
 }
 
-// --- SECURITY: Sanitize history messages ---
-function sanitizeHistory(history: Array<{ role: string; content: string }>): Array<{ role: string; content: string }> {
-  return history
-    .filter(msg => msg.role === 'user' || msg.role === 'assistant')
-    .map(msg => ({
-      role: msg.role as 'user' | 'assistant',
-      content: sanitizeMessage(msg.content),
+const HISTORY_INJECTION_BLOCK_RESPONSE = {
+  response: "I'm Aria X, the CircuitOS concierge. Let's start fresh — what would you like to know about CircuitOS?",
+  lead_tier: 'awareness' as const,
+  quick_replies: ['What is CircuitOS?', 'How does it work?', 'Book a demo'],
+}
+
+/** Scan all client history roles for injection (C2 scan); model receives user turns only. */
+function historyTurnsForScan(rawHistory: unknown): string[] {
+  if (!Array.isArray(rawHistory)) return []
+  return rawHistory
+    .filter((msg) => msg && (msg.role === 'user' || msg.role === 'assistant') && typeof msg.content === 'string')
+    .map((msg) => msg.content as string)
+}
+
+/** Ignore client-supplied assistant turns — only user history reaches the model. */
+function userOnlyHistory(rawHistory: unknown): Array<{ role: 'user'; content: string }> {
+  if (!Array.isArray(rawHistory)) return []
+  return rawHistory
+    .filter((msg) => msg && msg.role === 'user' && typeof msg.content === 'string')
+    .map((msg) => ({
+      role: 'user' as const,
+      content: sanitizeUserMessage(msg.content),
     }))
     .slice(-20)
+}
+
+function safeLocalAnswer(message: string): string {
+  return filterModelOutputLeak(localKnowledgeAnswer(message), ARIA_INJECTION_REDIRECT).text
+}
+
+function leadFieldsBlocked(leadInfo: { name?: string; email?: string; company?: string } | undefined): boolean {
+  if (!leadInfo) return false
+  const fields = [leadInfo.name, leadInfo.email, leadInfo.company].filter(Boolean) as string[]
+  return fields.some((f) => detectInjection(f).blocked)
 }
 
 /** Parse user agent into a short readable string */
@@ -302,32 +330,60 @@ export async function POST(req: NextRequest) {
     const leadInfo = body?.lead_info as { name?: string; email?: string; company?: string } | undefined
     const leadCaptured = body?.lead_captured === true
     const overrideTier = body?.lead_tier as string | undefined
-    const pageUrl = typeof body?.page_url === 'string' ? body.page_url.slice(0, 500) : undefined
-    const referrer = typeof body?.referrer === 'string' ? body.referrer.slice(0, 500) : undefined
+    const rawPageUrl = typeof body?.page_url === 'string' ? body.page_url : undefined
+    const rawReferrer = typeof body?.referrer === 'string' ? body.referrer : undefined
     const userAgent = typeof body?.user_agent === 'string' ? body.user_agent.slice(0, 500) : undefined
 
     if (!rawMessage || typeof rawMessage !== 'string') {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 })
     }
 
-    // --- SECURITY: Sanitize input ---
-    const message = sanitizeMessage(rawMessage)
+    // --- SECURITY: sanitize + injection gate BEFORE any side effects (C1) ---
+    const message = sanitizeUserMessage(rawMessage)
     if (message.length === 0) {
       return NextResponse.json({ error: 'Message is empty' }, { status: 400 })
     }
 
-    // Build conversation transcript from history
-    const safeHistory = Array.isArray(rawHistory) ? sanitizeHistory(rawHistory) : []
-    const transcript = safeHistory
-      .map(m => `${m.role === 'user' ? 'Visitor' : 'Aria X'}: ${m.content.slice(0, 300)}`)
+    if (detectInjection(message).blocked) {
+      return NextResponse.json(INJECTION_BLOCK_RESPONSE)
+    }
+
+    if (historyHasInjection(historyTurnsForScan(rawHistory))) {
+      return NextResponse.json(HISTORY_INJECTION_BLOCK_RESPONSE)
+    }
+
+    const pageUrl = sanitizeAttrString(rawPageUrl, 500)
+    const referrer = sanitizeAttrString(rawReferrer, 500)
+    if ((rawPageUrl && !pageUrl) || (rawReferrer && !referrer)) {
+      return NextResponse.json(INJECTION_BLOCK_RESPONSE)
+    }
+    if ((rawPageUrl && detectInjection(rawPageUrl).blocked) || (rawReferrer && detectInjection(rawReferrer).blocked)) {
+      return NextResponse.json(INJECTION_BLOCK_RESPONSE)
+    }
+
+    if (leadFieldsBlocked(leadInfo)) {
+      return NextResponse.json(INJECTION_BLOCK_RESPONSE)
+    }
+
+    const history = userOnlyHistory(rawHistory)
+    const transcript = history
+      .map((m) => `Visitor: ${m.content.slice(0, 300)}`)
       .join('\n')
+
+    const sanitizedLeadName = sanitizeLeadField(leadInfo?.name, 120)
+    const sanitizedLeadEmail = sanitizeLeadEmail(leadInfo?.email)
+    const sanitizedLeadCompany = sanitizeLeadField(leadInfo?.company, 120)
 
     // If this is a lead capture notification (form submitted), send enriched notification and return
     if (leadCaptured && leadInfo?.name && leadInfo?.email) {
       const tier = overrideTier || 'qualified'
-      const leadName = leadInfo.name
-      const leadEmail = leadInfo.email
-      const leadCompany = leadInfo.company
+      const leadName = sanitizedLeadName
+      const leadEmail = sanitizedLeadEmail
+      const leadCompany = sanitizedLeadCompany
+
+      if (!leadName || !leadEmail) {
+        return NextResponse.json({ error: 'Invalid lead information' }, { status: 400 })
+      }
 
       // Use waitUntil to ensure background tasks complete after response is sent
       const backgroundTasks = async () => {
@@ -365,7 +421,7 @@ export async function POST(req: NextRequest) {
           notifyHotLead({
             lead_tier: tier,
             lastMessage: message.slice(0, 300),
-            messageCount: safeHistory.length,
+            messageCount: history.length,
             name: leadName,
             email: leadEmail,
             company: leadCompany,
@@ -406,7 +462,7 @@ export async function POST(req: NextRequest) {
                 source: pageUrl?.includes('drivebrandgrowth') ? 'drivebrandgrowth.com' : 'usecircuitos.com',
                 page_url: pageUrl,
                 referrer,
-                message_count: safeHistory.length,
+                message_count: history.length,
                 transcript: transcript?.slice(0, 2000),
                 captured_at: new Date().toISOString(),
               }),
@@ -423,42 +479,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ response: 'Lead captured', lead_tier: tier })
     }
 
-    // --- SECURITY: Prompt injection detection ---
-    if (detectInjection(message).blocked) {
-      return NextResponse.json({
-        response: ARIA_INJECTION_REDIRECT,
-        lead_tier: 'awareness',
-        quick_replies: ['What is CircuitOS?', 'How does it work?', 'Book a demo'],
-      })
-    }
-
-    // Sanitize history (use pre-built safeHistory if available, otherwise build fresh)
-    const history = safeHistory.length > 0 ? safeHistory : (Array.isArray(rawHistory) ? sanitizeHistory(rawHistory) : [])
-
-    // Check history for injection attempts
-    const hasHistoryInjection = history.some(msg =>
-      msg.role === 'user' && detectInjection(msg.content).blocked
-    )
-    if (hasHistoryInjection) {
-      return NextResponse.json({
-        response: "I'm Aria X, the CircuitOS concierge. Let's start fresh — what would you like to know about CircuitOS?",
-        lead_tier: 'awareness',
-        quick_replies: ['What is CircuitOS?', 'How does it work?', 'Book a demo'],
-      })
-    }
-
     const apiKey = process.env.ANTHROPIC_API_KEY
     if (!apiKey) {
-      // No key (e.g. local dev): answer from the on-message knowledge base instead of just greeting.
       const tier = inferLeadTier([...history.map(m => m.content), message].join(' '))
       return NextResponse.json({
-        response: localKnowledgeAnswer(message),
+        response: safeLocalAnswer(message),
         lead_tier: tier,
         quick_replies: quickRepliesFor(tier, history.length + 1),
       })
     }
 
-    // Build messages array
+    // Build messages array — user turns only (C2)
     const messages = [
       ...history.map(msg => ({ role: msg.role, content: msg.content })),
       { role: 'user' as const, content: message },
@@ -485,7 +516,7 @@ export async function POST(req: NextRequest) {
       // Degrade gracefully to the on-message knowledge base instead of a dead-end message.
       const tier = inferLeadTier([...history.map(m => m.content), message].join(' '))
       return NextResponse.json({
-        response: localKnowledgeAnswer(message),
+        response: safeLocalAnswer(message),
         lead_tier: tier,
         quick_replies: quickRepliesFor(tier, history.length + 1),
       })
@@ -514,9 +545,9 @@ export async function POST(req: NextRequest) {
         const notifyEmail = process.env.NOTIFICATION_EMAIL
         if (ntfyTopic) {
           const bodyParts = [`Lead tier: ${lead_tier}`, `Messages exchanged: ${msgCount}`]
-          if (leadInfo?.name) bodyParts.unshift(`Name: ${leadInfo.name}`)
-          if (leadInfo?.email) bodyParts.push(`Email: ${leadInfo.email}`)
-          if (leadInfo?.company) bodyParts.push(`Company: ${leadInfo.company}`)
+          if (sanitizedLeadName) bodyParts.unshift(`Name: ${sanitizedLeadName}`)
+          if (sanitizedLeadEmail) bodyParts.push(`Email: ${sanitizedLeadEmail}`)
+          if (sanitizedLeadCompany) bodyParts.push(`Company: ${sanitizedLeadCompany}`)
           if (pageUrl) bodyParts.push(`Page: ${pageUrl}`)
           if (referrer) bodyParts.push(`Referrer: ${referrer}`)
           if (userAgent) bodyParts.push(`Device: ${simplifyUserAgent(userAgent)}`)
@@ -542,9 +573,9 @@ export async function POST(req: NextRequest) {
             lead_tier,
             lastMessage: message,
             messageCount: msgCount,
-            name: leadInfo?.name,
-            email: leadInfo?.email,
-            company: leadInfo?.company,
+            name: sanitizedLeadName,
+            email: sanitizedLeadEmail,
+            company: sanitizedLeadCompany,
             page_url: pageUrl,
             referrer,
             user_agent: userAgent,
@@ -552,12 +583,12 @@ export async function POST(req: NextRequest) {
           }).catch((e) => console.error('[intent] Slack failed:', e))
         )
 
-        if (leadInfo?.email) {
+        if (sanitizedLeadEmail) {
           tasks.push(
             syncLeadToGHL({
-              name: leadInfo.name || 'Aria X Chat User',
-              email: leadInfo.email,
-              company: leadInfo.company,
+              name: sanitizedLeadName || 'Aria X Chat User',
+              email: sanitizedLeadEmail,
+              company: sanitizedLeadCompany,
               lead_tier,
               transcript: fullTranscript,
               page_url: pageUrl,
@@ -581,7 +612,7 @@ export async function POST(req: NextRequest) {
   } catch (error) {
     console.error('Chat error:', error)
     return NextResponse.json({
-      response: "Something went sideways. [Book a demo](/demo) or reach us at hello@usecircuitos.com — we'll get back within 24 hours.",
+      response: safeModelResponse("Something went sideways. [Book a demo](/demo) or reach us at hello@usecircuitos.com — we'll get back within 24 hours."),
       lead_tier: 'awareness',
       quick_replies: ['Book a demo', 'Email us'],
     })
