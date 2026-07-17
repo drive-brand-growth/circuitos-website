@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { formatChatHtmlSafe } from '@/lib/prompt-security'
 
 interface Message {
   role: 'user' | 'assistant'
@@ -36,13 +37,6 @@ function localFallback(query: string): string {
   if (/book|demo|started|try/.test(q)) return fallbackKB['demo']
   if (/work|step|pipeline|process/.test(q)) return fallbackKB['how']
   return "Great question — I'd love to connect you with someone who can dive deeper. [Book a demo](/demo) or email hello@usecircuitos.com."
-}
-
-function formatMessage(content: string) {
-  return content
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-blue-400 underline hover:text-blue-300" target="_self">$1</a>')
-    .replace(/\n/g, '<br/>')
 }
 
 const tierColors: Record<string, string> = {
@@ -322,7 +316,7 @@ export default function AriaX() {
                     >
                       <span
                         className="whitespace-pre-wrap [&_a]:text-blue-400 [&_a]:underline [&_a:hover]:text-blue-300"
-                        dangerouslySetInnerHTML={{ __html: formatMessage(msg.content) }}
+                        dangerouslySetInnerHTML={{ __html: formatChatHtmlSafe(msg.content) }}
                       />
                     </div>
                   </motion.div>

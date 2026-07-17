@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { notifyHotLead } from '@/lib/slack/notify'
 import { syncLeadToGHL } from '@/lib/ghl'
 import { waitUntil } from '@vercel/functions'
+import { detectInjection, filterModelOutputLeak } from '@/lib/prompt-security'
 
 // --- SECURITY: Rate limiting (in-memory, per-IP, resets on cold start) ---
 const rateLimits = new Map<string, { count: number; resetAt: number }>()
@@ -19,43 +20,21 @@ function checkRateLimit(ip: string): boolean {
   return entry.count <= RATE_LIMIT_MAX
 }
 
-// --- SECURITY: Prompt injection detection ---
-const INJECTION_PATTERNS = [
-  /ignore (all |any )?(previous|prior|above|system|original) (instructions|prompts|rules|directives)/i,
-  /disregard (all |any )?(previous|prior|above|system|original)/i,
-  /you are now/i,
-  /new instructions:/i,
-  /system prompt:/i,
-  /\boverride\b.*\b(system|prompt|instructions)\b/i,
-  /\brole\s*:\s*(system|developer|admin)\b/i,
-  /pretend (you are|to be|you're)/i,
-  /act as (a |an )?(?!potential|interested|prospective)/i,
-  /forget (everything|all|your) (you |that )?(know|learned|were told)/i,
-  /reveal (your|the) (system|initial|original) (prompt|instructions|message)/i,
-  /what (is|are) your (system |initial |original )?(prompt|instructions|rules)/i,
-  /output (your|the) (system|original) (prompt|message|instructions)/i,
-  /repeat (your|the) (system|initial) (prompt|message)/i,
-  /translate (your|the) (system|initial) (prompt|instructions) (to|into)/i,
-  /\bDAN\b/,
-  /\bjailbreak\b/i,
-  /developer mode/i,
-  /sudo mode/i,
-  /god mode/i,
-  /bypass (safety|content|filter|restriction)/i,
-]
+const ARIA_INJECTION_REDIRECT =
+  "I'm Aria X, the CircuitOS concierge. I can help with questions about the platform, pricing, or booking a demo. What can I help with?"
 
-function detectInjection(text: string): boolean {
-  return INJECTION_PATTERNS.some(pattern => pattern.test(text))
+function safeModelResponse(text: string): string {
+  return filterModelOutputLeak(text, ARIA_INJECTION_REDIRECT).text
 }
 
 // --- SECURITY: Input sanitization ---
 function sanitizeMessage(text: string): string {
   // Trim and limit length
   let clean = text.trim().slice(0, 1000)
-  // Strip control characters (keep standard whitespace)
+  // NFKC normalize + strip control / invisible unicode
+  clean = clean.normalize('NFKC')
   clean = clean.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '')
-  // Strip zero-width and invisible unicode
-  clean = clean.replace(/[\u200B-\u200F\u2028-\u202F\uFEFF]/g, '')
+  clean = clean.replace(/[\u200B-\u200F\u2028-\u202F\uFEFF\u00AD]/g, '')
   return clean
 }
 
@@ -445,9 +424,9 @@ export async function POST(req: NextRequest) {
     }
 
     // --- SECURITY: Prompt injection detection ---
-    if (detectInjection(message)) {
+    if (detectInjection(message).blocked) {
       return NextResponse.json({
-        response: "I'm Aria X, the CircuitOS concierge. I can help with questions about the platform, pricing, or booking a demo. What can I help with?",
+        response: ARIA_INJECTION_REDIRECT,
         lead_tier: 'awareness',
         quick_replies: ['What is CircuitOS?', 'How does it work?', 'Book a demo'],
       })
@@ -458,7 +437,7 @@ export async function POST(req: NextRequest) {
 
     // Check history for injection attempts
     const hasHistoryInjection = history.some(msg =>
-      msg.role === 'user' && detectInjection(msg.content)
+      msg.role === 'user' && detectInjection(msg.content).blocked
     )
     if (hasHistoryInjection) {
       return NextResponse.json({
@@ -513,7 +492,8 @@ export async function POST(req: NextRequest) {
     }
 
     const data = await response.json()
-    const assistantMessage = data.content?.[0]?.text || "I'd love to help — could you rephrase that?"
+    const rawAssistantMessage = data.content?.[0]?.text || "I'd love to help — could you rephrase that?"
+    const assistantMessage = safeModelResponse(rawAssistantMessage)
 
     // Infer lead tier + quick replies (shared with the local fallback path)
     const fullConvo = [...history.map(m => m.content), message].join(' ')
