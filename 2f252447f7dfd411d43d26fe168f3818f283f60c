@@ -1,0 +1,73 @@
+components/Platform.tsx
+  s_316f27f869eeab::t_3a1e94a0048894 8
+  s_316f27f869eeab::t_09c3b8aaddf76f 17
+  s_316f27f869eeab::t_a83aa5af3aa707 56
+  s_316f27f869eeab::t_f613f00d68cb8f 91
+  s_316f27f869eeab::t_c24bd7eb166cc6 112
+  s_316f27f869eeab::t_a0fa1f2e331963 12
+components/Capabilities.tsx
+  s_316f27f869eeab::t_dfab451c064d19 18,21,25-26,29-30
+  s_316f27f869eeab::t_74c8e6b55bad49 73-82
+  s_316f27f869eeab::t_8aaf576fd34a00 52
+components/Pricing.tsx
+  s_316f27f869eeab::t_401c5bc4f18d19 75
+  s_316f27f869eeab::t_6c9dad81ed0538 19,22-23,28,34,38-39,42,49-50,54,57-58
+components/ContactForm.tsx
+  s_316f27f869eeab::t_92f856021a0009 37
+  s_316f27f869eeab::t_3323b8d7bddf7f 14,16
+components/Footer.tsx
+  s_316f27f869eeab::t_24ab96e8ce0b60 14-17
+app/page.tsx
+  s_316f27f869eeab::t_1edd95106e8cb5 122
+  s_316f27f869eeab::t_178498fb6f5d2d 114
+  s_316f27f869eeab::t_430e8487378aa4 160
+  s_316f27f869eeab::t_b2cfcc65e7581b 66
+  s_316f27f869eeab::t_9b439b5956e57c 154
+  s_316f27f869eeab::t_9d495295d09990 74
+  s_316f27f869eeab::t_e369cd82c97bb1 58
+  s_316f27f869eeab::t_cd2194cfe0fda6 17
+  s_316f27f869eeab::t_d40c345b7d7058 106,148
+components/DashboardPreview.tsx
+  s_316f27f869eeab::t_6a963d554f819c 7-10,13-24
+  s_316f27f869eeab::t_fb177a901c9fc1 147
+  s_316f27f869eeab::t_f185c4c6118194 90-92
+  s_316f27f869eeab::t_13b485d7eb8811 3-4
+  s_316f27f869eeab::t_37822d3daed4f8 103
+  s_316f27f869eeab::t_82191d0f6797ba 73-74
+  s_316f27f869eeab::t_780ebbd26d4b71 25
+components/Hero.tsx
+  s_316f27f869eeab::t_a87adbf4ecb5c0 30
+  s_316f27f869eeab::t_e3775b7cc3ff9a 51
+  s_316f27f869eeab::t_8aa8b8bb4f43be 59
+  s_316f27f869eeab::t_feee59052dcc36 44
+components/HowItWorks.tsx
+  s_316f27f869eeab::t_ce596b593c0223 33
+  s_316f27f869eeab::t_01fc0e2e5559b8 111
+  s_316f27f869eeab::t_1bb475c8c15ee1 56-57
+components/TruthSection.tsx
+  s_316f27f869eeab::t_b1fc7396e55502 10,15-16,22,28-31
+  s_316f27f869eeab::t_ada91377929e39 89,91-110
+  s_316f27f869eeab::t_7f7d503486b92f 50,55-56
+components/AriaX.tsx
+  s_316f27f869eeab::t_ca5aaf6078de8c 20,22,26,38,99
+components/BuildCalculator.tsx
+  s_316f27f869eeab::t_6d906aba8d5c17 28,76,82,207,250,470
+components/Nav.tsx
+  s_316f27f869eeab::t_114fe49055da24 29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.11",
+  "base_commit_sha": "2f252447f7dfd411d43d26fe168f3818f283f60c",
+  "prompts": {},
+  "sessions": {
+    "s_316f27f869eeab": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bed68343-cd16-4901-bf7b-e97479aff3b3",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}

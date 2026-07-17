@@ -1,0 +1,22 @@
+scripts/content-guard.mjs
+  s_316f27f869eeab::t_f3179c3d67ac9f 34-44
+  s_316f27f869eeab::t_512ca6c7411a9d 1-33,45-139
+package.json
+  s_316f27f869eeab::t_c5fbc11a48f9c8 1-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.11",
+  "base_commit_sha": "9c899bd93cff8ef2c68750ddc87a0e0946f4b96b",
+  "prompts": {},
+  "sessions": {
+    "s_316f27f869eeab": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bed68343-cd16-4901-bf7b-e97479aff3b3",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}

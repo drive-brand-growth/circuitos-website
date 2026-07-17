@@ -1,0 +1,43 @@
+components/Hero.tsx
+  s_316f27f869eeab::t_197d1b16566f23 37
+app/demo/page.tsx
+  s_316f27f869eeab::t_3f8433ecb24b8a 765
+  s_316f27f869eeab::t_bb175aa4e2d671 350-353
+  s_316f27f869eeab::t_49b4db6f2678b1 1026-1027
+components/TruthSection.tsx
+  s_316f27f869eeab::t_48c630c188c796 49-50
+app/api/chat/route.ts
+  s_316f27f869eeab::t_b2a90a733ee17f 171
+  s_316f27f869eeab::t_cde6f636023a98 101
+  s_316f27f869eeab::t_c89f7c88ed483b 232
+  s_316f27f869eeab::t_a1492ad15856cb 144
+  s_316f27f869eeab::t_6159c56038221b 100,102-106
+  s_316f27f869eeab::t_69f29cec61ddc0 117
+  s_316f27f869eeab::t_b6e956fa9e418d 121
+  s_316f27f869eeab::t_8c967afee8a35c 134
+  s_316f27f869eeab::t_0a4c13250877b4 291,293-300,302-304,306
+  s_316f27f869eeab::t_4b8d60f2bfd1b9 156
+  s_316f27f869eeab::t_503ed268312e5a 518,606
+app/insights/deterministic-factory/page.tsx
+  s_316f27f869eeab::t_a0b5ddea0805b2 85
+components/Capabilities.tsx
+  s_316f27f869eeab::t_6598886c8b72f1 52
+components/Pricing.tsx
+  s_316f27f869eeab::t_c7c47a64efc1f0 98
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.11",
+  "base_commit_sha": "43cd5f41b3eb5283ecd26dbce43782deafe507c4",
+  "prompts": {},
+  "sessions": {
+    "s_316f27f869eeab": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bed68343-cd16-4901-bf7b-e97479aff3b3",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}
