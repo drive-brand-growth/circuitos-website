@@ -1,0 +1,36 @@
+lib/prompt-security.ts
+  s_ad79d5d23486c7::t_efd294c1f2824c 134
+  s_ad79d5d23486c7::t_d025be2fcaa81e 9-30,62-71,93-100,103-111,126-133,135-204
+  s_ad79d5d23486c7::t_87ca41bbe0f428 205
+app/api/chat/route.ts
+  s_ad79d5d23486c7::t_ea4465cbefdf1e 5-13
+  s_ad79d5d23486c7::t_ba562ee655efab 38-41,44-65,70-78
+  s_ad79d5d23486c7::t_b7cc297284902d 424
+  s_ad79d5d23486c7::t_4d2ae17ea72dad 486,492
+  s_ad79d5d23486c7::t_51b0eb81a311af 519
+  s_ad79d5d23486c7::t_c5387bde6b7ef6 586,589-591
+  s_ad79d5d23486c7::t_65d62ee1b113de 465
+  s_ad79d5d23486c7::t_1f2c1cd0c8041a 333-334,341-342,347-370,383-386
+  s_ad79d5d23486c7::t_0f711a773627a6 615
+  s_ad79d5d23486c7::t_0c1b94ac10d4f1 373-376
+  s_ad79d5d23486c7::t_c46290ccaee98c 548-550
+  s_ad79d5d23486c7::t_b8b40c418f6872 576-578
+  s_ad79d5d23486c7::t_f2839f41aad9ce 380-382
+  s_ad79d5d23486c7::t_7008f2f1d3a193 79
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "9ac853a26a0885087f4571621cd485f8c6875e39",
+  "prompts": {},
+  "sessions": {
+    "s_ad79d5d23486c7": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "5aa13dd0-734c-4a38-8843-638d2cf24677",
+        "model": "composer-2.5-fast"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}
