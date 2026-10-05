@@ -1,0 +1,23 @@
+app/api/chat/route.ts
+  s_e4ded152a63ff6::t_4d015f1618315a 203
+components/Pricing.tsx
+  s_e4ded152a63ff6::t_adb2afb13349c1 57-58
+public/llms.txt
+  s_e4ded152a63ff6::t_427c0546546400 35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "27db0de86313d6c247943f5d0aefb1d5f001d50a",
+  "prompts": {},
+  "sessions": {
+    "s_e4ded152a63ff6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3977f990-7695-4b62-a7fb-a724d268da30",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}
