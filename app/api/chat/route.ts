@@ -200,7 +200,7 @@ Connects to any CRM (HubSpot, Salesforce, and more), email automation platforms,
 ### Pricing
 - Growth ($3,500/mo): Single vertical. Scoring, outreach, CRM integration, content intelligence, audit trail, support
 - Scale ($6,500/mo): Multi-vertical. Everything in Growth + enrichment, GA4 feedback, isolated infrastructure, AgentOps governance dashboard, social distribution, quarterly reviews
-- Enterprise ($12,000/mo): Unlimited verticals. Dedicated infrastructure, custom integrations, token cost tracking, compliance & governance package, SLA, dedicated success manager
+- Enterprise ($12,000/mo): Unlimited verticals. Dedicated infrastructure, custom integrations, token cost tracking, security pack (controls mapped to NIST AI RMF and SP 800-53, cost circuit breakers), custom contract terms, dedicated success manager
 - Implementation fee: Transparent build calculator at usecircuitos.com/#build-calculator. Line-item pricing for every module
 
 ### Build Calculator (Implementation Pricing)

@@ -32,7 +32,7 @@ Connects to any CRM (HubSpot, Salesforce, and more), email automation platforms,
 Monthly plans:
 - Growth: $3,500/mo — single vertical, scoring, outreach, CRM, content intelligence, audit trail
 - Scale: $6,500/mo — multi-vertical, enrichment, GA4 feedback, AgentOps dashboard, social distribution
-- Enterprise: $12,000/mo — unlimited verticals, custom integrations, token cost tracking, SLA, dedicated success manager
+- Enterprise: $12,000/mo — unlimited verticals, custom integrations, token cost tracking, dedicated success manager
 
 Implementation (one-time build fee) — transparent, line-item pricing:
 - Core: Platform Provisioning ($2,500) + ICP Encoding ($2,000) = $4,500 base
