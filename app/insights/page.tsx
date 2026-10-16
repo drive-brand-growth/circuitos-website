@@ -32,6 +32,13 @@ const articles = [
     tag: 'Product',
     readTime: '5 min read',
   },
+  {
+    slug: 'agentforce-gap',
+    title: 'The Agentforce Gap: What Enterprise AI Agents Still Do Not Give You',
+    description: 'I build with Agentforce professionally. It is genuinely good at CRM automation. Here are three things it structurally cannot give you, and why the difference is a product category, not a feature gap.',
+    tag: 'Governance',
+    readTime: '6 min read',
+  },
 ]
 
 export default function InsightsPage() {
