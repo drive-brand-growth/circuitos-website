@@ -4,7 +4,7 @@ import Card from '@/components/ui/Card'
 import Container from '@/components/ui/Container'
 import NewsletterForm from '@/components/NewsletterForm'
 import SectionHeader from '@/components/ui/SectionHeader'
-import StageDiagram from '@/components/ui/StageDiagram'
+import CircuitBoard from '@/components/ui/CircuitBoard'
 import { getHome, getSite, listNotes, listSteps } from '@/lib/content'
 import { pageMeta } from '@/lib/seo'
 
@@ -76,15 +76,13 @@ export default async function HomePage() {
       <section id="circuit" className="px-6 py-20 sm:py-32">
         <Container width="page">
           <SectionHeader align="center" title={home.revealTitle} lede={site.tagline} />
-          <div className="mt-14">
-            <StageDiagram
-              centerTitle={home.diagramTitle}
-              centerLine={home.diagramLine}
+          <div className="mt-14 -mx-6 sm:mx-0">
+            <CircuitBoard
               stages={steps.map((step) => ({
                 slug: step.slug,
                 name: step.entry.name,
                 href: `/method/${step.slug}`,
-                accent: step.entry.accent,
+                line: step.entry.line ?? '',
               }))}
             />
           </div>
