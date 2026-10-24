@@ -1,46 +1,44 @@
 title: Causal proof
 path: /causal
 description: >
-  Attribution after the result: credit says what was nearby, cause asks what
-  changed the outcome. Four questions for the review, and a refusal when the
-  case is not shown.
+  Causal means proving what actually caused the result. Credit only says what
+  was nearby.
 status: published
-kicker: Proof of cause
-headline: Attribution asks what moved the result
+kicker: The cause
+headline: What actually caused the result?
 updated: ""
 lede:
+  - Causal means proving what actually caused the result.
   - >
-    After the period closes, a report will offer credit. Credit answers which
-    touch was nearby when the deal moved. Cause answers which activity changed
-    the outcome. A forecast review that treats those as the same question will
-    coach the wrong work.
+    After the period closes, a report will offer credit. Credit says which
+    touch was nearby. Cause says which activity changed the outcome. A review
+    that treats those as the same question will coach the wrong work.
 table:
   caption: ""
   columns: []
   rows: []
 sections:
-  - heading: The trap in a normal pipeline
+  - heading: The easy mistake
     paragraphs:
       - >
         Accounts already likely to buy get more meetings and more notes. Those
-        touches are present when the opportunity closes. The report gives the
-        touches the credit. The readiness was doing much of the work. The team
-        did not cheat. The page answered the easier question.
+        touches are present when the deal closes. The report gives the touches
+        the credit. The team did not cheat. The page answered the easier question.
     items: []
     listStyle: none
     callout: ""
     embed: none
-  - heading: Four demands, before anyone states a lift
+  - heading: Four questions before anyone claims a lift
     paragraphs: []
     items:
       - label: ""
-        text: A baseline. What happens for a comparable account when this activity does not occur. No baseline, no claim.
+        text: A baseline. A baseline is what happens when you do not do the thing. No baseline, no claim.
         href: ""
       - label: ""
-        text: The confounders, named. The things that drive both the activity and the result. Stage, source, and intent that was already there are the place to start.
+        text: The other causes, named. A confounder is something else that could have caused the result. Stage, source, and intent that was already there are the place to start.
         href: ""
       - label: ""
-        text: An interval. A single figure with no uncertainty is a slogan in a pipeline review.
+        text: A range. One figure with no range is a slogan in a meeting.
         href: ""
       - label: ""
         text: A refusal. If the case is not shown, the page says pending. It does not fill the gap with a round number.
@@ -52,16 +50,16 @@ sections:
     paragraphs: []
     items:
       - label: ""
-        text: How do we separate cause from a touch that was merely present?
+        text: How do we separate cause from a touch that was only nearby?
         href: ""
       - label: ""
-        text: What baseline is this claim measured against, and where is that baseline kept?
+        text: What is the baseline, and where is it kept?
         href: ""
       - label: ""
-        text: Where is the uncertainty on this figure?
+        text: Where is the range on this figure?
         href: ""
       - label: ""
-        text: What does the report do when the case is not proven? Does it refuse, or does it still print a number?
+        text: What does the report do when the case is not proved? Does it refuse, or does it still print a number?
         href: ""
     listStyle: bullets
     callout: ""
@@ -69,24 +67,17 @@ sections:
   - heading: What a model is for
     paragraphs:
       - >
-        A model can draft the narrative under a chart and list the touches that
+        A model can draft the words under a chart and list the touches that
         were present. It cannot promote a nearby touch into a cause. The model
-        drafts. The owner decides. You decide what is allowed to be said when the
-        review asks what worked.
+        drafts. The owner decides.
       - >
-        The playground does not prove cause. It lets you watch odds move when a
-        simulated signal fires. That is forecasting practice. Cause is tested at
-        ground, on outcomes, with a baseline you can point to.
+        The playground does not prove cause. It lets you watch odds move when
+        a simulated signal fires. That is practice. Cause is tested on real
+        outcomes, against a baseline you can point to.
     items:
       - label: Read the field note
         text: ""
         href: /field-notes/honesty-gap
-      - label: Ground
-        text: ""
-        href: /method/ground
-      - label: Forecasting
-        text: ""
-        href: /forecasting
     listStyle: links
     callout: ""
     embed: none

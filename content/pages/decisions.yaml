@@ -1,26 +1,23 @@
 title: Decisions
 path: /decisions
 description: >
-  Write the routing rule and the forecast call as a table the room can read.
-  DMN is Decision Model and Notation. The owner fills the odds.
+  DMN means written decision rules. Put the routing rule on a page the room
+  can read, and leave the odds for the owner.
 status: published
-kicker: Written decisions
-headline: The pipeline review should be able to read the rule
+kicker: The rule
+headline: Write the rule on one page.
 updated: ""
 lede:
+  - DMN means written decision rules.
   - >
-    Lead routing happens whether or not it is written down. So does the call to
-    hold a deal or advance it. When the rule is a habit in one person's head, the
-    forecast call depends on who is in the room.
-  - >
-    DMN, Decision Model and Notation, is a way to put that rule on a page. A person
-    can read it. A system can follow it without inventing a policy in the moment.
-    The last column is the odds you would say before the outcome is known.
+    A lead gets routed whether or not the rule is written. A deal gets held or
+    moved on a forecast call whether or not the rule is written. When the rule
+    is only in one person's head, the number depends on who is in the room.
 table:
-  caption: Teaching table for lead routing. Odds are left for the owner to write.
+  caption: A teaching table for routing a lead. The odds are blank on purpose.
   columns:
     - Buyer named
-    - Timeline named
+    - Date named
     - Action
     - Stated odds
   rows:
@@ -32,19 +29,19 @@ table:
     - cells:
         - "No"
         - Either way
-        - Hold for the pipeline review
+        - Hold for the meeting
         - You write this
     - cells:
         - "Yes"
         - "No"
-        - Hold, and draft a question that asks for the timeline
+        - Hold, and draft a question that asks for the date
         - You write this
 sections:
-  - heading: A teaching table
+  - heading: The shape, not a result
     paragraphs:
       - >
-        This is the shape of a routing rule. It is not a recommendation for your
-        book of business, and the odds are blank on purpose.
+        This table shows the shape of a rule. It is not a recommendation for
+        your book of business. The odds are blank on purpose.
     items: []
     listStyle: none
     callout: ""
@@ -52,49 +49,38 @@ sections:
   - heading: When two rows both match
     paragraphs:
       - >
-        You decide whether the first matching row wins, or whether rows are not
-        allowed to overlap. Overlap is how two rules fight in the same forecast
-        call, and how a room ends up with two numbers for one opportunity.
+        You decide what happens. The first matching row can win, or rows can be
+        kept from overlapping. Overlap is how two rules fight, and how a room
+        ends up with two numbers for one deal.
       - >
-        FEEL is the small expression language DMN uses when a condition needs to
-        be exact. You do not need it to start. A table of plain words is already
-        a decision. FEEL is how that table runs without someone reinterpreting
-        the sentence.
+        FEEL means a small language for an exact condition. You do not need it
+        to start. A table of plain words is already a decision.
     items: []
     listStyle: none
     callout: ""
     embed: none
-  - heading: What else belongs in a table
+  - heading: What else belongs on the page
     paragraphs: []
     items:
       - label: ""
-        text: Which discount needs a person, and which field change does not.
+        text: Which discount needs a person.
         href: ""
       - label: ""
-        text: When a note may be drafted, and when it may be released.
+        text: When a note may be drafted, and when it may be sent.
         href: ""
       - label: ""
-        text: Which missing fact holds the deal for the pipeline review.
+        text: Which missing fact holds the deal for the meeting.
         href: ""
     listStyle: bullets
     callout: The model drafts. The owner decides.
     embed: none
   - heading: ""
     paragraphs:
-      - >
-        A model may propose a row after it has seen the signals you named. Adding
-        the row to the table is your decision. The odds are your forecast, which
-        means they have to be scorable. That is the next page.
+      - The odds on that page are your forecast. Next, see how you score them.
     items:
-      - label: The switch stage
-        text: ""
-        href: /method/switch
-      - label: Forecasting
+      - label: Score the odds
         text: ""
         href: /forecasting
-      - label: Practice a route
-        text: ""
-        href: /practice
     listStyle: links
     callout: ""
     embed: none

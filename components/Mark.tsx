@@ -6,21 +6,22 @@ type MarkProps = {
 export default function Mark({ className = 'h-8 w-8', title = 'The Circuit Method mark' }: MarkProps) {
   return (
     <svg
-      className={className}
-      viewBox="0 0 200 200"
+      className={`block ${className}`}
+      viewBox="0.7 2.5 28.48 27.4"
       fill="none"
       role="img"
       aria-label={title}
+      shapeRendering="geometricPrecision"
     >
       <path
-        d="M157.7 136.1A68 68 0 1 0 157.7 63.9"
+        d="M23.9 22.14A11.2 11.2 0 1 0 23.9 10.26"
         stroke="currentColor"
-        strokeWidth="16"
+        strokeWidth="3.8"
         strokeLinecap="round"
       />
-      <circle cx="162" cy="62" r="13.5" stroke="currentColor" strokeWidth="7.5" />
-      <circle cx="162" cy="138" r="13.5" stroke="currentColor" strokeWidth="7.5" />
-      <path d="M154 120L172 80" stroke="#ff2d2d" strokeWidth="12" strokeLinecap="round" />
+      <circle cx="25.13" cy="9.5" r="2.7" stroke="currentColor" strokeWidth="1.6" />
+      <circle cx="25.13" cy="22.9" r="2.7" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M23.13 20.1L26.93 11.9" stroke="#ff2d2d" strokeWidth="3" strokeLinecap="round" />
     </svg>
   )
 }

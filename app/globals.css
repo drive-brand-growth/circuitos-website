@@ -48,9 +48,9 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-sans);
-  line-height: 1.5;
+  line-height: 1.65;
   letter-spacing: -0.011em;
-  font-size: 17px;
+  font-size: 1.25rem;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -172,9 +172,17 @@ p, li {
   animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+.reading {
+  max-width: 65ch;
+  font-size: 1.25rem;
+  line-height: 1.65;
+}
+
 .note-body p {
-  margin: 0 0 1.1rem;
+  margin: 0 0 1.25rem;
+  max-width: 65ch;
   color: var(--muted);
+  font-size: 1.25rem;
   line-height: 1.65;
 }
 

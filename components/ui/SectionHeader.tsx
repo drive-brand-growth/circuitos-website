@@ -25,7 +25,7 @@ export default function SectionHeader({
         {title}
       </Tag>
       {lede ? (
-        <p className="mt-6 text-lg leading-relaxed text-[var(--muted)] sm:text-xl">{lede}</p>
+        <p className={`reading mt-6 text-[var(--muted)] ${align === 'center' ? 'mx-auto' : ''}`}>{lede}</p>
       ) : null}
     </header>
   )

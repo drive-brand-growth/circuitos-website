@@ -2,40 +2,32 @@ name: Signal
 order: 1
 status: published
 accent: false
-kicker: Before the pipeline review
-line: What comes in
+kicker: What comes in
+line: A new lead arrives.
 summary: >
-  Signal is what shows up before a routing call or a forecast call: replies,
-  stalls, form fills, and stage changes. Name them, or the review runs on memory.
+  Signal means what comes in. Name it, or the meeting runs on memory.
 lede:
+  - Signal means what comes in.
   - >
-    A pipeline review is a pile of things that arrived since the last one. A reply.
-    A form fill. A stage that has not moved. A buyer who went quiet. A discount ask.
-    A source tagged on the opportunity.
-  - >
-    Signal is that pile, named. It is not the decision. It is the evidence the
-    decision is allowed to use.
+    A reply. A form fill. A deal that has not moved. A buyer who went quiet.
+    A request for a discount. That pile is the signal. It is not the decision.
 sections:
-  - heading: What you write down
+  - heading: Write the list
     paragraphs:
       - >
-        Write the signals that are allowed to change a route or a forecast. A source,
-        a reply, a meeting held, a missing buyer, a stall. If a signal is not on the
-        page, it will still show up in the room. It will show up as a feeling.
-      - >
-        The Thursday review gets shorter when the pile is a list instead of a
-        recollection. People argue the list. They do not reconstruct it.
+        Write the signals that are allowed to change a route or a forecast.
+        If a signal is not on the page, it still shows up. It shows up as a feeling.
+      - The meeting gets shorter when the pile is a list. People argue the list.
     bullets: []
-  - heading: What a model may do here
+  - heading: What a model may do
     paragraphs:
       - >
-        A model is a tool at this stage, not the stage. It may list what arrived,
-        with the source and the time, so the review starts from a page.
-      - It does not say what the account should do next. That sentence belongs on the switch.
+        A model is a tool here, not the stage. It may list what arrived, with
+        the source and the time, so the meeting starts from a page.
+      - It does not say what to do next. That sentence is the switch.
     bullets: []
 caution: >
-  The short circuit here is acting on a fresh signal because it felt urgent. The
-  note goes to the customer before anyone has said which rule applied, or what the
-  odds were.
+  The short circuit here is acting because a new signal felt urgent. The note
+  goes out before anyone has said which rule applied, or what the odds were.
 nextHref: /method/switch
 nextLabel: Switch

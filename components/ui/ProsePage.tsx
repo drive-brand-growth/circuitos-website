@@ -25,7 +25,7 @@ export default function ProsePage({ page, email, steps = [], terms = [] }: Prose
           {page.updated ? (
             <p className="mt-4 text-sm text-[var(--muted)]">Last updated: {text(page.updated)}</p>
           ) : null}
-          <div className="mt-8 space-y-5 text-lg leading-relaxed text-[var(--muted)] sm:text-xl">
+          <div className="mt-8 space-y-6 text-[var(--muted)]">
             {page.lede.map((paragraph) => (
               <p key={paragraph}>{text(paragraph)}</p>
             ))}
@@ -33,24 +33,24 @@ export default function ProsePage({ page, email, steps = [], terms = [] }: Prose
         </div>
 
         {page.sections.map((section, index) => (
-          <section key={`${section.heading}-${index}`} className="mt-16">
+          <section key={`${section.heading}-${index}`} className="mt-20 sm:mt-28">
             {section.heading ? (
               <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{text(section.heading)}</h2>
             ) : null}
-            <div className={`${section.heading ? 'mt-5' : ''} space-y-4 text-lg leading-relaxed text-[var(--muted)]`}>
+            <div className={`${section.heading ? 'mt-6' : ''} space-y-5 text-[var(--muted)]`}>
               {section.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{text(paragraph)}</p>
               ))}
             </div>
             {section.listStyle === 'bullets' && section.items.length > 0 ? (
-              <ul className="mt-5 list-disc space-y-2 pl-5 text-lg text-[var(--muted)]">
+              <ul className="reading mt-6 list-disc space-y-3 pl-5 text-[var(--muted)]">
                 {section.items.map((item) => (
                   <li key={item.text || item.label}>{text(item.text || item.label)}</li>
                 ))}
               </ul>
             ) : null}
             {section.listStyle === 'numbers' && section.items.length > 0 ? (
-              <ol className="mt-5 list-decimal space-y-3 pl-5 text-lg text-[var(--muted)]">
+              <ol className="reading mt-6 list-decimal space-y-3 pl-5 text-[var(--muted)]">
                 {section.items.map((item) => (
                   <li key={item.text || item.label}>{text(item.text || item.label)}</li>
                 ))}

@@ -42,21 +42,21 @@ export default async function StageRoute({ params }: { params: Params }) {
           <div className="mt-8">
             <SectionHeader as="h1" kicker={step.kicker} title={step.name} />
           </div>
-          <div className="mt-8 space-y-5 text-lg leading-relaxed text-[var(--muted)] sm:text-xl">
+          <div className="reading mt-8 space-y-6 text-[var(--muted)]">
             {step.lede.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
           {step.sections.map((section) => (
-            <section key={section.heading}>
-              <h2 className="mb-4 mt-14 text-3xl font-semibold tracking-tight">{section.heading}</h2>
+            <section key={section.heading} className="mt-20">
+              <h2 className="mb-5 text-3xl font-semibold tracking-tight sm:text-4xl">{section.heading}</h2>
               {section.paragraphs.map((paragraph) => (
-                <p key={paragraph} className="mb-4 text-lg leading-relaxed text-[var(--muted)]">
+                <p key={paragraph} className="reading mb-5 text-[var(--muted)]">
                   {paragraph}
                 </p>
               ))}
               {section.bullets.length > 0 ? (
-                <ul className="mb-4 list-disc space-y-2 pl-5 text-lg text-[var(--muted)]">
+                <ul className="reading mb-5 list-disc space-y-3 pl-5 text-[var(--muted)]">
                   {section.bullets.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
@@ -64,8 +64,8 @@ export default async function StageRoute({ params }: { params: Params }) {
               ) : null}
             </section>
           ))}
-          <h2 className="mb-4 mt-14 text-3xl font-semibold tracking-tight">The short circuit</h2>
-          <p className="text-lg leading-relaxed text-[var(--muted)]">{step.caution}</p>
+          <h2 className="mb-5 mt-20 text-3xl font-semibold tracking-tight sm:text-4xl">The short circuit</h2>
+          <p className="reading text-[var(--muted)]">{step.caution}</p>
           <p className="mt-10 text-sm">
             <Link href={step.nextHref} className="link">
               Continue to {step.nextLabel}

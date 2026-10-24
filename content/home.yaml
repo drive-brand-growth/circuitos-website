@@ -1,41 +1,73 @@
 status: published
-kicker: For owners who run revenue
+kicker: The problem
+headline: The forecast is a guess.
 intro: >
-  The Circuit Method™ is how the work already goes, made explicit. A pipeline review,
-  a forecast call, lead routing, an approval, and the attribution question after the
-  result all use one loop.
-primaryLabel: Read the method
-primaryHref: /method
-secondaryLabel: See the five stages
-secondaryHref: "#circuit"
-circuitKicker: The loop
-circuitTitle: Five stages, one circuit
-circuitLede: >
-  Something comes in. You write the decision and state the odds. The work is drafted.
-  A person approves anything that reaches a customer or moves money. The outcome comes
-  back, the forecast is scored, and you ask what actually moved the result.
-diagramTitle: Closed circuit
+  Deals die for reasons nobody wrote down. The team argues opinions. You leave
+  the room with a number, and no page that explains it.
+villainTitle: Gut feel is the villain.
+villainBody: >
+  So is the hype that a model will run the number for you.
+
+  A model can list what came in. A model can draft the note. It cannot own the
+  rule, the odds, or the send.
+originTitle: I watched the same failure for twenty years.
+originBody: >
+  I have spent more than twenty years in RevOps and sales leadership. The failure
+  was the same in room after room. The forecast was a guess. A deal died, and
+  nobody could say which rule had been used. The team argued opinions.
+
+  [Noel to confirm: the meeting, the quarter, or the deal where this became obvious.]
+
+  Then it was plain. The work already had a shape. A lead came in. Someone decided.
+  Work moved. A person approved the thing that reached the customer. Later, someone
+  asked what caused the result. Nobody had written that shape down. So it could not
+  be repeated when I was not in the room.
+
+  I built The Circuit Method™ to write it down.
+revealTitle: The Circuit Method™. Five stages. One circuit.
+exampleTitle: Here's how it works.
+exampleLede: >
+  A new lead comes in. Watch it go around once. This is a teaching walk. It is
+  not a result from a real book of business.
+diagramTitle: One circuit
 diagramLine: signal returns to ground
 coreSupport: >
-  A model, if you use one, sits inside the loop. It can list the signals and shape
-  the draft. It does not own the rule, the odds, or the release.
+  That line is the whole method. The model may draft. You decide.
+proofTitle: Here is what you can check.
+proofBody: >
+  You can read the rule. You can score the odds you wrote. You can see who
+  approved the send. That is the proof on this site today. It is the loop, not
+  a trophy.
+
+  [Noel to confirm: one true story of a forecast that was a guess, with the real
+  detail and no invented number.]
+
+  [Noel to confirm: a result you will stand behind. Leave this out until the
+  detail is real.]
+primaryLabel: Read the method
+primaryHref: /method
+circuitKicker: The loop
+circuitTitle: Five stages. One circuit.
+circuitLede: >
+  Something comes in. You write the decision and the odds. The work stays a draft
+  until a person lets it go. The result comes back.
 pillars:
   - href: /decisions
-    kicker: Written decisions
-    title: The rule the room can read
-    text: Lead routing and the forecast call should use the same page. DMN is how that page is written.
+    kicker: One
+    title: Read the rule
+    text: The decision is a page the room can read. DMN means written decision rules.
   - href: /forecasting
-    kicker: Honest odds
-    title: Say the number you will score
-    text: A forecast call is a set of odds. Honest means you bring the outcomes back and look.
+    kicker: Two
+    title: Score the odds
+    text: Bayesian means updating your odds as evidence comes in. Then you check them.
   - href: /causal
-    kicker: Proof of cause
-    title: Attribution after the result
-    text: Credit says what was nearby. Cause asks what moved the outcome. Pending is an answer.
-notesKicker: Field note
+    kicker: Three
+    title: Ask what caused it
+    text: Causal means proving what actually caused the result. Nearby is not the same as cause.
+notesKicker: A note from the notebook
 notesTitle: From the notebook
-notesLede: Notes on the motions you already run. No claims about anyone else's results.
-newsletterTitle: Notes when a new field note is up
+notesLede: One note on the same idea. No claims about anyone else's results.
+newsletterTitle: Notes, when a list exists
 newsletterLede: >
-  The list is not connected yet. Submitting this form does not send your address
-  anywhere, and it does not store it.
+  This form is not connected. Nothing is sent, and nothing is stored. The button
+  above is the next step.

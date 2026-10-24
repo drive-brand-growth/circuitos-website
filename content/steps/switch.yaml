@@ -2,36 +2,34 @@ name: Switch
 order: 2
 status: published
 accent: true
-kicker: The routing rule and the forecast call
-line: The decision, written, with odds
+kicker: The decision
+line: A written rule says what to do, and you say the odds.
 summary: >
-  Switch is the decision. You write it as rules a pipeline review can read. Each
-  rule carries the odds you would say on the forecast call. You close the switch.
+  Switch means the decision, written down, with the odds. DMN means written
+  decision rules. You make the call.
 lede:
+  - Switch means the decision, written down, with the odds.
+  - DMN means written decision rules.
   - >
-    Lead routing is a decision whether or not you have written it down. So is the
-    line between "hold this deal" and "advance it" on a forecast call.
-  - >
-    Switch is that decision, written as rules. The writing standard is DMN, Decision
-    Model and Notation: a table a person can read, and a system can follow without
-    inventing a policy. Each row carries a probability. That probability is the odds
-    you are willing to defend before the outcome is known.
+    Routing a lead is a decision whether or not you have written it. So is
+    holding a deal or moving it on a forecast call. Each rule carries the odds
+    you would say before you know what happened.
 sections:
-  - heading: A routing table, with the odds left blank
+  - heading: A table, with the odds left blank
     paragraphs:
-      - Here is the shape, not a result. No odds are filled in, because those are yours.
+      - Here is the shape. The odds are yours. This site does not fill them in.
     bullets:
-      - "Buyer named, and a timeline named: the route may advance to a draft."
-      - "Buyer missing, or timeline missing: the route holds, and the deal stays a topic for the pipeline review."
-      - The odds column is empty until you write it. A blank is more honest than a number you borrowed from someone else's business.
-  - heading: Who closes it
+      - "Buyer named, and a date named: the route may advance to a draft."
+      - "Buyer missing, or date missing: the route holds. The deal stays a topic for the meeting."
+      - The odds column stays empty until you write it. A blank is more honest than a number you borrowed.
+  - heading: You close it
     paragraphs:
       - >
-        A model may point at the row that matches. Matching is arithmetic. Closing
-        the switch is the decision, and the owner makes it.
+        A model may point at the row that matches. Matching is arithmetic.
+        Closing the switch is the decision. You make it.
       - >
-        If the rule lives in a prompt the team cannot open during the pipeline review,
-        you do not have a switch. You have a habit with a fluent voice.
+        If the rule lives where the team cannot open it during the meeting,
+        you do not have a switch. You have a habit.
     bullets: []
 caution: >
   The short circuit is letting the draft choose the route. The table was never

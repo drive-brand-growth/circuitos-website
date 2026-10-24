@@ -8,6 +8,13 @@ import StageDiagram from '@/components/ui/StageDiagram'
 import { getHome, getSite, listNotes, listSteps } from '@/lib/content'
 import { pageMeta } from '@/lib/seo'
 
+function paragraphs(value: string | null | undefined) {
+  return (value ?? '')
+    .split(/\n+/)
+    .map((part) => part.replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+}
+
 export async function generateMetadata() {
   const [site, home] = await Promise.all([getSite(), getHome()])
   return {
@@ -27,30 +34,46 @@ export default async function HomePage() {
 
   return (
     <PageShell>
-      <section className="rise px-6 pb-8 pt-20 sm:pt-28">
-        <div className="mx-auto max-w-3xl text-center">
+      <section className="rise px-6 pb-8 pt-24 sm:pt-32">
+        <div className="mx-auto max-w-[65ch] text-center">
           <p className="kicker">{home.kicker}</p>
-          <h1 className="mt-5 text-5xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">{site.promise}</h1>
-          <p className="mt-6 text-2xl tracking-tight text-[var(--fg)] sm:text-3xl">{site.tagline}</p>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[var(--muted)]">{home.intro}</p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button href={home.primaryHref}>{home.primaryLabel}</Button>
-            <Button href={home.secondaryHref} variant="secondary">
-              {home.secondaryLabel}
-            </Button>
+          <h1 className="mt-5 text-5xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">{home.headline}</h1>
+          <div className="mt-8 space-y-5 text-[var(--muted)]">
+            {paragraphs(home.intro).map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
         </div>
       </section>
 
-      <section id="circuit" className="px-6 py-20 sm:py-28">
+      <section className="px-6 py-20 sm:py-28">
+        <Container>
+          <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{home.villainTitle}</h2>
+          <div className="mt-8 space-y-5 text-[var(--muted)]">
+            {paragraphs(home.villainBody).map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+          <p className="mt-10 text-3xl font-semibold tracking-tight sm:text-4xl">{site.coreLine}</p>
+          <p className="mt-5 text-[var(--muted)]">{home.coreSupport}</p>
+        </Container>
+      </section>
+
+      <section className="px-6 py-20 sm:py-28">
+        <Container>
+          <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{home.originTitle}</h2>
+          <div className="mt-8 space-y-5 text-[var(--muted)]">
+            {paragraphs(home.originBody).map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section id="circuit" className="px-6 py-20 sm:py-32">
         <Container width="page">
-          <SectionHeader
-            align="center"
-            kicker={home.circuitKicker}
-            title={home.circuitTitle}
-            lede={home.circuitLede}
-          />
-          <div className="mt-12">
+          <SectionHeader align="center" title={home.revealTitle} lede={site.tagline} />
+          <div className="mt-14">
             <StageDiagram
               centerTitle={home.diagramTitle}
               centerLine={home.diagramLine}
@@ -62,7 +85,15 @@ export default async function HomePage() {
               }))}
             />
           </div>
-          <ol className="mx-auto mt-10 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mx-auto mt-20 max-w-[65ch] text-center">
+            <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{home.exampleTitle}</h2>
+            <div className="mt-6 space-y-5 text-left text-[var(--muted)] sm:text-center">
+              {paragraphs(home.exampleLede).map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+          <ol className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {steps.map((step) => (
               <li key={step.slug}>
                 <Card href={`/method/${step.slug}`} className="h-full p-5">
@@ -81,41 +112,39 @@ export default async function HomePage() {
       </section>
 
       <section className="px-6 py-20 sm:py-28">
-        <Container width="page">
-          <p className="mx-auto max-w-3xl text-center text-3xl font-semibold tracking-tight sm:text-4xl">{site.coreLine}</p>
-          <p className="mx-auto mt-5 max-w-2xl text-center text-lg leading-relaxed text-[var(--muted)]">{home.coreSupport}</p>
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
+        <Container>
+          <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{home.proofTitle}</h2>
+          <div className="mt-8 space-y-5 text-[var(--muted)]">
+            {paragraphs(home.proofBody).map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+          <div className="mt-10 grid gap-4">
             {home.pillars.map((pillar) => (
               <Card key={pillar.href} href={pillar.href}>
                 <p className="kicker">{pillar.kicker}</p>
-                <h2 className="mt-3 text-2xl font-semibold tracking-tight">{pillar.title}</h2>
-                <p className="mt-3 leading-relaxed text-[var(--muted)]">{pillar.text}</p>
+                <h3 className="mt-3 text-2xl font-semibold tracking-tight">{pillar.title}</h3>
+                <p className="mt-3 text-[var(--muted)]">{pillar.text}</p>
               </Card>
             ))}
+          </div>
+          {featured ? (
+            <Card href={`/field-notes/${featured.slug}`} className="mt-4">
+              <p className="kicker">{home.notesKicker}</p>
+              <h3 className="mt-3 text-2xl font-semibold tracking-tight">{featured.entry.title}</h3>
+              <p className="mt-3 text-[var(--muted)]">{featured.entry.description}</p>
+            </Card>
+          ) : null}
+          <div className="mt-12">
+            <Button href={home.primaryHref}>{home.primaryLabel}</Button>
           </div>
         </Container>
       </section>
 
-      {featured ? (
-        <section className="px-6 py-20">
-          <Container width="page">
-            <div className="grid gap-8 md:grid-cols-[1fr_1.4fr] md:items-end">
-              <SectionHeader kicker={home.notesKicker} title={home.notesTitle} lede={home.notesLede} />
-              <Card href={`/field-notes/${featured.slug}`} className="md:p-8">
-                <p className="kicker">{featured.entry.kicker}</p>
-                <h3 className="mt-3 text-2xl font-semibold tracking-tight">{featured.entry.title}</h3>
-                <p className="mt-3 text-[var(--muted)]">{featured.entry.description}</p>
-                <p className="mt-6 text-sm font-medium">Read the note</p>
-              </Card>
-            </div>
-          </Container>
-        </section>
-      ) : null}
-
       <section id="notes" className="px-6 py-20 sm:py-28">
         <Container>
           <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{home.newsletterTitle}</h2>
-          <p className="mt-4 text-lg leading-relaxed text-[var(--muted)]">{home.newsletterLede}</p>
+          <p className="mt-4 text-[var(--muted)]">{home.newsletterLede}</p>
           <NewsletterForm />
         </Container>
       </section>

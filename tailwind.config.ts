@@ -25,7 +25,7 @@ const config: Config = {
       },
       maxWidth: {
         page: '72rem',
-        prose: '44rem',
+        prose: 'calc(65ch + 3rem)',
       },
     },
   },
