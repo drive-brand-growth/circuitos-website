@@ -78,11 +78,13 @@ export default async function HomePage() {
           <SectionHeader align="center" title={home.revealTitle} lede={site.tagline} />
           <div className="mt-14 -mx-6 sm:mx-0">
             <CircuitBoard
+              tagline={site.tagline}
               stages={steps.map((step) => ({
                 slug: step.slug,
                 name: step.entry.name,
                 href: `/method/${step.slug}`,
                 line: step.entry.line ?? '',
+                kicker: step.entry.kicker ?? '',
               }))}
             />
           </div>

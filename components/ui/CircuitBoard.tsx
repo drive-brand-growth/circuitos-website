@@ -1,71 +1,24 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
-// Example receipt readouts for this teaching graphic only.
-// They are not client results. The visible board shows PASS and a filled meter, not a percent.
-// Placeholder scores, if a number is ever required: Recorded 1, Measured 1, Proven 1.
+// Example receipt stamps for this teaching drawing only.
+// They are not client results. The sheet shows PASS, and the bank is marked Example.
 
 type CircuitStage = {
   slug: string
   name: string
   href: string
   line: string
-}
-
-type Point = { x: number; y: number }
-
-type TraceSpec = {
-  id: string
-  d: string
-  color: string
-  delay: number
-}
-
-type Box = { x: number; y: number; w: number; h: number }
-
-type PcbArt = {
-  copper: string
-  bus: string
-  parts: string
-  pads: string
-  viaRings: string
-  viaHoles: string
-  ghosts: string[]
-}
-
-type BoardGeometry = {
-  id: 'wide' | 'stack'
-  vbW: number
-  vbH: number
-  bodyW: number
-  bodyH: number
-  pin: number
-  switchW: number
-  switchH: number
-  chips: Point[]
-  switches: Point[]
-  traces: TraceSpec[]
-  vias: Point[]
-  holes: Point[]
-  returnD: string
-  example: { x: number; y: number; anchor: 'start' | 'middle'; size: number }
-  pcb: PcbArt
-}
-
-type Tip = {
-  cx: number
-  cy: number
-  left: number
-  right: number
-  top: number
-  bottom: number
+  kicker: string
 }
 
 const ORDER = ['signal', 'switch', 'current', 'breaker', 'ground'] as const
 
-const STAGE_COLOR: Record<(typeof ORDER)[number], string> = {
+type StageSlug = (typeof ORDER)[number]
+
+const STAGE_COLOR: Record<StageSlug, string> = {
   signal: '#64d2ff',
   switch: '#ff2d2d',
   current: '#ffd60a',
@@ -73,627 +26,357 @@ const STAGE_COLOR: Record<(typeof ORDER)[number], string> = {
   ground: '#bf5af2',
 }
 
-const RECEIPT_COLOR = '#d5d8dc'
-
 const RECEIPTS = [
   { id: 'recorded', name: 'Recorded' },
   { id: 'measured', name: 'Measured' },
   { id: 'proven', name: 'Proven' },
 ] as const
 
-const FLOW_TAIL = 'Example receipts then read Recorded, Measured, and Proven.'
+const VB_W = 1280
+const VB_H = 600
+const TOP = 136
+const BW = 150
+const BH = 268
+const WIRE = 292
 
-function mulberry32(seed: number) {
-  let state = seed >>> 0
-  return () => {
-    state = (state + 0x6d2b79f5) | 0
-    let t = Math.imul(state ^ (state >>> 15), 1 | state)
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
-  }
+const BLOCK_X: Record<StageSlug, number> = {
+  signal: 36,
+  switch: 204,
+  current: 372,
+  breaker: 540,
+  ground: 708,
 }
 
-function ring(cx: number, cy: number, r: number) {
-  const x = Math.round(cx)
-  const y = Math.round(cy)
-  return `M ${x - r} ${y} a ${r} ${r} 0 1 1 ${r * 2} 0 a ${r} ${r} 0 1 1 ${-r * 2} 0`
+const DELAY: Record<StageSlug | (typeof RECEIPTS)[number]['id'], number> = {
+  signal: 0.12,
+  switch: 1.02,
+  current: 1.92,
+  breaker: 2.82,
+  ground: 3.72,
+  recorded: 4.68,
+  measured: 5.58,
+  proven: 6.48,
 }
 
-function keepOuts(
-  chips: Point[],
-  switches: Point[],
-  bodyW: number,
-  bodyH: number,
-  switchW: number,
-  switchH: number,
-): Box[] {
-  const pad = 8
-  return [
-    ...chips.map((chip) => ({
-      x: chip.x - bodyW / 2 - pad,
-      y: chip.y - bodyH / 2 - pad,
-      w: bodyW + pad * 2,
-      h: bodyH + pad * 2,
-    })),
-    ...switches.map((point) => ({
-      x: point.x - switchW / 2 - pad,
-      y: point.y - switchH / 2 - pad,
-      w: switchW + pad * 2,
-      h: switchH + pad * 2,
-    })),
-  ]
+const INK = '#d7e8f8'
+const INK_DIM = '#8eb4d4'
+const SANS = 'ui-sans-serif, system-ui, sans-serif'
+const MONO = 'ui-monospace, "SF Mono", Menlo, Consolas, monospace'
+
+function center(slug: StageSlug) {
+  return BLOCK_X[slug] + BW / 2
 }
 
-function buildPcb(width: number, height: number, seed: number, blocked: Box[]): PcbArt {
-  const rand = mulberry32(seed)
-  const copper: string[] = []
-  const bus: string[] = []
-  const parts: string[] = []
-  const pads: string[] = []
-  const viaRings: string[] = []
-  const viaHoles: string[] = []
-  const ghosts: string[] = []
-  const margin = 18
-  const wide = width > 700
-
-  const inside = (x: number, y: number) => x > margin && y > margin && x < width - margin && y < height - margin
-  const blockedAt = (x: number, y: number) =>
-    blocked.some((box) => x > box.x && x < box.x + box.w && y > box.y && y < box.y + box.h)
-
-  const addVia = (x: number, y: number) => {
-    if (viaRings.length > 150 || !inside(x, y)) return
-    const cx = Math.round(x)
-    const cy = Math.round(y)
-    viaRings.push(ring(cx, cy, 2.5))
-    viaHoles.push(ring(cx, cy, 0.85))
+function wave(x: number, y: number, count: number, width: number, amp: number) {
+  let d = `M ${x} ${y}`
+  for (let i = 0; i < count; i += 1) {
+    const dir = i % 2 === 0 ? -amp : amp
+    const x1 = x + i * width
+    d += ` Q ${x1 + width / 2} ${y + dir} ${x1 + width} ${y}`
   }
+  return { d, end: x + count * width }
+}
 
-  const addPad = (x: number, y: number, r: number) => {
-    if (!inside(x, y) || pads.length > 220) return
-    pads.push(ring(x, y, r))
-  }
+function rectPath(x: number, y: number, w: number, h: number) {
+  return `M ${x} ${y} H ${x + w} V ${y + h} H ${x} Z`
+}
 
-  const pitch = wide ? 12 : 10
-  for (const axis of ['h', 'v'] as const) {
-    const span = axis === 'h' ? height : width
-    const run = axis === 'h' ? width : height
-    for (let a = margin + 2; a < span - margin; a += pitch) {
-      let b = margin + Math.floor(rand() * 16)
-      while (b < run - margin) {
-        const len = 14 + Math.floor(rand() * (wide ? 86 : 46))
-        const end = Math.min(run - margin, b + len)
-        if (end - b > 12) {
-          const x1 = axis === 'h' ? b : a
-          const y1 = axis === 'h' ? a : b
-          const x2 = axis === 'h' ? end : a
-          const y2 = axis === 'h' ? a : end
-          const d = `M ${x1} ${y1} L ${x2} ${y2}`
-          copper.push(d)
-          if (ghosts.length < 6 && end - b > 42 && rand() > 0.78) ghosts.push(d)
-          if (rand() > 0.8) addVia(x2, y2)
-          if (rand() > 0.9) addPad(x1, y1, 1.5)
-        }
-        b = end + 7 + Math.floor(rand() * 22)
-      }
-    }
-  }
-
-  const diagCount = wide ? 84 : 42
-  for (let i = 0; i < diagCount; i += 1) {
-    const x = margin + Math.floor(rand() * (width - margin * 2))
-    const y = margin + Math.floor(rand() * (height - margin * 2))
-    const len = 18 + Math.floor(rand() * 52)
-    const sx = rand() > 0.5 ? 1 : -1
-    const sy = rand() > 0.5 ? 1 : -1
-    const x2 = x + sx * len
-    const y2 = y + sy * len
-    if (!inside(x2, y2)) continue
-    const d = `M ${x} ${y} L ${x2} ${y2}`
-    copper.push(d)
-    if (rand() > 0.55) addVia(x, y)
-    if (ghosts.length < 6 && len > 36 && rand() > 0.4) ghosts.push(d)
-  }
-
-  const walks = wide ? 110 : 56
-  const dirs = [
-    [1, 0],
-    [-1, 0],
-    [0, 1],
-    [0, -1],
-    [1, 1],
-    [1, -1],
-    [-1, 1],
-    [-1, -1],
-  ]
-  for (let i = 0; i < walks; i += 1) {
-    let x = Math.round((margin + rand() * (width - margin * 2)) / 4) * 4
-    let y = Math.round((margin + rand() * (height - margin * 2)) / 4) * 4
-    const steps: string[] = []
-    const count = 5 + Math.floor(rand() * 8)
-    for (let s = 0; s < count; s += 1) {
-      const dir = dirs[Math.floor(rand() * dirs.length)]
-      const step = (2 + Math.floor(rand() * 5)) * 6
-      const nx = x + dir[0] * step
-      const ny = y + dir[1] * step
-      if (!inside(nx, ny)) continue
-      steps.push(`M ${x} ${y} L ${nx} ${ny}`)
-      if (rand() > 0.62) addVia(nx, ny)
-      x = nx
-      y = ny
-    }
-    if (!steps.length) continue
-    const d = steps.join(' ')
-    copper.push(d)
-    if (ghosts.length < 6 && steps.length > 3) ghosts.push(d)
-  }
-
-  const busCount = wide ? 7 : 4
-  for (let i = 0; i < busCount; i += 1) {
-    const horizontal = rand() > 0.42
-    const len = (horizontal ? width : height) * (0.18 + rand() * 0.34)
-    const x = margin + rand() * (width - margin * 2 - 30)
-    const y = margin + rand() * (height - margin * 2 - 30)
-    if (blockedAt(x, y)) continue
-    for (let n = 0; n < 4; n += 1) {
-      if (horizontal) {
-        const yy = Math.round(y + n * 3)
-        const x2 = Math.min(width - margin, Math.round(x + len))
-        if (yy > margin && yy < height - margin) bus.push(`M ${Math.round(x)} ${yy} H ${x2}`)
-      } else {
-        const xx = Math.round(x + n * 3)
-        const y2 = Math.min(height - margin, Math.round(y + len))
-        if (xx > margin && xx < width - margin) bus.push(`M ${xx} ${Math.round(y)} V ${y2}`)
-      }
-    }
-    addVia(x, y)
-  }
-
-  const ics = wide ? 11 : 6
-  for (let i = 0; i < ics; i += 1) {
-    const w = 26 + Math.floor(rand() * 24)
-    const h = 14 + Math.floor(rand() * 12)
-    const x = margin + Math.floor(rand() * (width - margin * 2 - w))
-    const y = margin + Math.floor(rand() * (height - margin * 2 - h))
-    if (blockedAt(x + w / 2, y + h / 2)) continue
-    parts.push(`M ${x} ${y} h ${w} v ${h} h ${-w} z`)
-    const pins = 4 + Math.floor(rand() * 3)
-    for (let p = 1; p <= pins; p += 1) {
-      const py = Math.round(y + (h * p) / (pins + 1))
-      parts.push(`M ${x - 4} ${py} H ${x}`)
-      parts.push(`M ${x + w} ${py} H ${x + w + 4}`)
-      addPad(x - 4, py, 1.15)
-      addPad(x + w + 4, py, 1.15)
-    }
-    pads.push(ring(x + 3, y + 3, 1.05))
-  }
-
-  const passives = wide ? 22 : 12
-  for (let i = 0; i < passives; i += 1) {
-    const x = margin + Math.floor(rand() * (width - margin * 2 - 16))
-    const y = margin + Math.floor(rand() * (height - margin * 2 - 16))
-    if (blockedAt(x, y)) continue
-    if (rand() > 0.48) {
-      if (rand() > 0.5) {
-        parts.push(`M ${x} ${y - 2} h 16 v 4 h -16 z`)
-        addPad(x, y, 1.45)
-        addPad(x + 16, y, 1.45)
-      } else {
-        parts.push(`M ${x - 2} ${y} h 4 v 16 h -4 z`)
-        addPad(x, y, 1.45)
-        addPad(x, y + 16, 1.45)
-      }
-    } else {
-      parts.push(`M ${x} ${y} v 9 M ${x + 3.5} ${y} v 9 M ${x - 6} ${y + 4.5} H ${x} M ${x + 3.5} ${y + 4.5} H ${x + 9}`)
-      addPad(x - 6, y + 4.5, 1.15)
-      addPad(x + 9, y + 4.5, 1.15)
-    }
-  }
-
+function delayStyle(delay: number, closeAt?: number, stampAt?: number): React.CSSProperties {
   return {
-    copper: copper.join(' '),
-    bus: bus.join(' '),
-    parts: parts.join(' '),
-    pads: pads.join(' '),
-    viaRings: viaRings.join(' '),
-    viaHoles: viaHoles.join(' '),
-    ghosts: ghosts.slice(0, 6),
-  }
+    '--d': `${delay}s`,
+    '--close': `${closeAt ?? delay}s`,
+    '--stamp': `${stampAt ?? delay}s`,
+  } as React.CSSProperties
 }
 
-function tip(point: Point, bodyW: number, bodyH: number, pin: number): Tip {
-  const halfW = bodyW / 2
-  const halfH = bodyH / 2
-  return {
-    cx: point.x,
-    cy: point.y,
-    left: point.x - halfW - pin,
-    right: point.x + halfW + pin,
-    top: point.y - halfH - pin,
-    bottom: point.y + halfH + pin,
-  }
-}
-
-function wideBoard(): BoardGeometry {
-  const bodyW = 128
-  const bodyH = 52
-  const pin = 8
-  const chips = [
-    { x: 150, y: 98 },
-    { x: 392, y: 98 },
-    { x: 654, y: 98 },
-    { x: 654, y: 238 },
-    { x: 348, y: 238 },
-  ]
-  const ends = chips.map((chip) => tip(chip, bodyW, bodyH, pin))
-  const railY = 318
-  const switchW = 132
-  const switchH = 78
-  const switchY = 398
-  const switches = [
-    { x: 176, y: switchY },
-    { x: 480, y: switchY },
-    { x: 784, y: switchY },
-  ]
-  const enterY = switchY - switchH / 2 + 8
-  const colors = ORDER.map((slug) => STAGE_COLOR[slug])
-
-  return {
-    id: 'wide',
-    vbW: 960,
-    vbH: 480,
-    bodyW,
-    bodyH,
-    pin,
-    switchW,
-    switchH,
-    chips,
-    switches,
-    traces: [
-      { id: 'signal', delay: 0, color: colors[0], d: `M ${ends[0].right} ${ends[0].cy} H ${ends[1].left}` },
-      { id: 'switch', delay: 1, color: colors[1], d: `M ${ends[1].right} ${ends[1].cy} H ${ends[2].left}` },
-      { id: 'current', delay: 2, color: colors[2], d: `M ${ends[2].cx} ${ends[2].bottom} V ${ends[3].top}` },
-      { id: 'breaker', delay: 3, color: colors[3], d: `M ${ends[3].left} ${ends[3].cy} H ${ends[4].right}` },
-      { id: 'ground', delay: 4, color: colors[4], d: `M ${ends[4].cx} ${ends[4].bottom} V ${railY}` },
-      { id: 'recorded', delay: 5, color: RECEIPT_COLOR, d: `M ${ends[4].cx} ${railY} H ${switches[0].x} V ${enterY}` },
-      { id: 'measured', delay: 6, color: RECEIPT_COLOR, d: `M ${switches[0].x} ${railY} H ${switches[1].x} V ${enterY}` },
-      { id: 'proven', delay: 7, color: RECEIPT_COLOR, d: `M ${switches[1].x} ${railY} H ${switches[2].x} V ${enterY}` },
-    ],
-    vias: [
-      { x: ends[4].cx, y: railY },
-      { x: switches[0].x, y: railY },
-      { x: switches[1].x, y: railY },
-      { x: switches[2].x, y: railY },
-    ],
-    holes: [
-      { x: 28, y: 28 },
-      { x: 932, y: 28 },
-      { x: 28, y: 452 },
-      { x: 932, y: 452 },
-    ],
-    returnD: `M 36 ${railY} V ${ends[0].cy} H ${ends[0].left}`,
-    example: { x: 52, y: 292, anchor: 'start', size: 13 },
-    pcb: buildPcb(960, 480, 0x51a7c0de, keepOuts(chips, switches, bodyW, bodyH, switchW, switchH)),
-  }
-}
-
-function stackBoard(): BoardGeometry {
-  const bodyW = 156
-  const bodyH = 56
-  const pin = 7
-  const chips = [
-    { x: 200, y: 72 },
-    { x: 200, y: 184 },
-    { x: 200, y: 296 },
-    { x: 200, y: 408 },
-    { x: 200, y: 520 },
-  ]
-  const ends = chips.map((chip) => tip(chip, bodyW, bodyH, pin))
-  const busX = 34
-  const jogY = ends[4].bottom + 26
-  const railY = 692
-  const switchW = 108
-  const switchH = 86
-  const switchY = 742
-  const switches = [
-    { x: 74, y: switchY },
-    { x: 200, y: switchY },
-    { x: 326, y: switchY },
-  ]
-  const enterY = switchY - switchH / 2 + 8
-  const colors = ORDER.map((slug) => STAGE_COLOR[slug])
-
-  return {
-    id: 'stack',
-    vbW: 400,
-    vbH: 820,
-    bodyW,
-    bodyH,
-    pin,
-    switchW,
-    switchH,
-    chips,
-    switches,
-    traces: [
-      { id: 'signal', delay: 0, color: colors[0], d: `M ${ends[0].cx} ${ends[0].bottom} V ${ends[1].top}` },
-      { id: 'switch', delay: 1, color: colors[1], d: `M ${ends[1].cx} ${ends[1].bottom} V ${ends[2].top}` },
-      { id: 'current', delay: 2, color: colors[2], d: `M ${ends[2].cx} ${ends[2].bottom} V ${ends[3].top}` },
-      { id: 'breaker', delay: 3, color: colors[3], d: `M ${ends[3].cx} ${ends[3].bottom} V ${ends[4].top}` },
-      { id: 'ground', delay: 4, color: colors[4], d: `M ${ends[4].cx} ${ends[4].bottom} V ${jogY} H ${busX}` },
-      { id: 'recorded', delay: 5, color: RECEIPT_COLOR, d: `M ${busX} ${jogY} V ${railY} H ${switches[0].x} V ${enterY}` },
-      { id: 'measured', delay: 6, color: RECEIPT_COLOR, d: `M ${switches[0].x} ${railY} H ${switches[1].x} V ${enterY}` },
-      { id: 'proven', delay: 7, color: RECEIPT_COLOR, d: `M ${switches[1].x} ${railY} H ${switches[2].x} V ${enterY}` },
-    ],
-    vias: [
-      { x: busX, y: jogY },
-      { x: switches[0].x, y: railY },
-      { x: switches[1].x, y: railY },
-      { x: switches[2].x, y: railY },
-    ],
-    holes: [
-      { x: 18, y: 18 },
-      { x: 382, y: 18 },
-      { x: 18, y: 802 },
-      { x: 382, y: 802 },
-    ],
-    returnD: `M ${busX} ${jogY} V ${ends[0].cy} H ${ends[0].left}`,
-    example: { x: 200, y: (jogY + railY) / 2, anchor: 'middle', size: 14 },
-    pcb: buildPcb(400, 820, 0x0b0a7d11, keepOuts(chips, switches, bodyW, bodyH, switchW, switchH)),
-  }
-}
-
-const WIDE = wideBoard()
-const STACK = stackBoard()
-
-function percent(value: number, total: number): string {
+function percent(value: number, total: number) {
   return `${(value / total) * 100}%`
 }
 
-function ChipPins({ cx, cy, hw, hh }: { cx: number; cy: number; hw: number; hh: number }) {
-  const count = 3
-  const pins: JSX.Element[] = []
-  for (let index = 1; index <= count; index += 1) {
-    const alongY = cy - hh + ((hh * 2) * index) / (count + 1)
-    const alongX = cx - hw + ((hw * 2) * index) / (count + 1)
-    pins.push(
-      <rect key={`${cx}-${cy}-l-${index}`} x={cx - hw - 8} y={alongY - 1.5} width={8} height={3} rx={0.5} fill="#d2d2d7" />,
-      <rect key={`${cx}-${cy}-r-${index}`} x={cx + hw} y={alongY - 1.5} width={8} height={3} rx={0.5} fill="#d2d2d7" />,
-      <rect key={`${cx}-${cy}-t-${index}`} x={alongX - 1.5} y={cy - hh - 8} width={3} height={8} rx={0.5} fill="#d2d2d7" />,
-      <rect key={`${cx}-${cy}-b-${index}`} x={alongX - 1.5} y={cy + hh} width={3} height={8} rx={0.5} fill="#d2d2d7" />,
-    )
-  }
-  return <g>{pins}</g>
+function Wire({ d, color, delay }: { d: string; color: string; delay: number }) {
+  return (
+    <g style={delayStyle(delay)}>
+      <path d={d} className="bp-draw bp-glow" stroke={color} pathLength={100} />
+      <path d={d} className="bp-draw bp-core" stroke={color} pathLength={100} />
+      <path d={d} className="bp-pulse bp-pulse-glow" stroke={color} pathLength={100} />
+      <path d={d} className="bp-pulse bp-pulse-core" pathLength={100} />
+    </g>
+  )
 }
 
-function BoardFace({
-  geometry,
+function Dimension({ x, y, w, label, delay }: { x: number; y: number; w: number; label: string; delay: number }) {
+  const mid = x + w / 2
+  const gap = Math.min(w - 36, Math.max(48, label.length * 6.15))
+  const half = gap / 2
+  return (
+    <g style={delayStyle(delay)}>
+      <path className="bp-draw bp-tick" d={`M ${x} ${y} H ${mid - half} M ${mid + half} ${y} H ${x + w}`} pathLength={100} />
+      <path className="bp-draw bp-tick" d={`M ${x} ${y - 5} V ${y + 5} M ${x + w} ${y - 5} V ${y + 5}`} pathLength={100} />
+      <text className="bp-ink bp-kicker" x={mid} y={y - 8} textAnchor="middle">
+        {label}
+      </text>
+    </g>
+  )
+}
+
+function SwitchArm({ x, y, length, delay, closeAt }: { x: number; y: number; length: number; delay: number; closeAt: number }) {
+  return (
+    <g transform={`translate(${x} ${y})`} style={delayStyle(delay, closeAt)}>
+      <path className="bp-draw bp-arm bp-symbol" d={`M 0 0 H ${length}`} pathLength={100} />
+    </g>
+  )
+}
+
+function PassStamp({ x, y, delay }: { x: number; y: number; delay: number }) {
+  const w = 92
+  const h = 34
+  return (
+    <g className="bp-pass" style={delayStyle(delay, delay, delay + 0.72)} transform={`translate(${x} ${y - h / 2})`}>
+      <rect width={w} height={h} rx={2} />
+      <rect x={3.5} y={3.5} width={w - 7} height={h - 7} rx={1} />
+      <text x={w / 2} y={h / 2 + 4} textAnchor="middle">
+        PASS
+      </text>
+    </g>
+  )
+}
+
+function Sheet({
   stages,
+  tagline,
   active,
   onActivate,
   onChipClick,
+  onReplay,
 }: {
-  geometry: BoardGeometry
   stages: CircuitStage[]
+  tagline: string
   active: string | null
   onActivate: (id: string) => void
   onChipClick: (event: React.MouseEvent<HTMLAnchorElement>, slug: string) => void
+  onReplay: () => void
 }) {
-  const halfW = geometry.bodyW / 2
-  const halfH = geometry.bodyH / 2
+  const signalWave = wave(92, WIRE, 3, 24, 14)
+  const signalWire = `${signalWave.d} H ${center('switch') - 36}`
+  const switchWire = `M ${center('switch') + 36} ${WIRE} H ${center('current') - 30}`
+  const currentWire = `M ${center('current') - 30} ${WIRE} H ${center('breaker') - 36}`
+  const breakerWire = `M ${center('breaker') + 36} ${WIRE} H ${center('ground')}`
+  const groundWire = `M ${center('ground')} ${WIRE} H 936 M ${center('ground')} ${WIRE} V 362`
+  const bus = 'M 948 168 V 404'
+  const receiptY = [188, WIRE, 392]
 
   return (
-    <div
-      className={`circuit-layout circuit-layout-${geometry.id}`}
-      style={{ '--board-ratio': `${geometry.vbW} / ${geometry.vbH}` } as React.CSSProperties}
-      data-active={active ?? undefined}
-    >
-      <svg
-        viewBox={`0 0 ${geometry.vbW} ${geometry.vbH}`}
-        className="circuit-svg"
-        aria-hidden="true"
-        focusable="false"
-      >
+    <div className="bp-sheet" data-active={active ?? undefined}>
+      <svg className="bp-svg" viewBox={`0 0 ${VB_W} ${VB_H}`} aria-hidden="true" focusable="false">
         <defs>
-          <radialGradient id={`pcb-shade-${geometry.id}`} cx="48%" cy="38%" r="75%">
-            <stop offset="0%" stopColor="#1b2a22" />
-            <stop offset="46%" stopColor="#121a15" />
-            <stop offset="100%" stopColor="#070b09" />
-          </radialGradient>
-          <radialGradient id={`pcb-sheen-${geometry.id}`} cx="8%" cy="0%" r="62%">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.07" />
-            <stop offset="72%" stopColor="#ffffff" stopOpacity="0" />
+          <pattern id="bp-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+            <path d="M 22 0 H 0 V 22" fill="none" stroke="rgba(146, 186, 224, 0.16)" strokeWidth="0.7" />
+          </pattern>
+          <pattern id="bp-major" width="110" height="110" patternUnits="userSpaceOnUse">
+            <path d="M 110 0 H 0 V 110" fill="none" stroke="rgba(176, 210, 240, 0.24)" strokeWidth="0.9" />
+          </pattern>
+          <radialGradient id="bp-vignette" cx="50%" cy="46%" r="68%">
+            <stop offset="0%" stopColor="#14325f" stopOpacity="0.55" />
+            <stop offset="72%" stopColor="#0a1e3c" stopOpacity="0" />
           </radialGradient>
         </defs>
-        <rect width={geometry.vbW} height={geometry.vbH} fill={`url(#pcb-shade-${geometry.id})`} />
-        <rect width={geometry.vbW} height={geometry.vbH} fill={`url(#pcb-sheen-${geometry.id})`} />
-        <path d={geometry.pcb.copper} fill="none" stroke="#7a4e28" strokeWidth={1.15} strokeLinecap="round" strokeLinejoin="round" opacity={0.62} />
-        <path d={geometry.pcb.copper} fill="none" stroke="#f0d2a4" strokeWidth={0.4} strokeLinecap="round" strokeLinejoin="round" opacity={0.28} />
-        <path d={geometry.pcb.bus} fill="none" stroke="#d29a62" strokeWidth={0.72} strokeLinecap="round" opacity={0.7} />
-        <path d={geometry.pcb.parts} fill="none" stroke="#cbbba6" strokeWidth={0.75} strokeLinejoin="miter" opacity={0.78} />
-        <path d={geometry.pcb.pads} fill="#c49262" opacity={0.82} />
-        <path d={geometry.pcb.viaRings} fill="none" stroke="#e0b07a" strokeWidth={0.7} opacity={0.8} />
-        <path d={geometry.pcb.viaHoles} fill="#050706" />
-        {geometry.pcb.ghosts.map((d, index) => (
-          <path
-            key={`ghost-${index}`}
-            d={d}
-            className={`circuit-ghost circuit-ghost-${index}`}
-            pathLength={100}
-            strokeDasharray="14 150"
-          />
-        ))}
-        <rect
-          x={18}
-          y={18}
-          width={geometry.vbW - 36}
-          height={geometry.vbH - 36}
-          rx={16}
-          fill="none"
-          stroke="rgba(232,220,176,0.34)"
-          strokeWidth={1.25}
-        />
-        {geometry.holes.map((hole) => (
-          <g key={`hole-${hole.x}-${hole.y}`}>
-            <circle cx={hole.x} cy={hole.y} r={7} fill="none" stroke="rgba(232,220,176,0.5)" strokeWidth={1.2} />
-            <circle cx={hole.x} cy={hole.y} r={3.1} fill="#070908" />
-          </g>
-        ))}
-        <path
-          d={geometry.returnD}
-          fill="none"
-          stroke="#8a5a32"
-          strokeWidth={2.2}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          opacity={0.55}
-        />
-        {geometry.traces.map((trace) => (
-          <g key={trace.id}>
-            <path
-              d={trace.d}
-              fill="none"
-              stroke={trace.color}
-              strokeWidth={10}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              opacity={0.22}
-            />
-            <path
-              d={trace.d}
-              fill="none"
-              stroke="#6b421c"
-              strokeWidth={5.4}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d={trace.d}
-              className={`circuit-trace circuit-trace-${trace.id}`}
-              fill="none"
-              stroke={trace.color}
-              strokeWidth={2.35}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d={trace.d}
-              className={`circuit-pulse circuit-pulse-glow circuit-delay-${trace.delay}`}
-              fill="none"
-              stroke={trace.color}
-              strokeWidth={12}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              pathLength={100}
-              strokeDasharray="34 200"
-            />
-            <path
-              d={trace.d}
-              className={`circuit-pulse circuit-pulse-core circuit-delay-${trace.delay}`}
-              fill="none"
-              stroke="#ffffff"
-              strokeWidth={4.4}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              pathLength={100}
-              strokeDasharray="22 200"
-            />
-          </g>
-        ))}
-        {geometry.vias.map((via) => (
-          <g key={`via-${via.x}-${via.y}`}>
-            <circle cx={via.x} cy={via.y} r={5.5} fill="#1a120c" stroke="#c4895a" strokeWidth={1.35} />
-            <circle cx={via.x} cy={via.y} r={1.7} fill="#0c0f0d" />
-          </g>
-        ))}
-        {geometry.chips.map((chip) => (
-          <ChipPins key={`pins-${chip.x}-${chip.y}`} cx={chip.x} cy={chip.y} hw={halfW} hh={halfH} />
-        ))}
-        <text
-          x={geometry.example.x}
-          y={geometry.example.y}
-          textAnchor={geometry.example.anchor}
-          fill="rgba(232,220,176,0.78)"
-          fontSize={geometry.example.size}
-          fontFamily="system-ui, sans-serif"
-          fontWeight={600}
-        >
-          Example
+        <rect width={VB_W} height={VB_H} fill="#0a1e3c" />
+        <rect width={VB_W} height={VB_H} fill="url(#bp-grid)" />
+        <rect width={VB_W} height={VB_H} fill="url(#bp-major)" />
+        <rect width={VB_W} height={VB_H} fill="url(#bp-vignette)" />
+
+        <path className="bp-frame" d="M 24 18 H 1256 V 582 H 24 Z" />
+        <path className="bp-frame" d="M 40 78 V 36 H 82 M 1198 36 H 1240 V 78 M 40 522 V 564 H 82 M 1240 522 V 564 H 1198" />
+        <path className="bp-tick" d="M 360 48 H 455 M 825 48 H 920" />
+        <path className="bp-tick" d="M 348 48 V 36 M 348 48 V 60 M 932 48 V 36 M 932 48 V 60" />
+        <text className="bp-title" x={VB_W / 2} y={54} textAnchor="middle">
+          REVENUE CIRCUIT
         </text>
+        <path className="bp-frame" d="M 40 524 H 1240" />
+        <text className="bp-footer" x={48} y={558} textAnchor="start">
+          THE CIRCUIT METHOD™
+        </text>
+        <text className="bp-footer bp-footer-center" x={620} y={558} textAnchor="middle">
+          {tagline}
+        </text>
+        <text className="bp-footer" x={1232} y={558} textAnchor="end">
+          SHEET 1 OF 1
+        </text>
+
+        {ORDER.map((slug) => {
+          const stage = stages.find((item) => item.slug === slug)
+          if (!stage) return null
+          const x = BLOCK_X[slug]
+          const cx = center(slug)
+          const delay = DELAY[slug]
+          return (
+            <g key={slug} className={`bp-stage bp-stage-${slug}`}>
+              {stage.kicker ? (
+                <Dimension x={x} y={TOP - 18} w={BW} label={stage.kicker} delay={delay} />
+              ) : null}
+              <g style={delayStyle(delay)}>
+                <path className="bp-draw bp-block" d={rectPath(x, TOP, BW, BH)} pathLength={100} />
+                <text className="bp-ink bp-index" x={cx} y={TOP + 28} textAnchor="middle">
+                  0{ORDER.indexOf(slug) + 1}
+                </text>
+                <text className="bp-ink bp-name" x={cx} y={TOP + 52} textAnchor="middle">
+                  {stage.name}
+                </text>
+              </g>
+            </g>
+          )
+        })}
+
+        <g className="bp-stage bp-stage-signal" style={delayStyle(DELAY.signal)}>
+          <circle className="bp-draw bp-symbol" cx={74} cy={WIRE} r={18} pathLength={100} />
+          <path className="bp-draw bp-symbol" d={wave(60, WIRE, 2, 14, 6).d} pathLength={100} />
+        </g>
+        <g className="bp-stage bp-stage-signal">
+          <Wire d={signalWire} color={STAGE_COLOR.signal} delay={DELAY.signal} />
+        </g>
+
+        <g className="bp-stage bp-stage-switch">
+          <Wire d={switchWire} color={STAGE_COLOR.switch} delay={DELAY.switch} />
+          <g style={delayStyle(DELAY.switch)}>
+            <circle className="bp-ink bp-node" cx={center('switch') - 36} cy={WIRE} r={3.3} />
+            <circle className="bp-ink bp-node" cx={center('switch') + 36} cy={WIRE} r={3.3} />
+          </g>
+          <SwitchArm x={center('switch') - 36} y={WIRE} length={72} delay={DELAY.switch} closeAt={DELAY.switch + 0.58} />
+        </g>
+
+        <g className="bp-stage bp-stage-current">
+          <Wire d={currentWire} color={STAGE_COLOR.current} delay={DELAY.current} />
+          <g style={delayStyle(DELAY.current)}>
+            <circle className="bp-draw bp-symbol" cx={center('current')} cy={WIRE} r={28} pathLength={100} />
+            <circle className="bp-draw bp-symbol" cx={center('current')} cy={WIRE} r={18} pathLength={100} />
+            <circle className="bp-draw bp-symbol" cx={center('current')} cy={WIRE} r={8} pathLength={100} />
+          </g>
+        </g>
+
+        <g className="bp-stage bp-stage-breaker">
+          <Wire d={breakerWire} color={STAGE_COLOR.breaker} delay={DELAY.breaker} />
+          <g style={delayStyle(DELAY.breaker)}>
+            <circle className="bp-ink bp-node" cx={center('breaker') - 36} cy={WIRE} r={3.3} />
+            <circle className="bp-ink bp-node" cx={center('breaker') + 36} cy={WIRE} r={3.3} />
+            <path
+              className="bp-draw bp-symbol"
+              d={`M ${center('breaker') - 36} ${WIRE} L ${center('breaker') - 4} ${WIRE - 18} L ${center('breaker') + 36} ${WIRE}`}
+              pathLength={100}
+            />
+            <path
+              className="bp-draw bp-symbol"
+              d={rectPath(center('breaker') - 16, WIRE + 10, 30, 16)}
+              pathLength={100}
+            />
+            <path className="bp-draw bp-symbol" d={`M ${center('breaker') - 8} ${WIRE + 18} H ${center('breaker') + 8}`} pathLength={100} />
+          </g>
+        </g>
+
+        <g className="bp-stage bp-stage-ground">
+          <Wire d={groundWire} color={STAGE_COLOR.ground} delay={DELAY.ground} />
+          <g style={delayStyle(DELAY.ground)}>
+            <path className="bp-draw bp-symbol" d={`M ${center('ground') - 18} 362 H ${center('ground') + 18}`} pathLength={100} />
+            <path className="bp-draw bp-symbol" d={`M ${center('ground') - 11} 369 H ${center('ground') + 11}`} pathLength={100} />
+            <path className="bp-draw bp-symbol" d={`M ${center('ground') - 5} 376 H ${center('ground') + 5}`} pathLength={100} />
+          </g>
+        </g>
+
+        <g style={delayStyle(DELAY.recorded)}>
+          <path className="bp-draw bp-symbol" d={bus} pathLength={100} />
+          <text className="bp-ink bp-example" x={1112} y={132} textAnchor="middle">
+            Example
+          </text>
+        </g>
+
+        {RECEIPTS.map((receipt, index) => {
+          const y = receiptY[index]
+          const delay = DELAY[receipt.id]
+          return (
+            <g key={receipt.id} className={`bp-stage bp-stage-${receipt.id}`}>
+              <g style={delayStyle(delay)}>
+                <path className="bp-draw bp-symbol" d={`M 948 ${y} H 986`} pathLength={100} />
+                <circle className="bp-ink bp-node" cx={986} cy={y} r={3.1} />
+                <circle className="bp-ink bp-node" cx={1044} cy={y} r={3.1} />
+                <text className="bp-ink bp-receipt" x={986} y={y - 30} textAnchor="start">
+                  {receipt.name}
+                </text>
+              </g>
+              <SwitchArm x={986} y={y} length={58} delay={delay} closeAt={delay + 0.5} />
+              <PassStamp x={1066} y={y} delay={delay} />
+            </g>
+          )
+        })}
       </svg>
-      {stages.map((stage, index) => {
-        const chip = geometry.chips[index]
-        const color = STAGE_COLOR[stage.slug as (typeof ORDER)[number]]
+
+      {stages.map((stage) => {
+        const slug = stage.slug as StageSlug
+        const x = BLOCK_X[slug]
         return (
           <Link
             key={stage.slug}
             href={stage.href}
             data-stage={stage.slug}
-            className={`circuit-chip circuit-chip-${stage.slug} circuit-delay-${index}`}
-            style={
-              {
-                left: percent(chip.x, geometry.vbW),
-                top: percent(chip.y, geometry.vbH),
-                width: percent(geometry.bodyW, geometry.vbW),
-                height: percent(geometry.bodyH, geometry.vbH),
-                '--stage': color,
-              } as React.CSSProperties
-            }
+            className={`bp-hit bp-hit-${stage.slug}`}
+            style={{
+              left: percent(x, VB_W),
+              top: percent(TOP, VB_H),
+              width: percent(BW, VB_W),
+              height: percent(BH, VB_H),
+            }}
             onMouseEnter={() => onActivate(stage.slug)}
             onFocus={() => onActivate(stage.slug)}
             onClick={(event) => onChipClick(event, stage.slug)}
           >
-            <span className="circuit-chip-index" aria-hidden="true">
-              0{index + 1}
-            </span>
-            <span className="circuit-chip-name">{stage.name}</span>
+            <span className="sr-only">{stage.name}</span>
           </Link>
         )
       })}
+
       {RECEIPTS.map((receipt, index) => {
-        const point = geometry.switches[index]
+        const y = receiptY[index]
         return (
           <button
             key={receipt.id}
             type="button"
             data-stage={receipt.id}
-            className={`circuit-switch circuit-switch-${receipt.id}`}
+            className={`bp-hit bp-hit-${receipt.id}`}
             style={{
-              left: percent(point.x, geometry.vbW),
-              top: percent(point.y, geometry.vbH),
-              width: percent(geometry.switchW, geometry.vbW),
-              height: percent(geometry.switchH, geometry.vbH),
+              left: percent(970, VB_W),
+              top: percent(y - 36, VB_H),
+              width: percent(200, VB_W),
+              height: percent(64, VB_H),
             }}
             aria-label={`${receipt.name}. Example score readout. Pass.`}
             onMouseEnter={() => onActivate(receipt.id)}
             onFocus={() => onActivate(receipt.id)}
             onClick={() => onActivate(receipt.id)}
-          >
-            <span className="circuit-switch-name">{receipt.name}</span>
-            <span className="circuit-switch-row">
-              <span className={`circuit-led circuit-led-${receipt.id}`} aria-hidden="true" />
-              <span className="circuit-toggle" aria-hidden="true">
-                <span className={`circuit-lever circuit-lever-${receipt.id}`} />
-              </span>
-            </span>
-            <span className={`circuit-pass circuit-pass-${receipt.id}`}>PASS</span>
-            <span className="circuit-meter" aria-hidden="true">
-              <span className={`circuit-meter-fill circuit-meter-${receipt.id}`} />
-            </span>
-          </button>
+          />
         )
       })}
+
+      <button type="button" className="bp-replay" onMouseEnter={onReplay} onClick={onReplay}>
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" strokeWidth="1.2" />
+          <path d="M16 7.5 V13 M16 19 V24.5 M7.5 16 H13 M19 16 H24.5" fill="none" stroke="currentColor" strokeWidth="1.2" />
+          <circle cx="16" cy="16" r="1.4" fill="currentColor" />
+        </svg>
+        <span>Replay</span>
+      </button>
     </div>
   )
 }
 
-function orderStages(stages: CircuitStage[]): CircuitStage[] | null {
+function orderStages(stages: CircuitStage[]) {
   const ordered = ORDER.map((slug) => stages.find((stage) => stage.slug === slug))
   if (ordered.some((stage) => !stage || !stage.name)) return null
   return ordered as CircuitStage[]
 }
 
-export default function CircuitBoard({ stages }: { stages: CircuitStage[] }) {
+export default function CircuitBoard({ stages, tagline }: { stages: CircuitStage[]; tagline: string }) {
   const ordered = orderStages(stages)
   const rootRef = useRef<HTMLDivElement>(null)
+  const sheetRef = useRef<HTMLDivElement>(null)
+  const replayLock = useRef(0)
   const [active, setActive] = useState<string | null>(null)
 
   useEffect(() => {
@@ -707,6 +390,38 @@ export default function CircuitBoard({ stages }: { stages: CircuitStage[] }) {
     document.addEventListener('pointerdown', onPointerDown)
     return () => document.removeEventListener('pointerdown', onPointerDown)
   }, [])
+
+  useLayoutEffect(() => {
+    const sheet = sheetRef.current
+    if (!sheet) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    sheet.dataset.state = 'armed'
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return
+        sheet.dataset.state = 'playing'
+        observer.disconnect()
+      },
+      { threshold: 0.28 },
+    )
+    observer.observe(sheet)
+    return () => observer.disconnect()
+  }, [])
+
+  function replay() {
+    const sheet = sheetRef.current
+    if (!sheet) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const now = performance.now()
+    if (now - replayLock.current < 450) return
+    replayLock.current = now
+    sheet.dataset.state = 'armed'
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        if (sheetRef.current) sheetRef.current.dataset.state = 'playing'
+      })
+    })
+  }
 
   if (!ordered) {
     return (
@@ -724,7 +439,7 @@ export default function CircuitBoard({ stages }: { stages: CircuitStage[] }) {
   }
 
   const names = ordered.map((stage) => stage.name)
-  const flowLabel = `The flow moves from ${names[0]} to ${names[1]}, then ${names[2]}, then ${names[3]}, then ${names[4]}. ${FLOW_TAIL}`
+  const flowLabel = `The flow moves from ${names[0]} to ${names[1]}, then ${names[2]}, then ${names[3]}, then ${names[4]}. Example receipts then read Recorded, Measured, and Proven.`
   const activeStage = ordered.find((stage) => stage.slug === active)
   const activeReceipt = RECEIPTS.find((receipt) => receipt.id === active)
   const caption = activeStage?.line || (activeReceipt ? `${activeReceipt.name}. Example score readout.` : '\u00A0')
@@ -753,25 +468,20 @@ export default function CircuitBoard({ stages }: { stages: CircuitStage[] }) {
         setActive(null)
       }}
     >
-      <div className="md:hidden">
-        <BoardFace
-          geometry={STACK}
-          stages={ordered}
-          active={active}
-          onActivate={setActive}
-          onChipClick={onChipClick}
-        />
+      <p className="sr-only">On a narrow screen the sheet scrolls sideways.</p>
+      <div className="bp-scroll thin-scrollbar">
+        <div ref={sheetRef}>
+          <Sheet
+            stages={ordered}
+            tagline={tagline}
+            active={active}
+            onActivate={setActive}
+            onChipClick={onChipClick}
+            onReplay={replay}
+          />
+        </div>
       </div>
-      <div className="mx-auto hidden w-full max-w-5xl md:block">
-        <BoardFace
-          geometry={WIDE}
-          stages={ordered}
-          active={active}
-          onActivate={setActive}
-          onChipClick={onChipClick}
-        />
-      </div>
-      <p className="circuit-caption" aria-live="polite">
+      <p className="bp-caption" aria-live="polite">
         {caption}
       </p>
     </div>
