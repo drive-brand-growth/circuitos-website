@@ -1,31 +1,76 @@
 title: The method
 path: /method
 description: >
-  The Circuit Method™ is five stages and one circuit. Write the decision, say
-  the odds, and prove what caused the result.
+  The agent drafts. The rules decide. The odds are math, not mood. Written
+  rules and a fixed score make a revenue system reliable.
 status: published
 kicker: The method
-headline: Five stages. One circuit.
+headline: The odds are math, not mood.
 updated: ""
 lede:
+  - The agent drafts. The rules decide. The odds are math, not mood.
   - >
-    The Circuit Method™ is how revenue work gets written down, so it still runs
-    when you are not in the room.
+    Written rules and fixed scores, joined to an agent that only drafts, make
+    a revenue system reliable. You write the rules. You still close the switch.
   - >
-    Something comes in. You write the decision and the odds. The work is a draft.
-    A person approves what reaches a customer or moves money. The result comes
-    back, and you ask what caused it.
+    Deterministic means the same inputs always give the same result.
+    Probabilistic means the agent works from odds. The agent may draft. It
+    does not get to change the rule or the score.
 table:
   caption: ""
   columns: []
   rows: []
 sections:
+  - heading: The Tiebreaker
+    paragraphs:
+      - >
+        The Tiebreaker is a score. The Switch reads it when a lead needs a
+        route.
+      - >
+        It is not the Breaker. The Breaker is a person. That person says yes
+        before anything reaches a customer or moves money. The Tiebreaker never
+        sends the note. It only scores the lead so a written rule can route it.
+      - >
+        The Tiebreaker is Bayesian and deterministic. Bayesian means updating
+        your odds as evidence comes in. Deterministic means the same inputs
+        always give the same score. Every score shows why.
+      - Three inputs go in. Noel writes the weights. This page does not invent them.
+    items:
+      - label: ""
+        text: Attribution. Which touches moved the lead. Nearby is not enough. Causal means proving what actually caused the result.
+        href: ""
+      - label: ""
+        text: Velocity. How fast the lead moves, set next to deals that closed.
+        href: ""
+      - label: ""
+        text: Impact. What a win is worth.
+        href: ""
+    listStyle: bullets
+    callout: ""
+    embed: none
+  - heading: What the score shows
+    paragraphs:
+      - >
+        Same inputs always give the same score. The score shows the touches
+        that counted, the pace against deals that closed, and what the win is
+        worth. The Switch reads that score and the written rule, then routes
+        the lead. The agent may draft the note that follows. The rule still
+        decides.
+      - >
+        [Noel to confirm: how attribution, velocity, and impact are weighed, and the formula that joins them.]
+      - >
+        [Noel to confirm: one real lead, with the real inputs and the real Tiebreaker score. No number until you write it.]
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
   - heading: One loop
     paragraphs:
       - The model drafts. The owner decides.
       - >
-        A model is a tool inside the method. It can list what came in. It can
-        draft the note. It does not own the rule, the odds, or the send.
+        Something comes in. You write the decision and the odds. The work is a
+        draft. A person approves what reaches a customer or moves money. The
+        result comes back, and you ask what caused it.
     items: []
     listStyle: none
     callout: ""

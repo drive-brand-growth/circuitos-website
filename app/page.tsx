@@ -73,6 +73,9 @@ export default async function HomePage() {
       <section id="circuit" className="px-6 py-20 sm:py-32">
         <Container width="page">
           <SectionHeader align="center" title={home.revealTitle} lede={site.tagline} />
+          {home.circuitLede ? (
+            <p className="reading mx-auto mt-8 text-center text-[var(--muted)]">{home.circuitLede}</p>
+          ) : null}
           <div className="mt-14">
             <StageDiagram
               centerTitle={home.diagramTitle}

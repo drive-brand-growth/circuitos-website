@@ -31,6 +31,16 @@ sections:
         If the rule lives where the team cannot open it during the meeting,
         you do not have a switch. You have a habit.
     bullets: []
+  - heading: A score the rule can read
+    paragraphs:
+      - >
+        One score Switch can read is The Tiebreaker. It joins attribution,
+        velocity, and impact. Same inputs always give the same score, and the
+        score shows why. The full walk is on the method page.
+      - >
+        The Tiebreaker routes a lead. It does not approve a send. That yes is
+        the Breaker, and the Breaker is a person.
+    bullets: []
 caution: >
   The short circuit is letting the draft choose the route. The table was never
   written, so the forecast call cannot say which rule fired.
