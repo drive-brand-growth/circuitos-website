@@ -10,20 +10,45 @@ villainBody: >
 
   A model can list what came in. A model can draft the note. It cannot own the
   rule, the odds, or the send.
-originTitle: I watched the same failure for twenty years.
+originTitle: I could not defend the number.
 originBody: >
-  I have spent more than twenty years in RevOps and sales leadership. The failure
-  was the same in room after room. The forecast was a guess. A deal died, and
-  nobody could say which rule had been used. The team argued opinions.
+  This is not one day. It is the same story, from more than twenty years of the work.
 
-  [Noel to confirm: the meeting, the quarter, or the deal where this became obvious.]
+  I have run revenue teams in my day job.
 
-  Then it was plain. The work already had a shape. A lead came in. Someone decided.
-  Work moved. A person approved the thing that reached the customer. Later, someone
-  asked what caused the result. Nobody had written that shape down. So it could not
-  be repeated when I was not in the room.
+  I also run MetroFlex, a license. The work there is gym licensing and apparel.
 
-  I built The Circuit Method™ to write it down.
+  In both places, a sales team was chasing a quota.
+
+  The forecast call was the hard hour. The number was a guess.
+
+  The pipeline looked full. Then it did not close.
+
+  Reps worked the wrong leads.
+
+  An AI tool showed up.
+
+  It added noise.
+
+  It did not add certainty.
+
+  Then the board, or the chief executive, asked why the number moved.
+
+  The fear under that question was simple. You would be the one blamed.
+
+  [Noel to confirm: one detail from those rooms, if you want it here. No date, no employer, no client, no number.]
+
+  Then it clicked.
+
+  Gut feel was not the problem.
+
+  The dashboard was not the problem.
+
+  The decisions were.
+
+  When the rules and the odds decide, and the agents do the work inside those rules, the number becomes something you can defend.
+
+  [Noel to confirm: what changed in the work after that, in your words. No result, no client, no number.]
 revealTitle: The Circuit Method™. Five stages. One circuit.
 exampleTitle: Here's how it works.
 exampleLede: >
@@ -48,9 +73,7 @@ primaryLabel: Read the method
 primaryHref: /method
 circuitKicker: The loop
 circuitTitle: Five stages. One circuit.
-circuitLede: >
-  The agent drafts. The rules decide. The odds are math, not mood. Written rules
-  and a fixed score, joined to an agent that only drafts, make the system reliable.
+circuitLede: The agent drafts. The rules decide.
 pillars:
   - href: /decisions
     kicker: One
