@@ -23,6 +23,18 @@ type TraceSpec = {
   delay: number
 }
 
+type Box = { x: number; y: number; w: number; h: number }
+
+type PcbArt = {
+  copper: string
+  bus: string
+  parts: string
+  pads: string
+  viaRings: string
+  viaHoles: string
+  ghosts: string[]
+}
+
 type BoardGeometry = {
   id: 'wide' | 'stack'
   vbW: number
@@ -37,9 +49,9 @@ type BoardGeometry = {
   traces: TraceSpec[]
   vias: Point[]
   holes: Point[]
-  passives: Point[]
   returnD: string
   example: { x: number; y: number; anchor: 'start' | 'middle'; size: number }
+  pcb: PcbArt
 }
 
 type Tip = {
@@ -70,6 +82,223 @@ const RECEIPTS = [
 ] as const
 
 const FLOW_TAIL = 'Example receipts then read Recorded, Measured, and Proven.'
+
+function mulberry32(seed: number) {
+  let state = seed >>> 0
+  return () => {
+    state = (state + 0x6d2b79f5) | 0
+    let t = Math.imul(state ^ (state >>> 15), 1 | state)
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+  }
+}
+
+function ring(cx: number, cy: number, r: number) {
+  const x = Math.round(cx)
+  const y = Math.round(cy)
+  return `M ${x - r} ${y} a ${r} ${r} 0 1 1 ${r * 2} 0 a ${r} ${r} 0 1 1 ${-r * 2} 0`
+}
+
+function keepOuts(
+  chips: Point[],
+  switches: Point[],
+  bodyW: number,
+  bodyH: number,
+  switchW: number,
+  switchH: number,
+): Box[] {
+  const pad = 8
+  return [
+    ...chips.map((chip) => ({
+      x: chip.x - bodyW / 2 - pad,
+      y: chip.y - bodyH / 2 - pad,
+      w: bodyW + pad * 2,
+      h: bodyH + pad * 2,
+    })),
+    ...switches.map((point) => ({
+      x: point.x - switchW / 2 - pad,
+      y: point.y - switchH / 2 - pad,
+      w: switchW + pad * 2,
+      h: switchH + pad * 2,
+    })),
+  ]
+}
+
+function buildPcb(width: number, height: number, seed: number, blocked: Box[]): PcbArt {
+  const rand = mulberry32(seed)
+  const copper: string[] = []
+  const bus: string[] = []
+  const parts: string[] = []
+  const pads: string[] = []
+  const viaRings: string[] = []
+  const viaHoles: string[] = []
+  const ghosts: string[] = []
+  const margin = 18
+  const wide = width > 700
+
+  const inside = (x: number, y: number) => x > margin && y > margin && x < width - margin && y < height - margin
+  const blockedAt = (x: number, y: number) =>
+    blocked.some((box) => x > box.x && x < box.x + box.w && y > box.y && y < box.y + box.h)
+
+  const addVia = (x: number, y: number) => {
+    if (viaRings.length > 150 || !inside(x, y)) return
+    const cx = Math.round(x)
+    const cy = Math.round(y)
+    viaRings.push(ring(cx, cy, 2.5))
+    viaHoles.push(ring(cx, cy, 0.85))
+  }
+
+  const addPad = (x: number, y: number, r: number) => {
+    if (!inside(x, y) || pads.length > 220) return
+    pads.push(ring(x, y, r))
+  }
+
+  const pitch = wide ? 12 : 10
+  for (const axis of ['h', 'v'] as const) {
+    const span = axis === 'h' ? height : width
+    const run = axis === 'h' ? width : height
+    for (let a = margin + 2; a < span - margin; a += pitch) {
+      let b = margin + Math.floor(rand() * 16)
+      while (b < run - margin) {
+        const len = 14 + Math.floor(rand() * (wide ? 86 : 46))
+        const end = Math.min(run - margin, b + len)
+        if (end - b > 12) {
+          const x1 = axis === 'h' ? b : a
+          const y1 = axis === 'h' ? a : b
+          const x2 = axis === 'h' ? end : a
+          const y2 = axis === 'h' ? a : end
+          const d = `M ${x1} ${y1} L ${x2} ${y2}`
+          copper.push(d)
+          if (ghosts.length < 6 && end - b > 42 && rand() > 0.78) ghosts.push(d)
+          if (rand() > 0.8) addVia(x2, y2)
+          if (rand() > 0.9) addPad(x1, y1, 1.5)
+        }
+        b = end + 7 + Math.floor(rand() * 22)
+      }
+    }
+  }
+
+  const diagCount = wide ? 84 : 42
+  for (let i = 0; i < diagCount; i += 1) {
+    const x = margin + Math.floor(rand() * (width - margin * 2))
+    const y = margin + Math.floor(rand() * (height - margin * 2))
+    const len = 18 + Math.floor(rand() * 52)
+    const sx = rand() > 0.5 ? 1 : -1
+    const sy = rand() > 0.5 ? 1 : -1
+    const x2 = x + sx * len
+    const y2 = y + sy * len
+    if (!inside(x2, y2)) continue
+    const d = `M ${x} ${y} L ${x2} ${y2}`
+    copper.push(d)
+    if (rand() > 0.55) addVia(x, y)
+    if (ghosts.length < 6 && len > 36 && rand() > 0.4) ghosts.push(d)
+  }
+
+  const walks = wide ? 110 : 56
+  const dirs = [
+    [1, 0],
+    [-1, 0],
+    [0, 1],
+    [0, -1],
+    [1, 1],
+    [1, -1],
+    [-1, 1],
+    [-1, -1],
+  ]
+  for (let i = 0; i < walks; i += 1) {
+    let x = Math.round((margin + rand() * (width - margin * 2)) / 4) * 4
+    let y = Math.round((margin + rand() * (height - margin * 2)) / 4) * 4
+    const steps: string[] = []
+    const count = 5 + Math.floor(rand() * 8)
+    for (let s = 0; s < count; s += 1) {
+      const dir = dirs[Math.floor(rand() * dirs.length)]
+      const step = (2 + Math.floor(rand() * 5)) * 6
+      const nx = x + dir[0] * step
+      const ny = y + dir[1] * step
+      if (!inside(nx, ny)) continue
+      steps.push(`M ${x} ${y} L ${nx} ${ny}`)
+      if (rand() > 0.62) addVia(nx, ny)
+      x = nx
+      y = ny
+    }
+    if (!steps.length) continue
+    const d = steps.join(' ')
+    copper.push(d)
+    if (ghosts.length < 6 && steps.length > 3) ghosts.push(d)
+  }
+
+  const busCount = wide ? 7 : 4
+  for (let i = 0; i < busCount; i += 1) {
+    const horizontal = rand() > 0.42
+    const len = (horizontal ? width : height) * (0.18 + rand() * 0.34)
+    const x = margin + rand() * (width - margin * 2 - 30)
+    const y = margin + rand() * (height - margin * 2 - 30)
+    if (blockedAt(x, y)) continue
+    for (let n = 0; n < 4; n += 1) {
+      if (horizontal) {
+        const yy = Math.round(y + n * 3)
+        const x2 = Math.min(width - margin, Math.round(x + len))
+        if (yy > margin && yy < height - margin) bus.push(`M ${Math.round(x)} ${yy} H ${x2}`)
+      } else {
+        const xx = Math.round(x + n * 3)
+        const y2 = Math.min(height - margin, Math.round(y + len))
+        if (xx > margin && xx < width - margin) bus.push(`M ${xx} ${Math.round(y)} V ${y2}`)
+      }
+    }
+    addVia(x, y)
+  }
+
+  const ics = wide ? 11 : 6
+  for (let i = 0; i < ics; i += 1) {
+    const w = 26 + Math.floor(rand() * 24)
+    const h = 14 + Math.floor(rand() * 12)
+    const x = margin + Math.floor(rand() * (width - margin * 2 - w))
+    const y = margin + Math.floor(rand() * (height - margin * 2 - h))
+    if (blockedAt(x + w / 2, y + h / 2)) continue
+    parts.push(`M ${x} ${y} h ${w} v ${h} h ${-w} z`)
+    const pins = 4 + Math.floor(rand() * 3)
+    for (let p = 1; p <= pins; p += 1) {
+      const py = Math.round(y + (h * p) / (pins + 1))
+      parts.push(`M ${x - 4} ${py} H ${x}`)
+      parts.push(`M ${x + w} ${py} H ${x + w + 4}`)
+      addPad(x - 4, py, 1.15)
+      addPad(x + w + 4, py, 1.15)
+    }
+    pads.push(ring(x + 3, y + 3, 1.05))
+  }
+
+  const passives = wide ? 22 : 12
+  for (let i = 0; i < passives; i += 1) {
+    const x = margin + Math.floor(rand() * (width - margin * 2 - 16))
+    const y = margin + Math.floor(rand() * (height - margin * 2 - 16))
+    if (blockedAt(x, y)) continue
+    if (rand() > 0.48) {
+      if (rand() > 0.5) {
+        parts.push(`M ${x} ${y - 2} h 16 v 4 h -16 z`)
+        addPad(x, y, 1.45)
+        addPad(x + 16, y, 1.45)
+      } else {
+        parts.push(`M ${x - 2} ${y} h 4 v 16 h -4 z`)
+        addPad(x, y, 1.45)
+        addPad(x, y + 16, 1.45)
+      }
+    } else {
+      parts.push(`M ${x} ${y} v 9 M ${x + 3.5} ${y} v 9 M ${x - 6} ${y + 4.5} H ${x} M ${x + 3.5} ${y + 4.5} H ${x + 9}`)
+      addPad(x - 6, y + 4.5, 1.15)
+      addPad(x + 9, y + 4.5, 1.15)
+    }
+  }
+
+  return {
+    copper: copper.join(' '),
+    bus: bus.join(' '),
+    parts: parts.join(' '),
+    pads: pads.join(' '),
+    viaRings: viaRings.join(' '),
+    viaHoles: viaHoles.join(' '),
+    ghosts: ghosts.slice(0, 6),
+  }
+}
 
 function tip(point: Point, bodyW: number, bodyH: number, pin: number): Tip {
   const halfW = bodyW / 2
@@ -141,12 +370,9 @@ function wideBoard(): BoardGeometry {
       { x: 28, y: 452 },
       { x: 932, y: 452 },
     ],
-    passives: [
-      { x: 812, y: 150 },
-      { x: 868, y: 46 },
-    ],
     returnD: `M 36 ${railY} V ${ends[0].cy} H ${ends[0].left}`,
     example: { x: 52, y: 292, anchor: 'start', size: 13 },
+    pcb: buildPcb(960, 480, 0x51a7c0de, keepOuts(chips, switches, bodyW, bodyH, switchW, switchH)),
   }
 }
 
@@ -209,12 +435,9 @@ function stackBoard(): BoardGeometry {
       { x: 18, y: 802 },
       { x: 382, y: 802 },
     ],
-    passives: [
-      { x: 318, y: 96 },
-      { x: 318, y: 250 },
-    ],
     returnD: `M ${busX} ${jogY} V ${ends[0].cy} H ${ends[0].left}`,
     example: { x: 200, y: (jogY + railY) / 2, anchor: 'middle', size: 14 },
+    pcb: buildPcb(400, 820, 0x0b0a7d11, keepOuts(chips, switches, bodyW, bodyH, switchW, switchH)),
   }
 }
 
@@ -239,16 +462,6 @@ function ChipPins({ cx, cy, hw, hh }: { cx: number; cy: number; hw: number; hh: 
     )
   }
   return <g>{pins}</g>
-}
-
-function Passive({ x, y }: Point) {
-  return (
-    <g>
-      <rect x={x} y={y} width={6} height={11} rx={1} fill="#c49262" />
-      <rect x={x + 16} y={y} width={6} height={11} rx={1} fill="#c49262" />
-      <rect x={x + 4} y={y + 2.2} width={14} height={6.6} rx={1} fill="#1a1f1c" stroke="#8d9390" strokeWidth={0.8} />
-    </g>
-  )
 }
 
 function BoardFace({
@@ -279,8 +492,35 @@ function BoardFace({
         aria-hidden="true"
         focusable="false"
       >
-        <rect width={geometry.vbW} height={geometry.vbH} fill="#0e120f" />
-        <rect x={12} y={12} width={geometry.vbW - 24} height={geometry.vbH - 24} rx={22} fill="#121815" />
+        <defs>
+          <radialGradient id={`pcb-shade-${geometry.id}`} cx="48%" cy="38%" r="75%">
+            <stop offset="0%" stopColor="#1b2a22" />
+            <stop offset="46%" stopColor="#121a15" />
+            <stop offset="100%" stopColor="#070b09" />
+          </radialGradient>
+          <radialGradient id={`pcb-sheen-${geometry.id}`} cx="8%" cy="0%" r="62%">
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.07" />
+            <stop offset="72%" stopColor="#ffffff" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+        <rect width={geometry.vbW} height={geometry.vbH} fill={`url(#pcb-shade-${geometry.id})`} />
+        <rect width={geometry.vbW} height={geometry.vbH} fill={`url(#pcb-sheen-${geometry.id})`} />
+        <path d={geometry.pcb.copper} fill="none" stroke="#7a4e28" strokeWidth={1.15} strokeLinecap="round" strokeLinejoin="round" opacity={0.62} />
+        <path d={geometry.pcb.copper} fill="none" stroke="#f0d2a4" strokeWidth={0.4} strokeLinecap="round" strokeLinejoin="round" opacity={0.28} />
+        <path d={geometry.pcb.bus} fill="none" stroke="#d29a62" strokeWidth={0.72} strokeLinecap="round" opacity={0.7} />
+        <path d={geometry.pcb.parts} fill="none" stroke="#cbbba6" strokeWidth={0.75} strokeLinejoin="miter" opacity={0.78} />
+        <path d={geometry.pcb.pads} fill="#c49262" opacity={0.82} />
+        <path d={geometry.pcb.viaRings} fill="none" stroke="#e0b07a" strokeWidth={0.7} opacity={0.8} />
+        <path d={geometry.pcb.viaHoles} fill="#050706" />
+        {geometry.pcb.ghosts.map((d, index) => (
+          <path
+            key={`ghost-${index}`}
+            d={d}
+            className={`circuit-ghost circuit-ghost-${index}`}
+            pathLength={100}
+            strokeDasharray="14 150"
+          />
+        ))}
         <rect
           x={18}
           y={18}
@@ -297,24 +537,31 @@ function BoardFace({
             <circle cx={hole.x} cy={hole.y} r={3.1} fill="#070908" />
           </g>
         ))}
-        {geometry.passives.map((pad) => (
-          <Passive key={`pad-${pad.x}-${pad.y}`} x={pad.x} y={pad.y} />
-        ))}
         <path
           d={geometry.returnD}
           fill="none"
-          stroke="#5c3a1e"
-          strokeWidth={4}
+          stroke="#8a5a32"
+          strokeWidth={2.2}
           strokeLinecap="round"
           strokeLinejoin="round"
+          opacity={0.55}
         />
         {geometry.traces.map((trace) => (
           <g key={trace.id}>
             <path
               d={trace.d}
               fill="none"
+              stroke={trace.color}
+              strokeWidth={10}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              opacity={0.22}
+            />
+            <path
+              d={trace.d}
+              fill="none"
               stroke="#6b421c"
-              strokeWidth={6.5}
+              strokeWidth={5.4}
               strokeLinecap="round"
               strokeLinejoin="round"
             />
@@ -332,22 +579,22 @@ function BoardFace({
               className={`circuit-pulse circuit-pulse-glow circuit-delay-${trace.delay}`}
               fill="none"
               stroke={trace.color}
-              strokeWidth={7}
+              strokeWidth={12}
               strokeLinecap="round"
               strokeLinejoin="round"
               pathLength={100}
-              strokeDasharray="24 160"
+              strokeDasharray="34 200"
             />
             <path
               d={trace.d}
               className={`circuit-pulse circuit-pulse-core circuit-delay-${trace.delay}`}
               fill="none"
               stroke="#ffffff"
-              strokeWidth={3.2}
+              strokeWidth={4.4}
               strokeLinecap="round"
               strokeLinejoin="round"
               pathLength={100}
-              strokeDasharray="16 160"
+              strokeDasharray="22 200"
             />
           </g>
         ))}
