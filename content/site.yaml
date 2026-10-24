@@ -1,0 +1,51 @@
+name: The Circuit Method™
+tagline: Written decisions. Honest odds. Proof of cause.
+promise: Predictable revenue, engineered.
+coreLine: The model drafts. The owner decides.
+description: >
+  Written decisions. Honest odds. Proof of cause. A method for running revenue:
+  written decisions, a forecast you can score, gates on what reaches a customer,
+  and proof of what actually moved the result.
+contactEmail: hello@usecircuitos.com
+navCtaLabel: Work with me
+navCtaHref: /work-with-me
+nav:
+  - label: Method
+    href: /method
+  - label: Decisions
+    href: /decisions
+  - label: Forecasting
+    href: /forecasting
+  - label: Proof
+    href: /causal
+  - label: Playground
+    href: /practice
+  - label: Field notes
+    href: /field-notes
+  - label: About
+    href: /about
+linkGroups:
+  - title: Practice
+    links:
+      - label: Decisions
+        href: /decisions
+      - label: Forecasting
+        href: /forecasting
+      - label: Causal proof
+        href: /causal
+      - label: Playground
+        href: /practice
+      - label: Field notes
+        href: /field-notes
+  - title: Noel
+    links:
+      - label: About
+        href: /about
+      - label: Work with me
+        href: /work-with-me
+      - label: "{{email}}"
+        href: "mailto:{{email}}"
+      - label: Privacy
+        href: /privacy
+      - label: Terms
+        href: /terms

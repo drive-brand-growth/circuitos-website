@@ -1,0 +1,67 @@
+title: The method
+path: /method
+description: >
+  The Circuit Method™ is the loop behind a pipeline review, a forecast call,
+  lead routing, an approval, and the attribution question. Five stages, one circuit.
+status: published
+kicker: Overview
+headline: The work you already run, written so it can be repeated
+updated: ""
+lede:
+  - >
+    A pipeline review already has a shape. A deal is stuck. Someone says what should
+    happen next. A number gets said on the forecast call. A note might go to the buyer.
+    Later, someone asks which activity deserved the credit.
+  - >
+    The Circuit Method™ makes that shape explicit, so it still runs when you are not
+    the person in the room. The motions are lead routing, the forecast call, the
+    approval before anything reaches a customer or moves money, and the attribution
+    question after the result.
+table:
+  caption: ""
+  columns: []
+  rows: []
+sections:
+  - heading: ""
+    paragraphs:
+      - The model drafts. The owner decides.
+      - >
+        A model is a tool inside the method. After the rule is written, it can assemble
+        a list of signals and a draft of the work. Publishing the note, changing the
+        number you will defend, or moving money still waits for a person.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: steps
+  - heading: Words the loop uses
+    paragraphs:
+      - Four terms show up everywhere else on this site. The glossary holds the full set.
+      - >
+        Owner load is the minutes a day the system takes from you. The aim is a small
+        load, with the call still yours. This site does not invent a minute count for
+        your shop.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: terms
+  - heading: ""
+    paragraphs:
+      - >
+        Next, read how a rule is written, then how a forecast is stated, then how
+        attribution refuses a number it has not earned.
+    items:
+      - label: Decisions
+        text: ""
+        href: /decisions
+      - label: Forecasting
+        text: ""
+        href: /forecasting
+      - label: Causal proof
+        text: ""
+        href: /causal
+      - label: Glossary
+        text: ""
+        href: /method/glossary
+    listStyle: links
+    callout: ""
+    embed: none

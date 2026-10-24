@@ -1,0 +1,7 @@
+name: Posterior
+order: 12
+status: published
+group: tool
+text: >
+  The odds after the evidence you allowed to count. On a forecast call, this is
+  the number you are willing to say out loud.

@@ -1,0 +1,8 @@
+name: Owner load
+order: 4
+status: published
+group: loop
+text: >
+  The minutes a day the system takes from the owner. The aim is a small load, with
+  the owner still making the call. The number is yours to measure. This site does
+  not supply one.

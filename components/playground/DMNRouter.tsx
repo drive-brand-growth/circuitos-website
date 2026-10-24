@@ -17,32 +17,32 @@ interface RouteConfig {
 const ROUTES: RouteConfig[] = [
   {
     action: 'CLUTCH_STRIKE',
-    label: 'Clutch Strike',
-    description: 'Immediate Escalation',
+    label: 'Breaker',
+    description: 'A person reviews',
     color: '#eab308',
   },
   {
     action: 'NURTURE_ACCELERATE',
-    label: 'Nurture Accelerate',
-    description: 'Accelerated Nurture',
+    label: 'Sooner draft',
+    description: 'Draft a sooner note',
     color: '#22c55e',
   },
   {
     action: 'NURTURE_STANDARD',
-    label: 'Nurture Standard',
-    description: 'Standard Nurture',
+    label: 'Standard draft',
+    description: 'Draft a note',
     color: '#3b82f6',
   },
   {
     action: 'IDENTITY_SHUNT',
-    label: 'Identity Shunt',
-    description: 'Re-education Loop',
+    label: 'Hold',
+    description: 'Qualify again later',
     color: '#f59e0b',
   },
   {
     action: 'FRICTION_INTERCEPT',
-    label: 'Friction Intercept',
-    description: 'Friction Intercept',
+    label: 'Friction',
+    description: 'Answer the objection',
     color: '#ef4444',
   },
 ]
@@ -50,7 +50,7 @@ const ROUTES: RouteConfig[] = [
 export default function DMNRouter({ route }: DMNRouterProps) {
   return (
     <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl p-6">
-      <h3 className="font-medium text-white mb-4">DMN Decision Router</h3>
+      <h3 className="font-medium text-white mb-4">Switch · written route</h3>
       <div className="space-y-1">
         {ROUTES.map(r => {
           const isActive = route.action === r.action

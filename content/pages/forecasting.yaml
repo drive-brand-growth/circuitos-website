@@ -1,0 +1,82 @@
+title: Forecasting
+path: /forecasting
+description: >
+  A forecast call is a set of odds you are willing to score when the period closes.
+  Bayesian updating is how evidence moves a prior you actually chose.
+status: published
+kicker: Honest odds
+headline: The forecast call is a set of odds
+updated: ""
+lede:
+  - >
+    On the forecast call you say what you believe will happen. Honest odds are odds
+    you are willing to score when the period closes. If the calls you labeled with
+    a similar confidence do not land at a similar rate, the call was a story.
+table:
+  caption: ""
+  columns: []
+  rows: []
+sections:
+  - heading: Start with the prior you would defend
+    paragraphs:
+      - >
+        Before this particular reply, meeting, or stall, what would you have said
+        about a deal at this stage? That is the prior. It comes from the history of
+        deals like it, and from your judgment. You choose it.
+      - >
+        If a model chooses the prior and you cannot say why, you do not have a
+        forecast. You have a suggestion wearing a number.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: Let the signal move the odds in proportion
+    paragraphs:
+      - >
+        A signal arrives. A reply. A meeting held. A missing buyer. A stall since
+        the last pipeline review. Each one should move the odds in proportion to
+        how much it actually changes similar deals. That move is the likelihood.
+        The odds after the move are the posterior. The posterior is what you say
+        out loud.
+      - >
+        In symbols, for people who want the sentence to be checkable: posterior
+        odds equal prior odds times a likelihood ratio. The ratio is how much more
+        common that signal is when the deal will happen than when it will not. If
+        you cannot explain the ratio, do not let it rewrite the forecast.
+      - >
+        The playground lets you watch a simulated update. The ratios there are for
+        practice. They are not your book of business, and they are not a benchmark.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: The shape of the test
+    paragraphs:
+      - >
+        Draw stated odds one way and how often those calls happened the other way.
+        The honest line is the diagonal. Points off the line are the lesson. Nothing
+        is plotted below. This site does not invent a score.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: chart
+  - heading: Where this meets the method
+    paragraphs:
+      - >
+        The odds live on the switch, beside the rule. Ground is where you compare
+        them to what happened. A model can do the arithmetic after you have named
+        the signals and the prior. It still does not own the number you will defend
+        on the forecast call.
+    items:
+      - label: Ground
+        text: ""
+        href: /method/ground
+      - label: Decisions
+        text: ""
+        href: /decisions
+      - label: Playground
+        text: ""
+        href: /practice
+    listStyle: links
+    callout: ""
+    embed: none

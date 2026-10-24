@@ -7,6 +7,8 @@ const ALLOWED_ORIGINS = new Set([
   'https://www.usecircuitos.com',
   'https://drivebrandgrowth.com',
   'https://www.drivebrandgrowth.com',
+  'https://thecircuitmethod.com',
+  'https://www.thecircuitmethod.com',
 ])
 
 function getCorsOrigin(request: NextRequest): string {
@@ -53,14 +55,21 @@ export function middleware(request: NextRequest) {
     'Strict-Transport-Security',
     'max-age=31536000; includeSubDomains'
   )
+  const editor =
+    request.nextUrl.pathname.startsWith('/admin') ||
+    request.nextUrl.pathname.startsWith('/keystatic') ||
+    request.nextUrl.pathname.startsWith('/api/keystatic')
+  const connectSrc = editor
+    ? "connect-src 'self' https://api.github.com https://github.com https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://api.drivebrandgrowth.com"
+    : "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://api.drivebrandgrowth.com"
   response.headers.set(
     'Content-Security-Policy',
-    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; img-src 'self' data: https:; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://api.drivebrandgrowth.com; frame-ancestors 'none';"
+    `default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; img-src 'self' data: https:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; ${connectSrc}; frame-ancestors 'none';`
   )
 
   return response
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico|circuitos-icon.svg|circuitos-logo-full.svg|robots.txt|sitemap.xml|llms.txt|llms-full.txt).*)'],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|mark.svg|logo-lockup.svg|robots.txt|sitemap.xml|llms.txt|llms-full.txt).*)'],
 }

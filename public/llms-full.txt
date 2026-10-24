@@ -1,0 +1,75 @@
+# The Circuit Method™
+
+Predictable revenue, engineered.
+
+Written decisions. Honest odds. Proof of cause.
+
+Author: Noel Pena. More than twenty years in RevOps and sales leadership. He teaches the method. The site does not describe an employer, a client list, or a set of results.
+
+Core line: The model drafts. The owner decides.
+
+A model, including a statistical model or a language model, is a tool inside the method. It may list signals and shape a draft. It does not write the policy, it does not own the odds you will defend on a forecast call, and it does not approve work that reaches a customer or moves money.
+
+## Business motions the method covers
+
+- Pipeline reviews
+- Forecast calls
+- Lead routing
+- Approvals before a customer is contacted or money moves
+- Attribution after the result
+
+## Five stages
+
+Signal: what comes in. Name the evidence that is allowed to change a route or a forecast.
+
+Switch: the decision, written with Decision Model and Notation (DMN). Each row can carry a probability. The owner closes the switch.
+
+Current: drafts of the work. A note, a task, a forecast edit, a routing tag. Fluent is not the same as released.
+
+Breaker: a person, a receipt. The receipt names the rule, the odds at the time, who approved, and what was released.
+
+Ground: the outcome returns. Score the forecast across many calls. Ask what caused the result, not only which touch was nearby.
+
+## Glossary
+
+Closed circuit: a full loop.
+Open circuit: built, not proved.
+Short circuit: skipping a gate.
+Owner load: minutes a day the system takes from the owner. No count is published here.
+
+## Forecasting
+
+State a prior you can explain. Let named signals update it. Say the posterior out loud. Later, compare stated odds with how often those calls happened. The honest picture is a diagonal. This site plots no results.
+
+## Causal proof
+
+Credit divides closed work among touches that were present. Cause needs a baseline, named confounders, uncertainty, and a refusal when the case is not shown. Pending is a complete answer in the review.
+
+## Playground
+
+https://thecircuitmethod.com/practice
+
+Practice on simulated signals. The figures are not a book of business and not a benchmark.
+
+## Field notes
+
+https://thecircuitmethod.com/field-notes
+https://thecircuitmethod.com/field-notes/honesty-gap
+https://thecircuitmethod.com/field-notes/deterministic-factory
+https://thecircuitmethod.com/field-notes/governance-manifesto
+https://thecircuitmethod.com/field-notes/lead-walk-through
+
+## Contact
+
+https://thecircuitmethod.com/work-with-me
+hello@usecircuitos.com
+
+No prices are listed. Scope, if any, is a later writing.
+
+## Domain
+
+Canonical host: https://thecircuitmethod.com
+Old paths on usecircuitos.com are mapped in docs/domain-switch.md and are not active in this deployment.
+www should redirect with 301, not 307, when the domains are attached.
+
+Last updated: October 24, 2026

@@ -1,0 +1,39 @@
+title: About Noel Pena
+path: /about
+description: >
+  Noel Pena teaches The Circuit Method™. He has spent more than twenty years
+  in RevOps and sales leadership.
+status: published
+kicker: The author
+headline: Noel Pena
+updated: ""
+lede:
+  - >
+    Noel has spent more than twenty years in RevOps and sales leadership. He wrote
+    The Circuit Method™ for owners who are tired of a forecast that depends on
+    whoever stayed latest in the pipeline review.
+  - >
+    The work he teaches is ordinary on purpose. Write the routing rule. State the
+    odds. Draft the work. Approve what reaches a customer or moves money. Score the
+    forecast. Ask what actually moved the result.
+table:
+  caption: ""
+  columns: []
+  rows: []
+sections:
+  - heading: ""
+    paragraphs:
+      - >
+        A model can help with the draft. It is a tool inside the method, the way a
+        spreadsheet is a tool inside a forecast call. It is not the method, and it
+        is not the owner.
+      - >
+        This site is the teaching. It is not a list of clients, and it is not a set
+        of results. If you want to look at your own loop, there is a plain way to write.
+    items:
+      - label: Work with me
+        text: ""
+        href: /work-with-me
+    listStyle: links
+    callout: The model drafts. The owner decides.
+    embed: none

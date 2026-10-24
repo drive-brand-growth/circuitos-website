@@ -1,0 +1,41 @@
+status: published
+kicker: For owners who run revenue
+intro: >
+  The Circuit Method™ is how the work already goes, made explicit. A pipeline review,
+  a forecast call, lead routing, an approval, and the attribution question after the
+  result all use one loop.
+primaryLabel: Read the method
+primaryHref: /method
+secondaryLabel: See the five stages
+secondaryHref: "#circuit"
+circuitKicker: The loop
+circuitTitle: Five stages, one circuit
+circuitLede: >
+  Something comes in. You write the decision and state the odds. The work is drafted.
+  A person approves anything that reaches a customer or moves money. The outcome comes
+  back, the forecast is scored, and you ask what actually moved the result.
+diagramTitle: Closed circuit
+diagramLine: signal returns to ground
+coreSupport: >
+  A model, if you use one, sits inside the loop. It can list the signals and shape
+  the draft. It does not own the rule, the odds, or the release.
+pillars:
+  - href: /decisions
+    kicker: Written decisions
+    title: The rule the room can read
+    text: Lead routing and the forecast call should use the same page. DMN is how that page is written.
+  - href: /forecasting
+    kicker: Honest odds
+    title: Say the number you will score
+    text: A forecast call is a set of odds. Honest means you bring the outcomes back and look.
+  - href: /causal
+    kicker: Proof of cause
+    title: Attribution after the result
+    text: Credit says what was nearby. Cause asks what moved the outcome. Pending is an answer.
+notesKicker: Field note
+notesTitle: From the notebook
+notesLede: Notes on the motions you already run. No claims about anyone else's results.
+newsletterTitle: Notes when a new field note is up
+newsletterLede: >
+  The list is not connected yet. Submitting this form does not send your address
+  anywhere, and it does not store it.

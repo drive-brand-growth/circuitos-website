@@ -1,0 +1,41 @@
+name: Signal
+order: 1
+status: published
+accent: false
+kicker: Before the pipeline review
+line: What comes in
+summary: >
+  Signal is what shows up before a routing call or a forecast call: replies,
+  stalls, form fills, and stage changes. Name them, or the review runs on memory.
+lede:
+  - >
+    A pipeline review is a pile of things that arrived since the last one. A reply.
+    A form fill. A stage that has not moved. A buyer who went quiet. A discount ask.
+    A source tagged on the opportunity.
+  - >
+    Signal is that pile, named. It is not the decision. It is the evidence the
+    decision is allowed to use.
+sections:
+  - heading: What you write down
+    paragraphs:
+      - >
+        Write the signals that are allowed to change a route or a forecast. A source,
+        a reply, a meeting held, a missing buyer, a stall. If a signal is not on the
+        page, it will still show up in the room. It will show up as a feeling.
+      - >
+        The Thursday review gets shorter when the pile is a list instead of a
+        recollection. People argue the list. They do not reconstruct it.
+    bullets: []
+  - heading: What a model may do here
+    paragraphs:
+      - >
+        A model is a tool at this stage, not the stage. It may list what arrived,
+        with the source and the time, so the review starts from a page.
+      - It does not say what the account should do next. That sentence belongs on the switch.
+    bullets: []
+caution: >
+  The short circuit here is acting on a fresh signal because it felt urgent. The
+  note goes to the customer before anyone has said which rule applied, or what the
+  odds were.
+nextHref: /method/switch
+nextLabel: Switch

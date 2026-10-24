@@ -1,0 +1,7 @@
+name: Switch
+order: 6
+status: published
+group: stage
+text: >
+  The decision. Written as rules, in DMN, carrying a probability. The owner closes
+  it. A model may point at the matching row.

@@ -110,8 +110,8 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     tagline: 'Downloaded a whitepaper, read the blog',
     prior: 0.15,
     decayRate: 0.020,
-    description: 'Moderate start, slower decay. Deliberate researcher — the engine gives them time to convert.',
-    qualificationProfile: 'Self-educating buyer, exploring solutions, needs trust-building content',
+    description: 'Moderate start, slower decay. A careful reader. The practice run gives them time.',
+    qualificationProfile: 'Reading on their own, exploring, needs material that earns trust',
   },
   WARM_REFERRAL: {
     id: 'WARM_REFERRAL',
@@ -120,7 +120,7 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     prior: 0.20,
     decayRate: 0.015,
     description: 'Higher starting probability, patient decay. Warm intro carries social proof the engine respects.',
-    qualificationProfile: 'Pre-qualified via social proof, higher trust baseline, shorter sales cycle',
+    qualificationProfile: 'Introduced by someone already known, higher trust, a shorter path',
   },
   ENTERPRISE_RFP: {
     id: 'ENTERPRISE_RFP',
@@ -129,7 +129,7 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     prior: 0.25,
     decayRate: 0.005,
     description: 'Highest start, minimal decay. Formal process signals real budget and timeline commitment.',
-    qualificationProfile: 'Budget allocated, multi-stakeholder, structured evaluation, long timeline',
+    qualificationProfile: 'Budget allocated, several people involved, a structured review, a long timeline',
   },
 }
 
@@ -148,7 +148,7 @@ export const SIGNALS: Signal[] = [
   },
   {
     id: 'revenue_500k_1m',
-    label: 'Revenue $500K–$1M',
+    label: 'Revenue from $500K to $1M',
     likelihoodRatio: 5.0,
     category: 'financial',
     confidence: 0.85,
@@ -177,7 +177,7 @@ export const SIGNALS: Signal[] = [
   // Authority (20% composite weight with Fit)
   {
     id: 'csuite_contact',
-    label: 'C-Suite Contact',
+    label: 'Executive contact',
     likelihoodRatio: 6.0,
     category: 'authority',
     confidence: 0.90,
@@ -186,7 +186,7 @@ export const SIGNALS: Signal[] = [
   },
   {
     id: 'multi_stakeholder',
-    label: 'Multi-Stakeholder Engaged',
+    label: 'Several people engaged',
     likelihoodRatio: 4.0,
     category: 'authority',
     confidence: 0.85,
@@ -220,13 +220,13 @@ export const SIGNALS: Signal[] = [
     category: 'fit',
     confidence: 0.98,
     enrichmentSource: ['deep_analysis'],
-    enrichmentQuery: 'Proprietary data → published case studies, problem-solution alignment',
+    enrichmentQuery: 'Proprietary data → how the problem and the offer line up',
   },
 
   // Engagement (15% composite weight)
   {
     id: 'demo_requested',
-    label: 'Demo Requested',
+    label: 'Meeting requested',
     likelihoodRatio: 6.0,
     category: 'engagement',
     confidence: 0.92,
@@ -316,13 +316,13 @@ export const ENGINES: EngineInfo[] = [
   { name: 'professional', displayName: 'Professional Intelligence', description: 'Professional network & company data', color: '#22c55e' },
   { name: 'market', displayName: 'Market Intelligence', description: 'Search trends & competitive landscape', color: '#a855f7' },
   { name: 'research', displayName: 'Research Engine', description: 'Cited industry research & market data', color: '#06b6d4' },
-  { name: 'deep_analysis', displayName: 'Deep Analysis Engine', description: 'Multi-source reasoning & pattern detection', color: '#f97316' },
+  { name: 'deep_analysis', displayName: 'Deep Analysis Engine', description: 'Reasoning across sources and pattern detection', color: '#f97316' },
 ]
 
 // Simulated responses per engine per signal type
 const ENRICHMENT_RESPONSES: Record<string, Record<string, string>> = {
   social: {
-    icp_match_strong: 'Social analysis: 14 brand-relevant signals detected, sentiment score: 0.87',
+    icp_match_strong: 'Social analysis: signals that mention the brand, sentiment score: 0.87',
     competitor_displacement: 'Social signals: Negative sentiment toward current vendor, exploring alternatives',
     weak_fit_score: 'Social analysis: Needs pattern misaligned with product capabilities, fit score: 0.22',
   },
@@ -469,7 +469,7 @@ export function routeDMN(compositeScore: CompositeScore, gates: GateStatus): DMN
       action: 'CLUTCH_STRIKE',
       tier: 'CRITICAL',
       confidence: 0.99,
-      description: 'Autonomous action authorized — immediate human escalation. High-authority intervention triggered.',
+      description: 'The practice gates passed. Prepare the draft. A person still approves anything that reaches a customer or moves money.',
     }
   }
 
@@ -478,7 +478,7 @@ export function routeDMN(compositeScore: CompositeScore, gates: GateStatus): DMN
       action: 'FRICTION_INTERCEPT',
       tier: 'INTERVENTION',
       confidence: 0.75,
-      description: 'Friction detected — address objections, reroute messaging, deploy targeted content.',
+      description: 'Friction detected. Answer the objection, change the route, and draft a note the owner can release.',
     }
   }
 
@@ -487,7 +487,7 @@ export function routeDMN(compositeScore: CompositeScore, gates: GateStatus): DMN
       action: 'NURTURE_ACCELERATE',
       tier: 'HIGH',
       confidence: 0.85,
-      description: 'Personalized email sequence + social retargeting. Priority follow-up within 24 hours.',
+      description: 'A drafted note sequence and a reminder. A person still releases anything a customer would see.',
     }
   }
 
@@ -496,7 +496,7 @@ export function routeDMN(compositeScore: CompositeScore, gates: GateStatus): DMN
       action: 'NURTURE_STANDARD',
       tier: 'MEDIUM',
       confidence: 0.65,
-      description: 'Drip campaign activated — educational content, case studies, success stories.',
+      description: 'A slower sequence of notes the team already uses. Nothing sends without a person.',
     }
   }
 
@@ -504,7 +504,7 @@ export function routeDMN(compositeScore: CompositeScore, gates: GateStatus): DMN
     action: 'IDENTITY_SHUNT',
     tier: 'LOW',
     confidence: 0.50,
-    description: 'Automated re-education loop — requalification content, segment for future nurture.',
+    description: 'Hold for a later pass. Draft material that qualifies them again, and keep them out of the live route.',
   }
 }
 

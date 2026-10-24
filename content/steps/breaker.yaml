@@ -1,0 +1,39 @@
+name: Breaker
+order: 4
+status: published
+accent: false
+kicker: Approvals
+line: A person approves the release
+summary: >
+  Breaker is the gate. A person approves anything that reaches a customer or moves
+  money, and the approval leaves a receipt the next pipeline review can read.
+lede:
+  - >
+    You already know this gate. A discount does not go out because a note was well
+    written. An outbound message to a live account does not go out because a queue
+    was full. Somebody says yes.
+  - >
+    Breaker is that yes, written down. A person approves anything that reaches a
+    customer or moves money. The approval leaves a receipt.
+sections:
+  - heading: What the receipt holds
+    paragraphs:
+      - >
+        The rule that matched. The odds at the time. Who approved. What was released.
+        If the next pipeline review cannot reconstruct that, the gate was a
+        conversation, not a control.
+    bullets: []
+  - heading: What a model does not get to do
+    paragraphs:
+      - >
+        A model may prepare the note and show the row that matched. It does not
+        approve its own draft. A gate the model can open is not a breaker.
+      - >
+        Internal bookkeeping can move as a draft with a lighter review. The moment
+        the work would reach a customer, or would change money, the person is the gate.
+    bullets: []
+caution: >
+  Skipping the gate is a short circuit. Speed is the usual reason. The missing
+  receipt is how you notice it later.
+nextHref: /method/ground
+nextLabel: Ground

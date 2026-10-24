@@ -1,56 +1,63 @@
-export default function Footer() {
+import Wordmark from '@/components/Wordmark'
+import { fill, type SiteContent, type StepEntry } from '@/lib/content'
+
+type FooterProps = {
+  site: SiteContent
+  steps: StepEntry[]
+}
+
+export default function Footer({ site, steps }: FooterProps) {
+  const text = (value: string) => fill(value, site.contactEmail)
+
   return (
-    <footer className="py-16 px-6 border-t border-[#27272a]">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
-          {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
-            <span className="text-xl font-semibold">
-              <span className="text-blue-500">//</span> Circuit<span className="text-blue-500">OS</span>
-            </span>
-            <p className="text-sm text-[#71717a] mt-2 leading-relaxed">
-              Observe. Decide. Act. Prove.
-            </p>
-            <p className="text-xs text-[#52525b] mt-4 leading-relaxed">
-              CircuitOS is the productization of a design-science approach to governed AI
-              decisioning: calibrated confidence, fail-closed action, and tamper-evident proof.
-            </p>
-          </div>
-
-          {/* Product */}
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-[#a1a1aa] mb-4">Product</h4>
-            <ul className="space-y-3 text-sm text-[#71717a]">
-              <li><a href="/#platform" className="hover:text-white transition-colors">Platform</a></li>
-              <li><a href="/#capabilities" className="hover:text-white transition-colors">Capabilities</a></li>
-              <li><a href="/#pricing" className="hover:text-white transition-colors">Pricing</a></li>
-              <li><a href="/demo" className="hover:text-white transition-colors">Book a Demo</a></li>
-              <li><a href="/playground" className="hover:text-white transition-colors">Playground</a></li>
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-[#a1a1aa] mb-4">Company</h4>
-            <ul className="space-y-3 text-sm text-[#71717a]">
-              <li><a href="/#contact" className="hover:text-white transition-colors">Contact</a></li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-[#a1a1aa] mb-4">Legal</h4>
-            <ul className="space-y-3 text-sm text-[#71717a]">
-              <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms" className="hover:text-white transition-colors">Terms of Service</a></li>
-            </ul>
-          </div>
+    <footer className="border-t border-[var(--line)] px-6 py-20">
+      <div className="mx-auto grid max-w-page gap-12 md:grid-cols-4">
+        <div>
+          <span className="text-[var(--fg)]">
+            <Wordmark markClassName="h-8 w-8" />
+          </span>
+          <p className="mt-5 max-w-xs text-sm leading-relaxed text-[var(--muted)]">{site.coreLine}</p>
         </div>
-
-        <div className="pt-8 border-t border-[#27272a] text-center text-sm text-[#71717a]" suppressHydrationWarning>
-          &copy; {new Date().getFullYear()} CircuitOS. All rights reserved.
+        <div>
+          <h2 className="kicker">Method</h2>
+          <ul className="mt-4 space-y-3 text-sm text-[var(--muted)]">
+            <li>
+              <a className="hover:text-[var(--fg)]" href="/method">
+                Overview
+              </a>
+            </li>
+            {steps.map((step) => (
+              <li key={step.slug}>
+                <a className="hover:text-[var(--fg)]" href={`/method/${step.slug}`}>
+                  {step.entry.name}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a className="hover:text-[var(--fg)]" href="/method/glossary">
+                Glossary
+              </a>
+            </li>
+          </ul>
         </div>
+        {site.linkGroups.map((group) => (
+          <div key={group.title}>
+            <h2 className="kicker">{group.title}</h2>
+            <ul className="mt-4 space-y-3 text-sm text-[var(--muted)]">
+              {group.links.map((item) => (
+                <li key={item.href}>
+                  <a className="hover:text-[var(--fg)]" href={text(item.href)}>
+                    {text(item.label)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
+      <p className="mx-auto mt-16 max-w-page border-t border-[var(--line)] pt-8 text-sm text-[var(--muted)]">
+        © {new Date().getFullYear()} Noel Pena. {site.name}.
+      </p>
     </footer>
   )
 }

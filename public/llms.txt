@@ -1,102 +1,50 @@
-# CircuitOS
+# The Circuit Method™
 
-> Stochastic models propose. Deterministic factories commit. Ledgers prove. — Governed AI for revenue teams.
+> Predictable revenue, engineered. Written decisions. Honest odds. Proof of cause.
 
-CircuitOS is a governed revenue platform: agents propose at the gates, deterministic factories commit with verify, and an append-only, hash-chained decision ledger records the moves (live in tenant deployments; platform-wide attestation ledger in rollout). Built for $10M–$50M businesses that need AI that moves fast and survives a security review.
+The Circuit Method™ is a way to run a business. It is taught by Noel Pena, who has spent more than twenty years in RevOps and sales leadership. The site is for learning the method. It is not a price list.
 
-## Core Capabilities
+The model drafts. The owner decides. A model is a tool inside the loop. It does not own the rule, the odds, or the release.
 
-- Predictive lead scoring with a registered signal registry and Bayesian inference
-- Autonomous outreach with human approval gates on all actions
-- Content intelligence with multi-model quality evaluation and fact-checking
-- AgentOps governance dashboard — real-time observability into every AI decision
-- Closed-loop feedback from GA4 engagement data
-- Multi-vertical support with isolated infrastructure per business line
-- Append-only decision trail on scored and governed actions (hash-chained, verifiable)
-- Confidence-based autonomy governance (execute / escalate / block)
+## The loop
 
-## How It Works
+1. Signal. What comes in before a pipeline review: replies, stalls, form fills, stage changes.
+2. Switch. The decision, written as rules (DMN, Decision Model and Notation), carrying the odds the owner would say on the forecast call. The owner closes the switch.
+3. Current. The work that follows, run as drafts: notes, tasks, forecast edits, routing tags.
+4. Breaker. A person approves anything that reaches a customer or moves money. The approval leaves a receipt.
+5. Ground. The outcome comes back. The forecast is scored. Attribution asks what actually moved the result.
 
-1. Configure: ICP encoded, scoring model calibrated, brand voice set
-2. Score: Every lead evaluated across registered signals for fit, intent, and timing
-3. Decide: Bayesian confidence thresholds determine autonomous execution vs. human escalation
-4. Engage: Personalized outreach in your brand voice with governance gates
-5. Prove: Full decision trail — every score, every gate evaluation, every routing decision auditable
+## Words
 
-## Integrations
+- Closed circuit: a full loop.
+- Open circuit: built, not proved.
+- Short circuit: skipping a gate.
+- Owner load: the minutes a day the system takes from the owner. The site states no minute count.
 
-Connects to any CRM (HubSpot, Salesforce, and more), email automation platforms, Google Analytics 4, and 5+ AI models for multi-model quality evaluation. Full REST API and webhook support for custom integrations.
+## Pages
 
-## Pricing
+- Home: https://thecircuitmethod.com/
+- The method: https://thecircuitmethod.com/method
+- Signal: https://thecircuitmethod.com/method/signal
+- Switch: https://thecircuitmethod.com/method/switch
+- Current: https://thecircuitmethod.com/method/current
+- Breaker: https://thecircuitmethod.com/method/breaker
+- Ground: https://thecircuitmethod.com/method/ground
+- Glossary: https://thecircuitmethod.com/method/glossary
+- Decisions (DMN): https://thecircuitmethod.com/decisions
+- Forecasting: https://thecircuitmethod.com/forecasting
+- Causal proof: https://thecircuitmethod.com/causal
+- Playground (simulated practice): https://thecircuitmethod.com/practice
+- Field notes: https://thecircuitmethod.com/field-notes
+- About Noel Pena: https://thecircuitmethod.com/about
+- Work with me: https://thecircuitmethod.com/work-with-me
+- Privacy: https://thecircuitmethod.com/privacy
+- Terms: https://thecircuitmethod.com/terms
 
-Monthly plans:
-- Growth: $3,500/mo — single vertical, scoring, outreach, CRM, content intelligence, audit trail
-- Scale: $6,500/mo — multi-vertical, enrichment, GA4 feedback, AgentOps dashboard, social distribution
-- Enterprise: $12,000/mo — unlimited verticals, custom integrations, token cost tracking, dedicated success manager
+## What this site will not do
 
-Implementation (one-time build fee) — transparent, line-item pricing:
-- Core: Platform Provisioning ($2,500) + ICP Encoding ($2,000) = $4,500 base
-- Modules: Lead Scoring ($2,500), Outreach Automation ($2,000), Content Intelligence ($2,000), Social Distribution ($1,000), CRM Integration ($1,500), Attribution & Feedback Loop ($1,000)
-- Add-ons: Additional verticals ($3,500 each), data migration ($500/source), custom API integrations ($1,000 each), extended training ($750)
-- Interactive build calculator: https://usecircuitos.com/#build-calculator
+It does not publish prices, client lists, testimonials, or results. The playground uses simulated signals and says so. The notes form is not connected.
 
-## Company
+Contact: hello@usecircuitos.com
 
-- Name: CircuitOS (a DriveBrandGrowth product)
-- Website: https://usecircuitos.com
-- Playground: https://usecircuitos.com/playground
-- Demo: https://usecircuitos.com/demo
-- Contact: hello@usecircuitos.com
-- Category: Revenue Intelligence, AI Sales Automation, AgentOps, B2B SaaS
-- Target Market: $10M–$50M businesses across professional services, franchise operations, e-commerce, and SaaS
-- Status: Running in production on operator-owned businesses; governed decisioning substrate with extensive automated test coverage
-
-## Frequently Asked Questions
-
-Q: What is CircuitOS?
-A: A revenue intelligence platform that scores your leads, decides what to do, and proves why — with full audit trail. It combines predictive scoring, AI outreach, content intelligence, and governance in one closed-loop system.
-
-Q: How does the scoring work?
-A: Your ICP and qualification criteria are encoded before launch. The Bayesian scoring model evaluates registered signals across fit, intent, and timing. Pre-calibrated from day one, then improves with real outcome data.
-
-Q: How is CircuitOS different from Salesforce or HubSpot?
-A: CircuitOS is not a CRM — it connects to your existing CRM. It's the intelligence layer that sits on top: scoring leads before they enter your pipeline, governing AI decisions with confidence thresholds, and providing a full audit trail of why every decision was made.
-
-Q: Can it handle multiple businesses?
-A: Yes. Unlimited verticals with isolated infrastructure per business line. Each gets its own scoring model, templates, CRM routing, and database.
-
-Q: What is AgentOps?
-A: AgentOps is the operational discipline for governing autonomous AI agents. CircuitOS includes a real-time AgentOps dashboard showing every decision (execute/escalate/block), confidence scores, and audit trails — the same governance enterprise buyers require.
-
-Q: Is content published automatically?
-A: No. All content and outreach requires explicit human approval. Every action has a full audit trail with confidence scoring and escalation reasoning.
-
-Q: What CRMs are supported?
-A: CircuitOS connects to any CRM — HubSpot, Salesforce, and more via native adapters or REST API/webhooks.
-
-Q: How does the feedback loop work?
-A: Real engagement data from GA4 (time-on-page, conversions, bounce rate, scroll depth) feeds back into the scoring model automatically. Each cycle makes predictions more accurate.
-
-Q: Who is CircuitOS built for?
-A: $10M–$50M businesses that want enterprise-grade revenue intelligence without enterprise complexity. Professional services, franchise operations, e-commerce/DTC, and SaaS revenue teams.
-
----
-Last Updated: March 2026
-
-## Causal Attribution (the Honesty Gap)
-
-Your AI lied. We have receipts. Every dashboard shows you credit. Credit is not causation. CircuitOS measures what your marketing actually caused, and refuses to show a number it can't prove.
-
-- Correlational multi-touch attribution (first-touch, last-touch, linear, time-decay, position, Shapley) is rendered as heuristic credit, never as causal lift
-- Causal lift is measured with backdoor confounder adjustment and FWL residualization against a measured per-segment baseline, always with a confidence interval
-- Every causal result is born uncitable; it becomes citable only after a calibration-harness pass plus a named human confirmation, and exporting an unproven number raises an exception
-- When measurement is pending, the product says "pending" in words. No placeholder digits. The refusal is the feature.
-
-## Key Pages
-
-- [The Receipts Test](https://usecircuitos.com/receipts-test): four questions that expose attribution theater
-- [The Honesty Gap manifesto](https://usecircuitos.com/insights/honesty-gap): why attribution dashboards flatter you and how the refusal works
-- [Deterministic factory](https://usecircuitos.com/insights/deterministic-factory): stochastic models propose, factories commit, ledgers prove
-- [Governance manifesto](https://usecircuitos.com/insights/governance-manifesto): why ungoverned AI decisions are a liability
-- [Lead walk-through](https://usecircuitos.com/insights/lead-walk-through): a governed decision in real time
-- [Live demo](https://usecircuitos.com/demo): labeled synthetic data, because the claim gate applies to demos too
+Last updated: October 24, 2026

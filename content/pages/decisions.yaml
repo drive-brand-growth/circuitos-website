@@ -1,0 +1,100 @@
+title: Decisions
+path: /decisions
+description: >
+  Write the routing rule and the forecast call as a table the room can read.
+  DMN is Decision Model and Notation. The owner fills the odds.
+status: published
+kicker: Written decisions
+headline: The pipeline review should be able to read the rule
+updated: ""
+lede:
+  - >
+    Lead routing happens whether or not it is written down. So does the call to
+    hold a deal or advance it. When the rule is a habit in one person's head, the
+    forecast call depends on who is in the room.
+  - >
+    DMN, Decision Model and Notation, is a way to put that rule on a page. A person
+    can read it. A system can follow it without inventing a policy in the moment.
+    The last column is the odds you would say before the outcome is known.
+table:
+  caption: Teaching table for lead routing. Odds are left for the owner to write.
+  columns:
+    - Buyer named
+    - Timeline named
+    - Action
+    - Stated odds
+  rows:
+    - cells:
+        - "Yes"
+        - "Yes"
+        - Advance to a draft for a person to approve
+        - You write this
+    - cells:
+        - "No"
+        - Either way
+        - Hold for the pipeline review
+        - You write this
+    - cells:
+        - "Yes"
+        - "No"
+        - Hold, and draft a question that asks for the timeline
+        - You write this
+sections:
+  - heading: A teaching table
+    paragraphs:
+      - >
+        This is the shape of a routing rule. It is not a recommendation for your
+        book of business, and the odds are blank on purpose.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: table
+  - heading: When two rows both match
+    paragraphs:
+      - >
+        You decide whether the first matching row wins, or whether rows are not
+        allowed to overlap. Overlap is how two rules fight in the same forecast
+        call, and how a room ends up with two numbers for one opportunity.
+      - >
+        FEEL is the small expression language DMN uses when a condition needs to
+        be exact. You do not need it to start. A table of plain words is already
+        a decision. FEEL is how that table runs without someone reinterpreting
+        the sentence.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: What else belongs in a table
+    paragraphs: []
+    items:
+      - label: ""
+        text: Which discount needs a person, and which field change does not.
+        href: ""
+      - label: ""
+        text: When a note may be drafted, and when it may be released.
+        href: ""
+      - label: ""
+        text: Which missing fact holds the deal for the pipeline review.
+        href: ""
+    listStyle: bullets
+    callout: The model drafts. The owner decides.
+    embed: none
+  - heading: ""
+    paragraphs:
+      - >
+        A model may propose a row after it has seen the signals you named. Adding
+        the row to the table is your decision. The odds are your forecast, which
+        means they have to be scorable. That is the next page.
+    items:
+      - label: The switch stage
+        text: ""
+        href: /method/switch
+      - label: Forecasting
+        text: ""
+        href: /forecasting
+      - label: Practice a route
+        text: ""
+        href: /practice
+    listStyle: links
+    callout: ""
+    embed: none

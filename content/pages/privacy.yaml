@@ -1,0 +1,95 @@
+title: Privacy
+path: /privacy
+description: How this site handles email you send, and when analytics runs.
+status: published
+kicker: ""
+headline: Privacy
+updated: October 24, 2026
+lede:
+  - >
+    DriveBrandGrowth LLC ("we") publishes this website for The Circuit Method™ at
+    {{host}}. Noel Pena is the author of the method taught here. This page says
+    what we collect when you use the site.
+table:
+  caption: ""
+  columns: []
+  rows: []
+sections:
+  - heading: Information we collect
+    paragraphs:
+      - >
+        If you email us, we receive the address you wrote from and whatever you put
+        in the message. The notes form on the home page is not connected. Submitting
+        it does not send your address to us and does not store it.
+      - >
+        Analytics runs only when a measurement id is configured for the deployment.
+        When it is, Google Analytics may receive page views, session length, and a
+        general location. When it is not configured, that script is not loaded.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: How we use it
+    paragraphs: []
+    items:
+      - label: ""
+        text: To answer the email you sent.
+        href: ""
+      - label: ""
+        text: To understand which pages are read, when analytics is on.
+        href: ""
+      - label: ""
+        text: To send notes you asked for, only after a list is actually connected and you have agreed.
+        href: ""
+    listStyle: bullets
+    callout: ""
+    embed: none
+  - heading: Sharing
+    paragraphs:
+      - >
+        We do not sell your information. Companies that host the site or measure it,
+        when measurement is on, process data for that purpose. That includes the host
+        and, when analytics is configured, Google.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: Cookies
+    paragraphs:
+      - If analytics is on, it may set cookies. You can tell your browser to refuse cookies.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: Security
+    paragraphs:
+      - >
+        We use ordinary technical measures to protect what we hold. No site can
+        promise that a transmission is perfectly safe.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: Your rights
+    paragraphs:
+      - >
+        You may ask to see, correct, or delete personal information we hold about
+        you. Write to {{email}}.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: Changes
+    paragraphs:
+      - If this page changes, the date above changes with it.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: Contact
+    paragraphs:
+      - "Questions about this page: {{email}}."
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none

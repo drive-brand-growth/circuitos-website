@@ -1,0 +1,34 @@
+title: Work with me
+path: /work-with-me
+description: >
+  A conversation about your pipeline review, forecast call, lead routing, or
+  approvals. No packages and no prices on this page.
+status: published
+kicker: A conversation
+headline: Bring one motion you already run
+updated: ""
+lede:
+  - >
+    If you want a second set of eyes on your own loop, write to Noel. A useful
+    conversation looks at one motion: the pipeline review, the forecast call,
+    lead routing, or the approval before something reaches a customer.
+  - >
+    The aim of that hour is to name the short circuits and to decide what gets
+    written down first. Not to tour a tool, and not to leave with a price.
+table:
+  caption: ""
+  columns: []
+  rows: []
+sections:
+  - heading: How to write
+    paragraphs:
+      - >
+        Email {{email}}. Say which motion you want to look at, and what currently
+        breaks when you are not in the room. That is enough to start.
+      - >
+        This page has no packages and no prices. If there is work to do together,
+        the scope is agreed in writing after the conversation.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none

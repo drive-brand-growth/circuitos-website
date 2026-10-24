@@ -1,0 +1,7 @@
+name: DMN
+order: 10
+status: published
+group: tool
+text: >
+  Decision Model and Notation. A way to write business rules so a person and a
+  machine read the same table. See Decisions.

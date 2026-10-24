@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 120" fill="none" role="img" aria-label="The Circuit Method trademark">
+  <g transform="translate(16 12) scale(0.48)">
+    <path d="M157.7 136.1A68 68 0 1 0 157.7 63.9" stroke="#ffffff" stroke-width="16" stroke-linecap="round"/>
+    <circle cx="162" cy="62" r="13.5" stroke="#ffffff" stroke-width="7.5"/>
+    <circle cx="162" cy="138" r="13.5" stroke="#ffffff" stroke-width="7.5"/>
+    <path d="M154 120L172 80" stroke="#ff2d2d" stroke-width="12" stroke-linecap="round"/>
+  </g>
+  <text x="132" y="74" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="36" font-weight="600">The Circuit Method</text>
+  <text x="548" y="52" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">"</text>
+</svg>

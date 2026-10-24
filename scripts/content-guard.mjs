@@ -1,54 +1,50 @@
 #!/usr/bin/env node
 /**
- * Content guard — runs as `prebuild`, so banned copy cannot reach any deploy
- * (local build, droplet docker build, Vercel). Operator law, mechanically
- * enforced after the 2026-07-10 QA pass found hand-fixed rules regressed.
+ * Content guard. Runs as `prebuild`, so banned copy cannot reach a build.
  *
  * Rules:
- *  1. "MetroFlex" appears nowhere (operator: not my business, not the ICP).
- *  2. No unnamed "running live in production" claims (anti-hype contract).
- *  3. No fabricated-benchmark tells in the concierge prompt.
- *  4. No NEW em dashes in user-visible source. Files in EM_DASH_LEGACY carried
- *     them before the guard existed; sweep them and delete entries. No adds.
- *
- * False positive? Add a narrow allowlist entry with a reason. Never widen.
+ *  1. "MetroFlex" appears nowhere.
+ *  2. No unnamed "running live in production" claims.
+ *  3. No fabricated benchmark phrasing.
+ *  4. No new em dashes or en dashes. Legacy files are listed below. Do not add.
+ *  5. No ® on The Circuit Method (the mark is ™). No ® anywhere in scanned copy.
+ *  6. The word franchise does not appear.
+ *  7. No DRN, no Motorola.
+ *  8. No hype words from the 2026-10-24 steer: revolutionary, autonomous,
+ *     agentic, game changing, 10x, magic.
+ *  9. No CircuitOS, AgentOps, or "book a demo" on the public site.
+ *     Internal Slack and CRM glue is skipped for that product name rule only.
+ * 10. The old four stage slogan does not return.
+ * 11. Domain redirects stay unwired. See docs/domain-switch.md.
  */
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative, extname } from "node:path";
 
 const ROOT = join(import.meta.dirname, "..");
 const SCAN = ["app", "components", "lib", "middleware.ts"];
+const TEXT_SCAN = ["public"];
 const EXTS = new Set([".ts", ".tsx"]);
+const TEXT_EXTS = new Set([".txt"]);
 
 /** files with pre-guard em dashes, pending a dedicated sweep. Do not add. */
 const EM_DASH_LEGACY = new Set([
-  "app/api/chat/route.ts", // system-prompt headings/instructions (model-read); output rule 6b bans dashes in replies
-  "app/insights/deterministic-factory/page.tsx",
-  "app/insights/governance-manifesto/page.tsx",
-  "app/insights/honesty-gap/page.tsx",
-  "app/insights/lead-walk-through/page.tsx",
-  "app/insights/page.tsx",
-  "app/playground/page.tsx",
-  "app/receipts-test/page.tsx",
-  "components/playground/DecisionPlayground.tsx",
-  "app/demo/page.tsx", // '—' null-score placeholder + demo labels
-  "components/playground/AutonomyPanel.tsx",
-  "components/playground/ClutchStrike.tsx",
-  "components/playground/PlaygroundHeader.tsx",
   "lib/ghl.ts",
-  "lib/revenue-physics.ts",
-  "lib/slack/commands/campaigns.ts", // internal ops-bot surfaces below
+  "lib/slack/commands/campaigns.ts",
   "lib/slack/commands/content.ts",
   "lib/slack/commands/help.ts",
   "lib/slack/commands/leads.ts",
   "lib/slack/router.ts",
 ]);
 
+function isInternalOps(rel) {
+  return rel.startsWith("lib/slack/") || rel.startsWith("app/api/slack/") || rel === "lib/ghl.ts";
+}
+
 const RULES = [
   {
     name: "no-metroflex",
     test: (line) => /metroflex/i.test(line),
-    message: "MetroFlex must not appear on the CircuitOS site (operator law, 2026-07-10).",
+    message: "MetroFlex must not appear (operator law, 2026-07-10).",
   },
   {
     name: "no-unnamed-production-claim",
@@ -58,7 +54,7 @@ const RULES = [
   {
     name: "no-fabricated-benchmarks",
     test: (line) => /(typically (lose|see|cut) \d+%|by \d+% in the first (month|week))/i.test(line),
-    message: "Fabricated-benchmark phrasing. No number without a source (no-fabrication law).",
+    message: "Fabricated benchmark phrasing. No number without a source (no fabrication law).",
   },
   {
     name: "no-new-em-dashes",
@@ -66,17 +62,59 @@ const RULES = [
     message: "No em dashes in copy (operator law). Legacy files baselined in EM_DASH_LEGACY.",
     baseline: EM_DASH_LEGACY,
   },
+  {
+    name: "no-new-en-dashes",
+    test: (line) => /–/.test(line),
+    message: "No en dashes in copy.",
+    baseline: EM_DASH_LEGACY,
+  },
+  {
+    name: "no-registered-mark",
+    test: (line) => /®/.test(line),
+    message: "Never use ®. The Circuit Method™ uses ™.",
+  },
+  {
+    name: "no-franchise",
+    test: (line) => /franchis/i.test(line),
+    message: "The word franchise must not appear. A license is not that word.",
+  },
+  {
+    name: "no-drn",
+    test: (line) => /\bDRN\b/.test(line),
+    message: "DRN must not appear.",
+  },
+  {
+    name: "no-motorola",
+    test: (line) => /motorola/i.test(line),
+    message: "Motorola must not appear.",
+  },
+  {
+    name: "no-hype-words",
+    test: (line) => /\b(revolutionary|autonomous|agentic|magic)\b|game[\s-]?changing|\b10x\b|10×/i.test(line),
+    message: "Hype word banned (2026-10-24 steer). Lead with the operating discipline. A model is a tool, not the headline.",
+  },
+  {
+    name: "no-old-product-name",
+    test: (line) => /\b(circuitos|agentops)\b|book a demo/i.test(line),
+    message: "Old product name, AgentOps, or a demo call to action. This site teaches the method.",
+    skip: isInternalOps,
+  },
+  {
+    name: "no-old-four-stages",
+    test: (line) => /observe\.\s*decide\.\s*act\.\s*prove/i.test(line),
+    message: "The loop is Signal, Switch, Current, Breaker, Ground.",
+  },
 ];
 
-function walk(p, acc = []) {
+function walk(p, exts, acc = []) {
   const st = statSync(p);
   if (st.isFile()) {
-    if (EXTS.has(extname(p))) acc.push(p);
+    if (exts.has(extname(p))) acc.push(p);
     return acc;
   }
   for (const e of readdirSync(p)) {
     if (e === "node_modules" || e.startsWith(".")) continue;
-    walk(join(p, e), acc);
+    walk(join(p, e), exts, acc);
   }
   return acc;
 }
@@ -113,16 +151,36 @@ function copyLines(src) {
   return out;
 }
 
-const files = SCAN.flatMap((p) => walk(join(ROOT, p)));
-let failed = false;
+function assertRedirectsInactive() {
+  const hits = [];
+  for (const file of ["next.config.js", "vercel.json", "middleware.ts"]) {
+    const src = readFileSync(join(ROOT, file), "utf8");
+    if (/redirects\s*:/.test(src) || /NextResponse\.redirect/.test(src) || /redirects\.pending/.test(src)) {
+      hits.push(file);
+    }
+  }
+  if (hits.length) {
+    console.error(`\nCONTENT GUARD [redirects-inactive] — domain redirects must stay unwired (${hits.join(", ")}). See docs/domain-switch.md.`);
+    return true;
+  }
+  return false;
+}
+
+const files = [
+  ...SCAN.flatMap((p) => walk(join(ROOT, p), EXTS)),
+  ...TEXT_SCAN.flatMap((p) => walk(join(ROOT, p), TEXT_EXTS)),
+  ...walk(join(ROOT, "content"), new Set([".yaml", ".yml", ".mdoc", ".md"])),
+];
+let failed = assertRedirectsInactive();
 
 for (const rule of RULES) {
   const violations = [];
   for (const file of files) {
     const rel = relative(ROOT, file);
     if (rule.baseline?.has(rel)) continue;
+    if (rule.skip?.(rel)) continue;
     for (const { line, n } of copyLines(readFileSync(file, "utf8"))) {
-      if (rule.test(line)) violations.push(`  ${rel}:${n}: ${line.trim().slice(0, 90)}`);
+      if (rule.test(line)) violations.push(`  ${rel}:${n}: ${line.trim().slice(0, 140)}`);
     }
   }
   if (violations.length) {
