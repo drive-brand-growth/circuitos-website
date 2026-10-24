@@ -4,7 +4,7 @@ import Container from '@/components/ui/Container'
 import DataTable from '@/components/ui/DataTable'
 import EmptyChart from '@/components/ui/EmptyChart'
 import SectionHeader from '@/components/ui/SectionHeader'
-import { fill, type PageContent, type StepEntry, type TermEntry } from '@/lib/content'
+import { fill, isHeldCopy, type PageContent, type StepEntry, type TermEntry } from '@/lib/content'
 
 type ProsePageProps = {
   page: PageContent
@@ -26,39 +26,48 @@ export default function ProsePage({ page, email, steps = [], terms = [] }: Prose
             <p className="mt-4 text-sm text-[var(--muted)]">Last updated: {text(page.updated)}</p>
           ) : null}
           <div className="mt-8 space-y-6 text-[var(--muted)]">
-            {page.lede.map((paragraph) => (
+            {page.lede.filter((paragraph) => !isHeldCopy(paragraph)).map((paragraph) => (
               <p key={paragraph}>{text(paragraph)}</p>
             ))}
           </div>
         </div>
 
-        {page.sections.map((section, index) => (
+        {page.sections.map((section, index) => {
+          const paragraphs = section.paragraphs.filter((paragraph) => !isHeldCopy(paragraph))
+          const items = section.items.filter((item) => !isHeldCopy(item.text) && !isHeldCopy(item.label))
+          const callout = section.callout && !isHeldCopy(section.callout) ? section.callout : ''
+          const hasList = section.listStyle !== 'none' && items.length > 0
+          const hasEmbed = section.embed === 'table' || section.embed === 'chart' || section.embed === 'steps' || section.embed === 'terms'
+          if (!paragraphs.length && !hasList && !callout && !hasEmbed) return null
+          return (
           <section key={`${section.heading}-${index}`} className="mt-20 sm:mt-28">
-            {section.heading ? (
+            {section.heading && !isHeldCopy(section.heading) ? (
               <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{text(section.heading)}</h2>
             ) : null}
-            <div className={`${section.heading ? 'mt-6' : ''} space-y-5 text-[var(--muted)]`}>
-              {section.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{text(paragraph)}</p>
-              ))}
-            </div>
-            {section.listStyle === 'bullets' && section.items.length > 0 ? (
+            {paragraphs.length > 0 ? (
+              <div className={`${section.heading ? 'mt-6' : ''} space-y-5 text-[var(--muted)]`}>
+                {paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{text(paragraph)}</p>
+                ))}
+              </div>
+            ) : null}
+            {section.listStyle === 'bullets' && items.length > 0 ? (
               <ul className="reading mt-6 list-disc space-y-3 pl-5 text-[var(--muted)]">
-                {section.items.map((item) => (
+                {items.map((item) => (
                   <li key={item.text || item.label}>{text(item.text || item.label)}</li>
                 ))}
               </ul>
             ) : null}
-            {section.listStyle === 'numbers' && section.items.length > 0 ? (
+            {section.listStyle === 'numbers' && items.length > 0 ? (
               <ol className="reading mt-6 list-decimal space-y-3 pl-5 text-[var(--muted)]">
-                {section.items.map((item) => (
+                {items.map((item) => (
                   <li key={item.text || item.label}>{text(item.text || item.label)}</li>
                 ))}
               </ol>
             ) : null}
-            {section.listStyle === 'cards' && section.items.length > 0 ? (
+            {section.listStyle === 'cards' && items.length > 0 ? (
               <ul className="mt-6 grid gap-4 sm:grid-cols-2">
-                {section.items.map((item) => (
+                {items.map((item) => (
                   <li key={item.label || item.text}>
                     <Card href={item.href || undefined}>
                       {item.label ? <h3 className="text-lg font-semibold">{text(item.label)}</h3> : null}
@@ -68,18 +77,18 @@ export default function ProsePage({ page, email, steps = [], terms = [] }: Prose
                 ))}
               </ul>
             ) : null}
-            {section.listStyle === 'links' && section.items.length > 0 ? (
+            {section.listStyle === 'links' && items.length > 0 ? (
               <p className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-                {section.items.map((item) => (
+                {items.map((item) => (
                   <a key={item.href || item.label} className="link" href={text(item.href)}>
                     {text(item.label)}
                   </a>
                 ))}
               </p>
             ) : null}
-            {section.callout ? (
+            {callout ? (
               <div className="mt-8">
-                <Callout>{text(section.callout)}</Callout>
+                <Callout>{text(callout)}</Callout>
               </div>
             ) : null}
             {section.embed === 'table' && page.table.columns.length > 0 ? (
@@ -106,7 +115,9 @@ export default function ProsePage({ page, email, steps = [], terms = [] }: Prose
                         <p className="kicker">{step.entry.kicker}</p>
                       </div>
                       <h3 className="mt-3 text-2xl font-semibold">{step.entry.name}</h3>
-                      <p className="mt-3 max-w-2xl text-[var(--muted)]">{step.entry.lede[0]}</p>
+                      <p className="mt-3 max-w-2xl text-[var(--muted)]">
+                        {step.entry.lede.find((paragraph) => !isHeldCopy(paragraph))}
+                      </p>
                     </Card>
                   </li>
                 ))}
@@ -118,14 +129,17 @@ export default function ProsePage({ page, email, steps = [], terms = [] }: Prose
                   <li key={term.slug}>
                     <Card href={`/method/glossary#${term.slug}`}>
                       <h3 className="font-semibold">{term.entry.name}</h3>
-                      <p className="mt-2 text-sm text-[var(--muted)]">{term.entry.text}</p>
+                      <p className="mt-2 text-sm text-[var(--muted)]">
+                        {isHeldCopy(term.entry.text) ? null : term.entry.text}
+                      </p>
                     </Card>
                   </li>
                 ))}
               </ul>
             ) : null}
           </section>
-        ))}
+          )
+        })}
       </Container>
     </article>
   )

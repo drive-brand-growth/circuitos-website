@@ -17,7 +17,7 @@ nav:
     href: /forecasting
   - label: Proof
     href: /causal
-  - label: Playground
+  - label: Practice sandbox
     href: /practice
   - label: Field notes
     href: /field-notes
@@ -32,7 +32,7 @@ linkGroups:
         href: /forecasting
       - label: Causal proof
         href: /causal
-      - label: Playground
+      - label: Practice sandbox
         href: /practice
       - label: Field notes
         href: /field-notes

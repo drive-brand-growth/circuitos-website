@@ -90,6 +90,13 @@ export function fill(text: string | null | undefined, email: string): string {
   return (text ?? '').replaceAll('{{email}}', email).replaceAll('{{host}}', host)
 }
 
+/** Bracketed notes for Noel stay in the content files and stay off the site. */
+const HELD_COPY = /\[Noel to (confirm|tell)\b/
+
+export function isHeldCopy(value: string | null | undefined) {
+  return HELD_COPY.test(value ?? '')
+}
+
 export type SiteContent = Awaited<ReturnType<typeof getSite>>
 export type HomeContent = Awaited<ReturnType<typeof getHome>>
 export type PageContent = NonNullable<Awaited<ReturnType<typeof getPage>>>

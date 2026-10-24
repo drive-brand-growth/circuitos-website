@@ -2,7 +2,7 @@ import Link from 'next/link'
 import PageShell from '@/components/PageShell'
 import Container from '@/components/ui/Container'
 import SectionHeader from '@/components/ui/SectionHeader'
-import { getGlossary, listTerms } from '@/lib/content'
+import { getGlossary, isHeldCopy, listTerms } from '@/lib/content'
 import { pageMeta } from '@/lib/seo'
 
 export async function generateMetadata() {
@@ -28,10 +28,15 @@ export default async function GlossaryPage() {
             </Link>
           </p>
           <div className="mt-8">
-            <SectionHeader as="h1" kicker={glossary.kicker} title={glossary.title} lede={glossary.lede} />
+            <SectionHeader
+              as="h1"
+              kicker={glossary.kicker}
+              title={glossary.title}
+              lede={isHeldCopy(glossary.lede) ? '' : glossary.lede}
+            />
           </div>
           <dl className="mt-16 space-y-12">
-            {visible.map((term) => (
+            {visible.filter((term) => !isHeldCopy(term.entry.text)).map((term) => (
               <div key={term.slug} id={term.slug}>
                 <dt className="text-2xl font-semibold tracking-tight">{term.entry.name}</dt>
                 <dd className="mt-3 text-lg leading-relaxed text-[var(--muted)]">{term.entry.text}</dd>

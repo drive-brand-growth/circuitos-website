@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import PageShell from '@/components/PageShell'
 import PracticeApp from '@/components/playground/PracticeApp'
-import { getPage, metaFor } from '@/lib/content'
+import { getPage, isHeldCopy, metaFor } from '@/lib/content'
 
 export async function generateMetadata() {
   return metaFor('practice')
@@ -18,14 +18,17 @@ export default async function PracticePage() {
       <div className="practice">
         <PracticeApp
           copy={{
-            kicker: page.kicker,
+            kicker: isHeldCopy(page.kicker) ? '' : page.kicker,
             headline: page.headline,
-            lede: page.lede[0] ?? '',
-            stages: stages.map((item) => ({ label: item.label, text: item.text })),
-            closeTitle: close?.heading ?? '',
-            closeBody: close?.paragraphs[0] ?? '',
+            lede: page.lede.find((paragraph) => !isHeldCopy(paragraph)) ?? '',
+            stages: stages
+              .filter((item) => !isHeldCopy(item.label) && !isHeldCopy(item.text))
+              .map((item) => ({ label: item.label, text: item.text })),
+            closeTitle: close?.heading && !isHeldCopy(close.heading) ? close.heading : '',
+            closeBody: close?.paragraphs?.find((paragraph) => !isHeldCopy(paragraph)) ?? '',
             closeHref: close?.items[0]?.href || '/forecasting',
-            closeLabel: close?.items[0]?.label || 'How a forecast is scored',
+            closeLabel:
+              close?.items.find((item) => !isHeldCopy(item.label))?.label || 'How a forecast is scored',
           }}
         />
       </div>

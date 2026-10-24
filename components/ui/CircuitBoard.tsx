@@ -130,13 +130,18 @@ function SwitchArm({ x, y, length, delay, closeAt }: { x: number; y: number; len
 function PassStamp({ x, y, delay }: { x: number; y: number; delay: number }) {
   const w = 92
   const h = 34
+  // The outer group only places the stamp. CSS transform on .bp-pass
+  // (the stamp scale, and transform:none under reduced motion) replaces
+  // any translate on that same element, which stacked every PASS at 0,0.
   return (
-    <g className="bp-pass" style={delayStyle(delay, delay, delay + 0.72)} transform={`translate(${x} ${y - h / 2})`}>
-      <rect width={w} height={h} rx={2} />
-      <rect x={3.5} y={3.5} width={w - 7} height={h - 7} rx={1} />
-      <text x={w / 2} y={h / 2 + 4} textAnchor="middle">
-        PASS
-      </text>
+    <g transform={`translate(${x} ${y - h / 2})`}>
+      <g className="bp-pass" style={delayStyle(delay, delay, delay + 0.72)}>
+        <rect width={w} height={h} rx={2} />
+        <rect x={3.5} y={3.5} width={w - 7} height={h - 7} rx={1} />
+        <text x={w / 2} y={h / 2 + 4} textAnchor="middle">
+          PASS
+        </text>
+      </g>
     </g>
   )
 }

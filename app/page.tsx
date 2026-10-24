@@ -5,14 +5,14 @@ import Container from '@/components/ui/Container'
 import NewsletterForm from '@/components/NewsletterForm'
 import SectionHeader from '@/components/ui/SectionHeader'
 import CircuitBoard from '@/components/ui/CircuitBoard'
-import { getHome, getSite, listNotes, listSteps } from '@/lib/content'
+import { getHome, getSite, isHeldCopy, listNotes, listSteps } from '@/lib/content'
 import { pageMeta } from '@/lib/seo'
 
 function paragraphs(value: string | null | undefined) {
   return (value ?? '')
     .split(/\n+/)
     .map((part) => part.replace(/\s+/g, ' ').trim())
-    .filter(Boolean)
+    .filter((part) => part && !isHeldCopy(part))
 }
 
 export async function generateMetadata() {
