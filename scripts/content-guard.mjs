@@ -3,8 +3,7 @@
  * Content guard. Runs as `prebuild`, so banned copy cannot reach a build.
  *
  * Rules:
- *  1. MetroFlex may appear only as a license (gym licensing and apparel).
- *     A line that names it must also say license. Never a franchise.
+ *  1. "MetroFlex" appears nowhere on this site.
  *  2. No unnamed "running live in production" claims.
  *  3. No fabricated benchmark phrasing.
  *  4. No new em dashes or en dashes. Legacy files are listed below. Do not add.
@@ -43,9 +42,9 @@ function isInternalOps(rel) {
 
 const RULES = [
   {
-    name: "metroflex-is-a-license",
-    test: (line) => /metroflex/i.test(line) && !/licens/i.test(line),
-    message: "MetroFlex may appear only as a license. Say license on the same line. Never a franchise.",
+    name: "no-metroflex",
+    test: (line) => /metroflex/i.test(line),
+    message: "MetroFlex must not appear.",
   },
   {
     name: "no-unnamed-production-claim",
