@@ -17,7 +17,7 @@ export default function EditorSetup() {
           The steps, and the variable names, are in docs/cms.md. No paid editor account is required.
         </p>
         <p className="mt-8">
-          <Link href="/" className="text-blue-400 hover:text-blue-300 font-medium">
+          <Link href="/" className="text-blue-400 hover:text-blue-300 font-medium max-sm:inline-block max-sm:py-2">
             Back to the site
           </Link>
         </p>
