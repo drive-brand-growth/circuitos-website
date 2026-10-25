@@ -33,7 +33,7 @@ export default async function StageRoute({ params }: { params: Params }) {
       <article className="grid-bg pb-20 pt-36">
         <Container>
           <p className="text-sm text-[#a1a1aa]">
-            <Link href="/method" className="text-blue-400 hover:text-blue-300">
+            <Link href="/method" className="text-blue-400 hover:text-blue-300 max-sm:inline-block max-sm:py-2">
               The method
             </Link>
             <span className="px-2">/</span>
@@ -74,7 +74,7 @@ export default async function StageRoute({ params }: { params: Params }) {
           <h2 className="mb-5 mt-16 text-2xl md:text-3xl font-bold tracking-[-0.02em]">The short circuit</h2>
           <p className="text-lg leading-[1.6] text-[#a1a1aa]">{step.caution}</p>
           <p className="mt-10">
-            <Link href={step.nextHref} className="text-blue-400 hover:text-blue-300 font-medium">
+            <Link href={step.nextHref} className="text-blue-400 hover:text-blue-300 font-medium max-sm:inline-block max-sm:py-2">
               Continue to {step.nextLabel}
             </Link>
           </p>

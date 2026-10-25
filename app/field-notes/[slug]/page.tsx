@@ -50,7 +50,7 @@ export default async function FieldNotePage({ params }: { params: Params }) {
         ) : null}
         <Container>
           <p className="text-sm text-[#a1a1aa]">
-            <Link href="/field-notes" className="text-blue-400 hover:text-blue-300">
+            <Link href="/field-notes" className="text-blue-400 hover:text-blue-300 max-sm:inline-block max-sm:py-2">
               Field notes
             </Link>
           </p>
@@ -65,7 +65,7 @@ export default async function FieldNotePage({ params }: { params: Params }) {
             <MarkdocBody document={document} />
           </div>
           <p className="mt-12 text-sm">
-            <Link href="/method" className="text-blue-400 hover:text-blue-300 font-medium">
+            <Link href="/method" className="text-blue-400 hover:text-blue-300 font-medium max-sm:inline-block max-sm:py-2">
               Back to the method
             </Link>
           </p>

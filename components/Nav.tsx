@@ -17,7 +17,7 @@ export default function Nav({ items, ctaLabel, ctaHref }: NavProps) {
     <nav className="fixed top-0 w-full z-50 border-b border-[#27272a] bg-black/80 backdrop-blur-xl">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
         <div className="flex items-center gap-8 min-w-0">
-          <a href="/" className="flex items-center gap-2 shrink-0">
+          <a href="/" className="flex items-center gap-2 shrink-0 py-2 xl:py-0">
             <span className="text-lg sm:text-xl font-semibold tracking-tight whitespace-nowrap">
               <span className="text-blue-500">//</span> Circuit Method
             </span>
@@ -31,12 +31,12 @@ export default function Nav({ items, ctaLabel, ctaHref }: NavProps) {
           </div>
         </div>
         <div className="flex items-center gap-3 shrink-0">
-          <a href={ctaHref} className="text-sm btn-primary text-white px-3 sm:px-4 py-2 rounded-lg font-medium whitespace-nowrap">
+          <a href={ctaHref} className="inline-flex min-h-11 items-center text-sm btn-primary text-white px-3 sm:px-4 py-2 rounded-lg font-medium whitespace-nowrap xl:min-h-0">
             {ctaLabel}
           </a>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="xl:hidden text-[#a1a1aa] hover:text-white"
+            className="xl:hidden -mr-2 inline-flex h-11 w-11 items-center justify-center text-[#a1a1aa] hover:text-white"
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
           >
@@ -58,7 +58,7 @@ export default function Nav({ items, ctaLabel, ctaHref }: NavProps) {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block text-[#a1a1aa] hover:text-white transition-colors py-2"
+                className="block text-[#a1a1aa] hover:text-white transition-colors py-3"
               >
                 {link.label}
               </a>

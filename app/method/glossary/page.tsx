@@ -23,7 +23,7 @@ export default async function GlossaryPage() {
       <article className="grid-bg pb-20 pt-36">
         <Container>
           <p className="text-sm text-[#a1a1aa]">
-            <Link href="/method" className="text-blue-400 hover:text-blue-300">
+            <Link href="/method" className="text-blue-400 hover:text-blue-300 max-sm:inline-block max-sm:py-2">
               The method
             </Link>
           </p>

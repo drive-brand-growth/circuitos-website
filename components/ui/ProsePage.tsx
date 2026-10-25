@@ -79,7 +79,7 @@ export default function ProsePage({ page, email, steps = [], terms = [] }: Prose
               {section.listStyle === 'links' && items.length > 0 ? (
                 <p className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
                   {items.map((item) => (
-                    <a key={item.href || item.label} className="text-blue-400 hover:text-blue-300 font-medium" href={text(item.href)}>
+                    <a key={item.href || item.label} className="text-blue-400 hover:text-blue-300 font-medium max-sm:inline-block max-sm:py-2" href={text(item.href)}>
                       {text(item.label)}
                     </a>
                   ))}
