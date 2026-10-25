@@ -469,7 +469,7 @@ export function routeDMN(compositeScore: CompositeScore, gates: GateStatus): DMN
       action: 'CLUTCH_STRIKE',
       tier: 'CRITICAL',
       confidence: 0.99,
-      description: 'The practice gates passed. Prepare the draft. A person still approves anything that reaches a customer or moves money.',
+      description: 'The practice gates passed. Prepare the draft. A written gate and a named person\'s recorded approval still stand before anything reaches a customer or moves money.',
     }
   }
 
@@ -487,7 +487,7 @@ export function routeDMN(compositeScore: CompositeScore, gates: GateStatus): DMN
       action: 'NURTURE_ACCELERATE',
       tier: 'HIGH',
       confidence: 0.85,
-      description: 'A drafted note sequence and a reminder. A person still releases anything a customer would see.',
+      description: 'A drafted note sequence and a reminder. A written gate and a named person\'s recorded approval still stand before a customer sees it.',
     }
   }
 
@@ -496,7 +496,7 @@ export function routeDMN(compositeScore: CompositeScore, gates: GateStatus): DMN
       action: 'NURTURE_STANDARD',
       tier: 'MEDIUM',
       confidence: 0.65,
-      description: 'A slower sequence of notes the team already uses. Nothing sends without a person.',
+      description: 'A slower sequence of notes the team already uses. A written gate and a named person\'s recorded approval still stand before anything sends.',
     }
   }
 
