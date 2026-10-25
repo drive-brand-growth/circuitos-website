@@ -24,11 +24,11 @@ function resolveDecision(posterior: number): {
   description: string
 } {
   if (posterior >= 0.88)
-    return { decision: 'DRAFT', color: '#22c55e', icon: ShieldCheck, description: 'Odds are high in this practice run. The work may be drafted. A person still approves anything that reaches a customer or moves money.' }
+    return { decision: 'DRAFT', color: '#22c55e', icon: ShieldCheck, description: 'Odds are high in this practice run. The work may be drafted. A written gate and a named person\'s recorded approval still stand before a release.' }
   if (posterior >= 0.78)
-    return { decision: 'DRAFT', color: '#22c55e', icon: ShieldCheck, description: 'Internal work may be drafted. A release to a customer still waits for a person.' }
+    return { decision: 'DRAFT', color: '#22c55e', icon: ShieldCheck, description: 'Internal work may be drafted. A release to a customer still waits for a written gate and a named person\'s recorded approval.' }
   if (posterior >= 0.65)
-    return { decision: 'BREAKER', color: '#f59e0b', icon: ShieldAlert, description: 'The odds sit under the line for a draft. A person reviews the evidence before any work is prepared.' }
+    return { decision: 'BREAKER', color: '#f59e0b', icon: ShieldAlert, description: 'The odds sit under the line for a draft. A written gate applies, and a named person\'s recorded approval comes before any work is prepared.' }
   return { decision: 'HOLD', color: '#ef4444', icon: ShieldX, description: 'Not enough evidence. Hold the route for the pipeline review.' }
 }
 

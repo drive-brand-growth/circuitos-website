@@ -67,6 +67,11 @@ export default async function HomePage() {
               Read the method
             </a>
           </div>
+          {home.calibration ? (
+            <p className="mt-10 text-base sm:text-lg text-[#a1a1aa] max-w-2xl mx-auto leading-relaxed">
+              {home.calibration}
+            </p>
+          ) : null}
         </div>
       </section>
 

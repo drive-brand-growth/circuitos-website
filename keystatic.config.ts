@@ -153,6 +153,11 @@ export default config({
         notesLede: fields.text({ label: 'Notes introduction', multiline: true }),
         newsletterTitle: fields.text({ label: 'Newsletter title' }),
         newsletterLede: fields.text({ label: 'Newsletter introduction', multiline: true }),
+        calibration: fields.text({
+          label: 'Line under the hero',
+          description: 'Short calibration line shown under the homepage hero.',
+          multiline: true,
+        }),
       },
     }),
     glossary: singleton({

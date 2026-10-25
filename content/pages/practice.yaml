@@ -30,7 +30,7 @@ sections:
         text: The route names a draft.
         href: ""
       - label: Breaker
-        text: A person still approves a release.
+        text: Written gates, plus a named person's recorded approval.
         href: ""
       - label: Ground
         text: Time passes before any outcome.

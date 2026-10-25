@@ -39,7 +39,7 @@ sections:
         score shows why. The full walk is on the method page.
       - >
         The Tiebreaker routes a lead. It does not approve a send. That yes is
-        the Breaker, and the Breaker is a person.
+        the Breaker: written gates, plus a named person's recorded approval.
     bullets: []
 caution: >
   The short circuit is letting the draft choose the route. The table was never

@@ -2,17 +2,17 @@ name: Breaker
 order: 4
 status: published
 accent: false
-kicker: A person says yes
-line: A person says yes, and the yes is written down.
+kicker: Written gates, a named yes
+line: Written gates, plus a named person's recorded approval.
 summary: >
-  Breaker means a person approves anything that reaches a customer or moves
-  money. The yes leaves a receipt.
+  Breaker means written gates, plus a named person's recorded approval,
+  before anything reaches a customer or moves money.
 lede:
-  - Breaker means a person says yes before it goes out.
+  - Breaker means written gates, plus a named person's recorded approval, before anything goes out.
   - >
     A discount does not go out because a note was clean. A message to a live
-    account does not go out because a queue was full. Somebody says yes. The
-    yes is written down.
+    account does not go out because a queue was full. The gate is written.
+    A named person approves, and that approval is recorded.
 sections:
   - heading: What the receipt holds
     paragraphs:
@@ -28,7 +28,8 @@ sections:
         approve its own draft. A gate the model can open is not a breaker.
       - >
         Bookkeeping inside the team can move with a lighter look. The moment
-        the work would reach a customer, or would change money, a person is the gate.
+        the work would reach a customer, or would change money, the gate is
+        written and a named person records the approval.
     bullets: []
 caution: >
   Skipping the gate is a short circuit. Speed is the usual reason. The missing

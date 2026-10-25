@@ -8,6 +8,8 @@ kicker: The method
 headline: The odds are math, not mood.
 updated: ""
 lede:
+  - "The Circuit Method engineers revenue outcomes on scientific principles: written rules, honest odds, proven cause."
+  - "Most revenue frameworks sell capability. The Circuit Method sells calibration: knowing how often your stated odds come true."
   - The agent drafts. The rules decide. The odds are math, not mood.
   - >
     Written rules and fixed scores, joined to an agent that only drafts, make
@@ -17,18 +19,36 @@ lede:
     Probabilistic means the agent works from odds. The agent may draft. It
     does not get to change the rule or the score.
 table:
-  caption: ""
-  columns: []
-  rows: []
+  caption: Recorded, Measured, and Proven.
+  columns:
+    - Standard
+    - What it means in practice
+  rows:
+    - cells:
+        - Recorded
+        - The rule and the approval are written down, so anyone can audit a decision.
+    - cells:
+        - Measured
+        - Stated odds are scored later against outcomes, exposing forecast bias over time.
+    - cells:
+        - Proven
+        - Teams separate credit from cause. Attribution shows what was nearby; the method asks what changed the result.
 sections:
+  - heading: What makes it different
+    paragraphs: []
+    items: []
+    listStyle: none
+    callout: ""
+    embed: table
   - heading: The Tiebreaker
     paragraphs:
       - >
         The Tiebreaker is a score. The Switch reads it when a lead needs a
         route.
       - >
-        It is not the Breaker. The Breaker is a person. That person says yes
-        before anything reaches a customer or moves money. The Tiebreaker never
+        It is not the Breaker. The Breaker is written gates plus a named
+        person's recorded approval before anything reaches a customer or moves
+        money. The Tiebreaker never
         sends the note. It only scores the lead so a written rule can route it.
       - >
         The Tiebreaker is Bayesian and deterministic. Bayesian means updating
@@ -69,8 +89,9 @@ sections:
       - The agent drafts. The rules decide.
       - >
         Something comes in. You write the decision and the odds. The work is a
-        draft. A person approves what reaches a customer or moves money. The
-        result comes back, and you ask what caused it.
+        draft. Written gates and a named person's recorded approval stand
+        before anything reaches a customer or moves money. The result comes
+        back, and you ask what caused it.
     items: []
     listStyle: none
     callout: ""
