@@ -18,7 +18,7 @@ const ROUTES: RouteConfig[] = [
   {
     action: 'CLUTCH_STRIKE',
     label: 'Breaker',
-    description: 'A person reviews',
+    description: 'Written gate, named approval',
     color: '#eab308',
   },
   {

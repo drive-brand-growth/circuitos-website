@@ -21,8 +21,9 @@ revealTitle: Five stages. One circuit.
 exampleTitle: One lead, one pass
 exampleLede: >
   A new lead comes in. Signal names what arrived. Switch applies the written
-  rule and the odds. Current is the draft. Breaker is the person who approves
-  a send. Ground brings the result back and asks what caused it.
+  rule and the odds. Current is the draft. Breaker is written gates plus a
+  named person's recorded approval. Ground brings the result back and asks
+  what caused it.
 diagramTitle: One circuit
 diagramLine: signal returns to ground
 coreSupport: >
@@ -61,3 +62,5 @@ notesLede: One note on the same idea.
 newsletterTitle: Notes, when a list exists
 newsletterLede: >
   This form is not connected. Nothing is sent, and nothing is stored.
+calibration: >
+  Most revenue frameworks sell capability. The Circuit Method sells calibration: knowing how often your stated odds come true.

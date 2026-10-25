@@ -11,7 +11,7 @@ The agent drafts. The rules decide. An agent is a tool inside the method. It doe
 1. Signal. What comes in before a pipeline review: replies, stalls, form fills, stage changes.
 2. Switch. The decision, written as rules (DMN, Decision Model and Notation), carrying the odds the owner would say on the forecast call. The owner closes the switch.
 3. Current. The work that follows, run as drafts: notes, tasks, forecast edits, routing tags.
-4. Breaker. A person approves anything that reaches a customer or moves money. The approval leaves a receipt.
+4. Breaker. Written gates, plus a named person's recorded approval, before anything reaches a customer or moves money.
 5. Ground. The outcome comes back. The forecast is scored. Attribution asks what actually moved the result.
 
 ## Words

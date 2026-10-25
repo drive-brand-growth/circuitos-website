@@ -102,7 +102,7 @@ export default function ClutchStrike({
             animate={{ opacity: 1 }}
             transition={{ delay: delay ?? 2.6, duration: prefersReducedMotion ? 0 : 0.4 }}
           >
-            The practice gates passed. Prepare the draft. A person still approves anything that reaches a customer or moves money.
+            The practice gates passed. Prepare the draft. A written gate and a named person&apos;s recorded approval still stand before anything reaches a customer or moves money.
           </motion.p>
 
           {/* Engines */}

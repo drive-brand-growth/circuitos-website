@@ -3,5 +3,5 @@ order: 8
 status: published
 group: stage
 text: >
-  The gate. A person approves anything that reaches a customer or moves money.
-  The approval leaves a receipt.
+  Written gates, plus a named person's recorded approval, before anything
+  reaches a customer or moves money. The approval leaves a receipt.

@@ -4,4 +4,4 @@ status: published
 group: loop
 text: >
   Skipping a gate. The usual case is a draft that reaches a customer, or money that
-  moves, without a person and a receipt.
+  moves, without the written gate and a named person's recorded approval.

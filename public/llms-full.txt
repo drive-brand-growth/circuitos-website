@@ -26,7 +26,7 @@ Switch: the decision, written with Decision Model and Notation (DMN). Each row c
 
 Current: drafts of the work. A note, a task, a forecast edit, a routing tag. Fluent is not the same as released.
 
-Breaker: a person, a receipt. The receipt names the rule, the odds at the time, who approved, and what was released.
+Breaker: written gates, plus a named person's recorded approval. The receipt names the rule, the odds at the time, who approved, and what was released.
 
 Ground: the outcome returns. Score the forecast across many calls. Ask what caused the result, not only which touch was nearby.
 
