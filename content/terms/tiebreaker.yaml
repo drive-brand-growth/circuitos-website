@@ -1,0 +1,8 @@
+name: Tiebreaker
+order: 13
+status: published
+group: tool
+text: >
+  A deterministic Bayesian score the Switch reads to route a lead. Attribution,
+  velocity, and impact go in. Same inputs, same score, and the score shows why.
+  It is not the Breaker.

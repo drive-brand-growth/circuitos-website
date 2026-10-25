@@ -1,0 +1,7 @@
+name: Closed circuit
+order: 1
+status: published
+group: loop
+text: >
+  A full loop. Signal came in, the decision was written, the work moved as a draft,
+  a person released what had to be released, and the outcome came back to be scored.

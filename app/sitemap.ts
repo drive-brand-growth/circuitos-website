@@ -1,74 +1,23 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next'
+import { getHome, listNotes, listPages, listSteps } from '@/lib/content'
+import { SITE_URL } from '@/lib/site'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://usecircuitos.com'
-
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date('2026-03-30'),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/demo`,
-      lastModified: new Date('2026-03-30'),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/playground`,
-      lastModified: new Date('2026-03-30'),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/insights`,
-      lastModified: new Date('2026-07-05'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/insights/honesty-gap`,
-      lastModified: new Date('2026-07-05'),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/receipts-test`,
-      lastModified: new Date('2026-07-05'),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/insights/deterministic-factory`,
-      lastModified: new Date('2026-07-03'),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/insights/governance-manifesto`,
-      lastModified: new Date('2026-03-30'),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/insights/lead-walk-through`,
-      lastModified: new Date('2026-03-30'),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: new Date('2026-02-15'),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: new Date('2026-02-15'),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [home, pages, steps, notes] = await Promise.all([getHome(), listPages(), listSteps(), listNotes()])
+  const lastModified = new Date('2026-10-24')
+  const paths = [
+    ...(home.status === 'published' ? [''] : []),
+    ...pages.map((page) => page.entry.path),
+    ...steps.map((step) => `/method/${step.slug}`),
+    ...notes.map((note) => `/field-notes/${note.slug}`),
+    '/method/glossary',
   ]
+  const unique = Array.from(new Set(paths))
+
+  return unique.map((path) => ({
+    url: `${SITE_URL}${path}`,
+    lastModified,
+    changeFrequency: path === '' || path.startsWith('/field-notes') ? 'weekly' : 'monthly',
+    priority: path === '' ? 1 : path.startsWith('/method') || path === '/decisions' ? 0.8 : 0.6,
+  }))
 }

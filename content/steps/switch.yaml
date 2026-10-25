@@ -1,0 +1,48 @@
+name: Switch
+order: 2
+status: published
+accent: true
+kicker: The decision
+line: A written rule says what to do, and you say the odds.
+summary: >
+  Switch means the decision, written down, with the odds. DMN means written
+  decision rules. You make the call.
+lede:
+  - Switch means the decision, written down, with the odds.
+  - DMN means written decision rules.
+  - >
+    Routing a lead is a decision whether or not you have written it. So is
+    holding a deal or moving it on a forecast call. Each rule carries the odds
+    you would say before you know what happened.
+sections:
+  - heading: A table, with the odds left blank
+    paragraphs:
+      - Here is the shape. The odds are yours. This site does not fill them in.
+    bullets:
+      - "Buyer named, and a date named: the route may advance to a draft."
+      - "Buyer missing, or date missing: the route holds. The deal stays a topic for the meeting."
+      - The odds column stays empty until you write it. A blank is more honest than a number you borrowed.
+  - heading: You close it
+    paragraphs:
+      - >
+        A model may point at the row that matches. Matching is arithmetic.
+        Closing the switch is the decision. You make it.
+      - >
+        If the rule lives where the team cannot open it during the meeting,
+        you do not have a switch. You have a habit.
+    bullets: []
+  - heading: A score the rule can read
+    paragraphs:
+      - >
+        One score Switch can read is The Tiebreaker. It joins attribution,
+        velocity, and impact. Same inputs always give the same score, and the
+        score shows why. The full walk is on the method page.
+      - >
+        The Tiebreaker routes a lead. It does not approve a send. That yes is
+        the Breaker, and the Breaker is a person.
+    bullets: []
+caution: >
+  The short circuit is letting the draft choose the route. The table was never
+  written, so the forecast call cannot say which rule fired.
+nextHref: /method/current
+nextLabel: Current

@@ -1,0 +1,63 @@
+status: published
+kicker: The Circuit Method
+headline: The agent drafts. The rules decide.
+intro: >
+  I build revenue systems that tell the truth about the pipeline. You write the decision. You say the odds. You
+  keep a record of what caused the result. An agent may draft the note. It does
+  not own the rule.
+villainTitle: What I teach
+villainBody: >
+  A course through the five stages. A book a team can use when I am not in the
+  room. Strategy work on the pipeline review, the forecast call, routing, and
+  approvals.
+originTitle: The work behind it
+originBody: >
+  I have spent more than twenty years in RevOps and sales leadership.
+
+  [Noel to tell: the real moment, the call, the meeting or the deal]
+
+  I wrote the method down so a team can repeat it.
+revealTitle: Five stages. One circuit.
+exampleTitle: One lead, one pass
+exampleLede: >
+  A new lead comes in. Signal names what arrived. Switch applies the written
+  rule and the odds. Current is the draft. Breaker is the person who approves
+  a send. Ground brings the result back and asks what caused it.
+diagramTitle: One circuit
+diagramLine: signal returns to ground
+coreSupport: >
+  The agent drafts. The rules decide. The odds are math, not mood.
+proofTitle: Recorded. Measured. Proven.
+proofBody: >
+  You can read the rule. You can score the odds you wrote. You can see who
+  approved the send. That is the proof on this site today.
+
+  [Noel to confirm: one true story of a forecast that was a guess, with the real
+  detail and no invented number.]
+
+  [Noel to confirm: a result you will stand behind. Leave this out until the
+  detail is real.]
+primaryLabel: Pipeline Autopsy
+primaryHref: /autopsy
+circuitKicker: The loop
+circuitTitle: Five stages. One circuit.
+circuitLede: The agent drafts. The rules decide.
+pillars:
+  - href: /method
+    kicker: Course
+    title: A course
+    text: The five stages, in order, with the rules written down.
+  - href: /method
+    kicker: Book
+    title: A book
+    text: The method on paper, so a team can run it when I am not in the room.
+  - href: /work-with-me
+    kicker: Team
+    title: Team strategy
+    text: The pipeline review, the forecast call, routing, and approvals, with your team.
+notesKicker: A note from the notebook
+notesTitle: From the notebook
+notesLede: One note on the same idea.
+newsletterTitle: Notes, when a list exists
+newsletterLede: >
+  This form is not connected. Nothing is sent, and nothing is stored.

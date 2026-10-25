@@ -1,0 +1,52 @@
+name: The Circuit Method™
+tagline: Written decisions. Honest odds. Proof of cause.
+promise: The agent drafts. The rules decide.
+coreLine: The agent drafts. The rules decide.
+description: >
+  Noel Pena teaches The Circuit Method™. A course, a book, and team strategy
+  work for RevOps and sales leaders. The agent drafts. The rules decide.
+contactEmail: hello@usecircuitos.com
+navCtaLabel: Pipeline Autopsy
+navCtaHref: /autopsy
+nav:
+  - label: Method
+    href: /method
+  - label: Decisions
+    href: /decisions
+  - label: Forecasting
+    href: /forecasting
+  - label: Proof
+    href: /causal
+  - label: Practice sandbox
+    href: /practice
+  - label: Field notes
+    href: /field-notes
+  - label: About
+    href: /about
+linkGroups:
+  - title: Practice
+    links:
+      - label: Decisions
+        href: /decisions
+      - label: Forecasting
+        href: /forecasting
+      - label: Causal proof
+        href: /causal
+      - label: Practice sandbox
+        href: /practice
+      - label: Field notes
+        href: /field-notes
+  - title: Noel
+    links:
+      - label: Pipeline Autopsy
+        href: /autopsy
+      - label: About
+        href: /about
+      - label: Work with me
+        href: /work-with-me
+      - label: "{{email}}"
+        href: "mailto:{{email}}"
+      - label: Privacy
+        href: /privacy
+      - label: Terms
+        href: /terms

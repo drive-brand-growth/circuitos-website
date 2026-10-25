@@ -12,10 +12,24 @@ set -u
 
 REF="${VERCEL_GIT_COMMIT_REF:-}"
 
-# 1) Any non-main branch → SKIP.
+# 1) Non-main branches skip, except the method site preview branch.
+#    That exception is what lets this pull request produce a Vercel preview.
+#    Other branches still skip, so a merge does not open previews for every ref.
 if [ "$REF" != "main" ]; then
-  echo "vercel-ignore: skip — branch '$REF' is not main"
-  exit 0
+  case "$REF" in
+    cursor/circuit-method-site-2a65)
+      echo "vercel-ignore: build preview for the method site ($REF)"
+      exit 1
+      ;;
+    cms/*)
+      echo "vercel-ignore: build CMS branch preview ($REF)"
+      exit 1
+      ;;
+    *)
+      echo "vercel-ignore: skip branch $REF"
+      exit 0
+      ;;
+  esac
 fi
 
 # 2) On main → build only if something other than docs/markdown changed.

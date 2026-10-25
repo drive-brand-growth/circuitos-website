@@ -1,0 +1,7 @@
+name: Signal
+order: 5
+status: published
+group: stage
+text: >
+  What comes in before the decision. Replies, stalls, form fills, stage changes,
+  discount asks. Named, or the pipeline review runs on memory.

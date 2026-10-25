@@ -1,0 +1,38 @@
+title: About Noel Pena
+path: /about
+description: >
+  Noel Pena has spent more than twenty years in RevOps and sales leadership.
+  He built The Circuit Method™ so the work could be written down.
+status: published
+kicker: Noel
+headline: I teach the method.
+updated: ""
+lede:
+  - >
+    I have spent more than twenty years in RevOps and sales leadership. I saw
+    the same failure over and over. Forecasts were guesses. Deals died for
+    reasons nobody wrote down. Rooms argued opinions.
+  - >
+    I teach The Circuit Method™ as a course, in a book, and in strategy work
+    with a team. The agent drafts. The rules decide.
+table:
+  caption: ""
+  columns: []
+  rows: []
+sections:
+  - heading: ""
+    paragraphs:
+      - >
+        This site is the teaching. It is not a list of clients, and it is not a
+        set of results.
+      - "[Noel to confirm: anything else you want this page to say about you.]"
+    items:
+      - label: Pipeline Autopsy
+        text: ""
+        href: /autopsy
+      - label: Work with me
+        text: ""
+        href: /work-with-me
+    listStyle: links
+    callout: The agent drafts. The rules decide.
+    embed: none

@@ -1,0 +1,7 @@
+name: Receipt
+order: 11
+status: published
+group: tool
+text: >
+  The record of a release: the rule, the odds at the time, who approved, and what
+  went out. If the next pipeline review cannot read it, the gate did not happen.

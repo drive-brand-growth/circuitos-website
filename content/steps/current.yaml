@@ -1,0 +1,37 @@
+name: Current
+order: 3
+status: published
+accent: false
+kicker: The work, still a draft
+line: The note is drafted. It is not sent.
+summary: >
+  Current means the work that follows the decision, still a draft. It has not
+  reached the customer, and it has not moved money.
+lede:
+  - Current means the work, still a draft.
+  - >
+    A note to the buyer. A task for the person who owns the account. A change
+    to the number you will say on the forecast call. A tag that moves the
+    opportunity to another queue.
+  - None of that has been sent. None of it has moved money.
+sections:
+  - heading: Drafts the team can use
+    paragraphs:
+      - >
+        You decide which work may be prepared. A model can assemble the draft
+        from the rule that matched and the signals on the account. The draft
+        names the row. It does not send itself.
+      - >
+        In the meeting, current is the stack of prepared work. The talk is
+        whether to release it.
+    bullets: []
+  - heading: Clean is not the same as sent
+    paragraphs:
+      - >
+        A clean paragraph is not an approval. Owner load is the minutes this
+        stack asks of you. The aim is a small load, with the release still in
+        your hands. This site will not pretend to know how many minutes that is.
+    bullets: []
+caution: The short circuit is sending the draft because it sounded finished.
+nextHref: /method/breaker
+nextLabel: Breaker

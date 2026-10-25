@@ -1,0 +1,86 @@
+title: Decisions
+path: /decisions
+description: >
+  DMN means written decision rules. Put the routing rule on a page the room
+  can read, and leave the odds for the owner.
+status: published
+kicker: The rule
+headline: Write the rule on one page.
+updated: ""
+lede:
+  - DMN means written decision rules.
+  - >
+    A lead gets routed whether or not the rule is written. A deal gets held or
+    moved on a forecast call whether or not the rule is written. When the rule
+    is only in one person's head, the number depends on who is in the room.
+table:
+  caption: A teaching table for routing a lead. The odds are blank on purpose.
+  columns:
+    - Buyer named
+    - Date named
+    - Action
+    - Stated odds
+  rows:
+    - cells:
+        - "Yes"
+        - "Yes"
+        - Advance to a draft for a person to approve
+        - You write this
+    - cells:
+        - "No"
+        - Either way
+        - Hold for the meeting
+        - You write this
+    - cells:
+        - "Yes"
+        - "No"
+        - Hold, and draft a question that asks for the date
+        - You write this
+sections:
+  - heading: The shape, not a result
+    paragraphs:
+      - >
+        This table shows the shape of a rule. It is not a recommendation for
+        your book of business. The odds are blank on purpose.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: table
+  - heading: When two rows both match
+    paragraphs:
+      - >
+        You decide what happens. The first matching row can win, or rows can be
+        kept from overlapping. Overlap is how two rules both claim the deal, and
+        how a room ends up with two numbers.
+      - >
+        FEEL means a small language for an exact condition. You do not need it
+        to start. A table of plain words is already a decision.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: What else belongs on the page
+    paragraphs: []
+    items:
+      - label: ""
+        text: Which discount needs a person.
+        href: ""
+      - label: ""
+        text: When a note may be drafted, and when it may be sent.
+        href: ""
+      - label: ""
+        text: Which missing fact holds the deal for the meeting.
+        href: ""
+    listStyle: bullets
+    callout: The agent drafts. The rules decide.
+    embed: none
+  - heading: ""
+    paragraphs:
+      - The odds on that page are your forecast. Next, see how you score them.
+    items:
+      - label: Score the odds
+        text: ""
+        href: /forecasting
+    listStyle: links
+    callout: ""
+    embed: none

@@ -1,0 +1,53 @@
+title: Practice sandbox
+path: /practice
+description: >
+  Practice a forecast update and a routing decision on simulated signals.
+  The figures are for practice, not a book of business.
+status: published
+kicker: Practice, not a book of business
+headline: Practice sandbox
+updated: ""
+lede:
+  - >
+    Fire a simulated signal and watch a forecast move. Then see which routing row
+    would match. The figures are for practice. They are not accounts, and they are
+    not results. A model may draft the next step. You would still decide.
+table:
+  caption: ""
+  columns: []
+  rows: []
+sections:
+  - heading: ""
+    paragraphs: []
+    items:
+      - label: Signal
+        text: Fire what came in.
+        href: ""
+      - label: Switch
+        text: Odds update. A route matches.
+        href: ""
+      - label: Current
+        text: The route names a draft.
+        href: ""
+      - label: Breaker
+        text: A person still approves a release.
+        href: ""
+      - label: Ground
+        text: Time passes before any outcome.
+        href: ""
+    listStyle: cards
+    callout: ""
+    embed: none
+  - heading: A moving number is not yet a forecast call
+    paragraphs:
+      - >
+        This page practices the loop on simulated signals. Nothing here is an
+        account, and nothing here is a result. Read how a real forecast gets scored,
+        and what has to happen before a draft reaches a customer.
+    items:
+      - label: How a forecast is scored
+        text: ""
+        href: /forecasting
+    listStyle: links
+    callout: ""
+    embed: none

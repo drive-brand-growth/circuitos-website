@@ -1,0 +1,38 @@
+title: Work with me
+path: /work-with-me
+description: >
+  Team strategy on the pipeline review, the forecast call, lead routing, or
+  approvals. The free start is a Pipeline Autopsy. No packages and no prices
+  on this page.
+status: published
+kicker: Team strategy
+headline: Bring one meeting you already run.
+updated: ""
+lede:
+  - >
+    The free start is a Pipeline Autopsy. Send a pipeline export. I send a
+    scored report.
+  - >
+    If you want the method taught to your team, write to Noel. A useful
+    conversation looks at one motion: the pipeline review, the forecast call,
+    lead routing, or the approval before something reaches a customer.
+table:
+  caption: ""
+  columns: []
+  rows: []
+sections:
+  - heading: How to write
+    paragraphs:
+      - >
+        Email {{email}}. Say which motion you want to look at, and what currently
+        breaks when you are not in the room. That is enough to start.
+      - >
+        This page has no packages and no prices. If there is work to do together,
+        the scope is agreed in writing after the conversation.
+    items:
+      - label: Start with a Pipeline Autopsy
+        text: ""
+        href: /autopsy
+    listStyle: links
+    callout: ""
+    embed: none

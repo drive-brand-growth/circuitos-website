@@ -9,12 +9,12 @@ interface AutonomyPanelProps {
 }
 
 const THRESHOLDS = [
-  { label: 'Critical — Autonomous', value: 0.92, riskClass: 'CRITICAL' },
-  { label: 'Type 1 — Autonomous', value: 0.88, riskClass: 'HIGH' },
-  { label: 'Critical — Escalate', value: 0.85, riskClass: 'CRITICAL' },
-  { label: 'Type 1 — Escalate', value: 0.80, riskClass: 'HIGH' },
-  { label: 'Type 2 — Autonomous', value: 0.78, riskClass: 'MEDIUM' },
-  { label: 'Type 2 — Escalate', value: 0.65, riskClass: 'LOW' },
+  { label: 'Critical risk: still a draft', value: 0.92, riskClass: 'CRITICAL' },
+  { label: 'Hard to undo: breaker', value: 0.88, riskClass: 'HIGH' },
+  { label: 'Critical risk: breaker', value: 0.85, riskClass: 'CRITICAL' },
+  { label: 'Hard to undo: hold', value: 0.80, riskClass: 'HIGH' },
+  { label: 'Internal work: draft', value: 0.78, riskClass: 'MEDIUM' },
+  { label: 'Internal work: hold', value: 0.65, riskClass: 'LOW' },
 ]
 
 function resolveDecision(posterior: number): {
@@ -24,12 +24,12 @@ function resolveDecision(posterior: number): {
   description: string
 } {
   if (posterior >= 0.88)
-    return { decision: 'EXECUTE', color: '#22c55e', icon: ShieldCheck, description: 'Autonomous execution authorized — confidence exceeds threshold' }
+    return { decision: 'DRAFT', color: '#22c55e', icon: ShieldCheck, description: 'Odds are high in this practice run. The work may be drafted. A person still approves anything that reaches a customer or moves money.' }
   if (posterior >= 0.78)
-    return { decision: 'EXECUTE (Type 2)', color: '#22c55e', icon: ShieldCheck, description: 'Type 2 autonomous — lower risk actions permitted' }
+    return { decision: 'DRAFT', color: '#22c55e', icon: ShieldCheck, description: 'Internal work may be drafted. A release to a customer still waits for a person.' }
   if (posterior >= 0.65)
-    return { decision: 'ESCALATE', color: '#f59e0b', icon: ShieldAlert, description: 'Confidence below autonomous threshold — human approval required' }
-  return { decision: 'BLOCK', color: '#ef4444', icon: ShieldX, description: 'Insufficient confidence — action blocked pending review' }
+    return { decision: 'BREAKER', color: '#f59e0b', icon: ShieldAlert, description: 'The odds sit under the line for a draft. A person reviews the evidence before any work is prepared.' }
+  return { decision: 'HOLD', color: '#ef4444', icon: ShieldX, description: 'Not enough evidence. Hold the route for the pipeline review.' }
 }
 
 export default function AutonomyPanel({ posterior, compositeScore }: AutonomyPanelProps) {
@@ -40,7 +40,7 @@ export default function AutonomyPanel({ posterior, compositeScore }: AutonomyPan
   return (
     <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl p-6">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="font-medium text-white">Autonomy Gate</h3>
+        <h3 className="font-medium text-white">Breaker</h3>
         <motion.span
           key={resolved.decision}
           initial={{ scale: 0.8, opacity: 0 }}

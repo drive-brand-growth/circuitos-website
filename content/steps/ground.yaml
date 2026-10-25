@@ -1,0 +1,41 @@
+name: Ground
+order: 5
+status: published
+accent: false
+kicker: The result comes back
+line: You check what happened against the odds you wrote.
+summary: >
+  Ground means the result comes back. You score the forecast. Causal means
+  proving what actually caused the result.
+lede:
+  - Ground means the result comes back.
+  - Causal means proving what actually caused the result.
+  - >
+    The period ends, or the deal does. Something happened, or it did not.
+    Ground is bringing that fact back to the call you made.
+sections:
+  - heading: Score the odds you wrote
+    paragraphs:
+      - >
+        Honest odds are a set. Calls you labeled with a similar confidence
+        should land at a similar rate. One win does not prove the call. One
+        loss does not settle it.
+      - >
+        If you never bring the results back, you have an open circuit. The loop
+        was built, and it was not proved. A closed circuit is the full loop.
+    bullets: []
+  - heading: Then ask what caused it
+    paragraphs:
+      - >
+        Credit says what was nearby. Cause asks what moved the outcome. Accounts
+        already likely to buy often get more meetings and more notes. Those
+        touches are present at the close. Presence is not the cause.
+      - >
+        A model may draft the note around the report. It may not turn a nearby
+        touch into a cause. You decide what the next meeting is allowed to say.
+    bullets: []
+caution: >
+  The short circuit here is celebrating the touch nearest the win, and never
+  scoring the odds you wrote. The loop looks closed. It is not.
+nextHref: /causal
+nextLabel: Causal proof

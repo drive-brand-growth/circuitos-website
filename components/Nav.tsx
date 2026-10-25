@@ -2,36 +2,43 @@
 
 import { useState } from 'react'
 
-export default function Nav() {
+type NavItem = { href: string; label: string }
+
+type NavProps = {
+  items: NavItem[]
+  ctaLabel: string
+  ctaHref: string
+}
+
+export default function Nav({ items, ctaLabel, ctaHref }: NavProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
     <nav className="fixed top-0 w-full z-50 border-b border-[#27272a] bg-black/80 backdrop-blur-xl">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-10">
-          <a href="/" className="flex items-center gap-2">
-            <span className="text-xl font-semibold tracking-tight">
-              <span className="text-blue-500">//</span> Circuit<span className="text-blue-500">OS</span>
+      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-8 min-w-0">
+          <a href="/" className="flex items-center gap-2 shrink-0">
+            <span className="text-lg sm:text-xl font-semibold tracking-tight whitespace-nowrap">
+              <span className="text-blue-500">//</span> Circuit Method
             </span>
           </a>
-          <div className="hidden md:flex items-center gap-8 text-sm text-[#a1a1aa]">
-            <a href="/#platform" className="font-medium hover:text-white transition-colors">Platform</a>
-            <a href="/#how-it-works" className="font-medium hover:text-white transition-colors">How it Works</a>
-            <a href="/#capabilities" className="font-medium hover:text-white transition-colors">Capabilities</a>
-            <a href="/#pricing" className="font-medium hover:text-white transition-colors">Pricing</a>
-            <a href="/playground" className="font-medium hover:text-white transition-colors">Playground</a>
-            <a href="/insights" className="font-medium hover:text-white transition-colors">Insights</a>
+          <div className="hidden xl:flex items-center gap-6 text-sm text-[#a1a1aa]">
+            {items.map((item) => (
+              <a key={item.href} href={item.href} className="font-medium hover:text-white transition-colors whitespace-nowrap">
+                {item.label}
+              </a>
+            ))}
           </div>
         </div>
-        <div className="flex items-center gap-4">
-          <a href="/#contact" className="hidden sm:inline text-sm font-medium text-[#a1a1aa] hover:text-white transition-colors">Contact</a>
-          <a href="/demo" className="text-sm btn-primary text-white px-4 py-2 rounded-lg font-medium">
-            Book a Demo
+        <div className="flex items-center gap-3 shrink-0">
+          <a href={ctaHref} className="text-sm btn-primary text-white px-3 sm:px-4 py-2 rounded-lg font-medium whitespace-nowrap">
+            {ctaLabel}
           </a>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-[#a1a1aa] hover:text-white"
+            className="xl:hidden text-[#a1a1aa] hover:text-white"
             aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {mobileOpen ? (
@@ -44,17 +51,9 @@ export default function Nav() {
         </div>
       </div>
       {mobileOpen && (
-        <div className="md:hidden border-t border-[#27272a] bg-black/95 backdrop-blur-xl">
+        <div className="xl:hidden border-t border-[#27272a] bg-black/95 backdrop-blur-xl">
           <div className="px-6 py-4 space-y-3">
-            {[
-              { href: '/#platform', label: 'Platform' },
-              { href: '/#how-it-works', label: 'How it Works' },
-              { href: '/#capabilities', label: 'Capabilities' },
-              { href: '/#pricing', label: 'Pricing' },
-              { href: '/playground', label: 'Playground' },
-              { href: '/insights', label: 'Insights' },
-              { href: '/#contact', label: 'Contact' },
-            ].map((link) => (
+            {items.map((link) => (
               <a
                 key={link.href}
                 href={link.href}

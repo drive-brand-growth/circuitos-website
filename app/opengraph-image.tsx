@@ -1,11 +1,11 @@
 import { ImageResponse } from 'next/og'
 
-export const runtime = 'edge'
-export const alt = 'CircuitOS: Governed AI Decisioning'
+export const alt = 'The Circuit Method. The agent drafts. The rules decide.'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
-export default async function OGImage() {
+export default function OGImage() {
+  const stages = ['Signal', 'Switch', 'Current', 'Breaker', 'Ground']
   return new ImageResponse(
     (
       <div
@@ -16,165 +16,20 @@ export default async function OGImage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          alignItems: 'center',
-          padding: '80px',
-          position: 'relative',
+          padding: '72px',
         }}
       >
-        {/* Subtle grid background */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
-            backgroundSize: '80px 80px',
-          }}
-        />
-
-        {/* Blue glow */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '20%',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: '600px',
-            height: '400px',
-            background:
-              'radial-gradient(ellipse, rgba(59, 130, 246, 0.15) 0%, transparent 70%)',
-          }}
-        />
-
-        {/* Logo */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            marginBottom: '32px',
-          }}
-        >
-          <span
-            style={{
-              fontSize: '36px',
-              fontWeight: 600,
-              color: '#3b82f6',
-              letterSpacing: '-0.02em',
-            }}
-          >
-            //
-          </span>
-          <span
-            style={{
-              fontSize: '36px',
-              fontWeight: 600,
-              color: '#ffffff',
-              letterSpacing: '-0.02em',
-            }}
-          >
-            Circuit
-          </span>
-          <span
-            style={{
-              fontSize: '36px',
-              fontWeight: 600,
-              color: '#3b82f6',
-              letterSpacing: '-0.02em',
-            }}
-          >
-            OS
-          </span>
-          <span
-            style={{
-              fontSize: '36px',
-              fontWeight: 600,
-              color: '#ffffff',
-              letterSpacing: '-0.02em',
-            }}
-          >
-            Pro
-          </span>
+        <div style={{ display: 'flex', fontSize: 28, color: '#3b82f6', fontWeight: 600 }}>// Circuit Method</div>
+        <div style={{ display: 'flex', marginTop: 36, fontSize: 64, fontWeight: 700, color: '#ffffff', lineHeight: 1.15 }}>
+          The agent drafts. The rules decide.
         </div>
-
-        {/* Headline */}
-        <h1
-          style={{
-            fontSize: '56px',
-            fontWeight: 700,
-            color: '#ffffff',
-            textAlign: 'center',
-            lineHeight: 1.2,
-            margin: 0,
-            letterSpacing: '-0.02em',
-          }}
-        >
-          Governed AI
-        </h1>
-        <h1
-          style={{
-            fontSize: '56px',
-            fontWeight: 700,
-            background: 'linear-gradient(135deg, #3b82f6, #60a5fa)',
-            backgroundClip: 'text',
-            color: '#3b82f6',
-            textAlign: 'center',
-            lineHeight: 1.2,
-            margin: '8px 0 0 0',
-            letterSpacing: '-0.02em',
-          }}
-        >
-          Decisioning
-        </h1>
-
-        {/* Subhead */}
-        <p
-          style={{
-            fontSize: '22px',
-            color: '#a1a1aa',
-            textAlign: 'center',
-            marginTop: '24px',
-            lineHeight: 1.4,
-          }}
-        >
-          Observe. Decide. Act. Prove.
-        </p>
-
-        {/* Metrics bar */}
-        <div
-          style={{
-            display: 'flex',
-            gap: '48px',
-            marginTop: '48px',
-            padding: '24px 48px',
-            borderTop: '1px solid #27272a',
-          }}
-        >
-          {[
-            { value: 'Observe', label: '01' },
-            { value: 'Decide', label: '02' },
-            { value: 'Act', label: '03' },
-            { value: 'Prove', label: '04' },
-          ].map((m) => (
-            <div
-              key={m.label}
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-              }}
-            >
-              <span
-                style={{ fontSize: '28px', fontWeight: 700, color: '#3b82f6' }}
-              >
-                {m.value}
-              </span>
-              <span style={{ fontSize: '14px', color: '#52525b' }}>
-                {m.label}
-              </span>
+        <div style={{ display: 'flex', marginTop: 24, fontSize: 28, color: '#a1a1aa' }}>
+          Written decisions. Honest odds. Proof of cause.
+        </div>
+        <div style={{ display: 'flex', gap: 28, marginTop: 56 }}>
+          {stages.map((stage) => (
+            <div key={stage} style={{ display: 'flex', fontSize: 22, color: '#60a5fa' }}>
+              {stage}
             </div>
           ))}
         </div>

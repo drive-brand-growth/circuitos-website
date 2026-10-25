@@ -1,13 +1,14 @@
-# CircuitOS - robots.txt
-# https://usecircuitos.com
+# The Circuit Method
+# https://thecircuitmethod.com
 
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /keystatic
+Disallow: /api/
 
-# Sitemaps
-Sitemap: https://usecircuitos.com/sitemap.xml
+Sitemap: https://thecircuitmethod.com/sitemap.xml
 
-# AI Crawlers - Welcome
 User-agent: GPTBot
 Allow: /
 
@@ -41,8 +42,6 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-# Crawl delay for politeness
 Crawl-delay: 1
 
-# Host
-Host: https://usecircuitos.com
+Host: https://thecircuitmethod.com

@@ -1,0 +1,7 @@
+name: Open circuit
+order: 2
+status: published
+group: loop
+text: >
+  Built, not proved. The route exists, and maybe the work even reached a customer,
+  but the forecast was never scored and the cause was never asked.

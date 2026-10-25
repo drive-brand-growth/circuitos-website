@@ -1,0 +1,107 @@
+title: Terms
+path: /terms
+description: Terms for using this teaching site. No prices are stated here.
+status: published
+kicker: ""
+headline: Terms
+updated: October 24, 2026
+lede:
+  - >
+    These terms cover your use of this website, published by DriveBrandGrowth LLC
+    ("we"). Noel Pena is the author of The Circuit Method™ as it is taught here.
+    The site is for reading and for writing to us. It is not a catalog, and it
+    does not state a price.
+table:
+  caption: ""
+  columns: []
+  rows: []
+sections:
+  - heading: The site
+    paragraphs:
+      - >
+        The pages explain a way to run revenue decisions: written rules, stated
+        odds, drafts, approvals, and a return to the outcome. Any work you do with
+        Noel beyond reading is agreed in a separate writing. That writing, not this
+        page, is where scope lives.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: Acceptable use
+    paragraphs:
+      - "You agree not to:"
+    items:
+      - label: ""
+        text: Use the site for an unlawful purpose.
+        href: ""
+      - label: ""
+        text: Try to break into the systems that serve it.
+        href: ""
+      - label: ""
+        text: Interfere with the site for other readers.
+        href: ""
+      - label: ""
+        text: Copy the pages in bulk in order to pass them off as your own.
+        href: ""
+    listStyle: bullets
+    callout: ""
+    embed: none
+  - heading: Intellectual property
+    paragraphs:
+      - >
+        The text, the name The Circuit Method™, and the mark on this site are owned
+        by DriveBrandGrowth LLC unless a separate writing says otherwise. Your own
+        business information stays yours. Writing to us does not give us your pipeline.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: Privacy
+    paragraphs:
+      - The privacy page describes what the site collects. It sits beside these terms.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: Availability
+    paragraphs:
+      - We intend the site to be available. We do not promise that it always will be.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: Limitation of liability
+    paragraphs:
+      - >
+        To the extent the law allows, we are not liable for indirect, incidental,
+        special, consequential, or punitive damages from your use of the site or
+        from your inability to use it. Teaching is not a promise about your revenue.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: Changes
+    paragraphs:
+      - >
+        We may update these terms. The date at the top will change. Continuing to
+        use the site after that means you accept the update.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: Governing law
+    paragraphs:
+      - >
+        These terms are governed by the laws of the State of Texas, without regard
+        to conflict of law rules.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: Contact
+    paragraphs:
+      - "Questions about these terms: {{email}}."
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none

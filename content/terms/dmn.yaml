@@ -1,0 +1,6 @@
+name: DMN
+order: 10
+status: published
+group: tool
+text: >
+  DMN means written decision rules. A person and a system read the same table.

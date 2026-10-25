@@ -1,208 +1,175 @@
-import Nav from '@/components/Nav'
-import Hero from '@/components/Hero'
-import IntegrationBar from '@/components/IntegrationBar'
-import Platform from '@/components/Platform'
-import HowItWorks from '@/components/HowItWorks'
-import TruthSection from '@/components/TruthSection'
-import Capabilities from '@/components/Capabilities'
-import Pricing from '@/components/Pricing'
-import BuildCalculator from '@/components/BuildCalculator'
-import ContactForm from '@/components/ContactForm'
-import Footer from '@/components/Footer'
+import PageShell from '@/components/PageShell'
+import { getHome, getSite, isHeldCopy, listNotes, listSteps } from '@/lib/content'
+import { pageMeta } from '@/lib/seo'
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'CircuitOS',
-  description: 'Governed AI for revenue teams. Know which deals close and which marketing works, with proof before the outcome is in. Calibrated scoring, attribution, and signed audit trails.',
-  applicationCategory: 'BusinessApplication',
-  operatingSystem: 'Web-based',
-  url: 'https://usecircuitos.com',
-  image: 'https://usecircuitos.com/opengraph-image',
-  offers: {
-    '@type': 'AggregateOffer',
-    priceCurrency: 'USD',
-    lowPrice: '3500',
-    highPrice: '12000',
-    offerCount: 3,
-    availability: 'https://schema.org/OnlineOnly',
-  },
-  featureList: [
-    'Calibrated Win-Probability Scoring',
-    'Multi-Touch Attribution',
-    'Deal Risk Score',
-    'Decision-Quality Calibration',
-    'Signed, Tamper-Evident Audit Trail',
-    'Human-in-the-Loop Governance',
-    'Confidence-Based Escalation',
-    'Closed-Loop Learning',
-    'CRM Integration',
-    'Content Intelligence (optional module)',
-  ],
-  author: {
-    '@type': 'Organization',
-    name: 'DriveBrandGrowth',
-    url: 'https://drivebrandgrowth.com',
-  },
+function paragraphs(value: string | null | undefined) {
+  return (value ?? '')
+    .split(/\n+/)
+    .map((part) => part.replace(/\s+/g, ' ').trim())
+    .filter((part) => part && !isHeldCopy(part))
 }
 
-const faqJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What is CircuitOS?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'CircuitOS is a governed AI decisioning platform. It tells growth-stage businesses which deals will close and which marketing is actually working. It proves the decision was sound before the outcome is known, with a signed audit trail every time.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How is this different from a black-box AI tool?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Most AI tools give you a recommendation with no audit trail and no way to know if it was right. CircuitOS produces a calibrated probability with a confidence tier, governs the action with rules, and scores the decision afterward for whether its confidence was honest. That is proof of decision quality independent of outcome luck.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How does the closed-loop learning work?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'CircuitOS tracks real outcomes (conversions, engagement, attribution) and feeds them back into the scoring model. Every result refines the next prediction, so the system gets sharper over time, calibrated on your data, not a generic benchmark.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can CircuitOS handle multiple businesses?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. Higher tiers support multiple business lines, each in its own isolated stack with a dedicated scoring model, configuration, and database. No data is shared between business lines or clients.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is anything published or sent automatically?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Confidence-based governance determines what the system handles autonomously and what gets escalated to a human. Every action lands on a signed audit trail. Nothing irreversible happens without your approval.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What integrations does CircuitOS support?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'CircuitOS connects to any CRM (HubSpot, Salesforce, and more), email automation platforms, and Google Analytics 4 for closed-loop feedback. Full REST API and webhook support for custom integrations.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What does onboarding look like?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Roughly four weeks from contract to live decisioning. We encode your ICP, configure the decision logic, integrate your CRM, and activate the signal flow. You confirm your sources and mapping. We handle the rest.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How much does CircuitOS cost?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Three monthly tiers: Growth ($3,500/month), Scale ($6,500/month), and Enterprise (from $12,000/month, with a sovereign option that runs on your own infrastructure). A one-time implementation fee covers platform setup, configuration, and integrations. Use the build calculator on our site for exact line-item costs.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What industries does CircuitOS work for?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'CircuitOS is industry-agnostic. Each deployment is configured for the specific business, ICP, and demand patterns. We run it on our own operating companies today, including Drive Brand Growth, and CircuitOS itself runs on the platform.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is my data isolated from other clients?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. Each deployment runs in its own containerized stack with a dedicated database, scoring model, and configuration. No data is shared between business lines or clients, and deployment can run on your own infrastructure.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can I see a demo?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. Try the interactive playground at usecircuitos.com/playground or request a personalized walkthrough at usecircuitos.com/demo. No commitment required.',
-      },
-    },
-  ],
+const proofCards = [
+  { title: 'Recorded', text: 'The rule and the approval are written down.' },
+  { title: 'Measured', text: 'The odds you stated can be scored later.' },
+  { title: 'Proven', text: 'You can say what caused the result.' },
+]
+
+export async function generateMetadata() {
+  const [site, home] = await Promise.all([getSite(), getHome()])
+  return {
+    ...pageMeta({
+      title: site.promise,
+      description: site.description,
+      path: '/',
+      noindex: home.status !== 'published',
+    }),
+    title: { absolute: `${site.name} · ${site.promise}` },
+  }
 }
 
-const howToJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'HowTo',
-  name: 'How CircuitOS Works',
-  description: 'The Circuit Method: the four-move loop every decision runs in CircuitOS.',
-  step: [
-    {
-      '@type': 'HowToStep',
-      position: 1,
-      name: 'Observe',
-      text: 'Ingest the signals (pipeline data, attribution touchpoints, deal activity, and market context) from your CRM, analytics, and engagement sources.',
-    },
-    {
-      '@type': 'HowToStep',
-      position: 2,
-      name: 'Decide',
-      text: 'Produce a calibrated probability with a confidence tier, governed by rules, not a black-box guess. You see the conviction and the signals behind it.',
-    },
-    {
-      '@type': 'HowToStep',
-      position: 3,
-      name: 'Act',
-      text: 'Execute the recommended action with full parameter logging, or escalate to a human when confidence or risk demands it.',
-    },
-    {
-      '@type': 'HowToStep',
-      position: 4,
-      name: 'Prove',
-      text: 'After the outcome, score the decision for whether its confidence was honest, and write a signed, tamper-evident audit entry. Outcomes feed back to sharpen the next call.',
-    },
-  ],
-}
+export default async function HomePage() {
+  const [site, home, steps, notes] = await Promise.all([getSite(), getHome(), listSteps(), listNotes()])
+  const featured = notes.find((note) => note.entry.featured)
+  const origin = paragraphs(home.originBody)
+  const proof = paragraphs(home.proofBody)
 
-export default function Home() {
   return (
-    <main className="min-h-screen grid-bg">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
-      />
-      <a href="#main-content" className="sr-only skip-link">
-        Skip to main content
-      </a>
-      <Nav />
-      <Hero />
-      <IntegrationBar />
-      <Platform />
-      <TruthSection />
-      <HowItWorks />
-      <Capabilities />
-      <Pricing />
-      <BuildCalculator />
-      <ContactForm />
-      <Footer />
-    </main>
+    <PageShell>
+      <section className="pt-36 pb-24 px-6 hero-glow overflow-hidden">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#27272a] bg-[#27272a]/30 text-sm text-[#a1a1aa] mb-8">
+            <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
+            {home.kicker}
+          </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold gradient-text mb-8 hero-headline">
+            {home.headline}
+          </h1>
+          <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-2xl mx-auto mb-6 leading-[1.5] font-medium">
+            {site.tagline}
+          </p>
+          <div className="text-base sm:text-lg text-[#a1a1aa] max-w-2xl mx-auto mb-10 leading-relaxed space-y-4">
+            {paragraphs(home.intro).map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <a
+              href={home.primaryHref}
+              className="w-full sm:w-auto px-8 py-3.5 btn-primary text-white rounded-lg font-semibold text-base"
+            >
+              {home.primaryLabel}
+            </a>
+            <a
+              href="/method"
+              className="w-full sm:w-auto px-8 py-3.5 border border-[#27272a] rounded-lg font-semibold hover:bg-white/5 transition-colors text-base"
+            >
+              Read the method
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding px-6 border-t border-[#27272a]">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">{home.villainTitle}</h2>
+            <div className="text-[#a1a1aa] max-w-2xl mx-auto text-lg leading-[1.6] space-y-4">
+              {paragraphs(home.villainBody).map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {home.pillars.map((pillar) => (
+              <a key={pillar.href + pillar.title} href={pillar.href} className="card rounded-xl p-8 block">
+                <span className="text-sm text-blue-500 font-mono font-semibold">{pillar.kicker}</span>
+                <h3 className="text-xl font-bold mt-3 mb-1">{pillar.title}</h3>
+                <p className="text-[#a1a1aa] text-sm leading-relaxed">{pillar.text}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding px-6 border-t border-[#27272a]">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">{home.revealTitle}</h2>
+            <p className="text-white/90 text-lg font-medium mb-4">{home.circuitLede}</p>
+            <div className="text-[#a1a1aa] max-w-2xl mx-auto text-lg leading-[1.6] space-y-4">
+              {paragraphs(home.exampleLede).map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+          <ol className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            {steps.map((step) => (
+              <li key={step.slug}>
+                <a href={`/method/${step.slug}`} className="card rounded-xl p-6 block h-full">
+                  <span className="text-sm text-blue-500 font-mono font-semibold">0{step.entry.order}</span>
+                  <h3 className="text-xl font-bold mt-3 mb-1">{step.entry.name}</h3>
+                  <p className="text-[#a1a1aa] text-sm leading-relaxed">{step.entry.line}</p>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {origin.length > 0 ? (
+        <section className="section-padding px-6 border-t border-[#27272a]">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-[-0.02em]">{home.originTitle}</h2>
+            <div className="space-y-5 text-[#a1a1aa] text-lg leading-[1.6]">
+              {origin.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      <section className="section-padding px-6 border-t border-[#27272a]">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">{home.proofTitle}</h2>
+            <div className="text-[#a1a1aa] max-w-2xl mx-auto text-lg leading-[1.6] space-y-4">
+              {proof.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {proofCards.map((card) => (
+              <div key={card.title} className="card rounded-xl p-8">
+                <h3 className="text-xl font-bold mb-2">{card.title}</h3>
+                <p className="text-[#a1a1aa] text-sm leading-relaxed">{card.text}</p>
+              </div>
+            ))}
+          </div>
+          {featured ? (
+            <a href={`/field-notes/${featured.slug}`} className="card rounded-xl p-8 block mt-6">
+              <span className="text-sm text-blue-500 font-mono font-semibold">{home.notesKicker}</span>
+              <h3 className="text-xl font-bold mt-3 mb-1">{featured.entry.title}</h3>
+              <p className="text-[#a1a1aa] text-sm leading-relaxed">{featured.entry.description}</p>
+            </a>
+          ) : null}
+        </div>
+      </section>
+
+      <section id="autopsy" className="section-padding px-6 border-t border-[#27272a]">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">Pipeline Autopsy</h2>
+          <p className="text-lg sm:text-xl text-white/90 font-medium mb-4">Free. Send a pipeline export. Get a scored report.</p>
+          <p className="text-[#a1a1aa] text-lg leading-[1.6] mb-8">
+            The report covers where deals die, which sources lie, rep reality, what will really close, and the rules that are missing.
+          </p>
+          <a href="/autopsy" className="inline-block px-8 py-3.5 btn-primary text-white rounded-lg font-semibold text-base">
+            {home.primaryLabel}
+          </a>
+        </div>
+      </section>
+    </PageShell>
   )
 }

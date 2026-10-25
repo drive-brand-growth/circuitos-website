@@ -1,0 +1,70 @@
+title: Forecasting
+path: /forecasting
+description: >
+  Bayesian means updating your odds as evidence comes in. A forecast call is
+  a set of odds you are willing to score.
+status: published
+kicker: The odds
+headline: Say the odds. Then check them.
+updated: ""
+lede:
+  - Bayesian means updating your odds as evidence comes in.
+  - >
+    On the forecast call you say what you believe will happen. Honest odds are
+    odds you are willing to score when the period closes. If calls you labeled
+    with a similar confidence do not land at a similar rate, the call was a guess.
+table:
+  caption: ""
+  columns: []
+  rows: []
+sections:
+  - heading: Start with the odds you would have said
+    paragraphs:
+      - >
+        A prior is the odds you would have said before this new fact. It comes
+        from deals like this one, and from your judgment. You choose it.
+      - >
+        If a model chooses the prior and you cannot say why, you do not have a
+        forecast. You have a suggestion wearing a number.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: Let the new fact move the odds
+    paragraphs:
+      - >
+        A signal arrives. A reply. A meeting held. A missing buyer. A stall.
+        Each one should move the odds by how much it actually changes deals
+        like this one.
+      - >
+        The posterior is the odds after that fact. On the forecast call, the
+        posterior is the number you say out loud.
+      - >
+        The practice sandbox lets you watch a simulated update. The ratios there are
+        for practice. They are not your book of business.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: The shape of the test
+    paragraphs:
+      - >
+        Draw the odds you stated one way, and how often those calls happened
+        the other way. The honest line is the diagonal. Nothing is plotted
+        below. This site does not invent a score.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: chart
+  - heading: ""
+    paragraphs:
+      - >
+        The odds live on the switch, beside the rule. Next, ask what actually
+        caused the result.
+    items:
+      - label: Ask what caused it
+        text: ""
+        href: /causal
+    listStyle: links
+    callout: ""
+    embed: none

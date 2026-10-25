@@ -1,0 +1,37 @@
+name: Breaker
+order: 4
+status: published
+accent: false
+kicker: A person says yes
+line: A person says yes, and the yes is written down.
+summary: >
+  Breaker means a person approves anything that reaches a customer or moves
+  money. The yes leaves a receipt.
+lede:
+  - Breaker means a person says yes before it goes out.
+  - >
+    A discount does not go out because a note was clean. A message to a live
+    account does not go out because a queue was full. Somebody says yes. The
+    yes is written down.
+sections:
+  - heading: What the receipt holds
+    paragraphs:
+      - >
+        The rule that matched. The odds at the time. Who approved. What was
+        released. If the next meeting cannot reconstruct that, the gate was a
+        conversation, not a control.
+    bullets: []
+  - heading: A model does not approve itself
+    paragraphs:
+      - >
+        A model may prepare the note and show the row that matched. It does not
+        approve its own draft. A gate the model can open is not a breaker.
+      - >
+        Bookkeeping inside the team can move with a lighter look. The moment
+        the work would reach a customer, or would change money, a person is the gate.
+    bullets: []
+caution: >
+  Skipping the gate is a short circuit. Speed is the usual reason. The missing
+  receipt is how you notice it later.
+nextHref: /method/ground
+nextLabel: Ground

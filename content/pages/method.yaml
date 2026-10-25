@@ -1,0 +1,99 @@
+title: The method
+path: /method
+description: >
+  The agent drafts. The rules decide. The odds are math, not mood. Written
+  rules and a fixed score make a revenue system reliable.
+status: published
+kicker: The method
+headline: The odds are math, not mood.
+updated: ""
+lede:
+  - The agent drafts. The rules decide. The odds are math, not mood.
+  - >
+    Written rules and fixed scores, joined to an agent that only drafts, make
+    a revenue system reliable. You write the rules. You still close the switch.
+  - >
+    Deterministic means the same inputs always give the same result.
+    Probabilistic means the agent works from odds. The agent may draft. It
+    does not get to change the rule or the score.
+table:
+  caption: ""
+  columns: []
+  rows: []
+sections:
+  - heading: The Tiebreaker
+    paragraphs:
+      - >
+        The Tiebreaker is a score. The Switch reads it when a lead needs a
+        route.
+      - >
+        It is not the Breaker. The Breaker is a person. That person says yes
+        before anything reaches a customer or moves money. The Tiebreaker never
+        sends the note. It only scores the lead so a written rule can route it.
+      - >
+        The Tiebreaker is Bayesian and deterministic. Bayesian means updating
+        your odds as evidence comes in. Deterministic means the same inputs
+        always give the same score. Every score shows why.
+      - Three inputs go in. Noel writes the weights. This page does not invent them.
+    items:
+      - label: ""
+        text: Attribution. Which touches moved the lead. Nearby is not enough. Causal means proving what actually caused the result.
+        href: ""
+      - label: ""
+        text: Velocity. How fast the lead moves, set next to deals that closed.
+        href: ""
+      - label: ""
+        text: Impact. What a win is worth.
+        href: ""
+    listStyle: bullets
+    callout: ""
+    embed: none
+  - heading: What the score shows
+    paragraphs:
+      - >
+        Same inputs always give the same score. The score shows the touches
+        that counted, the pace against deals that closed, and what the win is
+        worth. The Switch reads that score and the written rule, then routes
+        the lead. The agent may draft the note that follows. The rule still
+        decides.
+      - >
+        [Noel to confirm: how attribution, velocity, and impact are weighed, and the formula that joins them.]
+      - >
+        [Noel to confirm: one real lead, with the real inputs and the real Tiebreaker score. No number until you write it.]
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: One loop
+    paragraphs:
+      - The agent drafts. The rules decide.
+      - >
+        Something comes in. You write the decision and the odds. The work is a
+        draft. A person approves what reaches a customer or moves money. The
+        result comes back, and you ask what caused it.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: steps
+  - heading: Four words
+    paragraphs:
+      - A closed circuit is the full loop. The result came back and got scored.
+      - An open circuit is built, and not yet proved.
+      - A short circuit skips a gate. The usual skip is sending the draft.
+      - >
+        Owner load is the minutes a day this takes from you. The aim is a small
+        load, with the call still yours. This site does not invent that number.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: terms
+  - heading: ""
+    paragraphs:
+      - Start at the first stage. One lead. One loop.
+    items:
+      - label: Start with Signal
+        text: ""
+        href: /method/signal
+    listStyle: links
+    callout: ""
+    embed: none

@@ -1,0 +1,7 @@
+name: Switch
+order: 6
+status: published
+group: stage
+text: >
+  The decision, written as rules, with the odds. DMN means written decision
+  rules. You close the switch.

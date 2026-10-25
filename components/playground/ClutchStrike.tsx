@@ -71,7 +71,7 @@ export default function ClutchStrike({
               damping: 15,
             }}
           >
-            CLUTCH STRIKE
+            BREAKER
           </motion.h1>
 
           {/* Scores */}
@@ -102,7 +102,7 @@ export default function ClutchStrike({
             animate={{ opacity: 1 }}
             transition={{ delay: delay ?? 2.6, duration: prefersReducedMotion ? 0 : 0.4 }}
           >
-            Autonomous action authorized — immediate human escalation
+            The practice gates passed. Prepare the draft. A person still approves anything that reaches a customer or moves money.
           </motion.p>
 
           {/* Engines */}
@@ -131,15 +131,15 @@ export default function ClutchStrike({
           >
             <button
               onClick={onDismiss}
-              className="btn-primary px-8 py-3 rounded-lg text-white font-medium"
+              className="btn-primary px-8 py-3 rounded-lg font-medium"
             >
               Continue
             </button>
             <a
-              href="/demo"
-              className="px-8 py-3 rounded-lg text-sm font-medium text-blue-400 border border-blue-500/30 hover:bg-blue-500/10 transition-colors"
+              href="/method/breaker"
+              className="px-8 py-3 rounded-lg text-sm font-medium text-white border border-[#3f3f46] hover:bg-white/5 transition-colors"
             >
-              Explore AgentOps Dashboard &rarr;
+              Read the breaker
             </a>
           </motion.div>
         </div>

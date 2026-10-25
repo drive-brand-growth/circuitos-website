@@ -92,7 +92,7 @@ export default function DecisionTrailMini({ firedSignals, dmnRoute, gates, poste
     <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl overflow-hidden">
       <div className="flex items-center gap-2 px-4 py-3 border-b border-[#27272a]">
         <Shield size={14} className="text-blue-400" />
-        <span className="text-sm font-medium text-white">Decision Trail</span>
+        <span className="text-sm font-medium text-white">Receipt</span>
         <span className="ml-auto text-[10px] text-[#71717a] font-mono">{events.length} events</span>
       </div>
 
@@ -101,7 +101,7 @@ export default function DecisionTrailMini({ firedSignals, dmnRoute, gates, poste
         className="max-h-[280px] overflow-y-auto p-3 space-y-1"
       >
         {events.length === 0 && (
-          <p className="text-xs text-[#52525b] text-center py-6">Fire signals to generate decision events</p>
+          <p className="text-xs text-[#52525b] text-center py-6">Fire a signal to start the receipt</p>
         )}
         {events.map((event, i) => {
           const Icon = ICONS[event.type]
