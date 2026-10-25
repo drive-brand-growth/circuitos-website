@@ -12,7 +12,7 @@ lede:
   - >
     On the forecast call you say what you believe will happen. Honest odds are
     odds you are willing to score when the period closes. If calls you labeled
-    with a similar confidence do not land at a similar rate, the call was a story.
+    with a similar confidence do not land at a similar rate, the call was a guess.
 table:
   caption: ""
   columns: []
@@ -40,7 +40,7 @@ sections:
         The posterior is the odds after that fact. On the forecast call, the
         posterior is the number you say out loud.
       - >
-        The playground lets you watch a simulated update. The ratios there are
+        The practice sandbox lets you watch a simulated update. The ratios there are
         for practice. They are not your book of business.
     items: []
     listStyle: none

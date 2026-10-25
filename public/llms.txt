@@ -1,10 +1,10 @@
 # The Circuit Method™
 
-> Predictable revenue, engineered. Written decisions. Honest odds. Proof of cause.
+> The agent drafts. The rules decide. Written decisions. Honest odds. Proof of cause.
 
-The Circuit Method™ is a way to run a business. It is taught by Noel Pena, who has spent more than twenty years in RevOps and sales leadership. The site is for learning the method. It is not a price list.
+The Circuit Method™ is a method Noel Pena teaches. He has spent more than twenty years in RevOps and sales leadership. He teaches it as a course, in a book, and in team strategy work. The site is for learning the method.
 
-The model drafts. The owner decides. A model is a tool inside the loop. It does not own the rule, the odds, or the release.
+The agent drafts. The rules decide. An agent is a tool inside the method. It does not own the rule, the odds, or the release.
 
 ## The loop
 
@@ -34,7 +34,8 @@ The model drafts. The owner decides. A model is a tool inside the loop. It does 
 - Decisions (DMN): https://thecircuitmethod.com/decisions
 - Forecasting: https://thecircuitmethod.com/forecasting
 - Causal proof: https://thecircuitmethod.com/causal
-- Playground (simulated practice): https://thecircuitmethod.com/practice
+- Practice sandbox: https://thecircuitmethod.com/practice
+- Pipeline Autopsy: https://thecircuitmethod.com/autopsy
 - Field notes: https://thecircuitmethod.com/field-notes
 - About Noel Pena: https://thecircuitmethod.com/about
 - Work with me: https://thecircuitmethod.com/work-with-me
@@ -43,7 +44,7 @@ The model drafts. The owner decides. A model is a tool inside the loop. It does 
 
 ## What this site will not do
 
-It does not publish prices, client lists, testimonials, or results. The playground uses simulated signals and says so. The notes form is not connected.
+It does not publish prices, client lists, testimonials, or results. The practice sandbox uses simulated signals and says so. A Pipeline Autopsy is a free scored report on an export you email.
 
 Contact: hello@usecircuitos.com
 

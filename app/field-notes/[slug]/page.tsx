@@ -44,28 +44,28 @@ export default async function FieldNotePage({ params }: { params: Params }) {
 
   return (
     <PageShell>
-      <article className="pb-24 pt-16 sm:pt-24">
+      <article className="grid-bg pb-20 pt-36">
         {jsonLd ? (
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         ) : null}
         <Container>
-          <p className="text-sm text-[var(--muted)]">
-            <Link href="/field-notes" className="link">
+          <p className="text-sm text-[#a1a1aa]">
+            <Link href="/field-notes" className="text-blue-400 hover:text-blue-300">
               Field notes
             </Link>
           </p>
           <div className="mt-8">
             <SectionHeader as="h1" kicker={note.kicker} title={note.title} />
           </div>
-          <p className="mt-4 text-sm text-[var(--muted)]">Noel Pena · {note.datePublished}</p>
+          <p className="mt-4 text-sm text-[#a1a1aa]">Noel Pena · {note.datePublished}</p>
           {note.status !== 'published' ? (
-            <p className="mt-6 text-sm text-[var(--muted)]">Draft. This note is not on the index.</p>
+            <p className="mt-6 text-sm text-[#a1a1aa]">Draft. This note is not on the index.</p>
           ) : null}
           <div className="mt-10">
             <MarkdocBody document={document} />
           </div>
           <p className="mt-12 text-sm">
-            <Link href="/method" className="link">
+            <Link href="/method" className="text-blue-400 hover:text-blue-300 font-medium">
               Back to the method
             </Link>
           </p>

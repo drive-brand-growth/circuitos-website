@@ -8,8 +8,8 @@ export default function OpenEditor() {
   }, [])
 
   return (
-    <main className="mx-auto max-w-prose px-6 py-24">
-      <p className="text-lg text-[var(--muted)]">Opening the editor.</p>
+    <main className="mx-auto max-w-3xl px-6 py-36">
+      <p className="text-lg text-[#a1a1aa]">Opening the editor.</p>
     </main>
   )
 }

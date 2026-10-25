@@ -1,4 +1,3 @@
-import Wordmark from '@/components/Wordmark'
 import { fill, type SiteContent, type StepEntry } from '@/lib/content'
 
 type FooterProps = {
@@ -10,54 +9,60 @@ export default function Footer({ site, steps }: FooterProps) {
   const text = (value: string) => fill(value, site.contactEmail)
 
   return (
-    <footer className="border-t border-[var(--line)] px-6 py-20">
-      <div className="mx-auto grid max-w-page gap-12 md:grid-cols-4">
-        <div>
-          <span className="text-[var(--fg)]">
-            <Wordmark markClassName="h-8 w-8" />
-          </span>
-          <p className="mt-5 max-w-xs text-sm leading-relaxed text-[var(--muted)]">{site.coreLine}</p>
-        </div>
-        <div>
-          <h2 className="kicker">Method</h2>
-          <ul className="mt-4 space-y-3 text-sm text-[var(--muted)]">
-            <li>
-              <a className="hover:text-[var(--fg)]" href="/method">
-                Overview
-              </a>
-            </li>
-            {steps.map((step) => (
-              <li key={step.slug}>
-                <a className="hover:text-[var(--fg)]" href={`/method/${step.slug}`}>
-                  {step.entry.name}
+    <footer className="py-16 px-6 border-t border-[#27272a]">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+          <div className="col-span-2 md:col-span-1">
+            <span className="text-xl font-semibold">
+              <span className="text-blue-500">//</span> Circuit Method
+            </span>
+            <p className="text-sm text-[#71717a] mt-2 leading-relaxed">{site.tagline}</p>
+            <p className="text-xs text-[#52525b] mt-4 leading-relaxed">{site.coreLine}</p>
+          </div>
+
+          <div>
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-[#a1a1aa] mb-4">Method</h2>
+            <ul className="space-y-3 text-sm text-[#71717a]">
+              <li>
+                <a href="/method" className="hover:text-white transition-colors">
+                  Overview
                 </a>
               </li>
-            ))}
-            <li>
-              <a className="hover:text-[var(--fg)]" href="/method/glossary">
-                Glossary
-              </a>
-            </li>
-          </ul>
-        </div>
-        {site.linkGroups.map((group) => (
-          <div key={group.title}>
-            <h2 className="kicker">{group.title}</h2>
-            <ul className="mt-4 space-y-3 text-sm text-[var(--muted)]">
-              {group.links.map((item) => (
-                <li key={item.href}>
-                  <a className="hover:text-[var(--fg)]" href={text(item.href)}>
-                    {text(item.label)}
+              {steps.map((step) => (
+                <li key={step.slug}>
+                  <a href={`/method/${step.slug}`} className="hover:text-white transition-colors">
+                    {step.entry.name}
                   </a>
                 </li>
               ))}
+              <li>
+                <a href="/method/glossary" className="hover:text-white transition-colors">
+                  Glossary
+                </a>
+              </li>
             </ul>
           </div>
-        ))}
+
+          {site.linkGroups.map((group) => (
+            <div key={group.title}>
+              <h2 className="text-sm font-semibold uppercase tracking-wider text-[#a1a1aa] mb-4">{group.title}</h2>
+              <ul className="space-y-3 text-sm text-[#71717a]">
+                {group.links.map((item) => (
+                  <li key={item.href}>
+                    <a href={text(item.href)} className="hover:text-white transition-colors">
+                      {text(item.label)}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="pt-8 border-t border-[#27272a] text-center text-sm text-[#71717a]">
+          © {new Date().getFullYear()} Noel Pena. {site.name}. All rights reserved.
+        </div>
       </div>
-      <p className="mx-auto mt-16 max-w-page border-t border-[var(--line)] pt-8 text-sm text-[var(--muted)]">
-        © {new Date().getFullYear()} Noel Pena. {site.name}.
-      </p>
     </footer>
   )
 }

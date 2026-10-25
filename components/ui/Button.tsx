@@ -10,10 +10,9 @@ type ButtonProps = {
 }
 
 const styles = {
-  primary: 'btn-primary',
-  secondary:
-    'bg-[var(--bg-elevated)] text-[var(--fg)] shadow-[var(--shadow)] ring-1 ring-[var(--line)] hover:opacity-80',
-  quiet: 'text-[var(--fg)] hover:opacity-70',
+  primary: 'btn-primary text-white rounded-lg font-semibold',
+  secondary: 'border border-[#27272a] rounded-lg font-semibold hover:bg-white/5 transition-colors',
+  quiet: 'text-[#a1a1aa] hover:text-white transition-colors',
 }
 
 export default function Button({
@@ -24,7 +23,7 @@ export default function Button({
   className = '',
   onClick,
 }: ButtonProps) {
-  const cls = `inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium transition duration-200 ${styles[variant]} ${className}`
+  const cls = `inline-flex items-center justify-center px-8 py-3.5 text-base ${styles[variant]} ${className}`
   if (href) {
     const external = href.startsWith('mailto:') || href.startsWith('http')
     if (external) {

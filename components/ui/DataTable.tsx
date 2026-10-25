@@ -6,10 +6,10 @@ type DataTableProps = {
 
 export default function DataTable({ caption, columns, rows }: DataTableProps) {
   return (
-    <div className="overflow-x-auto rounded-3xl bg-[var(--bg-elevated)] shadow-[var(--shadow)] ring-1 ring-[var(--line)]">
+    <div className="card rounded-xl overflow-x-auto">
       <table className="w-full min-w-[640px] text-left text-sm">
         <caption className="sr-only">{caption}</caption>
-        <thead className="text-[var(--muted)]">
+        <thead className="text-[#a1a1aa]">
           <tr>
             {columns.map((column) => (
               <th key={column} className="px-5 py-4 font-medium">
@@ -20,7 +20,7 @@ export default function DataTable({ caption, columns, rows }: DataTableProps) {
         </thead>
         <tbody>
           {rows.map((row) => (
-            <tr key={row.join('|')} className="border-t border-[var(--line)] text-[var(--fg)]">
+            <tr key={row.join('|')} className="border-t border-[#27272a] text-white">
               {row.map((cell) => (
                 <td key={cell} className="px-5 py-4 align-top">
                   {cell}

@@ -5,11 +5,9 @@ type CalloutProps = {
 
 export default function Callout({ title, children }: CalloutProps) {
   return (
-    <aside className="rounded-3xl bg-[var(--bg-elevated)] px-6 py-6 shadow-[var(--shadow)] ring-1 ring-[var(--line)] sm:px-8">
-      {title ? <p className="kicker">{title}</p> : null}
-      <div className={`${title ? 'mt-3' : ''} text-xl font-semibold tracking-tight text-[var(--fg)] sm:text-2xl`}>
-        {children}
-      </div>
+    <aside className="card rounded-xl px-6 py-6 md:px-8">
+      {title ? <p className="text-sm font-medium text-blue-400 mb-3">{title}</p> : null}
+      <div className="text-xl md:text-2xl font-bold tracking-[-0.02em] text-white">{children}</div>
     </aside>
   )
 }

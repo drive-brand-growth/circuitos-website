@@ -64,7 +64,7 @@ export function middleware(request: NextRequest) {
     : "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://api.drivebrandgrowth.com"
   response.headers.set(
     'Content-Security-Policy',
-    `default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; img-src 'self' data: https:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; ${connectSrc}; frame-ancestors 'none';`
+    `default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.googleapis.com https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; ${connectSrc}; frame-ancestors 'none';`
   )
 
   return response

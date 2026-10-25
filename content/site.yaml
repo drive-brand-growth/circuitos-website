@@ -1,13 +1,13 @@
 name: The Circuit Method™
 tagline: Written decisions. Honest odds. Proof of cause.
-promise: Predictable revenue, engineered.
-coreLine: The model drafts. The owner decides.
+promise: The agent drafts. The rules decide.
+coreLine: The agent drafts. The rules decide.
 description: >
-  The Circuit Method™ is five stages for running revenue. Write the decision.
-  Say the odds. Prove what caused the result.
+  Noel Pena teaches The Circuit Method™. A course, a book, and team strategy
+  work for RevOps and sales leaders. The agent drafts. The rules decide.
 contactEmail: hello@usecircuitos.com
-navCtaLabel: Work with me
-navCtaHref: /work-with-me
+navCtaLabel: Pipeline Autopsy
+navCtaHref: /autopsy
 nav:
   - label: Method
     href: /method
@@ -38,6 +38,8 @@ linkGroups:
         href: /field-notes
   - title: Noel
     links:
+      - label: Pipeline Autopsy
+        href: /autopsy
       - label: About
         href: /about
       - label: Work with me

@@ -1,12 +1,12 @@
 # The Circuit Method™
 
-Predictable revenue, engineered.
+The agent drafts. The rules decide.
 
 Written decisions. Honest odds. Proof of cause.
 
-Author: Noel Pena. More than twenty years in RevOps and sales leadership. He teaches the method. The site does not describe an employer, a client list, or a set of results.
+Author: Noel Pena. More than twenty years in RevOps and sales leadership. He teaches the method as a course, in a book, and in team strategy work. The site does not describe an employer, a client list, or a set of results.
 
-Core line: The model drafts. The owner decides.
+Core line: The agent drafts. The rules decide.
 
 A model, including a statistical model or a language model, is a tool inside the method. It may list signals and shape a draft. It does not write the policy, it does not own the odds you will defend on a forecast call, and it does not approve work that reaches a customer or moves money.
 
@@ -45,11 +45,17 @@ State a prior you can explain. Let named signals update it. Say the posterior ou
 
 Credit divides closed work among touches that were present. Cause needs a baseline, named confounders, uncertainty, and a refusal when the case is not shown. Pending is a complete answer in the review.
 
-## Playground
+## Practice sandbox
 
 https://thecircuitmethod.com/practice
 
 Practice on simulated signals. The figures are not a book of business and not a benchmark.
+
+## Pipeline Autopsy
+
+https://thecircuitmethod.com/autopsy
+
+Free. Email a pipeline export to hello@usecircuitos.com. The report covers where deals die, which sources lie, rep reality, what will really close, and missing rules. No sample score is published.
 
 ## Field notes
 

@@ -7,7 +7,7 @@ type CardProps = {
 }
 
 export default function Card({ href, children, className = '' }: CardProps) {
-  const cls = `card block p-6 sm:p-7 ${className}`
+  const cls = `card rounded-xl block p-5 md:p-8 ${className}`
   if (!href) return <div className={cls}>{children}</div>
   return (
     <Link href={href} className={cls}>

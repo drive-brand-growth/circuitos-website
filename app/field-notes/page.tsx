@@ -15,15 +15,15 @@ export default async function FieldNotesPage() {
 
   return (
     <PageShell>
-      <section className="pb-24 pt-16 sm:pt-24">
+      <section className="grid-bg pb-20 pt-36">
         <Container>
           <SectionHeader as="h1" kicker={page.kicker} title={page.headline} lede={page.lede[0]} />
           <div className="mt-14 space-y-4">
             {notes.map((note) => (
               <Card key={note.slug} href={`/field-notes/${note.slug}`}>
-                <p className="kicker">{note.entry.kicker}</p>
-                <h2 className="mt-3 text-2xl font-semibold tracking-tight">{note.entry.title}</h2>
-                <p className="mt-3 text-[var(--muted)]">{note.entry.description}</p>
+                <p className="text-sm text-blue-400 font-medium">{note.entry.kicker}</p>
+                <h2 className="mt-3 text-xl md:text-2xl font-bold">{note.entry.title}</h2>
+                <p className="mt-3 text-sm text-[#a1a1aa] leading-relaxed">{note.entry.description}</p>
               </Card>
             ))}
           </div>

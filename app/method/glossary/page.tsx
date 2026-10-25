@@ -20,10 +20,10 @@ export default async function GlossaryPage() {
 
   return (
     <PageShell>
-      <article className="pb-24 pt-16 sm:pt-24">
+      <article className="grid-bg pb-20 pt-36">
         <Container>
-          <p className="text-sm text-[var(--muted)]">
-            <Link href="/method" className="link">
+          <p className="text-sm text-[#a1a1aa]">
+            <Link href="/method" className="text-blue-400 hover:text-blue-300">
               The method
             </Link>
           </p>
@@ -39,7 +39,7 @@ export default async function GlossaryPage() {
             {visible.filter((term) => !isHeldCopy(term.entry.text)).map((term) => (
               <div key={term.slug} id={term.slug}>
                 <dt className="text-2xl font-semibold tracking-tight">{term.entry.name}</dt>
-                <dd className="mt-3 text-lg leading-relaxed text-[var(--muted)]">{term.entry.text}</dd>
+                <dd className="mt-3 text-lg leading-[1.6] text-[#a1a1aa]">{term.entry.text}</dd>
               </div>
             ))}
           </dl>

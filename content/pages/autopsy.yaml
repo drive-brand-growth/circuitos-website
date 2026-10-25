@@ -1,0 +1,64 @@
+title: Pipeline Autopsy
+path: /autopsy
+description: >
+  A free scored report on a pipeline export. Where deals die, which sources
+  lie, rep reality, what will really close, and which rules are missing.
+status: published
+kicker: Free
+headline: Send the pipeline. Get the score.
+updated: ""
+lede:
+  - >
+    Email a pipeline export. I email back a scored report. The report is free.
+  - >
+    It covers where deals die, which sources lie, rep reality, what will really
+    close, and the rules that are missing.
+table:
+  caption: ""
+  columns: []
+  rows: []
+sections:
+  - heading: What you send
+    paragraphs:
+      - >
+        Write to {{email}}. A spreadsheet or a CRM export is enough. Do not
+        send passwords. This site does not take a file upload.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: What you get back
+    paragraphs:
+      - A scored report on the export you sent. No sample score is published here.
+    items:
+      - label: ""
+        text: Where deals die.
+        href: ""
+      - label: ""
+        text: Which sources lie.
+        href: ""
+      - label: ""
+        text: Rep reality.
+        href: ""
+      - label: ""
+        text: What will really close.
+        href: ""
+      - label: ""
+        text: Missing rules.
+        href: ""
+    listStyle: bullets
+    callout: The agent drafts. The rules decide.
+    embed: none
+  - heading: How to start
+    paragraphs:
+      - >
+        Use the subject Pipeline Autopsy. Say which motion the export covers.
+        I reply with the report. If you later want the method taught to the
+        team, that is a separate conversation. Scope lives in a later writing.
+    items:
+      - label: Email the export
+        text: ""
+        href: "mailto:{{email}}?subject=Pipeline%20Autopsy"
+    listStyle: links
+    callout: ""
+    embed: none

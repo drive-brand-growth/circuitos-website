@@ -19,8 +19,8 @@ sections:
     paragraphs:
       - >
         If you email us, we receive the address you wrote from and whatever you put
-        in the message. The notes form on the home page is not connected. Submitting
-        it does not send your address to us and does not store it.
+        in the message. A Pipeline Autopsy starts as an email with a pipeline
+        export. This site does not take a file upload.
       - >
         Analytics runs only when a measurement id is configured for the deployment.
         When it is, Google Analytics may receive page views, session length, and a

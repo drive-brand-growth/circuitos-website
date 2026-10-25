@@ -5,7 +5,7 @@ description: >
   He built The Circuit Method™ so the work could be written down.
 status: published
 kicker: Noel
-headline: I wrote it down.
+headline: I teach the method.
 updated: ""
 lede:
   - >
@@ -13,8 +13,8 @@ lede:
     the same failure over and over. Forecasts were guesses. Deals died for
     reasons nobody wrote down. Rooms argued opinions.
   - >
-    I built The Circuit Method™ so that work could be written down and repeated.
-    A model can draft. I still decide.
+    I teach The Circuit Method™ as a course, in a book, and in strategy work
+    with a team. The agent drafts. The rules decide.
 table:
   caption: ""
   columns: []
@@ -27,9 +27,12 @@ sections:
         set of results.
       - "[Noel to confirm: anything else you want this page to say about you.]"
     items:
+      - label: Pipeline Autopsy
+        text: ""
+        href: /autopsy
       - label: Work with me
         text: ""
         href: /work-with-me
     listStyle: links
-    callout: The model drafts. The owner decides.
+    callout: The agent drafts. The rules decide.
     embed: none

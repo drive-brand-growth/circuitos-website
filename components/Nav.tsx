@@ -1,9 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Wordmark from '@/components/Wordmark'
-import Button from '@/components/ui/Button'
-import ThemeToggle from '@/components/ui/ThemeToggle'
 
 type NavItem = { href: string; label: string }
 
@@ -14,58 +11,61 @@ type NavProps = {
 }
 
 export default function Nav({ items, ctaLabel, ctaHref }: NavProps) {
-  const [open, setOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="nav-bar sticky top-0 z-50 border-b border-[var(--line)]">
-      <nav className="mx-auto flex h-16 max-w-page items-center justify-between gap-4 px-5" aria-label="Primary">
-        <a href="/" className="shrink-0 text-[var(--fg)]" aria-label="The Circuit Method home">
-          <Wordmark compact markClassName="h-8 w-8" />
-        </a>
-        <div className="hidden items-center gap-6 text-sm text-[var(--muted)] lg:flex">
-          {items.map((item) => (
-            <a key={item.href} href={item.href} className="font-medium hover:text-[var(--fg)]">
-              {item.label}
-            </a>
-          ))}
-        </div>
-        <div className="flex items-center gap-2 sm:gap-3">
-          <ThemeToggle />
-          <Button href={ctaHref} className="hidden sm:inline-flex">
-            {ctaLabel}
-          </Button>
-          <button
-            type="button"
-            onClick={() => setOpen((value) => !value)}
-            className="rounded-full px-3 py-1.5 text-sm text-[var(--muted)] lg:hidden"
-            aria-expanded={open}
-            aria-label="Toggle menu"
-          >
-            {open ? 'Close' : 'Menu'}
-          </button>
-        </div>
-      </nav>
-      {open ? (
-        <div className="border-t border-[var(--line)] lg:hidden">
-          <div className="mx-auto max-w-page space-y-1 px-5 py-4">
+    <nav className="fixed top-0 w-full z-50 border-b border-[#27272a] bg-black/80 backdrop-blur-xl">
+      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-8 min-w-0">
+          <a href="/" className="flex items-center gap-2 shrink-0">
+            <span className="text-lg sm:text-xl font-semibold tracking-tight whitespace-nowrap">
+              <span className="text-blue-500">//</span> Circuit Method
+            </span>
+          </a>
+          <div className="hidden xl:flex items-center gap-6 text-sm text-[#a1a1aa]">
             {items.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="block py-2 text-[var(--muted)] hover:text-[var(--fg)]"
-              >
+              <a key={item.href} href={item.href} className="font-medium hover:text-white transition-colors whitespace-nowrap">
                 {item.label}
               </a>
             ))}
-            <div className="pt-2">
-              <Button href={ctaHref} className="w-full">
-                {ctaLabel}
-              </Button>
-            </div>
           </div>
         </div>
-      ) : null}
-    </header>
+        <div className="flex items-center gap-3 shrink-0">
+          <a href={ctaHref} className="text-sm btn-primary text-white px-3 sm:px-4 py-2 rounded-lg font-medium whitespace-nowrap">
+            {ctaLabel}
+          </a>
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="xl:hidden text-[#a1a1aa] hover:text-white"
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {mobileOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
+      </div>
+      {mobileOpen && (
+        <div className="xl:hidden border-t border-[#27272a] bg-black/95 backdrop-blur-xl">
+          <div className="px-6 py-4 space-y-3">
+            {items.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="block text-[#a1a1aa] hover:text-white transition-colors py-2"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </nav>
   )
 }

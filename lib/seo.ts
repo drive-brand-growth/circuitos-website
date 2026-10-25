@@ -44,7 +44,7 @@ export function personJsonLd(description?: string | null) {
   }
 }
 
-export function websiteJsonLd(name = SITE_NAME, description = 'Predictable revenue, engineered. Written decisions. Honest odds. Proof of cause.') {
+export function websiteJsonLd(name = SITE_NAME, description = 'The agent drafts. The rules decide. Written decisions. Honest odds. Proof of cause.') {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',

@@ -5,17 +5,12 @@ import { getPage, getSite } from '@/lib/content'
 import { personJsonLd, websiteJsonLd } from '@/lib/seo'
 import { SITE_URL } from '@/lib/site'
 
-const themeScript = `(function(){try{var s=localStorage.getItem('theme');var d=s==='dark'||(s!=='light'&&window.matchMedia('(prefers-color-scheme: dark)').matches);var r=document.documentElement;r.classList.toggle('dark',d);r.style.colorScheme=d?'dark':'light';}catch(e){}})();`
-
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f5f5f7' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' },
-  ],
+  themeColor: '#000000',
 }
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -50,10 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
       'max-video-preview': -1,
     },
     icons: {
-      icon: [
-        { url: '/mark-ink.svg', type: 'image/svg+xml', media: '(prefers-color-scheme: light)' },
-        { url: '/mark.svg', type: 'image/svg+xml', media: '(prefers-color-scheme: dark)' },
-      ],
+      icon: [{ url: '/mark.svg', type: 'image/svg+xml' }],
     },
   }
 }
@@ -64,9 +56,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const website = websiteJsonLd(site.name, site.description)
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }} />
       </head>

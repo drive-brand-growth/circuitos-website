@@ -1,68 +1,63 @@
 status: published
-kicker: The problem
-headline: The forecast is a guess.
+kicker: The Circuit Method
+headline: The agent drafts. The rules decide.
 intro: >
-  Deals die for reasons nobody wrote down. The team argues opinions. You leave
-  the room with a number, and no page that explains it.
-villainTitle: Gut feel is the villain.
+  I teach a way to run revenue. You write the decision. You say the odds. You
+  keep a record of what caused the result. An agent may draft the note. It does
+  not own the rule.
+villainTitle: What I teach
 villainBody: >
-  So is the hype that a model will run the number for you.
-
-  A model can list what came in. A model can draft the note. It cannot own the
-  rule, the odds, or the send.
-originTitle: I could not defend the number.
+  A course through the five stages. A book a team can use when I am not in the
+  room. Strategy work on the pipeline review, the forecast call, routing, and
+  approvals.
+originTitle: The work behind it
 originBody: >
-  I spent twenty years running revenue teams.
+  I have spent more than twenty years in RevOps and sales leadership.
 
   [Noel to tell: the real moment, the call, the meeting or the deal]
 
-  The decisions were the problem.
-
-  Not the people.
-
-  Not the dashboards.
-revealTitle: The Circuit Method™. Five stages. One circuit.
-exampleTitle: Here's how it works.
+  I wrote the method down so a team can repeat it.
+revealTitle: Five stages. One circuit.
+exampleTitle: One lead, one pass
 exampleLede: >
-  A new lead comes in. Watch it go around once. This is a teaching walk. It is
-  not a result from a real book of business.
+  A new lead comes in. Signal names what arrived. Switch applies the written
+  rule and the odds. Current is the draft. Breaker is the person who approves
+  a send. Ground brings the result back and asks what caused it.
 diagramTitle: One circuit
 diagramLine: signal returns to ground
 coreSupport: >
-  That line is the whole method. The model may draft. You decide.
-proofTitle: Here is what you can check.
+  The agent drafts. The rules decide. The odds are math, not mood.
+proofTitle: Recorded. Measured. Proven.
 proofBody: >
   You can read the rule. You can score the odds you wrote. You can see who
-  approved the send. That is the proof on this site today. It is the loop, not
-  a trophy.
+  approved the send. That is the proof on this site today.
 
   [Noel to confirm: one true story of a forecast that was a guess, with the real
   detail and no invented number.]
 
   [Noel to confirm: a result you will stand behind. Leave this out until the
   detail is real.]
-primaryLabel: Read the method
-primaryHref: /method
+primaryLabel: Pipeline Autopsy
+primaryHref: /autopsy
 circuitKicker: The loop
 circuitTitle: Five stages. One circuit.
 circuitLede: The agent drafts. The rules decide.
 pillars:
-  - href: /decisions
-    kicker: One
-    title: Read the rule
-    text: The decision is a page the room can read. DMN means written decision rules.
-  - href: /forecasting
-    kicker: Two
-    title: Score the odds
-    text: Bayesian means updating your odds as evidence comes in. Then you check them.
-  - href: /causal
-    kicker: Three
-    title: Ask what caused it
-    text: Causal means proving what actually caused the result. Nearby is not the same as cause.
+  - href: /method
+    kicker: Course
+    title: A course
+    text: The five stages, in order, with the rules written down.
+  - href: /method
+    kicker: Book
+    title: A book
+    text: The method on paper, so a team can run it when I am not in the room.
+  - href: /work-with-me
+    kicker: Team
+    title: Team strategy
+    text: The pipeline review, the forecast call, routing, and approvals, with your team.
 notesKicker: A note from the notebook
 notesTitle: From the notebook
-notesLede: One note on the same idea. No claims about anyone else's results.
+notesLede: One note on the same idea.
 newsletterTitle: Notes, when a list exists
 newsletterLede: >
-  This form is not connected. Nothing is sent, and nothing is stored. The button
-  above is the next step.
+  This form is not connected. Nothing is sent, and nothing is stored.

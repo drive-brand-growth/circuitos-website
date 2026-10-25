@@ -29,14 +29,14 @@ export default function NewsletterForm() {
           type="email"
           autoComplete="email"
           placeholder="you@company.com"
-          className="w-full rounded-full bg-[var(--bg-elevated)] px-5 py-3 text-sm text-[var(--fg)] shadow-[var(--shadow)] outline-none ring-1 ring-[var(--line)] placeholder:text-[var(--muted)]"
+          className="w-full rounded-lg bg-transparent border border-[#27272a] px-4 py-3 text-sm text-white outline-none placeholder:text-[#71717a]"
         />
-        <button type="submit" className="btn-primary px-6 py-3 text-sm font-semibold">
+        <button type="submit" className="btn-primary text-white rounded-lg px-6 py-3 text-sm font-semibold">
           Request notes
         </button>
       </div>
       {message ? (
-        <p className="mt-3 text-sm text-[var(--muted)]" role="status">
+        <p className="mt-3 text-sm text-[#a1a1aa]" role="status">
           {message}
         </p>
       ) : null}

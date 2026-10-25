@@ -30,19 +30,19 @@ export default async function StageRoute({ params }: { params: Params }) {
 
   return (
     <PageShell>
-      <article className="pb-24 pt-16 sm:pt-24">
+      <article className="grid-bg pb-20 pt-36">
         <Container>
-          <p className="text-sm text-[var(--muted)]">
-            <Link href="/method" className="link">
+          <p className="text-sm text-[#a1a1aa]">
+            <Link href="/method" className="text-blue-400 hover:text-blue-300">
               The method
             </Link>
             <span className="px-2">/</span>
-            <span className="font-mono">0{step.order}</span>
+            <span className="font-mono text-blue-500">0{step.order}</span>
           </p>
           <div className="mt-8">
             <SectionHeader as="h1" kicker={step.kicker} title={step.name} />
           </div>
-          <div className="reading mt-8 space-y-6 text-[var(--muted)]">
+          <div className="mt-8 space-y-5 text-lg leading-[1.6] text-[#a1a1aa]">
             {step.lede.filter((paragraph) => !isHeldCopy(paragraph)).map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
@@ -52,17 +52,17 @@ export default async function StageRoute({ params }: { params: Params }) {
             const bullets = section.bullets.filter((item) => !isHeldCopy(item))
             if (!paragraphs.length && !bullets.length) return null
             return (
-              <section key={section.heading} className="mt-20">
+              <section key={section.heading} className="mt-16">
                 {section.heading ? (
-                  <h2 className="mb-5 text-3xl font-semibold tracking-tight sm:text-4xl">{section.heading}</h2>
+                  <h2 className="mb-5 text-2xl md:text-3xl font-bold tracking-[-0.02em]">{section.heading}</h2>
                 ) : null}
                 {paragraphs.map((paragraph) => (
-                  <p key={paragraph} className="reading mb-5 text-[var(--muted)]">
+                  <p key={paragraph} className="mb-5 text-lg leading-[1.6] text-[#a1a1aa]">
                     {paragraph}
                   </p>
                 ))}
                 {bullets.length > 0 ? (
-                  <ul className="reading mb-5 list-disc space-y-3 pl-5 text-[var(--muted)]">
+                  <ul className="mb-5 list-disc space-y-3 pl-5 text-lg leading-[1.6] text-[#a1a1aa]">
                     {bullets.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
@@ -71,10 +71,10 @@ export default async function StageRoute({ params }: { params: Params }) {
               </section>
             )
           })}
-          <h2 className="mb-5 mt-20 text-3xl font-semibold tracking-tight sm:text-4xl">The short circuit</h2>
-          <p className="reading text-[var(--muted)]">{step.caution}</p>
-          <p className="mt-10 text-sm">
-            <Link href={step.nextHref} className="link">
+          <h2 className="mb-5 mt-16 text-2xl md:text-3xl font-bold tracking-[-0.02em]">The short circuit</h2>
+          <p className="text-lg leading-[1.6] text-[#a1a1aa]">{step.caution}</p>
+          <p className="mt-10">
+            <Link href={step.nextHref} className="text-blue-400 hover:text-blue-300 font-medium">
               Continue to {step.nextLabel}
             </Link>
           </p>

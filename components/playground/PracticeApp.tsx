@@ -135,7 +135,7 @@ export default function PracticeApp({ copy }: { copy: PracticeCopy }) {
 
   return (
     <MotionConfig reducedMotion="user">
-      <section className="pb-12 px-6 pt-8">
+      <section className="grid-bg pb-12 px-6 pt-28">
         <motion.div
           className="max-w-7xl mx-auto"
           initial="initial"
@@ -153,9 +153,9 @@ export default function PracticeApp({ copy }: { copy: PracticeCopy }) {
             />
             <dl className="mt-8 grid gap-3 sm:grid-cols-5 text-sm">
               {copy.stages.map((stage) => (
-                <div key={stage.label} className="surface px-4 py-4">
-                  <dt className="font-medium text-[var(--fg)]">{stage.label}</dt>
-                  <dd className="mt-1 text-[var(--muted)]">{stage.text}</dd>
+                <div key={stage.label} className="card rounded-xl px-4 py-4">
+                  <dt className="font-medium text-white">{stage.label}</dt>
+                  <dd className="mt-1 text-[#a1a1aa]">{stage.text}</dd>
                 </div>
               ))}
             </dl>
@@ -311,15 +311,15 @@ export default function PracticeApp({ copy }: { copy: PracticeCopy }) {
               transition={{ delay: 0.8 }}
               className="mt-20 text-center border-t border-[#27272a] pt-16 pb-8"
             >
-              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-4">
                 {copy.closeTitle}
               </h2>
-              <p className="text-[var(--muted)] mb-8 max-w-lg mx-auto">
+              <p className="text-[#a1a1aa] mb-8 max-w-lg mx-auto">
                 {copy.closeBody}
               </p>
               <Link
                 href={copy.closeHref}
-                className="inline-block btn-primary px-8 py-3 font-semibold"
+                className="inline-block btn-primary text-white px-8 py-3.5 rounded-lg font-semibold"
               >
                 {copy.closeLabel}
               </Link>

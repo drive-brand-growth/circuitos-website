@@ -50,8 +50,8 @@ sections:
     paragraphs:
       - >
         You decide what happens. The first matching row can win, or rows can be
-        kept from overlapping. Overlap is how two rules fight, and how a room
-        ends up with two numbers for one deal.
+        kept from overlapping. Overlap is how two rules both claim the deal, and
+        how a room ends up with two numbers.
       - >
         FEEL means a small language for an exact condition. You do not need it
         to start. A table of plain words is already a decision.
@@ -72,7 +72,7 @@ sections:
         text: Which missing fact holds the deal for the meeting.
         href: ""
     listStyle: bullets
-    callout: The model drafts. The owner decides.
+    callout: The agent drafts. The rules decide.
     embed: none
   - heading: ""
     paragraphs:

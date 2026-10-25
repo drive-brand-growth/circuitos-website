@@ -6,7 +6,7 @@ export default async function PageShell({ children }: { children: React.ReactNod
   const [site, steps] = await Promise.all([getSite(), listSteps()])
 
   return (
-    <div className="min-h-screen bg-[var(--bg)] text-[var(--fg)]">
+    <div className="min-h-screen">
       <a href="#main-content" className="sr-only skip-link">
         Skip to main content
       </a>
