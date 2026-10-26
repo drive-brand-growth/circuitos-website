@@ -21,6 +21,10 @@ if [ "$REF" != "main" ]; then
       echo "vercel-ignore: build preview for the method site ($REF)"
       exit 1
       ;;
+    fix/admin-content-tracing)
+      echo "vercel-ignore: build preview for the admin 500 fix ($REF)"
+      exit 1
+      ;;
     cms/*)
       echo "vercel-ignore: build CMS branch preview ($REF)"
       exit 1
