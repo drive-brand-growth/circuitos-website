@@ -1,0 +1,20 @@
+lib/redirects.ts
+  s_332667a3ced7e9::t_d25e85f9d57bc8 2-8,16-60
+  s_332667a3ced7e9::t_72294b50d7a3fc 14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "cb200835adbfca307e0913c6f986e07907fe67b6",
+  "prompts": {},
+  "sessions": {
+    "s_332667a3ced7e9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "70bb9026-cf76-4364-9426-08f638ebc3c9",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}
