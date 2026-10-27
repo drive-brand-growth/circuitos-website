@@ -32,6 +32,20 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Bad request' }, { status: 400 })
   }
 
+  // Fail closed: without a signing secret no request can be verified, so refuse them all
+  const signingSecret = process.env.SLACK_SIGNING_SECRET
+  if (!signingSecret) {
+    console.error('[Slack] SLACK_SIGNING_SECRET is not set, refusing request')
+    return NextResponse.json({ error: 'Slack events not configured' }, { status: 503 })
+  }
+
+  // Verify the Slack signature before the body is parsed or acted on
+  const timestamp = req.headers.get('x-slack-request-timestamp') || ''
+  const signature = req.headers.get('x-slack-signature') || ''
+  if (!verifySlackRequest(signingSecret, timestamp, rawBody, signature)) {
+    return NextResponse.json({ error: 'Invalid signature' }, { status: 401 })
+  }
+
   let body: Record<string, unknown>
   try {
     body = JSON.parse(rawBody)
@@ -39,21 +53,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 })
   }
 
-  // Handle Slack URL verification challenge FIRST (before sig check)
-  // Slack sends this during app setup and it must respond with the challenge
+  // Slack sends the URL verification challenge during app setup and signs it like
+  // every other request, so it is answered only after the signature check above
   if (body.type === 'url_verification') {
     return NextResponse.json({ challenge: body.challenge })
-  }
-
-  // Verify Slack signature for all other requests
-  const signingSecret = process.env.SLACK_SIGNING_SECRET
-  if (signingSecret) {
-    const timestamp = req.headers.get('x-slack-request-timestamp') || ''
-    const signature = req.headers.get('x-slack-signature') || ''
-
-    if (!verifySlackRequest(signingSecret, timestamp, rawBody, signature)) {
-      return NextResponse.json({ error: 'Invalid signature' }, { status: 401 })
-    }
   }
 
   // Process event — await processing before returning
