@@ -60,9 +60,9 @@ test('an unknown path keeps its path', () => {
   assertMoved('https://www.usecircuitos.com/some/old/page?x=1', `${NEW}/some/old/page?x=1`)
 })
 
-test('a trailing slash still maps', () => {
-  assertMoved('https://usecircuitos.com/insights/', `${NEW}/field-notes`)
-  assertMoved('https://usecircuitos.com/insights/honesty-gap/', `${NEW}/field-notes/honesty-gap`)
+test('a trailing dot on the old host still moves', () => {
+  assertMoved('https://usecircuitos.com./insights/honesty-gap', `${NEW}/field-notes/honesty-gap`)
+  assertMoved('https://www.usecircuitos.com./demo', `${NEW}/work-with-me`)
 })
 
 test('every method on the old host moves, API routes included', () => {
@@ -78,6 +78,7 @@ test('a path shaped like a host stays on thecircuitmethod.com', () => {
 
 const NEVER = [
   NEW,
+  'https://thecircuitmethod.com.',
   'https://www.thecircuitmethod.com',
   'https://circuitos-website.vercel.app',
   'http://localhost:3000',

@@ -4,9 +4,9 @@ This file is the redirect plan. It is live.
 
 `middleware.ts` answers every request on `usecircuitos.com` and `www.usecircuitos.com` with a 301 to `https://thecircuitmethod.com`, after the path map below. The map lives in `lib/redirects.ts`. Paths not in the map keep their path, and the query string carries over. Requests on any other host, `thecircuitmethod.com` and previews included, are never redirected. `npm test` covers every row.
 
-The prebuild content check allows exactly that one host based redirect. It fails the build on a redirects key in `next.config.js` or `vercel.json`, a Location header, a 30x status, any other redirect in `middleware.ts`, or a change to the old host list.
+The prebuild content check allows exactly that one host based redirect. It fails the build on a redirects key, `trailingSlash`, or `cleanUrls` in `next.config.js` or `vercel.json`, a Location header, a 30x status, any other redirect in `middleware.ts`, or a change to the old host check in `lib/redirects.ts`.
 
-The middleware matcher skips `/_next/static`, `/_next/image`, `favicon.ico`, `mark.svg`, `logo-lockup.svg`, `robots.txt`, `sitemap.xml`, `llms.txt`, and `llms-full.txt`. Those paths skip the redirect and are served on the old host as before.
+The middleware matcher skips `/_next/static`, `/_next/image`, `favicon.ico`, `mark.svg`, `logo-lockup.svg`, `robots.txt`, `sitemap.xml`, `llms.txt`, and `llms-full.txt`. Those paths skip the redirect and are served on the old host as before. A path with a trailing slash first gets the framework's 308 to the same path without it, then the 301.
 
 ## www is 301, not 307
 

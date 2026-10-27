@@ -12,7 +12,7 @@
  */
 import { SITE_URL } from './site'
 
-export const OLD_HOSTS = ['usecircuitos.com', 'www.usecircuitos.com']
+export const OLD_HOSTS: readonly string[] = ['usecircuitos.com', 'www.usecircuitos.com']
 
 export type PathRedirect = {
   from: string
@@ -65,24 +65,23 @@ export const PATH_REDIRECTS: PathRedirect[] = [
 
 const SLUG = ':slug'
 
-/** New path for an old path. A trailing slash is ignored. Unknown paths keep their path. */
+/** New path for an old path. Unknown paths keep their path. */
 export function mapOldPath(pathname: string): string {
-  const path = pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname
   for (const { from, to } of PATH_REDIRECTS) {
     if (from.endsWith(SLUG)) {
       const base = from.slice(0, -SLUG.length)
-      const slug = path.startsWith(base) ? path.slice(base.length) : ''
+      const slug = pathname.startsWith(base) ? pathname.slice(base.length) : ''
       if (slug && !slug.includes('/')) return to.slice(0, -SLUG.length) + slug
-    } else if (path === from) {
+    } else if (pathname === from) {
       return to
     }
   }
   return pathname
 }
 
-/** The 301 target for a request on an old host. Null for every other host. */
+/** The 301 target for a request on an old host (a trailing dot names the same host). Null for every other host. */
 export function oldHostRedirect(url: Pick<URL, 'hostname' | 'pathname' | 'search'>): URL | null {
-  if (!OLD_HOSTS.includes(url.hostname)) return null
+  if (!OLD_HOSTS.includes(url.hostname.replace(/\.$/, ''))) return null
   // Set the path on the fixed origin. Joining strings would let a path like //example.com pick the host.
   const target = new URL(SITE_URL)
   target.pathname = mapOldPath(url.pathname)

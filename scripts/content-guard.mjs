@@ -158,14 +158,26 @@ const HOST_REDIRECT = [
   "const moved = oldHostRedirect(request.nextUrl)",
   "if (moved) return NextResponse.redirect(moved, 301)",
 ];
-const OLD_HOSTS_LINE = "export const OLD_HOSTS = ['usecircuitos.com', 'www.usecircuitos.com']";
+/** and in lib/redirects.ts: the host list, checked first thing in oldHostRedirect, mentioned nowhere else */
+const OLD_HOSTS_LINES = [
+  "export const OLD_HOSTS: readonly string[] = ['usecircuitos.com', 'www.usecircuitos.com']",
+  "if (!OLD_HOSTS.includes(url.hostname.replace(/\\.$/, ''))) return null",
+];
 
-/** non comment lines, trimmed. Not copyLines: a '/**' inside a string would hide the rest of the file. */
+/** a line holding only a comment, with no code after a closing star slash */
+const COMMENT_ONLY = /^(?:\/\/.*|\/\*(?:(?!\*\/).)*(?:\*\/)?|\*(?!\/.)(?:(?!\*\/).)*(?:\*\/)?)$/;
+
+/** trimmed lines that hold code. Not copyLines: a '/**' inside a string would hide the rest of the file. */
 function codeLines(file) {
   return readFileSync(join(ROOT, file), "utf8")
     .split("\n")
     .map((raw, i) => ({ t: raw.trim(), n: i + 1 }))
-    .filter(({ t }) => t && !/^(\/\/|\/\*|\*)/.test(t));
+    .filter(({ t }) => t && !COMMENT_ONLY.test(t));
+}
+
+/** for each wanted line, the indexes where it appears */
+function positions(lines, wanted) {
+  return wanted.map((want) => lines.flatMap(({ t }, i) => (t === want ? [i] : [])));
 }
 
 function assertOnlyHostRedirect() {
@@ -174,23 +186,26 @@ function assertOnlyHostRedirect() {
     const lines = codeLines(file);
     for (const { t, n } of lines) {
       if (file === "middleware.ts" && HOST_REDIRECT.includes(t)) continue;
-      if (/redirect/i.test(t) || /\blocation\b/i.test(t) || /status["']?\s*:\s*30\d/.test(t)) {
+      if (/redirect|trailingSlash|cleanUrls/i.test(t) || /\blocation\b/i.test(t) || /status["']?\s*:\s*30\d/.test(t)) {
         hits.push(`  ${file}:${n}: ${t.slice(0, 140)}`);
       }
     }
     if (file !== "middleware.ts") continue;
-    const at = HOST_REDIRECT.map((want) => lines.flatMap(({ t }, i) => (t === want ? [i] : [])));
+    const at = positions(lines, HOST_REDIRECT);
     const [imports, gates, redirects] = at;
     if (at.some((idx) => idx.length > 1) || (redirects.length && (gates.length !== 1 || redirects[0] !== gates[0] + 1 || imports.length !== 1))) {
       hits.push("  middleware.ts: the 301 must appear once, directly under its old host gate");
     }
   }
-  const hosts = codeLines("lib/redirects.ts").filter(({ t }) => /\bOLD_HOSTS\s*=/.test(t));
-  if (hosts.length !== 1 || hosts[0].t !== OLD_HOSTS_LINE) {
-    hits.push("  lib/redirects.ts: OLD_HOSTS must stay exactly usecircuitos.com and www.usecircuitos.com");
+  const lib = codeLines("lib/redirects.ts");
+  const [hosts, gate] = positions(lib, OLD_HOSTS_LINES);
+  const fn = lib.findIndex(({ t }) => t.startsWith("export function oldHostRedirect("));
+  const mentions = lib.filter(({ t }) => t.includes("OLD_HOSTS")).length;
+  if (hosts.length !== 1 || gate.length !== 1 || gate[0] !== fn + 1 || mentions !== 2) {
+    hits.push("  lib/redirects.ts: OLD_HOSTS must stay exactly usecircuitos.com and www.usecircuitos.com, checked first in oldHostRedirect");
   }
   if (hits.length) {
-    console.error("\nCONTENT GUARD [one-host-redirect] — the only redirect allowed is the old host 301 in middleware.ts. No redirects key, Location header, or other redirect. See docs/domain-switch.md.");
+    console.error("\nCONTENT GUARD [one-host-redirect] — the only redirect allowed is the old host 301 in middleware.ts. No redirects key, trailingSlash, cleanUrls, Location header, or other redirect. See docs/domain-switch.md.");
     console.error(hits.join("\n"));
     return true;
   }
