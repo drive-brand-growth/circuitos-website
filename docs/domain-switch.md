@@ -1,19 +1,19 @@
 # Domain switch
 
-This file is the redirect plan. It is not live.
+This file is the redirect plan. It is live.
 
-Nothing in `next.config.js`, `vercel.json`, or `middleware.ts` redirects traffic. The prebuild content check fails the build if a redirects key or a redirect response shows up in those files. The data copy of the map lives in `lib/redirects.pending.ts` and is not imported.
+`middleware.ts` answers every request on `usecircuitos.com` and `www.usecircuitos.com` with a 301 to `https://thecircuitmethod.com`, after the path map below. The map lives in `lib/redirects.ts`. Paths not in the map keep their path, and the query string carries over. Requests on any other host, `thecircuitmethod.com` and previews included, are never redirected. `npm test` covers every row.
 
-Do not attach domains, change Vercel project settings, or turn these on until Noel says the host is moving.
+The prebuild content check allows exactly that one host based redirect. It fails the build on a redirects key in `next.config.js` or `vercel.json`, a Location header, a 30x status, any other redirect in `middleware.ts`, or a change to the old host list.
 
-Canonical URLs, the sitemap, `robots.txt`, and `llms.txt` already name `https://thecircuitmethod.com`. Merging this branch onto the current production host before the domain move would publish those canonicals early. Leave the pull request in draft until that choice is made.
+The middleware matcher skips `/_next/static`, `/_next/image`, `favicon.ico`, `mark.svg`, `logo-lockup.svg`, `robots.txt`, `sitemap.xml`, `llms.txt`, and `llms-full.txt`. Those paths skip the redirect and are served on the old host as before.
 
 ## www is 301, not 307
 
-When the domains are attached:
+- `https://www.thecircuitmethod.com/*` → `https://thecircuitmethod.com/*` with **301**. Set on the Vercel domain, not in code.
+- `https://www.usecircuitos.com/*` → the path map on `https://thecircuitmethod.com`, with **301**, once the domain is attached to this project with no domain redirect. The middleware handles it in one hop.
 
-- `https://www.thecircuitmethod.com/*` → `https://thecircuitmethod.com/*` with **301**
-- `https://www.usecircuitos.com/*` → the apex, then the path map, with **301**
+Do not point `www.usecircuitos.com` at `thecircuitmethod.com` with a Vercel domain redirect. That keeps the old path and skips the map, so `/demo` lands on a 404. A domain redirect to `usecircuitos.com` with 301 also works, in two hops.
 
 Do not use 307. A 307 is temporary. A domain move should be permanent so browsers and crawlers cache the new host.
 
@@ -45,8 +45,10 @@ Old home sections were anchors, not pages: `#platform`, `#how-it-works`, `#capab
 
 ## What Noel still decides
 
-- When to attach `thecircuitmethod.com` and when the old host starts 301s.
-- That www uses 301 rather than the host default of 307.
+- When the old host starts its 301s. That happens when this change merges to `main`, which deploys production.
+- `www.usecircuitos.com`. On 2026-10-27 it answered 307 to the same path on `https://usecircuitos.com`, so it never reaches this middleware. Attach it to `circuitos-website` with no domain redirect so the middleware answers with one 301.
+- Callbacks on the old host. If the Slack app's event request URL or the Keystatic GitHub app callback names `usecircuitos.com`, move it to `thecircuitmethod.com` before merging. After the move those requests get a 301 instead of reaching the route.
+- Google Search Console. Once the 301s are live, a Change of Address from `usecircuitos.com` to `thecircuitmethod.com` tells Google the move is deliberate.
 - The mailbox. The contact path on the site is still `hello@usecircuitos.com` because that address already exists. A `thecircuitmethod.com` mailbox is not assumed.
 - Whether DriveBrandGrowth LLC remains the legal name on the privacy page and the terms.
 - Analytics. The script loads only when `NEXT_PUBLIC_GA_ID` is set. This change does not add or edit that variable. A new GA4 stream for the new host is a separate choice.

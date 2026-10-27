@@ -1,84 +1,91 @@
 /**
- * NOT ACTIVE.
+ * LIVE. middleware.ts imports this.
  *
- * This map is documentation in code form. Nothing imports it.
- * Do not reference it from next.config.js, middleware.ts, or vercel.json.
- * The prebuild check fails if those files gain a redirects key or a redirect response.
+ * Every request on an old host answers with a 301 to thecircuitmethod.com,
+ * after the path map below. Paths not in the map keep their path.
+ * The query string carries over. Fragments never reach the server.
  *
- * Turn these on only when Noel attaches thecircuitmethod.com.
+ * The prebuild check allows this one host based redirect and fails on any other.
  * See docs/domain-switch.md.
  *
  * www hosts must use 301 (permanent), not 307 (temporary).
  */
+import { SITE_URL } from './site'
 
-export const REDIRECTS_ACTIVE = false as const
+export const OLD_HOSTS = ['usecircuitos.com', 'www.usecircuitos.com']
 
-export type PendingRedirect = {
+export type PathRedirect = {
   from: string
   to: string
-  status: 301
   note: string
 }
 
-export const PENDING_REDIRECTS: PendingRedirect[] = [
+export const PATH_REDIRECTS: PathRedirect[] = [
   {
-    from: 'https://www.thecircuitmethod.com/:path*',
-    to: 'https://thecircuitmethod.com/:path*',
-    status: 301,
-    note: 'www to apex. Permanent. Do not use 307.',
-  },
-  {
-    from: 'https://www.usecircuitos.com/:path*',
-    to: 'https://usecircuitos.com/:path*',
-    status: 301,
-    note: 'Old www to old apex first, or straight to the new host after the path map. Permanent. Do not use 307.',
-  },
-  {
-    from: 'https://usecircuitos.com/',
-    to: 'https://thecircuitmethod.com/',
-    status: 301,
+    from: '/',
+    to: '/',
     note: 'Apex home.',
   },
   {
-    from: 'https://usecircuitos.com/insights',
-    to: 'https://thecircuitmethod.com/field-notes',
-    status: 301,
+    from: '/insights',
+    to: '/field-notes',
     note: 'Field notes index.',
   },
   {
-    from: 'https://usecircuitos.com/insights/:slug',
-    to: 'https://thecircuitmethod.com/field-notes/:slug',
-    status: 301,
+    from: '/insights/:slug',
+    to: '/field-notes/:slug',
     note: 'Each existing essay keeps its slug.',
   },
   {
-    from: 'https://usecircuitos.com/playground',
-    to: 'https://thecircuitmethod.com/practice',
-    status: 301,
+    from: '/playground',
+    to: '/practice',
     note: 'Playground moved to /practice.',
   },
   {
-    from: 'https://usecircuitos.com/demo',
-    to: 'https://thecircuitmethod.com/work-with-me',
-    status: 301,
+    from: '/demo',
+    to: '/work-with-me',
     note: 'Demo page removed. Conversation page replaces it. No prices.',
   },
   {
-    from: 'https://usecircuitos.com/receipts-test',
-    to: 'https://thecircuitmethod.com/causal',
-    status: 301,
+    from: '/receipts-test',
+    to: '/causal',
     note: 'Receipts test removed. The attribution lesson lives on Proof.',
   },
   {
-    from: 'https://usecircuitos.com/privacy',
-    to: 'https://thecircuitmethod.com/privacy',
-    status: 301,
+    from: '/privacy',
+    to: '/privacy',
     note: 'Same path.',
   },
   {
-    from: 'https://usecircuitos.com/terms',
-    to: 'https://thecircuitmethod.com/terms',
-    status: 301,
+    from: '/terms',
+    to: '/terms',
     note: 'Same path.',
   },
 ]
+
+const SLUG = ':slug'
+
+/** New path for an old path. A trailing slash is ignored. Unknown paths keep their path. */
+export function mapOldPath(pathname: string): string {
+  const path = pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname
+  for (const { from, to } of PATH_REDIRECTS) {
+    if (from.endsWith(SLUG)) {
+      const base = from.slice(0, -SLUG.length)
+      const slug = path.startsWith(base) ? path.slice(base.length) : ''
+      if (slug && !slug.includes('/')) return to.slice(0, -SLUG.length) + slug
+    } else if (path === from) {
+      return to
+    }
+  }
+  return pathname
+}
+
+/** The 301 target for a request on an old host. Null for every other host. */
+export function oldHostRedirect(url: Pick<URL, 'hostname' | 'pathname' | 'search'>): URL | null {
+  if (!OLD_HOSTS.includes(url.hostname)) return null
+  // Set the path on the fixed origin. Joining strings would let a path like //example.com pick the host.
+  const target = new URL(SITE_URL)
+  target.pathname = mapOldPath(url.pathname)
+  target.search = url.search
+  return target
+}
