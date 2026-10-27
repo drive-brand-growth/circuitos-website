@@ -1,0 +1,48 @@
+scripts/content-guard.mjs
+  s_332667a3ced7e9::t_f9b38a1cf89cda 155-162,164-171,174-185,188-191,193-194
+  s_332667a3ced7e9::t_96fb1fed3b1f30 163
+  s_332667a3ced7e9::t_672f371a65142a 18-19
+  s_332667a3ced7e9::t_f66fd697b747a7 205
+public/llms-full.txt
+  s_332667a3ced7e9::t_86d107cb5876c4 78
+next.config.js
+  s_332667a3ced7e9::t_fb3432edcf8fbe 2
+middleware.ts
+  s_332667a3ced7e9::t_c014c822c8b028 25,27-28
+  s_332667a3ced7e9::t_6e6efa64c1b729 26
+  s_332667a3ced7e9::t_17fe77f0d5954a 3
+test/redirects.test.ts
+  s_332667a3ced7e9::t_0cdefafd221e5d 1-98
+docs/domain-switch.md
+  s_332667a3ced7e9::t_50ec6df3762d55 9
+  s_332667a3ced7e9::t_17577bd1fcc8bc 3,5,7,13-14,16
+  s_332667a3ced7e9::t_7a5dbbe53f4a79 49
+  s_332667a3ced7e9::t_04aad058305b61 48,50-51
+package.json
+  s_332667a3ced7e9::t_42d93cd24061f1 34
+  s_332667a3ced7e9::t_8be241d44047ac 10-11
+scripts/vercel-ignore-build.sh
+  s_332667a3ced7e9::t_c9d84894c17431 28-31
+lib/redirects.ts
+  s_332667a3ced7e9::t_e38c8b9ff3350c 87-90
+  s_332667a3ced7e9::t_d25e85f9d57bc8 13,15,17,23,25-26,30-31,35-36,40-41,45-46,50-51,55-56,60-61,65-86,91
+  s_332667a3ced7e9::t_eec8859d348202 2,4-6,8
+package-lock.json
+  s_332667a3ced7e9::t_4dbd791676de56 31,179-620,3536-3577,8649-8667
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4d1d6b9ee412eb8b94fb64f89238767d2380493f",
+  "prompts": {},
+  "sessions": {
+    "s_332667a3ced7e9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "70bb9026-cf76-4364-9426-08f638ebc3c9",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Noel Pena <noel@drivebrandgrowth.com>"
+    }
+  }
+}
