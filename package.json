@@ -6,6 +6,7 @@
     "prebuild": "node scripts/content-guard.mjs",
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/check-content-trace.mjs",
     "start": "next start",
     "lint": "next lint"
   },
