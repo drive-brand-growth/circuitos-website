@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { oldHostRedirect } from '@/lib/redirects'
 
 // Allowed origins for CORS (restrict API access to our own domains)
 const ALLOWED_ORIGINS = new Set([
@@ -21,6 +22,10 @@ function getCorsOrigin(request: NextRequest): string {
 }
 
 export function middleware(request: NextRequest) {
+  // Old host: 301 to thecircuitmethod.com after the path map (docs/domain-switch.md)
+  const moved = oldHostRedirect(request.nextUrl)
+  if (moved) return NextResponse.redirect(moved, 301)
+
   const corsOrigin = getCorsOrigin(request)
 
   // Handle CORS preflight for API routes

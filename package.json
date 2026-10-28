@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "tsx --test test/*.test.ts"
   },
   "dependencies": {
     "@keystatic/core": "^0.6.9",
@@ -30,6 +31,7 @@
     "eslint-config-next": "^14",
     "postcss": "^8",
     "tailwindcss": "^3",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }

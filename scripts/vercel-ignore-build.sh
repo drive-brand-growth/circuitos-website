@@ -25,6 +25,10 @@ if [ "$REF" != "main" ]; then
       echo "vercel-ignore: build CMS branch preview ($REF)"
       exit 1
       ;;
+    feat/usecircuitos-301)
+      echo "vercel-ignore: build preview for the usecircuitos.com 301 ($REF)"
+      exit 1
+      ;;
     *)
       echo "vercel-ignore: skip branch $REF"
       exit 0
