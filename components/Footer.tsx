@@ -60,7 +60,7 @@ export default function Footer({ site, steps }: FooterProps) {
         </div>
 
         <div className="pt-8 border-t border-[#27272a] text-center text-sm text-[#71717a]">
-          © {new Date().getFullYear()} Noel Pena. {site.name}. All rights reserved.
+          © {new Date().getFullYear()} {site.name}. All rights reserved.
         </div>
       </div>
     </footer>
