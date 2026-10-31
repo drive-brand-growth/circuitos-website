@@ -1,0 +1,22 @@
+{
+  "synthetic": true,
+  "purpose": "Duplicate policy: line 19 exact copy of line 10, line 20 conflicts with line 12.",
+  "params": {
+    "as_of": "2026-10-30",
+    "report_tz": "America/Chicago"
+  },
+  "expect": {
+    "rows_read": 19,
+    "unique_ids": 17,
+    "duplicate_exact_lines": [
+      19
+    ],
+    "duplicate_conflict_lines": [
+      12
+    ],
+    "H1_cents": 10400000,
+    "H1_rows": 10,
+    "H2_cents": 1650000,
+    "H3": "3 of 6"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "synthetic": true,
+  "purpose": "Blank owner is a finding, not an error.",
+  "params": {
+    "as_of": "2026-10-30",
+    "report_tz": "America/Chicago"
+  },
+  "expect": {
+    "blank_owner_lines": [
+      10,
+      14,
+      18
+    ],
+    "blank_owner_count": 3,
+    "open_amount_without_owner_cents": 3800000,
+    "H1_cents": 10300000
+  }
+}

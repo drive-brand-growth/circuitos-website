@@ -1,0 +1,25 @@
+{
+  "synthetic": true,
+  "purpose": "Personal data dropped (unmapped) or file rejected (PII in a kept column). Variants 12b, 12c, 12d are test mutations.",
+  "params": {
+    "as_of": "2026-10-30",
+    "report_tz": "America/Chicago"
+  },
+  "expect": {
+    "dropped_headers": [
+      "Deal Name",
+      "Contact Name",
+      "Contact Email",
+      "Contact Phone",
+      "Notes"
+    ],
+    "H1_cents": 1000000,
+    "H1_rows": 4,
+    "H3": "1 of 1",
+    "variants": {
+      "12b": "Stage becomes an email-bearing text on line 5: pii_in_kept_column",
+      "12c": "Deal ID becomes an email on line 3: pii_in_kept_column",
+      "12d": "Deal ID becomes 5550102345: accepted"
+    }
+  }
+}
