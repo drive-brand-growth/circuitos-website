@@ -1,0 +1,16 @@
+{
+  "synthetic": true,
+  "purpose": "No echoed cell can start a formula; dangerous cells are never evaluated.",
+  "params": {
+    "as_of": "2026-10-30",
+    "report_tz": "America/Chicago"
+  },
+  "expect": {
+    "H1_cents": 3600000,
+    "H1_rows": 8,
+    "excluded": {
+      "9": "invalid_amount",
+      "10": "negative_amount"
+    }
+  }
+}

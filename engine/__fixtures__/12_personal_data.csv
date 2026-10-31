@@ -1,0 +1,6 @@
+Deal ID,Deal Name,Contact Name,Contact Email,Contact Phone,Notes,Stage,Amount,Close Date,Create Date,Owner,Last Modified
+P001,Synthetic Deal P1,Pat Example,pat@example.test,555-0101,Call back Tuesday,Discovery,1000,2026-12-01,2026-10-20,Rep A,2026-10-21
+P002,Synthetic Deal P2,Sam Example,sam@example.test,555-0102,Prefers text,Qualified,2000,2026-12-02,2026-10-21,Rep B,2026-10-22
+P003,Synthetic Deal P3,Lee Example,lee@example.test,555-0103,Met at event,Proposal,3000,2026-12-03,2026-10-22,Rep A,2026-10-23
+P004,Synthetic Deal P4,Kim Example,kim@example.test,555-0104,Needs quote,Discovery,4000,2026-12-04,2026-10-23,Rep B,2026-10-24
+P005,Synthetic Deal P5,Ray Example,ray@example.test,555-0105,Signed,Closed Won,5000,2026-09-30,2026-09-01,Rep A,2026-09-30
