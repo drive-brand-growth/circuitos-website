@@ -40,6 +40,22 @@ describe('M2 headline numbers', () => {
     expect(JSON.stringify(c)).not.toContain('"num":0');
   });
 
+  it('headlines_for_fixtures_02_05_06', () => {
+    const quiet = auditFixture('02_quiet_week_real');
+    expect(card(quiet, 'H1').valueMinor).toBe(10300000);
+    expect(card(quiet, 'H2')).toMatchObject({ valueMinor: 0, includedCount: 0, valueIsZero: true });
+    expect(card(quiet, 'H3').rate).toEqual({ num: 3, den: 6 });
+    // fixtures 05 and 06 change nothing about the headlines
+    for (const name of ['05_missing_owner', '06_stage_skipped']) {
+      const res = auditFixture(name);
+      expect([name, card(res, 'H1').valueMinor]).toEqual([name, 10300000]);
+      expect([name, card(res, 'H2').valueMinor]).toEqual([name, 1650000]);
+      expect([name, card(res, 'H3').rate]).toEqual([name, { num: 3, den: 6 }]);
+    }
+    expect(finding(auditFixture('05_missing_owner').findings, 'blank_owner')?.count).toBe(3);
+    expect(auditFixture('06_stage_skipped').meta.droppedHeaders).toEqual(['Deal Name', 'Pipeline', 'Date entered Qualified', 'Date entered Proposal']);
+  });
+
   it('trace_duplicates_h1_104000 [04]', () => {
     const res = auditFixture('04_duplicate_ids');
     const h1 = card(res, 'H1');
