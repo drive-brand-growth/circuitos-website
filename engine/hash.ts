@@ -9,17 +9,13 @@ const K = new Uint32Array([
   0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2,
 ]);
 
-function sha256Raw(data: Uint8Array): Uint8Array {
-  const h = new Uint32Array([0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19]);
-  const len = data.length;
-  const padded = new Uint8Array(Math.ceil((len + 9) / 64) * 64);
-  padded.set(data);
-  padded[len] = 0x80;
-  const view = new DataView(padded.buffer);
-  view.setUint32(padded.length - 8, Math.floor(len / 0x20000000), false);
-  view.setUint32(padded.length - 4, (len << 3) >>> 0, false);
-  const w = new Uint32Array(64);
-  for (let off = 0; off < padded.length; off += 64) {
+const INIT = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+const W = new Uint32Array(64);
+
+// Runs the compression function over whole 64 byte blocks, updating h in place.
+function compress(h: Uint32Array, view: DataView, end: number): void {
+  const w = W;
+  for (let off = 0; off < end; off += 64) {
     for (let i = 0; i < 16; i++) w[i] = view.getUint32(off + i * 4, false);
     for (let i = 16; i < 64; i++) {
       const a = w[i - 15];
@@ -40,10 +36,27 @@ function sha256Raw(data: Uint8Array): Uint8Array {
     }
     h[0] += a; h[1] += b; h[2] += c; h[3] += d; h[4] += e; h[5] += f; h[6] += g; h[7] += hh;
   }
+}
+
+// Pads data as if `prefixBytes` bytes were already hashed, then finishes from state h.
+function finish(h: Uint32Array, data: Uint8Array, prefixBytes: number): Uint8Array {
+  const len = data.length;
+  const padded = new Uint8Array(Math.ceil((len + 9) / 64) * 64);
+  padded.set(data);
+  padded[len] = 0x80;
+  const view = new DataView(padded.buffer);
+  const total = prefixBytes + len;
+  view.setUint32(padded.length - 8, Math.floor(total / 0x20000000), false);
+  view.setUint32(padded.length - 4, (total << 3) >>> 0, false);
+  compress(h, view, padded.length);
   const out = new Uint8Array(32);
   const ov = new DataView(out.buffer);
   for (let i = 0; i < 8; i++) ov.setUint32(i * 4, h[i], false);
   return out;
+}
+
+function sha256Raw(data: Uint8Array): Uint8Array {
+  return finish(new Uint32Array(INIT), data, 0);
 }
 
 function toHex(b: Uint8Array): string {
@@ -58,7 +71,13 @@ export function sha256Hex(bytes: Uint8Array): string {
   return toHex(sha256Raw(bytes));
 }
 
-export function hmacSha256Hex(key: string, message: string): string {
+let cachedKey: string | null = null;
+let cachedInner = new Uint32Array(8);
+let cachedOuter = new Uint32Array(8);
+
+// State after the key pad block, computed once per key.
+function prepareKey(key: string): void {
+  if (cachedKey === key) return;
   let k: Uint8Array = utf8.encode(key);
   if (k.length > 64) k = sha256Raw(k);
   const ipad = new Uint8Array(64).fill(0x36);
@@ -67,13 +86,15 @@ export function hmacSha256Hex(key: string, message: string): string {
     ipad[i] ^= k[i];
     opad[i] ^= k[i];
   }
-  const msg = utf8.encode(message);
-  const inner = new Uint8Array(64 + msg.length);
-  inner.set(ipad);
-  inner.set(msg, 64);
-  const innerHash = sha256Raw(inner);
-  const outer = new Uint8Array(96);
-  outer.set(opad);
-  outer.set(innerHash, 64);
-  return toHex(sha256Raw(outer));
+  cachedInner = new Uint32Array(INIT);
+  compress(cachedInner, new DataView(ipad.buffer), 64);
+  cachedOuter = new Uint32Array(INIT);
+  compress(cachedOuter, new DataView(opad.buffer), 64);
+  cachedKey = key;
+}
+
+export function hmacSha256Hex(key: string, message: string): string {
+  prepareKey(key);
+  const innerHash = finish(new Uint32Array(cachedInner), utf8.encode(message), 64);
+  return toHex(finish(new Uint32Array(cachedOuter), innerHash, 64));
 }
