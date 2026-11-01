@@ -2,10 +2,11 @@ import { heartbeatSummary } from './heartbeat';
 import { isImpossible } from './metrics';
 import { parseFile } from './parse';
 import { buildTrace } from './trace';
-import type { Finding, MetricId, NormalRow, ParseError, ParseMeta, ParseOptions, Params, TraceCard } from './types';
+import { classifyZeros } from './zero';
+import type { Finding, MetricId, NormalRow, ParseError, ParseMeta, ParseOptions, Params, TraceCard, ZeroVerdict } from './types';
 
 export type AuditResult =
-  | { ok: true; meta: ParseMeta; findings: Finding[]; cards: TraceCard[] }
+  | { ok: true; meta: ParseMeta; findings: Finding[]; cards: TraceCard[]; zeros: ZeroVerdict[] }
   | { ok: false; error: ParseError };
 
 export const METRICS: MetricId[] = ['H1', 'H2', 'H3'];
@@ -63,5 +64,6 @@ export function runAudit(bytes: Uint8Array, opts: ParseOptions, params: Params):
     },
   };
   const cards = METRICS.flatMap((m) => buildTrace(m, rows, p));
-  return { ok: true, meta, findings: [...parsed.findings, ...auditFindings(rows, p)], cards };
+  const zeros = classifyZeros(cards, { rows, params: p, hasModifiedColumn: meta.hasModifiedColumn });
+  return { ok: true, meta, findings: [...parsed.findings, ...auditFindings(rows, p)], cards, zeros };
 }

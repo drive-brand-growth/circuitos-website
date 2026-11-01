@@ -11,6 +11,7 @@ export const DARK_MIN_ROWS = 3;
 export const WEEK_START_MONDAY = 1;
 export const BASELINE_PERIODS = 8; // complete periods before the latest one that count as history
 export const FIELD_POP_MIN = 0.5; // share of baseline rows with the field filled, at least
+export const EVIDENCE_LINE_SAMPLE = 10; // file lines named in one evidence line, at most
 export const BAD_DATE_MAX = 0.2; // share of candidate rows with an unusable date that makes a zero BROKEN
 
 export function makeParams(input: Pick<Params, 'asOf' | 'reportTz'> & Partial<Params>): Params {

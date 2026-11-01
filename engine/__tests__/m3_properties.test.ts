@@ -1,6 +1,7 @@
 import fc from 'fast-check';
 import { describe, expect, it } from 'vitest';
 import { dayNum, dayStr } from '../civil';
+import { latestCompletePeriod } from '../periods';
 import { classifyStage } from '../stages';
 import { buildTrace } from '../trace';
 import { REASON_CODES } from '../zero';
@@ -99,13 +100,13 @@ describe('M3 properties', () => {
   it('prop_less_evidence_never_more_real', () => {
     // Less evidence, in three forms. Reductions only touch UNMAPPED free, fully valid, filled rows older than the latest week,
     // and heartbeat days live on separate rows, because the 90th percentile gap is not monotone when active days are removed.
-    const cut = dayStr(dayNum(P.asOf) - 7 - ((dayNum(P.asOf) - 1) % 7));
+    const cut = latestCompletePeriod('week', P.asOf).start;
     fc.assert(
       fc.property(worldArb, fc.array(fc.boolean(), { minLength: 40, maxLength: 40 }), ({ rows }, mask) => {
         const before = zeroRows(rows, P);
         const blankHeartbeat = rows.map((r) => ({ ...r, modifiedDay: null }));
         const dropped = rows.filter(
-          (r, i) => !(mask[i % mask.length] && r.currency !== HB && r.stageClass !== 'UNMAPPED' && r.amountState === 'ok' && r.createdDay !== null && r.createdDay < cut && (r.closeDay === null || r.closeDay < cut)),
+          (r, i) => !(mask[i % mask.length] && r.currency !== HB && r.stageClass !== 'UNMAPPED' && r.amountState === 'ok' && r.createdDay !== null && r.createdDay < cut && (r.stageClass === 'OPEN' ? r.closeDay === null || r.closeDay < cut : r.closeDay !== null && r.closeDay < cut)),
         );
         const blankedAmounts = rows.map((r, i) =>
           mask[i % mask.length] && r.currency !== HB && r.createdDay !== null && r.createdDay < cut ? { ...r, amountState: 'blank' as AmountState, amountMinor: null } : r,

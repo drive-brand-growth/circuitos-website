@@ -72,7 +72,7 @@ describe('M3 acceptance tests', () => {
   it('zero_blank_is_not_zero (AT3) M_AMOUNT_DARK', () => {
     const v = pick(zeroRun(M_AMOUNT_DARK()), 'H2');
     expect([v.verdict, v.rule, v.reason]).toEqual(['BROKEN', 'Z2', 'field_went_blank']);
-    expect(v.evidence.darkRows).toBe(6);
+    expect(v.evidence.darkRows).toBe(4); // the four rows created Oct 19 to 22; D015 and D016 are created in W44
     expect(v.verdict).not.toBe('REAL');
   });
 
@@ -174,7 +174,7 @@ describe('M3 acceptance tests', () => {
     const build = (days: string[]) =>
       enc([HEADER6, ...days.map((d, i) => `X${i},Discovery,1000,2027-01-15,2026-0${(i % 6) + 1}-10,${d}`)].join('\n') + '\n');
     const fast = ['2026-09-01', '2026-09-02', '2026-09-03', '2026-09-04', '2026-09-05', '2026-09-06', '2026-09-07', '2026-09-08', '2026-09-09', '2026-09-10'];
-    const slow = ['2026-06-01', '2026-06-11', '2026-06-21', '2026-07-01', '2026-07-11', '2026-07-21', '2026-07-31', '2026-08-10', '2026-08-20', '2026-09-10'];
+    const slow = ['2026-06-12', '2026-06-22', '2026-07-02', '2026-07-12', '2026-07-22', '2026-08-01', '2026-08-11', '2026-08-21', '2026-08-31', '2026-09-10'];
     const a = pick(zeroRun(build(fast), opts(), params({ asOf: '2026-09-30' })), 'H2');
     const b = pick(zeroRun(build(slow), opts(), params({ asOf: '2026-09-30' })), 'H2');
     expect(a.evidence.daysSinceNewest).toBe(20);

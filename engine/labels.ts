@@ -51,6 +51,35 @@ export const LABELS = {
     notComputable: 'Not computable: every amount that could count is blank or unreadable.',
     undefinedRate: 'No closed deals in this period.',
   },
+  months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  // Zero check sentences. Fixed templates; every number in them comes from the file.
+  zero: {
+    subject: {
+      H1: 'Zero open pipeline as of {asOf}.',
+      H2: 'Zero new pipeline in the {unit} of {range}.',
+      H3: 'Zero wins among {den} closed deals in the {unit} of {range}.',
+      closed_count: 'Zero closed deals in the {unit} of {range}.',
+    },
+    modifiedSame: 'Rows were modified on {days} days in that {unit}.',
+    modifiedLatest: 'Rows were modified on {days} days in the latest complete {unit}, {range}.',
+    usualGap: 'The usual gap between active days in this file is {gap} days.',
+    produced: {
+      H1: 'Open rows existed in {k} of the {n} {unit}s before.',
+      H2: 'Rows were created in {k} of the {n} {unit}s before.',
+      H3: 'Deals were won in {k} of the {n} {unit}s before.',
+      closed_count: 'Deals closed in {k} of the {n} {unit}s before.',
+    },
+    stale: 'The newest row was modified {days} days before the as of date. The usual gap between active days is {gap} days, so the stale threshold is {threshold} days.',
+    unmapped: 'The stage label "{label}" is on {count} {rows} in scope (lines {lines}) and the audit could not place it as open, won or lost.',
+    lastWon: 'The newest row with a won label closed on {day}.',
+    datesUnusable: 'In scope for this number, {bad} of {den} rows have a date that is blank, unreadable or impossible.',
+    fieldWentBlank: 'The amount is blank or unreadable on all {dark} rows that could count. In the {unit}s before, it was filled on {num} of {den} rows.',
+    fieldNeverPopulated: 'The amount is blank or unreadable on all {dark} rows that could count. In the {unit}s before, it was filled on {num} of {den} rows, so there is no earlier sign that it was in use.',
+    noLastModified: 'The file has no last modified column, so the audit cannot tell whether the export is current.',
+    fewActiveDays: 'The file shows {days} active days. At least {min} are needed to judge whether a quiet period is real.',
+    noEvidence: 'The file does not show enough to call this zero real or broken.',
+    emptyOpenNote: 'An empty open pipeline is a fact worth a look.',
+  },
 } as const;
 
 // Fills {name} slots in a fixed template with values taken from the file.
