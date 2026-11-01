@@ -49,16 +49,20 @@ describe('M1 hygiene', () => {
     }
   });
 
-  it('labels_use_approved_canon_terms', () => {
+  it('labels_use_plain_names_not_canon_terms', () => {
     const strings = walkStrings(LABELS);
     expect(strings.length).toBeGreaterThan(10); // the labels file must really hold the words
-    expect(LABELS.canon).toEqual({ signalTracing: 'Signal Tracing', liveZero: 'Live Zero', circuitMethod: 'The Circuit Method' });
-    expect(LABELS.trace.title).toBe('Signal Tracing');
-    expect(LABELS.verdictNote.REAL).toBe('Live Zero');
+    expect(LABELS.trace.title).toBe('Row trace');
+    expect(LABELS.zero.title).toBe('Zero check');
+    expect(LABELS.verdictNote.REAL).toBe('Confirmed zero');
+    // These two canon terms do not fit what the engine does, so they stay out of labels and source.
+    const CANON = [/live\s*zero/i, /signal\s*tracing/i];
+    for (const s of strings) for (const re of CANON) expect(re.test(s), s).toBe(false);
     for (const s of strings) for (const re of BANNED) expect(re.test(s), s).toBe(false);
     for (const f of engineSources()) {
       const src = fs.readFileSync(f, 'utf8');
       for (const re of BANNED) expect(re.test(src), path.basename(f)).toBe(false);
+      for (const re of CANON) expect(re.test(src), path.basename(f)).toBe(false);
       // The Circuit Method is report and doc level text, so only labels.ts may carry it.
       if (path.basename(f) !== 'labels.ts') expect(/circuit\s+method/i.test(src), path.basename(f)).toBe(false);
     }
