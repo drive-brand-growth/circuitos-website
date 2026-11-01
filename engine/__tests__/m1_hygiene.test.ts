@@ -25,7 +25,7 @@ function walkStrings(v: unknown, out: string[] = []): string[] {
   return out;
 }
 
-const CANON = [/signal\s+tracing/i, /live\s+zero/i, /the\s+circuit\s+method/i, /circuit\s+method/i];
+const BANNED = [/hardcore\s+certified/i, /\bDRN\b/, /motorola/i];
 
 describe('M1 hygiene', () => {
   it('engine_is_pure', () => {
@@ -49,15 +49,20 @@ describe('M1 hygiene', () => {
     }
   });
 
-  it('labels_have_no_unapproved_canon_terms', () => {
+  it('labels_use_approved_canon_terms', () => {
     const strings = walkStrings(LABELS);
     expect(strings.length).toBeGreaterThan(10); // the labels file must really hold the words
-    for (const s of strings) for (const re of CANON) expect(re.test(s), s).toBe(false);
+    expect(LABELS.canon).toEqual({ signalTracing: 'Signal Tracing', liveZero: 'Live Zero', circuitMethod: 'The Circuit Method' });
+    expect(LABELS.trace.title).toBe('Signal Tracing');
+    expect(LABELS.verdictNote.REAL).toBe('Live Zero');
+    for (const s of strings) for (const re of BANNED) expect(re.test(s), s).toBe(false);
     for (const f of engineSources()) {
       const src = fs.readFileSync(f, 'utf8');
-      for (const re of CANON) expect(re.test(src), path.basename(f)).toBe(false);
+      for (const re of BANNED) expect(re.test(src), path.basename(f)).toBe(false);
+      // The Circuit Method is report and doc level text, so only labels.ts may carry it.
+      if (path.basename(f) !== 'labels.ts') expect(/circuit\s+method/i.test(src), path.basename(f)).toBe(false);
     }
-    // working labels exist
+    // verdict labels exist
     expect(LABELS.verdict).toMatchObject({ REAL: expect.any(String), BROKEN: expect.any(String), UNKNOWN: expect.any(String) });
     // no em or en dashes in user facing words
     for (const s of strings) expect(/[–—]/.test(s), s).toBe(false);

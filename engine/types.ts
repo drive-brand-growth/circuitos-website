@@ -93,7 +93,7 @@ export interface CsvRecord {
   cells: string[];
 }
 
-// ---- M2: trace ----
+// ---- M2: Signal Tracing ----
 
 export type PeriodKind = 'week' | 'month';
 
@@ -200,7 +200,7 @@ export interface TraceCard {
   unmappedInPeriod?: { line: number; label: string }[];
 }
 
-// ---- M3: zero check ----
+// ---- M3: Live Zero check ----
 
 export type Verdict = 'REAL' | 'BROKEN' | 'UNKNOWN';
 export type ZeroMetric = MetricId | 'closed_count';
