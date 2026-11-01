@@ -9,6 +9,9 @@ export const MIN_ACTIVE_DAYS = 10;
 export const STALE_MULTIPLE = 2;
 export const DARK_MIN_ROWS = 3;
 export const WEEK_START_MONDAY = 1;
+export const BASELINE_PERIODS = 8; // complete periods before the latest one that count as history
+export const FIELD_POP_MIN = 0.5; // share of baseline rows with the field filled, at least
+export const BAD_DATE_MAX = 0.2; // share of candidate rows with an unusable date that makes a zero BROKEN
 
 export function makeParams(input: Pick<Params, 'asOf' | 'reportTz'> & Partial<Params>): Params {
   return {
@@ -20,6 +23,9 @@ export function makeParams(input: Pick<Params, 'asOf' | 'reportTz'> & Partial<Pa
     minActiveDays: MIN_ACTIVE_DAYS,
     staleMultiple: STALE_MULTIPLE,
     darkMinRows: DARK_MIN_ROWS,
+    baselinePeriods: BASELINE_PERIODS,
+    fieldPopMin: FIELD_POP_MIN,
+    badDateMax: BAD_DATE_MAX,
     ...input,
   };
 }

@@ -122,6 +122,9 @@ export interface Params {
   minActiveDays: number;
   staleMultiple: number;
   darkMinRows: number;
+  baselinePeriods: number;
+  fieldPopMin: number;
+  badDateMax: number;
   source?: SourceInfo;
 }
 
@@ -195,4 +198,64 @@ export interface TraceCard {
   wonAmountMinor?: number;
   lostAmountMinor?: number;
   unmappedInPeriod?: { line: number; label: string }[];
+}
+
+// ---- M3: zero check ----
+
+export type Verdict = 'REAL' | 'BROKEN' | 'UNKNOWN';
+export type ZeroMetric = MetricId | 'closed_count';
+export type RuleId = 'Z1' | 'Z2' | 'Z2b' | 'Z3' | 'Z4' | 'Z5' | 'Z6' | 'Z7' | 'Z8';
+export type ReasonCode =
+  | 'unmapped_label'
+  | 'field_went_blank'
+  | 'field_never_populated'
+  | 'dates_unusable'
+  | 'export_stale'
+  | 'no_last_modified'
+  | 'insufficient_activity_history'
+  | 'quiet_period'
+  | 'no_wins_in_period'
+  | 'no_evidence';
+
+export interface ZeroContext {
+  rows: NormalRow[]; // every parsed row, all currencies; the heartbeat is file wide
+  params: Params;
+  hasModifiedColumn: boolean;
+}
+
+export interface UnmappedLabel {
+  label: string;
+  count: number;
+  lines: number[]; // sample, at most 10
+  firstSeen: string;
+  lastSeen: string;
+}
+
+export interface ZeroEvidence {
+  activeDays: number;
+  usualGap: number | null;
+  staleThreshold: number | null;
+  daysSinceNewest: number | null;
+  modifiedDaysInPeriod: number; // distinct days with a modified row in the latest complete period
+  baselineChecked: number; // how many baseline periods were looked at
+  producedPeriods: number; // baseline periods in which the metric's event happened
+  fieldPopulated: { num: number; den: number } | null; // baseline rows with the field filled; null when the metric needs no field
+  darkRows: number; // in period rows whose amount is blank or unreadable
+  badDates: { num: number; den: number };
+  unmapped: UnmappedLabel[];
+  lastWonDay: string | null;
+}
+
+export interface ZeroVerdict {
+  metricId: ZeroMetric;
+  currency: string;
+  period: Period;
+  verdict: Verdict;
+  rule: RuleId;
+  reason: ReasonCode;
+  line: string; // the plain evidence line, a fixed template filled with numbers from the file
+  note?: string;
+  warnings: string[];
+  evidence: ZeroEvidence;
+  params: Record<string, number>; // the parameters that mattered for this rule
 }
