@@ -174,7 +174,7 @@ const RULE_PARAMS: Record<RuleId, (keyof Params)[]> = {
   Z8: ['baselinePeriods', 'fieldPopMin'],
 };
 
-// One verdict for a zero, or null when the card's value is not zero.
+// Zero check: one verdict for a zero (REAL means a confirmed zero), or null when the card's value is not zero.
 // A win rate with no closed deals is undefined, not zero; the closed count is what gets the verdict then.
 export function classifyZero(card: TraceCard, ctx: ZeroContext): ZeroVerdict | null {
   if (!card.valueIsZero) return null;

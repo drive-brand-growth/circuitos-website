@@ -11,7 +11,7 @@ export function percentileNearestRank(sortedAsc: number[], p: number): number | 
 }
 
 // What the file's own change history says about whether the export is alive.
-// Shared by the trace heartbeat hop and, later, the zero check.
+// Shared by the row trace heartbeat hop and the zero check.
 export function heartbeatSummary(rows: NormalRow[], asOf: string, cfg: { minActiveDays: number; staleMultiple: number }): HeartbeatSummary {
   const seen = new Set<number>();
   for (const r of rows) if (r.modifiedDay) seen.add(dayNum(r.modifiedDay));
