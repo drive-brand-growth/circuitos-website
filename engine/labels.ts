@@ -1,13 +1,6 @@
 // Every user facing word lives here, so a rename is a one file change plus snapshot updates.
-// Canon terms (approved by Noel, Oct 31, 2026): Signal Tracing, Live Zero, The Circuit Method.
-// The Circuit Method is for report and doc level text only, never for a single card or sentence.
 
 export const LABELS = {
-  canon: {
-    signalTracing: 'Signal Tracing',
-    liveZero: 'Live Zero',
-    circuitMethod: 'The Circuit Method',
-  },
   errors: {
     file_empty: 'The file is empty.',
     no_data_rows: 'The file has a header row but no data rows.',
@@ -26,8 +19,8 @@ export const LABELS = {
     internal_error: 'The file could not be read.',
   },
   verdict: { REAL: 'REAL', BROKEN: 'BROKEN', UNKNOWN: 'UNKNOWN' },
-  // A REAL verdict is a Live Zero.
-  verdictNote: { REAL: 'Live Zero', BROKEN: 'Broken zero', UNKNOWN: 'Unknown zero' },
+  // A REAL verdict is a confirmed zero.
+  verdictNote: { REAL: 'Confirmed zero', BROKEN: 'Broken zero', UNKNOWN: 'Unknown zero' },
   metrics: {
     H1: { name: 'Open pipeline', definition: 'Sum of amount over rows that are open as of {asOf}.' },
     H2: { name: 'New pipeline created in the latest period', definition: 'Sum of amount over rows created from {start} to {end}, whatever their stage today.' },
@@ -52,8 +45,8 @@ export const LABELS = {
     negative_amount: 'amount is negative',
   },
   trace: {
-    title: 'Signal Tracing',
-    intro: 'Signal Tracing ties each headline number to the rows behind it.',
+    title: 'Row trace',
+    intro: 'The row trace ties each headline number to the rows behind it.',
     noWeakHop: 'No weak hop found in this file.',
     weakFilter: '{excluded} of {total} rows in scope were left out of this number. Most common reason: {reason}.',
     weakFieldHealth: 'The {field} field is blank or unreadable on {bad} of {rows} rows in scope.',
@@ -64,8 +57,8 @@ export const LABELS = {
   months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
   // Zero check sentences. Fixed templates; every number in them comes from the file.
   zero: {
-    title: 'Live Zero check',
-    liveZeroDefinition: 'A Live Zero is a zero confirmed real by positive evidence from the file.',
+    title: 'Zero check',
+    confirmedZeroDefinition: 'A confirmed zero is a zero backed by positive evidence from the file.',
     subject: {
       H1: 'Zero open pipeline as of {asOf}.',
       H2: 'Zero new pipeline in the {unit} of {range}.',

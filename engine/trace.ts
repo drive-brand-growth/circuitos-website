@@ -150,7 +150,7 @@ function buildCard(metric: MetricId, currency: string, part: NormalRow[], allRow
   return card;
 }
 
-// Signal Tracing: one card per currency partition. The engine never converts or mixes currencies.
+// Row trace: one card per currency partition. The engine never converts or mixes currencies.
 export function buildTrace(metricId: MetricId, rows: NormalRow[], params: Params): TraceCard[] {
   const parts = new Map<string, NormalRow[]>();
   for (const r of rows) {
