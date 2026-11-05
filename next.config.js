@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-// Domain moves stay documented only. Do not add a redirects key.
+// The domain move is one host based 301 in middleware.ts. Do not add a redirects key.
 // See docs/domain-switch.md.
 const nextConfig = {
   output: 'standalone',

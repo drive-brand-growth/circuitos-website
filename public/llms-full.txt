@@ -75,7 +75,7 @@ No prices are listed. Scope, if any, is a later writing.
 ## Domain
 
 Canonical host: https://thecircuitmethod.com
-Old paths on usecircuitos.com are mapped in docs/domain-switch.md and are not active in this deployment.
+Old paths on usecircuitos.com answer with a 301 to the matching page here, using the map in docs/domain-switch.md.
 www should redirect with 301, not 307, when the domains are attached.
 
 Last updated: October 24, 2026

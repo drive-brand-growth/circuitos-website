@@ -15,7 +15,8 @@
  *  9. No CircuitOS, AgentOps, or "book a demo" on the public site.
  *     Internal Slack and CRM glue is skipped for that product name rule only.
  * 10. The old four stage slogan does not return.
- * 11. Domain redirects stay unwired. See docs/domain-switch.md.
+ * 11. One redirect only: the old host 301 in middleware.ts, gated on
+ *     usecircuitos.com and www.usecircuitos.com. See docs/domain-switch.md.
  */
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative, extname } from "node:path";
@@ -151,16 +152,61 @@ function copyLines(src) {
   return out;
 }
 
-function assertRedirectsInactive() {
+/** the only redirect allowed: these lines in middleware.ts, gate directly above the 301 */
+const HOST_REDIRECT = [
+  "import { oldHostRedirect } from '@/lib/redirects'",
+  "const moved = oldHostRedirect(request.nextUrl)",
+  "if (moved) return NextResponse.redirect(moved, 301)",
+];
+/** and in lib/redirects.ts: the host list, checked first thing in oldHostRedirect, mentioned nowhere else */
+const OLD_HOSTS_LINES = [
+  "export const OLD_HOSTS: readonly string[] = ['usecircuitos.com', 'www.usecircuitos.com']",
+  "if (!OLD_HOSTS.includes(url.hostname.replace(/\\.$/, ''))) return null",
+];
+
+/** a line holding only a comment, with no code after a closing star slash */
+const COMMENT_ONLY = /^(?:\/\/.*|\/\*(?:(?!\*\/).)*(?:\*\/)?|\*(?!\/.)(?:(?!\*\/).)*(?:\*\/)?)$/;
+
+/** trimmed lines that hold code. Not copyLines: a '/**' inside a string would hide the rest of the file. */
+function codeLines(file) {
+  return readFileSync(join(ROOT, file), "utf8")
+    .split("\n")
+    .map((raw, i) => ({ t: raw.trim(), n: i + 1 }))
+    .filter(({ t }) => t && !COMMENT_ONLY.test(t));
+}
+
+/** for each wanted line, the indexes where it appears */
+function positions(lines, wanted) {
+  return wanted.map((want) => lines.flatMap(({ t }, i) => (t === want ? [i] : [])));
+}
+
+function assertOnlyHostRedirect() {
   const hits = [];
   for (const file of ["next.config.js", "vercel.json", "middleware.ts"]) {
-    const src = readFileSync(join(ROOT, file), "utf8");
-    if (/redirects\s*:/.test(src) || /NextResponse\.redirect/.test(src) || /redirects\.pending/.test(src)) {
-      hits.push(file);
+    const lines = codeLines(file);
+    for (const { t, n } of lines) {
+      if (file === "middleware.ts" && HOST_REDIRECT.includes(t)) continue;
+      if (/redirect|trailingSlash|cleanUrls/i.test(t) || /\blocation\b/i.test(t) || /status["']?\s*:\s*30\d/.test(t)) {
+        hits.push(`  ${file}:${n}: ${t.slice(0, 140)}`);
+      }
+    }
+    if (file !== "middleware.ts") continue;
+    const at = positions(lines, HOST_REDIRECT);
+    const [imports, gates, redirects] = at;
+    if (at.some((idx) => idx.length > 1) || (redirects.length && (gates.length !== 1 || redirects[0] !== gates[0] + 1 || imports.length !== 1))) {
+      hits.push("  middleware.ts: the 301 must appear once, directly under its old host gate");
     }
   }
+  const lib = codeLines("lib/redirects.ts");
+  const [hosts, gate] = positions(lib, OLD_HOSTS_LINES);
+  const fn = lib.findIndex(({ t }) => t.startsWith("export function oldHostRedirect("));
+  const mentions = lib.filter(({ t }) => t.includes("OLD_HOSTS")).length;
+  if (hosts.length !== 1 || gate.length !== 1 || gate[0] !== fn + 1 || mentions !== 2) {
+    hits.push("  lib/redirects.ts: OLD_HOSTS must stay exactly usecircuitos.com and www.usecircuitos.com, checked first in oldHostRedirect");
+  }
   if (hits.length) {
-    console.error(`\nCONTENT GUARD [redirects-inactive] — domain redirects must stay unwired (${hits.join(", ")}). See docs/domain-switch.md.`);
+    console.error("\nCONTENT GUARD [one-host-redirect] — the only redirect allowed is the old host 301 in middleware.ts. No redirects key, trailingSlash, cleanUrls, Location header, or other redirect. See docs/domain-switch.md.");
+    console.error(hits.join("\n"));
     return true;
   }
   return false;
@@ -171,7 +217,7 @@ const files = [
   ...TEXT_SCAN.flatMap((p) => walk(join(ROOT, p), TEXT_EXTS)),
   ...walk(join(ROOT, "content"), new Set([".yaml", ".yml", ".mdoc", ".md"])),
 ];
-let failed = assertRedirectsInactive();
+let failed = assertOnlyHostRedirect();
 
 for (const rule of RULES) {
   const violations = [];
