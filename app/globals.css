@@ -6,8 +6,8 @@
  * Design tokens. One system for every page.
  * Mostly monochrome: deep black, near white, a short gray ramp, and ONE warm accent.
  * Colors are RGB triplets so Tailwind opacity modifiers work (bg-fg/5, border-accent/40).
- * Contrast on --ink: fg 18.7, soft 15.5, muted 12.0, subtle 8.8, faint 7.4, accent 9.5.
- * Every text token is 7:1 or better on the page and on raised panels, so body and caption copy pass AAA.
+ * Contrast on --ink: fg 18.7, soft 15.5, muted 12.1, subtle 8.9, faint 7.6, accent 9.5.
+ * Every text token is 7:1 or better on the page. On raised panels the lowest is faint at 6.6:1, still above AA.
  * Type floor: text-xs is 14px and text-sm is 16px (see tailwind.config.ts). Nothing readable goes below 14px.
  */
 :root {
