@@ -16,13 +16,13 @@ export default function Footer({ site, steps }: FooterProps) {
             <span className="text-xl font-semibold">
               <span className="text-blue-500">//</span> Circuit Method
             </span>
-            <p className="text-sm text-[#71717a] mt-2 leading-relaxed">{site.tagline}</p>
-            <p className="text-xs text-[#52525b] mt-4 leading-relaxed">{site.coreLine}</p>
+            <p className="text-sm text-[#a1a1aa] mt-2 leading-relaxed">{site.tagline}</p>
+            <p className="text-xs text-[#a1a1aa] mt-4 leading-relaxed">{site.coreLine}</p>
           </div>
 
           <div className="min-w-0">
             <h2 className="text-sm font-semibold uppercase tracking-wider text-[#a1a1aa] mb-4">Method</h2>
-            <ul className="space-y-1 text-sm text-[#71717a] sm:space-y-3">
+            <ul className="space-y-1 text-sm text-[#a1a1aa] sm:space-y-3">
               <li>
                 <a href="/method" className="inline-block max-w-full break-words py-2 leading-snug hover:text-white transition-colors sm:py-0">
                   Overview
@@ -46,7 +46,7 @@ export default function Footer({ site, steps }: FooterProps) {
           {site.linkGroups.map((group) => (
             <div key={group.title} className="min-w-0">
               <h2 className="text-sm font-semibold uppercase tracking-wider text-[#a1a1aa] mb-4">{group.title}</h2>
-              <ul className="space-y-1 text-sm text-[#71717a] sm:space-y-3">
+              <ul className="space-y-1 text-sm text-[#a1a1aa] sm:space-y-3">
                 {group.links.map((item) => (
                   <li key={item.href}>
                     <a href={text(item.href)} className="inline-block max-w-full break-words py-2 leading-snug hover:text-white transition-colors sm:py-0">
@@ -59,7 +59,7 @@ export default function Footer({ site, steps }: FooterProps) {
           ))}
         </div>
 
-        <div className="pt-8 border-t border-[#27272a] text-center text-sm text-[#71717a]">
+        <div className="pt-8 border-t border-[#27272a] text-center text-sm text-[#a1a1aa]">
           © {new Date().getFullYear()} {site.name}. All rights reserved.
         </div>
       </div>

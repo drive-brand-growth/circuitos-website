@@ -177,7 +177,8 @@ button:focus-visible,
 
 /* Button styles */
 .btn-primary {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  /* White label text needs 4.5:1. #3b82f6 gave 3.7:1, so the gradient starts at #2563eb (5.2:1). */
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, box-shadow;
 }
@@ -258,6 +259,13 @@ button:focus-visible,
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .card:hover,
+  .btn-primary:hover {
+    transform: none;
+  }
   *,
   *::before,
   *::after {
