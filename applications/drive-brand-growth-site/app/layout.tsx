@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://drivebrandgrowth.com'),
   title: "Drive Brand Growth | Revenue Operating Systems",
   description:
-    "We build revenue operating systems for $10M-$50M companies. AI that scores leads, decides what to do, and proves every decision. Powered by CircuitOS.",
+    "We build revenue operating systems for $10M to $50M companies. AI that scores leads, decides what to do, and proves every decision. Powered by CircuitOS.",
   keywords: [
     "revenue prediction",
     "AI lead scoring",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Drive Brand Growth | Revenue Operating Systems",
     description:
-      "We build revenue operating systems for $10M-$50M companies. AI that scores, decides, and proves. Powered by CircuitOS.",
+      "We build revenue operating systems for $10M to $50M companies. AI that scores, decides, and proves. Powered by CircuitOS.",
     url: "https://drivebrandgrowth.com",
     siteName: "Drive Brand Growth",
     type: "website",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Drive Brand Growth | Revenue Operating Systems",
     description:
-      "We build revenue operating systems for $10M-$50M companies. AI that scores, decides, and proves. Powered by CircuitOS.",
+      "We build revenue operating systems for $10M to $50M companies. AI that scores, decides, and proves. Powered by CircuitOS.",
   },
   alternates: { canonical: 'https://drivebrandgrowth.com' },
   robots: {
@@ -69,15 +69,11 @@ export default function RootLayout({
                   url: 'https://drivebrandgrowth.com',
                   image: 'https://drivebrandgrowth.com/headshot.jpg',
                   jobTitle: 'Founder, Drive Brand Growth',
-                  description: 'Retail data strategist with over 20 years of experience in car wash marketing, retail marketing, LPR marketing, and international brand licensing. Coined the terms Distance Data and Transactional Blindness. Director of MetroFlex Gym international licensing across the United States and Japan. Founder of Drive Brand Growth.',
+                  description: 'AI and data strategist, University of Michigan Chief Data and AI Officer program, MS in Digital Transformation candidate at University of Michigan Flint. Coined the terms Distance Data and Transactional Blindness. Director of MetroFlex Gym international licensing across the United States and Japan. Founder of Drive Brand Growth.',
                   knowsAbout: [
                     'Distance Data',
                     'Transactional Blindness',
-                    'Car Wash Marketing',
-                    'LPR Marketing',
-                    'License Plate Recognition Marketing',
                     'Retail Marketing',
-                    'Oil and Lube Marketing',
                     'Customer Lifetime Value',
                     'Retail Customer Intelligence',
                     'Gym Licensing',
@@ -85,33 +81,25 @@ export default function RootLayout({
                     'Revenue Intelligence',
                     'Churn Prediction',
                     'Membership Retention',
-                    'Multi-Location Retail',
+                    'Multi Location Retail',
                     'AI Revenue Intelligence',
+                    'Digital Transformation',
                   ],
                   sameAs: [
                     'https://www.linkedin.com/in/noel-pe%C3%B1a-05721218/',
-                    'https://www.carwash.com/license-plate-recognition-carwash-marketing/',
-                    'https://www.carwash.com/carwash-marketing-success-playbook/',
-                    'https://www.carwash.com/targeted-carwash-marketing-tactics-guide-shine-time-ep-7/',
-                    'https://www.carwash.com/know-your-carwash-customer-shine-time/',
-                    'https://www.youtube.com/watch?v=IdFoRm1nmf4',
-                    'https://www.youtube.com/watch?v=LjfJIaQgKWY',
                   ],
                   worksFor: {
                     '@type': 'Organization',
                     name: 'Drive Brand Growth',
                     url: 'https://drivebrandgrowth.com',
                   },
-                  memberOf: [
-                    { '@type': 'Organization', name: 'International Carwash Association' },
-                  ],
                 },
                 {
                   '@type': 'Organization',
                   '@id': 'https://drivebrandgrowth.com/#organization',
                   name: 'Drive Brand Growth',
                   url: 'https://drivebrandgrowth.com',
-                  description: 'Revenue operating systems for mid-market businesses. Built by Noel Pena — over 20 years in retail data, brand licensing, and customer intelligence.',
+                  description: 'Revenue operating systems for mid-market businesses. Built by Noel Pena, an AI and data strategist with over 20 years in retail, brand licensing, and customer intelligence.',
                   founder: { '@id': 'https://drivebrandgrowth.com/#noelpena' },
                   sameAs: [],
                 },
