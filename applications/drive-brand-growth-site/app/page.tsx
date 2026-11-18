@@ -16,7 +16,6 @@ import {
   Rocket,
   Terminal
 } from "lucide-react";
-import ChatWidget from "@/components/ChatWidget";
 
 // Simple fade-in component using intersection observer + CSS
 function FadeIn({
@@ -147,25 +146,6 @@ function TypedCode({ code, delay = 0 }: { code: string; delay?: number }) {
   );
 }
 
-function RedactedBar({ width = "60%" }: { width?: string }) {
-  return (
-    <div className="flex items-center gap-2 my-1">
-      <div className="h-3 bg-neutral-800 rounded" style={{ width }} />
-      <span className="text-neutral-600 text-[10px] font-mono tracking-wider">[REDACTED]</span>
-    </div>
-  );
-}
-
-function StatCard({ number, label, index }: { number: string; label: string; index: string }) {
-  return (
-    <div className="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition-all duration-300 group">
-      <div className="text-zinc-600 font-mono text-[10px] tracking-wider mb-2 group-hover:text-zinc-500 transition-colors">/{index}</div>
-      <div className="text-4xl md:text-5xl font-semibold text-white mb-2 tracking-tight">{number}</div>
-      <div className="text-zinc-500 text-sm">{label}</div>
-    </div>
-  );
-}
-
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#0a0a0b] text-neutral-300">
@@ -236,7 +216,7 @@ export default function Home() {
             className="text-lg md:text-xl text-neutral-500 max-w-2xl mb-6 leading-relaxed"
           >
             AI systems that score your leads, decide what to do, and prove every decision.
-            Built by a CDAO who closed the deals, not just analyzed them.
+            Built by an AI and data strategist who has closed deals, not just analyzed them.
           </motion.p>
 
           <motion.div
@@ -260,7 +240,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-start gap-4 mb-24"
+            className="flex flex-col sm:flex-row items-start gap-4"
           >
             <a
               href="mailto:noel@drivebrandgrowth.com?subject=Revenue%20Prediction%20Inquiry"
@@ -274,23 +254,11 @@ export default function Home() {
               onClick={() => document.getElementById("systems")?.scrollIntoView({ behavior: "smooth" })}
               className="group flex items-center gap-3 px-6 py-3 border border-neutral-800 hover:border-neutral-600 rounded-full font-medium transition-all text-neutral-400 hover:text-white"
             >
-              <span>View Deployed Systems</span>
+              <span>View Example Systems</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </motion.div>
 
-          {/* Stats Grid */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4"
-          >
-            <StatCard number="91%" label="Lead Qualification Accuracy" index="01" />
-            <StatCard number="10M+" label="Decisions Automated Monthly" index="02" />
-            <StatCard number="16" label="Active Production Systems" index="03" />
-            <StatCard number="<200ms" label="Average Response Time" index="04" />
-          </motion.div>
         </div>
       </section>
 
@@ -313,20 +281,28 @@ export default function Home() {
               {/* Info */}
               <div className="flex-1">
                 <span className="inline-block px-3 py-1 text-[10px] bg-neutral-900/50 border border-neutral-800/50 rounded-md text-neutral-500 font-mono tracking-wider mb-4">
-                  FOUNDER & CHIEF DATA + AI OFFICER
+                  FOUNDER, AI AND DATA STRATEGIST
                 </span>
+
+                <div className="flex items-center gap-3 mb-4">
+                  <GraduationCap className="w-5 h-5 text-neutral-600" />
+                  <div>
+                    <div className="font-medium text-white">Chief Data and AI Officer Program</div>
+                    <div className="text-sm text-neutral-500">University of Michigan, Ann Arbor</div>
+                  </div>
+                </div>
 
                 <div className="flex items-center gap-3 mb-6">
                   <GraduationCap className="w-5 h-5 text-neutral-600" />
                   <div>
-                    <div className="font-medium text-white">Chief Data and AI Officer Program</div>
-                    <div className="text-sm text-neutral-500">University of Michigan</div>
+                    <div className="font-medium text-white">MS in Digital Transformation, in progress</div>
+                    <div className="text-sm text-neutral-500">University of Michigan Flint</div>
                   </div>
                 </div>
 
                 <div className="mb-4">
                   <div className="text-[10px] text-neutral-600 font-mono tracking-wider mb-3">BACKGROUND</div>
-                  <p className="text-sm text-neutral-400 mb-4">15 years enterprise B2B sales. CDAO at a Fortune 500 company. Builder of CircuitOS — the revenue intelligence platform deployed as your own branded operating system.</p>
+                  <p className="text-sm text-neutral-400 mb-4">AI and data strategist who builds revenue systems that score, decide, and prove. Builder of CircuitOS, a revenue intelligence platform you run as your own branded operating system.</p>
                 </div>
 
                 <div className="mb-6">
@@ -422,15 +398,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Deployed Systems Section */}
+      {/* Example Systems Section */}
       <section id="systems" className="py-28 px-6 border-t border-neutral-800/40">
         <div className="max-w-5xl mx-auto">
           <FadeIn className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-semibold mb-6 text-white">
-              Deployed <span className="text-blue-400">Systems</span>
+              Example <span className="text-blue-400">Systems</span>
             </h2>
             <p className="text-lg text-neutral-500">
-              Production systems generating revenue. Technical details under NDA.
+              The kinds of systems we design and build. Technical details under NDA.
             </p>
           </FadeIn>
 
@@ -472,17 +448,6 @@ export default function Home() {
                     <span>Full pipeline automation</span>
                   </li>
                 </ul>
-
-                <div className="p-4 rounded-lg bg-neutral-900/50 border border-neutral-800 mb-4 font-mono text-sm">
-                  <div className="text-neutral-500 mb-2">Implementation Details:</div>
-                  <RedactedBar width="70%" />
-                  <RedactedBar width="55%" />
-                </div>
-
-                <div className="p-4 rounded-lg bg-emerald-950/30 border border-emerald-900/40">
-                  <div className="text-emerald-400/80 text-sm font-medium mb-1">Results</div>
-                  <div className="text-white font-semibold">$120k to $600k projected Y1 revenue</div>
-                </div>
               </div>
             </FadeIn>
 
@@ -519,17 +484,6 @@ export default function Home() {
                     <span>Intelligent routing to sales or nurture</span>
                   </li>
                 </ul>
-
-                <div className="p-4 rounded-lg bg-neutral-900/50 border border-neutral-800 mb-4 font-mono text-sm">
-                  <div className="text-neutral-500 mb-2">Implementation Details:</div>
-                  <RedactedBar width="65%" />
-                  <RedactedBar width="50%" />
-                </div>
-
-                <div className="p-4 rounded-lg bg-emerald-950/30 border border-emerald-900/40">
-                  <div className="text-emerald-400/80 text-sm font-medium mb-1">Results</div>
-                  <div className="text-white font-semibold">10x faster response, 40% conversion increase</div>
-                </div>
               </div>
             </FadeIn>
 
@@ -566,17 +520,6 @@ export default function Home() {
                     <span>24/7 availability with human escalation</span>
                   </li>
                 </ul>
-
-                <div className="p-4 rounded-lg bg-neutral-900/50 border border-neutral-800 mb-4 font-mono text-sm">
-                  <div className="text-neutral-500 mb-2">Implementation Details:</div>
-                  <RedactedBar width="60%" />
-                  <RedactedBar width="45%" />
-                </div>
-
-                <div className="p-4 rounded-lg bg-emerald-950/30 border border-emerald-900/40">
-                  <div className="text-emerald-400/80 text-sm font-medium mb-1">Results</div>
-                  <div className="text-white font-semibold">2.3x conversion rate vs generic chatbots</div>
-                </div>
               </div>
             </FadeIn>
 
@@ -613,17 +556,6 @@ export default function Home() {
                     <span>Calendar integration and booking</span>
                   </li>
                 </ul>
-
-                <div className="p-4 rounded-lg bg-neutral-900/50 border border-neutral-800 mb-4 font-mono text-sm">
-                  <div className="text-neutral-500 mb-2">Implementation Details:</div>
-                  <RedactedBar width="55%" />
-                  <RedactedBar width="70%" />
-                </div>
-
-                <div className="p-4 rounded-lg bg-emerald-950/30 border border-emerald-900/40">
-                  <div className="text-emerald-400/80 text-sm font-medium mb-1">Results</div>
-                  <div className="text-white font-semibold">4.2x contact rate improvement</div>
-                </div>
               </div>
             </FadeIn>
           </div>
@@ -714,9 +646,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-
-      {/* Aria Chat Widget */}
-      <ChatWidget />
     </main>
   );
 }
