@@ -35,7 +35,7 @@ export default async function GlossaryPage() {
               lede={isHeldCopy(glossary.lede) ? '' : glossary.lede}
             />
           </div>
-          <dl className="mt-section-sm space-y-12">
+          <dl className="mt-section-sm space-y-8">
             {visible.filter((term) => !isHeldCopy(term.entry.text)).map((term) => (
               <div key={term.slug} id={term.slug}>
                 <dt className="text-2xl font-semibold tracking-tight">{term.entry.name}</dt>

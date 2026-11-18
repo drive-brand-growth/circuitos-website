@@ -19,7 +19,7 @@ const ROUTES: RouteConfig[] = [
     action: 'CLUTCH_STRIKE',
     label: 'Breaker',
     description: 'Written gate, named approval',
-    color: '#eab308',
+    color: '#d4d4d4',
   },
   {
     action: 'NURTURE_ACCELERATE',
@@ -31,7 +31,7 @@ const ROUTES: RouteConfig[] = [
     action: 'NURTURE_STANDARD',
     label: 'Standard draft',
     description: 'Draft a note',
-    color: '#e8a34d',
+    color: '#d4d4d4',
   },
   {
     action: 'IDENTITY_SHUNT',

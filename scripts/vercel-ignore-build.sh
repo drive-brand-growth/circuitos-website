@@ -21,6 +21,10 @@ if [ "$REF" != "main" ]; then
       echo "vercel-ignore: build preview for the method site ($REF)"
       exit 1
       ;;
+    cursor/spacing-motion-mono-ea0e)
+      echo "vercel-ignore: build preview for spacing and motion ($REF)"
+      exit 1
+      ;;
     cms/*)
       echo "vercel-ignore: build CMS branch preview ($REF)"
       exit 1

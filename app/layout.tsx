@@ -15,7 +15,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: '#050505',
+  themeColor: '#ffffff',
+  viewportFit: 'cover',
 }
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -66,7 +67,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(publisher) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }} />
       </head>
-      <body className="overflow-x-hidden">
+      <body>
         <Analytics />
         {children}
       </body>

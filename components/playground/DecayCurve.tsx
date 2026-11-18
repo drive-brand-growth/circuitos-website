@@ -96,14 +96,14 @@ export default function DecayCurve({ posterior, decayRate, currentTime }: DecayC
         })}
 
         {/* Fill under curve */}
-        <path d={fillPath} fill="rgba(232, 163, 77,0.1)" />
+        <path d={fillPath} fill="rgba(255, 255, 255,0.08)" />
 
         {/* Curve line */}
-        <path d={linePath} fill="none" stroke="#e8a34d" strokeWidth={1.5} />
+        <path d={linePath} fill="none" stroke="#d4d4d4" strokeWidth={1.5} />
 
         {/* Current position glowing dot */}
-        <circle cx={dotX} cy={dotY} r={5} fill="rgba(232, 163, 77,0.3)" />
-        <circle cx={dotX} cy={dotY} r={3} fill="#e8a34d" />
+        <circle cx={dotX} cy={dotY} r={5} fill="rgba(255, 255, 255,0.18)" />
+        <circle cx={dotX} cy={dotY} r={3} fill="#d4d4d4" />
       </svg>
       <div className="flex justify-between mt-2 font-mono text-xs text-subtle">
         <span>T+{currentTime.toFixed(1)}h</span>

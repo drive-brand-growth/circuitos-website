@@ -24,11 +24,11 @@ export default function Nav({ items, ctaLabel, ctaHref }: NavProps) {
   }, [mobileOpen])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-line/80 bg-ink/75 backdrop-blur-xl backdrop-saturate-150">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line/80 bg-ink/90 backdrop-blur-xl backdrop-saturate-150">
       <nav aria-label="Primary" className="shell flex h-header items-center justify-between gap-6">
         <div className="flex min-w-0 items-center gap-10">
           <Link href="/" className="flex min-h-11 shrink-0 items-center gap-2 text-[1.0625rem] font-semibold tracking-[-0.02em] text-fg">
-            <span aria-hidden="true" className="font-mono text-accent">
+            <span aria-hidden="true" className="font-mono text-fg">
               {'//'}
             </span>
             <span className="whitespace-nowrap">Circuit Method</span>
@@ -89,7 +89,7 @@ export default function Nav({ items, ctaLabel, ctaHref }: NavProps) {
                 prefetch={false}
                 href={ctaHref}
                 onClick={() => setMobileOpen(false)}
-                className="flex min-h-12 items-center text-[1.0625rem] font-medium text-accent"
+                className="flex min-h-12 items-center text-[1.0625rem] font-medium text-fg"
               >
                 {ctaLabel}
               </Link>

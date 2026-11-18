@@ -191,7 +191,7 @@ export default function ScorecardPage() {
             <h2 id="scorecard-rules" className="text-heading text-fg">
               The rules of the record
             </h2>
-            <ol className="mt-5 list-decimal space-y-3 pl-5 text-body text-muted marker:font-mono marker:text-sm marker:text-accent">
+            <ol className="mt-5 list-decimal space-y-3 pl-5 text-body text-muted marker:font-mono marker:text-sm marker:text-fg">
               <li>A call is entered with its date and its odds before the outcome is known.</li>
               <li>The call, the date, the stated odds, and the baseline are never edited after that.</li>
               <li>Every call gets scored, including the ones that miss.</li>

@@ -60,7 +60,7 @@ export default function ClutchStrike({
             className="text-5xl md:text-6xl font-bold text-fg mb-6"
             style={{
               textShadow:
-                '0 0 40px rgba(232, 163, 77, 0.8), 0 0 80px rgba(232, 163, 77, 0.4)',
+                '0 0 40px rgba(255, 255, 255, 0.55), 0 0 80px rgba(255, 255, 255, 0.22)',
             }}
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -82,13 +82,13 @@ export default function ClutchStrike({
             transition={{ delay: delay ?? 2.3, duration: prefersReducedMotion ? 0 : 0.5 }}
           >
             <div>
-              <div className="font-mono text-3xl font-bold text-[#eab308]">
+              <div className="font-mono text-3xl font-bold text-[#d4d4d4]">
                 {posterior.toFixed(4)}
               </div>
               <div className="text-xs text-muted mt-1">Conviction</div>
             </div>
             <div>
-              <div className="font-mono text-3xl font-bold text-[#eab308]">
+              <div className="font-mono text-3xl font-bold text-[#d4d4d4]">
                 {compositeScore.toFixed(1)}
               </div>
               <div className="text-xs text-muted mt-1">Composite</div>

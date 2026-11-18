@@ -8,7 +8,7 @@ interface QualificationBreakdownProps {
 }
 
 const BARS = [
-  { key: 'bayesian' as const, label: 'Bayesian', weight: '25%', color: '#e8a34d' },
+  { key: 'bayesian' as const, label: 'Bayesian', weight: '25%', color: '#d4d4d4' },
   { key: 'financial' as const, label: 'Financial', weight: '25%', color: '#22c55e' },
   { key: 'philExperience' as const, label: 'Authority and fit', weight: '25%', color: '#a855f7' },
   { key: 'engagement' as const, label: 'Engagement', weight: '25%', color: '#f97316' },

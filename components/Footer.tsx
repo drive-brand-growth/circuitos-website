@@ -28,12 +28,12 @@ export default function Footer({ site, steps }: FooterProps) {
   const text = (value: string) => fill(value, site.contactEmail)
 
   return (
-    <footer className="border-t border-line">
+    <footer className="border-t border-line pb-[env(safe-area-inset-bottom)]">
       <div className="shell py-section-sm">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-12 md:grid-cols-3 lg:grid-cols-12">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-8 md:grid-cols-3 lg:grid-cols-12">
           <div className="col-span-2 min-w-0 md:col-span-3 lg:col-span-5">
             <p className="flex items-center gap-2 text-[1.0625rem] font-semibold tracking-[-0.02em] text-fg">
-              <span aria-hidden="true" className="font-mono text-accent">
+              <span aria-hidden="true" className="font-mono text-fg">
                 {'//'}
               </span>
               Circuit Method
@@ -73,8 +73,9 @@ export default function Footer({ site, steps }: FooterProps) {
           ))}
         </div>
 
-        <div className="mt-16 border-t border-line pt-8 text-sm text-subtle">
-          © {new Date().getFullYear()} {site.name}. All rights reserved.
+        <div className="mt-10 border-t border-line pt-6 text-sm text-subtle">
+          <span className="whitespace-nowrap">© {new Date().getFullYear()} {site.name}.</span>{' '}
+          <span className="whitespace-nowrap">All rights reserved.</span>
         </div>
       </div>
     </footer>

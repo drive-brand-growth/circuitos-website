@@ -18,7 +18,7 @@ export default async function FieldNotesPage() {
       <section className="grid-bg page-top pb-section">
         <Container>
           <SectionHeader as="h1" kicker={page.kicker} title={page.headline} lede={page.lede[0]} />
-          <div className="mt-14 space-y-4">
+          <div className="mt-10 space-y-4">
             {notes.map((note) => (
               <Card key={note.slug} href={`/field-notes/${note.slug}`}>
                 <p className="eyebrow">{note.entry.kicker}</p>

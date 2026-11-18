@@ -37,7 +37,7 @@ export default async function StageRoute({ params }: { params: Params }) {
               The method
             </Link>
             <span className="px-2">/</span>
-            <span className="font-mono text-accent">0{step.order}</span>
+            <span className="font-mono text-fg">0{step.order}</span>
           </p>
           <div className="mt-8">
             <SectionHeader as="h1" kicker={step.kicker} title={step.name} />

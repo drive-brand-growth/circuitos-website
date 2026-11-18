@@ -30,12 +30,12 @@ export default function EmptyChart() {
             ))}
             <line x1="0.5" y1="0" x2="0.5" y2="300" className="stroke-line-strong" />
             <line x1="0" y1="299.5" x2="400" y2="299.5" className="stroke-line-strong" />
-            <line x1="0" y1="300" x2="400" y2="0" className="stroke-accent" strokeWidth="1.5" strokeDasharray="5 5" />
+            <line x1="0" y1="300" x2="400" y2="0" className="stroke-fg" strokeWidth="1.5" strokeDasharray="5 5" />
           </svg>
           <p className="absolute bottom-[14%] right-[4%] max-w-[55%] text-right font-mono text-xs uppercase tracking-[0.08em] text-soft">
             No calls scored yet
           </p>
-          <p className="absolute left-[4%] top-[6%] max-w-[50%] text-xs text-accent">Dashed line: the line you are aiming at</p>
+          <p className="absolute left-[4%] top-[6%] max-w-[50%] text-xs text-fg">Dashed line: the line you are aiming at</p>
         </div>
         <p className="mt-3 text-right text-xs text-muted">
           Stated odds, low to high<span aria-hidden="true"> →</span>
