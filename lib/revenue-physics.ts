@@ -138,12 +138,15 @@ export const PERSONAS: Record<PersonaId, Persona> = {
 
 // ─── Signal Constants ────────────────────────────────────────────────────────
 
+// EXAMPLE VALUES ONLY. Every positive signal uses the same example likelihood ratio (3.0) and
+// every negative signal uses the same example ratio (0.5). They are not taken from any real
+// scoring scale. Do not replace them with production values.
 export const SIGNALS: Signal[] = [
   // Financial
   {
     id: 'revenue_1m_plus',
     label: 'Revenue $1M+',
-    likelihoodRatio: 8,
+    likelihoodRatio: 3.0,
     category: 'financial',
     confidence: 0.8,
     enrichmentSource: ['professional'],
@@ -152,7 +155,7 @@ export const SIGNALS: Signal[] = [
   {
     id: 'revenue_500k_1m',
     label: 'Revenue from $500K to $1M',
-    likelihoodRatio: 4,
+    likelihoodRatio: 3.0,
     category: 'financial',
     confidence: 0.7,
     enrichmentSource: ['professional'],
@@ -161,7 +164,7 @@ export const SIGNALS: Signal[] = [
   {
     id: 'budget_allocated',
     label: 'Budget Allocated',
-    likelihoodRatio: 2,
+    likelihoodRatio: 3.0,
     category: 'financial',
     confidence: 0.6,
     enrichmentSource: ['professional', 'research'],
@@ -170,7 +173,7 @@ export const SIGNALS: Signal[] = [
   {
     id: 'existing_business',
     label: 'Existing Business Owner',
-    likelihoodRatio: 3,
+    likelihoodRatio: 3.0,
     category: 'financial',
     confidence: 0.7,
     enrichmentSource: ['professional'],
@@ -181,7 +184,7 @@ export const SIGNALS: Signal[] = [
   {
     id: 'csuite_contact',
     label: 'Executive contact',
-    likelihoodRatio: 5,
+    likelihoodRatio: 3.0,
     category: 'authority',
     confidence: 0.8,
     enrichmentSource: ['professional', 'deep_analysis'],
@@ -190,7 +193,7 @@ export const SIGNALS: Signal[] = [
   {
     id: 'multi_stakeholder',
     label: 'Several people engaged',
-    likelihoodRatio: 3,
+    likelihoodRatio: 3.0,
     category: 'authority',
     confidence: 0.7,
     enrichmentSource: ['deep_analysis'],
@@ -201,7 +204,7 @@ export const SIGNALS: Signal[] = [
   {
     id: 'icp_match_strong',
     label: 'Strong ICP Match',
-    likelihoodRatio: 6,
+    likelihoodRatio: 3.0,
     category: 'fit',
     confidence: 0.8,
     enrichmentSource: ['social'],
@@ -210,7 +213,7 @@ export const SIGNALS: Signal[] = [
   {
     id: 'competitor_displacement',
     label: 'Competitor Displacement',
-    likelihoodRatio: 4,
+    likelihoodRatio: 3.0,
     category: 'fit',
     confidence: 0.7,
     enrichmentSource: ['social', 'deep_analysis'],
@@ -219,7 +222,7 @@ export const SIGNALS: Signal[] = [
   {
     id: 'use_case_validated',
     label: 'Use Case Validated',
-    likelihoodRatio: 8,
+    likelihoodRatio: 3.0,
     category: 'fit',
     confidence: 0.9,
     enrichmentSource: ['deep_analysis'],
@@ -230,7 +233,7 @@ export const SIGNALS: Signal[] = [
   {
     id: 'demo_requested',
     label: 'Meeting requested',
-    likelihoodRatio: 5,
+    likelihoodRatio: 3.0,
     category: 'engagement',
     confidence: 0.8,
     enrichmentSource: ['market'],
@@ -239,7 +242,7 @@ export const SIGNALS: Signal[] = [
   {
     id: 'content_downloaded',
     label: 'Content Downloaded',
-    likelihoodRatio: 3,
+    likelihoodRatio: 3.0,
     category: 'engagement',
     confidence: 0.7,
     enrichmentSource: ['market'],
@@ -248,7 +251,7 @@ export const SIGNALS: Signal[] = [
   {
     id: 'pricing_page_visits',
     label: 'Pricing Page Visits (3+)',
-    likelihoodRatio: 3,
+    likelihoodRatio: 3.0,
     category: 'engagement',
     confidence: 0.6,
     enrichmentSource: ['market'],
@@ -257,7 +260,7 @@ export const SIGNALS: Signal[] = [
   {
     id: 'form_complete',
     label: 'Full Form Completed',
-    likelihoodRatio: 2,
+    likelihoodRatio: 3.0,
     category: 'engagement',
     confidence: 0.6,
     enrichmentSource: ['research'],
@@ -268,7 +271,7 @@ export const SIGNALS: Signal[] = [
   {
     id: 'market_identified',
     label: 'Target Market Identified',
-    likelihoodRatio: 4,
+    likelihoodRatio: 3.0,
     category: 'market',
     confidence: 0.7,
     enrichmentSource: ['market', 'research'],
@@ -288,7 +291,7 @@ export const SIGNALS: Signal[] = [
   {
     id: 'weak_fit_score',
     label: 'Weak Product Fit',
-    likelihoodRatio: 0.25,
+    likelihoodRatio: 0.5,
     category: 'negative',
     confidence: 0.7,
     enrichmentSource: ['social'],
@@ -297,7 +300,7 @@ export const SIGNALS: Signal[] = [
   {
     id: 'no_timeline',
     label: 'No Timeline Commitment',
-    likelihoodRatio: 0.2,
+    likelihoodRatio: 0.5,
     category: 'negative',
     confidence: 0.6,
     enrichmentSource: ['research'],

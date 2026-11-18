@@ -35,7 +35,7 @@ function buildTrail(
     events.push({
       type: 'decision',
       label: `Score: ${entry.signal.label}`,
-      detail: `Example LR ${entry.signal.likelihoodRatio}. Stated odds ${entry.posteriorAfter.toFixed(2)}.`,
+      detail: `Example LR ${entry.signal.likelihoodRatio.toFixed(1)} → P=${entry.posteriorAfter.toFixed(4)}`,
       status: isNegative ? 'danger' : 'success',
       time: entry.time,
     })

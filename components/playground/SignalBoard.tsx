@@ -83,7 +83,7 @@ export default function SignalBoard({ firedSignalIds, onFireSignal, disabled }: 
                     className={`text-xs ${isNegative ? 'text-red-400' : 'text-zinc-400'}`}
                     style={{ fontFamily: 'JetBrains Mono, monospace' }}
                   >
-                    Example LR {signal.likelihoodRatio}
+                    Example LR {signal.likelihoodRatio.toFixed(1)}
                   </span>
                 </motion.button>
               )
