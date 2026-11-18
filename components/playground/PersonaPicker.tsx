@@ -41,16 +41,13 @@ export default function PersonaPicker({ onSelect }: PersonaPickerProps) {
             <h3 className="text-white font-bold text-lg">{persona.name}</h3>
             <p className="text-[#a1a1aa] text-sm mt-1">{persona.tagline}</p>
 
-            <div className="mt-4">
-              <p className="text-xs font-medium text-blue-400">Example only</p>
-              <div className="mt-1 flex items-center gap-4">
-                <span className="font-mono text-blue-400 text-sm" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-                  {Math.round(persona.prior * 100)}% start
-                </span>
-                <span className="font-mono text-[#a1a1aa] text-sm" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-                  Example fade {persona.decayRate.toFixed(2)}
-                </span>
-              </div>
+            <div className="mt-4 flex flex-col gap-1">
+              <span className="font-mono text-blue-400 text-sm" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
+                Example starting odds: {Math.round(persona.prior * 100)}%
+              </span>
+              <span className="font-mono text-[#a1a1aa] text-sm" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
+                Example fade rate: {persona.decayRate.toFixed(2)} per hour
+              </span>
             </div>
 
             <p className="text-[#a1a1aa] text-sm mt-4 leading-relaxed">

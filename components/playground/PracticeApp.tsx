@@ -151,6 +151,11 @@ export default function PracticeApp({ copy }: { copy: PracticeCopy }) {
               title={copy.headline}
               lede={copy.lede}
             />
+            <p className="mt-2 max-w-2xl rounded-lg border border-[#3f3f46] px-4 py-3 text-sm leading-relaxed text-[#d4d4d8]">
+              <strong className="font-semibold text-white">Example values.</strong> The starting odds and fade rates on
+              this page are round numbers chosen for practice. They are not taken from a real scoring scale, and they
+              are not a recommendation.
+            </p>
             <dl className="mt-8 grid gap-3 sm:grid-cols-5 text-sm">
               {copy.stages.map((stage) => (
                 <div key={stage.label} className="card rounded-xl px-4 py-4">

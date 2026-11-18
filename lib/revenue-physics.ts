@@ -94,13 +94,16 @@ export interface EngineState {
 
 // ─── Persona Constants ───────────────────────────────────────────────────────
 
+// EXAMPLE VALUES ONLY. The starting odds (prior) and fade rates (decayRate) below are round
+// numbers chosen for this public practice page. They are not taken from any real scoring
+// scale. Do not replace them with production values.
 export const PERSONAS: Record<PersonaId, Persona> = {
   COLD_INBOUND: {
     id: 'COLD_INBOUND',
     name: 'Cold Inbound',
     tagline: 'Unknown lead from a web form',
-    prior: 0.20,
-    decayRate: 0.10,
+    prior: 0.30,
+    decayRate: 0.08,
     description: 'Low starting probability, fast decay. Needs strong signals quickly or belief erodes to zero.',
     qualificationProfile: 'Unknown intent, no prior relationship, requires rapid qualification',
   },
@@ -109,7 +112,7 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     name: 'Content Engaged',
     tagline: 'Downloaded a whitepaper, read the blog',
     prior: 0.40,
-    decayRate: 0.05,
+    decayRate: 0.06,
     description: 'Moderate start, slower decay. A careful reader. The practice run gives them time.',
     qualificationProfile: 'Reading on their own, exploring, needs material that earns trust',
   },
@@ -117,8 +120,8 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     id: 'WARM_REFERRAL',
     name: 'Warm Referral',
     tagline: 'Introduced by an existing customer',
-    prior: 0.60,
-    decayRate: 0.02,
+    prior: 0.50,
+    decayRate: 0.04,
     description: 'Higher starting probability, patient decay. Warm intro carries social proof the engine respects.',
     qualificationProfile: 'Introduced by someone already known, higher trust, a shorter path',
   },
@@ -126,8 +129,8 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     id: 'ENTERPRISE_RFP',
     name: 'Enterprise RFP',
     tagline: 'Formal vendor evaluation in progress',
-    prior: 0.80,
-    decayRate: 0.01,
+    prior: 0.60,
+    decayRate: 0.03,
     description: 'Highest start, minimal decay. Formal process signals real budget and timeline commitment.',
     qualificationProfile: 'Budget allocated, several people involved, a structured review, a long timeline',
   },

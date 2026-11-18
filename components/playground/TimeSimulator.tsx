@@ -20,7 +20,7 @@ export default function TimeSimulator({
   return (
     <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl p-6">
       <h3 className="font-medium text-white mb-1">Ground · before an outcome</h3>
-      <p className="text-xs text-[#71717a] mb-4">Odds fade when nothing new arrives. This is not a score.</p>
+      <p className="text-xs text-[#71717a] mb-4">Odds fade when nothing new arrives. The fade rate is an example value. This is not a score.</p>
 
       {/* Current time display */}
       <div className="font-mono text-2xl text-white mb-6 text-center">
