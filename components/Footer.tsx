@@ -18,7 +18,7 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
     )
   }
   return (
-    <Link href={href} className={linkClass}>
+    <Link href={href} prefetch={false} className={linkClass}>
       {children}
     </Link>
   )

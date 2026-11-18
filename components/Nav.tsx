@@ -36,7 +36,7 @@ export default function Nav({ items, ctaLabel, ctaHref }: NavProps) {
           <ul className="hidden items-center gap-7 text-sm text-muted xl:flex">
             {items.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="whitespace-nowrap transition-colors duration-200 hover:text-fg">
+                <Link href={item.href} prefetch={false} className="whitespace-nowrap transition-colors duration-200 hover:text-fg">
                   {item.label}
                 </Link>
               </li>
@@ -45,6 +45,7 @@ export default function Nav({ items, ctaLabel, ctaHref }: NavProps) {
         </div>
         <div className="flex shrink-0 items-center gap-2">
           <Link
+            prefetch={false}
             href={ctaHref}
             className="hidden min-h-9 items-center whitespace-nowrap rounded-full border border-line-strong px-4 text-sm font-medium text-fg transition-colors duration-200 hover:border-subtle hover:bg-fg/[0.05] min-[440px]:inline-flex"
           >
@@ -74,6 +75,7 @@ export default function Nav({ items, ctaLabel, ctaHref }: NavProps) {
             {items.map((link) => (
               <li key={link.href}>
                 <Link
+                  prefetch={false}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
                   className="flex min-h-12 items-center text-[1.0625rem] text-soft transition-colors hover:text-fg"
@@ -84,6 +86,7 @@ export default function Nav({ items, ctaLabel, ctaHref }: NavProps) {
             ))}
             <li>
               <Link
+                prefetch={false}
                 href={ctaHref}
                 onClick={() => setMobileOpen(false)}
                 className="flex min-h-12 items-center text-[1.0625rem] font-medium text-accent"

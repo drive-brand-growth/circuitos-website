@@ -6,7 +6,7 @@
  * Design tokens. One system for every page.
  * Mostly monochrome: deep black, near white, a short gray ramp, and ONE warm accent.
  * Colors are RGB triplets so Tailwind opacity modifiers work (bg-fg/5, border-accent/40).
- * Contrast on --ink: fg 18.6, soft 15.6, muted 7.8, subtle 5.6, faint 4.6, accent 9.3 (all pass AA for text).
+ * Contrast on --ink: fg 18.7, soft 15.5, muted 8.0, subtle 5.9, faint 5.3, accent 9.5. All pass AA for text, on --raised too.
  */
 :root {
   --ink: 5 5 5;
@@ -19,7 +19,7 @@
   --soft: 225 225 221;
   --muted: 163 163 158;
   --subtle: 138 138 133;
-  --faint: 124 124 119;
+  --faint: 130 130 125;
   --accent: 232 163 77;
   --accent-strong: 244 190 120;
 
@@ -119,9 +119,7 @@ h1, h2, h3, blockquote {
   text-wrap: balance;
 }
 
-p, li, dd {
-  text-wrap: pretty;
-}
+/* text-wrap: pretty was dropped from body copy: it costs layout time on long pages for a small gain. */
 
 @layer components {
   /* Layout */
@@ -275,14 +273,6 @@ button.card:hover {
   .fade-late {
     animation: fadeIn 0.8s var(--ease-calm) both;
     animation-delay: calc(0.5s + var(--i, 0) * 120ms);
-  }
-  /* Sections ease in as they enter the viewport, where the browser supports it. No script. */
-  @supports (animation-timeline: view()) {
-    .reveal {
-      animation: rise linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 32%;
-    }
   }
 }
 

@@ -57,6 +57,7 @@ export default async function HomePage() {
         <div className="shell pb-section-sm">
           <p className="rise">
             <Link
+              prefetch={false}
               href="/proof"
               className="inline-flex min-h-9 items-center gap-2.5 rounded-full border border-line-strong bg-fg/[0.03] py-1.5 pl-3 pr-4 text-sm text-soft transition-colors duration-200 hover:border-subtle"
             >
@@ -106,7 +107,7 @@ export default async function HomePage() {
       {/* Who it is for */}
       <section aria-labelledby="audience-title" className="section">
         <div className="shell">
-          <div className="reveal max-w-3xl">
+          <div className="max-w-3xl">
             <p className="eyebrow">{home.audienceKicker}</p>
             <h2 id="audience-title" className="mt-5 text-title text-fg">
               {home.audienceTitle}
@@ -117,7 +118,7 @@ export default async function HomePage() {
               ))}
             </div>
           </div>
-          <ul className="reveal mt-14 grid border-t border-line md:mt-20 md:grid-cols-3 md:divide-x md:divide-line">
+          <ul className="mt-14 grid border-t border-line md:mt-20 md:grid-cols-3 md:divide-x md:divide-line">
             {home.audience.map((item, index) => (
               <li
                 key={item.title}
@@ -135,7 +136,7 @@ export default async function HomePage() {
       <section aria-labelledby="steps-title" className="section">
         <div className="shell">
           <div className="grid gap-x-16 gap-y-12 lg:grid-cols-12">
-            <div className="reveal lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
+            <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
               <p className="eyebrow">{home.stepsKicker}</p>
               <h2 id="steps-title" className="mt-5 text-title text-fg">
                 {home.stepsTitle}
@@ -143,7 +144,7 @@ export default async function HomePage() {
               <p className="mt-6 max-w-md text-lead text-muted">{home.stepsLede}</p>
               <LoopDiagram className="mt-10 w-full max-w-[30rem] lg:mt-14" />
             </div>
-            <ol className="reveal border-b border-line lg:col-span-7">
+            <ol className="border-b border-line lg:col-span-7">
               {home.plainSteps.map((step, index) => (
                 <li key={step.title} className="grid grid-cols-[auto_1fr] gap-x-6 border-t border-line py-9 md:gap-x-10 md:py-11">
                   <span aria-hidden="true" className="pt-1.5 font-mono text-sm text-accent">
@@ -158,13 +159,13 @@ export default async function HomePage() {
             </ol>
           </div>
 
-          <div className="reveal mt-20 md:mt-28">
+          <div className="mt-20 md:mt-28">
             <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
               <div>
                 <h3 className="text-heading text-fg">{home.revealTitle}</h3>
                 <p className="mt-3 max-w-xl text-body text-muted">{home.loopLede}</p>
               </div>
-              <Link href="/method" className="link-block shrink-0">
+              <Link prefetch={false} href="/method" className="link-block shrink-0">
                 Read the method
               </Link>
             </div>
@@ -172,6 +173,7 @@ export default async function HomePage() {
               {steps.map((step) => (
                 <li key={step.slug} className="-mb-px -mr-px border-b border-r border-line sm:last:col-span-2 lg:last:col-span-1">
                   <Link
+                    prefetch={false}
                     href={`/method/${step.slug}`}
                     className="block h-full p-6 transition-colors duration-200 hover:bg-fg/[0.04] focus-visible:-outline-offset-2"
                   >
@@ -191,7 +193,7 @@ export default async function HomePage() {
       {/* Proof in progress */}
       <section aria-labelledby="proof-title" className="section">
         <div className="shell">
-          <div className="reveal flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <p className="eyebrow">{home.proofKicker}</p>
               <h2 id="proof-title" className="mt-5 text-title text-fg">
@@ -213,7 +215,7 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div className="reveal mt-14 grid gap-x-16 gap-y-10 md:mt-20 lg:grid-cols-12">
+          <div className="mt-14 grid gap-x-16 gap-y-10 md:mt-20 lg:grid-cols-12">
             {/* A plain preview of the public record. It reads from the same data as /scorecard. */}
             <div className="panel flex flex-col overflow-hidden lg:col-span-7">
               <div className="flex items-center justify-between gap-4 border-b border-line px-5 py-4 sm:px-6">
@@ -255,7 +257,7 @@ export default async function HomePage() {
       {/* What I teach, and the work behind it */}
       <section aria-labelledby="teach-title" className="section">
         <div className="shell">
-          <div className="reveal max-w-3xl">
+          <div className="max-w-3xl">
             <p className="eyebrow">{home.teachKicker}</p>
             <h2 id="teach-title" className="mt-5 text-title text-fg">
               {home.villainTitle}
@@ -266,10 +268,10 @@ export default async function HomePage() {
               ))}
             </div>
           </div>
-          <ul className={`reveal mt-14 grid gap-4 ${home.pillars.length > 2 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
+          <ul className={`mt-14 grid gap-4 ${home.pillars.length > 2 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
             {home.pillars.map((pillar) => (
               <li key={pillar.href + pillar.title}>
-                <Link href={pillar.href} className="panel-link h-full p-7">
+                <Link prefetch={false} href={pillar.href} className="panel-link h-full p-7">
                   <span className="font-mono text-eyebrow uppercase text-subtle">{pillar.kicker}</span>
                   <h3 className="mt-5 text-subhead text-fg">{pillar.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted">{pillar.text}</p>
@@ -279,7 +281,7 @@ export default async function HomePage() {
           </ul>
 
           {origin.length > 0 || featured ? (
-            <div className="reveal mt-16 grid gap-x-16 gap-y-10 border-t border-line pt-12 md:mt-20 lg:grid-cols-12">
+            <div className="mt-16 grid gap-x-16 gap-y-10 border-t border-line pt-12 md:mt-20 lg:grid-cols-12">
               {origin.length > 0 ? (
                 <div className="lg:col-span-5">
                   <h3 className="text-subhead text-fg">{home.originTitle}</h3>
@@ -292,7 +294,7 @@ export default async function HomePage() {
               ) : null}
               {featured ? (
                 <div className="lg:col-span-7 lg:col-start-6">
-                  <Link href={`/field-notes/${featured.slug}`} className="panel-link p-7">
+                  <Link prefetch={false} href={`/field-notes/${featured.slug}`} className="panel-link p-7">
                     <span className="font-mono text-eyebrow uppercase text-subtle">{home.notesKicker}</span>
                     <h3 className="mt-5 text-subhead text-fg">{featured.entry.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted">{featured.entry.description}</p>
@@ -307,7 +309,7 @@ export default async function HomePage() {
       {/* Contact */}
       <section aria-labelledby="contact-title" className="section hero-glow overflow-hidden">
         <div className="shell">
-          <div className="reveal mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-3xl text-center">
             <p className="eyebrow">{home.contactKicker}</p>
             <h2 id="contact-title" className="mt-5 text-title text-fg">
               {home.contactTitle}
@@ -326,7 +328,7 @@ export default async function HomePage() {
           <aside
             id="autopsy"
             aria-labelledby="autopsy-title"
-            className="reveal panel mx-auto mt-16 grid max-w-4xl gap-6 p-7 md:mt-20 md:grid-cols-[1fr_auto] md:items-center md:p-9"
+            className="panel mx-auto mt-16 grid max-w-4xl gap-6 p-7 md:mt-20 md:grid-cols-[1fr_auto] md:items-center md:p-9"
           >
             <div>
               <h3 id="autopsy-title" className="text-subhead text-fg">

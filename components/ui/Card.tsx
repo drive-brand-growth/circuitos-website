@@ -9,7 +9,7 @@ type CardProps = {
 export default function Card({ href, children, className = '' }: CardProps) {
   if (!href) return <div className={`panel p-6 md:p-8 ${className}`}>{children}</div>
   return (
-    <Link href={href} className={`panel-link p-6 md:p-8 ${className}`}>
+    <Link prefetch={false} href={href} className={`panel-link p-6 md:p-8 ${className}`}>
       {children}
     </Link>
   )
