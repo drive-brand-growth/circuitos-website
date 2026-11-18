@@ -11,6 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...steps.map((step) => `/method/${step.slug}`),
     ...notes.map((note) => `/field-notes/${note.slug}`),
     '/method/glossary',
+    '/scorecard',
   ]
   const unique = Array.from(new Set(paths))
 
