@@ -35,6 +35,7 @@ plainSteps:
       When a result arrives, test what caused it against a baseline. A touch
       that was only nearby gets no credit.
 loopLede: Inside the method, the three steps run as one loop of five stages.
+teachKicker: Teaching
 villainTitle: What I teach
 villainBody: >
   The five stages, written down, so a team can read them in order.

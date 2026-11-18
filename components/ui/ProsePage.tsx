@@ -11,9 +11,11 @@ type ProsePageProps = {
   email: string
   steps?: StepEntry[]
   terms?: TermEntry[]
+  /** Optional block shown between the opening and the first section. */
+  afterLede?: React.ReactNode
 }
 
-export default function ProsePage({ page, email, steps = [], terms = [] }: ProsePageProps) {
+export default function ProsePage({ page, email, steps = [], terms = [], afterLede }: ProsePageProps) {
   const text = (value: string | null | undefined) => fill(value, email)
   const loopTerms = terms.filter((term) => term.entry.group === 'loop')
 
@@ -30,6 +32,8 @@ export default function ProsePage({ page, email, steps = [], terms = [] }: Prose
             ))}
         </div>
 
+        {afterLede ? <div className="mt-12">{afterLede}</div> : null}
+
         {page.sections.map((section, index) => {
           const paragraphs = section.paragraphs.filter((paragraph) => !isHeldCopy(paragraph))
           const items = section.items.filter((item) => !isHeldCopy(item.text) && !isHeldCopy(item.label))
@@ -39,7 +43,10 @@ export default function ProsePage({ page, email, steps = [], terms = [] }: Prose
             section.embed === 'table' || section.embed === 'chart' || section.embed === 'steps' || section.embed === 'terms'
           if (!paragraphs.length && !hasList && !callout && !hasEmbed) return null
           return (
-            <section key={`${section.heading}-${index}`} className="mt-section-sm">
+            <section
+              key={`${section.heading}-${index}`}
+              className={section.heading ? 'mt-14 border-t border-line pt-14 md:mt-16 md:pt-16' : 'mt-12'}
+            >
               {section.heading && !isHeldCopy(section.heading) ? (
                 <h2 className="text-heading text-fg">{text(section.heading)}</h2>
               ) : null}

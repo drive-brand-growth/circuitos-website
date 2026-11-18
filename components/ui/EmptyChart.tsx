@@ -28,10 +28,10 @@ export default function EmptyChart() {
         <text x="26" y="160" textAnchor="middle" fontSize="13" className="fill-muted font-sans" transform="rotate(-90 26 160)">
           How often it happened
         </text>
-        <text x="372" y="70" textAnchor="end" fontSize="12" className="fill-accent font-sans">
+        <text x="322" y="62" textAnchor="end" fontSize="12" className="fill-accent font-sans">
           The line you are aiming at
         </text>
-        <text x="276" y="232" textAnchor="middle" fontSize="12" letterSpacing="1.2" className="fill-soft font-mono">
+        <text x="290" y="255" textAnchor="middle" fontSize="12" letterSpacing="1.2" className="fill-soft font-mono">
           NO CALLS SCORED YET
         </text>
       </svg>

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import PageShell from '@/components/PageShell'
 import Container from '@/components/ui/Container'
+import Readout from '@/components/ui/Readout'
 import SectionHeader from '@/components/ui/SectionHeader'
 import { pageMeta } from '@/lib/seo'
 import { SCORECARD, brierTerm, sortedEntries, summarize, type ScorecardEntry } from '@/lib/scorecard'
@@ -59,7 +60,7 @@ export default function ScorecardPage() {
     { label: 'Awaiting outcome', value: String(summary.pending) },
     { label: 'Scored', value: String(summary.scored) },
     { label: 'Brier score', value: score(summary.brier) },
-    { label: 'Baseline Brier score', value: score(summary.baselineBrier) },
+    { label: 'Baseline Brier', value: score(summary.baselineBrier) },
   ]
 
   return (
@@ -83,19 +84,12 @@ export default function ScorecardPage() {
           </div>
         </Container>
 
-        <div className="shell mt-section-sm">
+        <div className="shell mt-12">
           <section aria-labelledby="scorecard-summary">
             <h2 id="scorecard-summary" className="sr-only">
               Summary
             </h2>
-            <dl className="grid grid-cols-2 overflow-hidden rounded-panel border border-line sm:grid-cols-3 lg:grid-cols-5">
-              {stats.map((stat) => (
-                <div key={stat.label} className="-mb-px -mr-px border-b border-r border-line px-5 py-5">
-                  <dt className="font-mono text-eyebrow uppercase leading-normal text-subtle">{stat.label}</dt>
-                  <dd className="mt-3 font-mono text-sm text-soft">{stat.value}</dd>
-                </div>
-              ))}
-            </dl>
+            <Readout items={stats} />
           </section>
 
           <section aria-labelledby="scorecard-record" className="mt-section-sm">

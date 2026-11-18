@@ -67,9 +67,9 @@ export default async function HomePage() {
               </span>
             </Link>
           </p>
-          <h1 id="hero-title" className="mt-8 max-w-[16ch] text-display text-fg">
+          <h1 id="hero-title" className="mt-8 text-display text-fg">
             {headline.map((part, index) => (
-              <span key={part} className={`block ${index > 0 ? 'text-muted' : ''}`}>
+              <span key={part} className={`block [text-wrap:balance] ${index > 0 ? 'text-muted' : ''}`}>
                 {part}
               </span>
             ))}
@@ -135,13 +135,13 @@ export default async function HomePage() {
       <section aria-labelledby="steps-title" className="section">
         <div className="shell">
           <div className="grid gap-x-16 gap-y-12 lg:grid-cols-12">
-            <div className="reveal lg:col-span-5">
+            <div className="reveal lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
               <p className="eyebrow">{home.stepsKicker}</p>
               <h2 id="steps-title" className="mt-5 text-title text-fg">
                 {home.stepsTitle}
               </h2>
               <p className="mt-6 max-w-md text-lead text-muted">{home.stepsLede}</p>
-              <LoopDiagram className="mt-10 w-full max-w-[26rem] lg:mt-14" />
+              <LoopDiagram className="mt-10 w-full max-w-[30rem] lg:mt-14" />
             </div>
             <ol className="reveal border-b border-line lg:col-span-7">
               {home.plainSteps.map((step, index) => (
@@ -170,7 +170,7 @@ export default async function HomePage() {
             </div>
             <ol className="mt-8 grid overflow-hidden rounded-panel border border-line sm:grid-cols-2 lg:grid-cols-5">
               {steps.map((step) => (
-                <li key={step.slug} className="-mb-px -mr-px border-b border-r border-line">
+                <li key={step.slug} className="-mb-px -mr-px border-b border-r border-line sm:last:col-span-2 lg:last:col-span-1">
                   <Link
                     href={`/method/${step.slug}`}
                     className="block h-full p-6 transition-colors duration-200 hover:bg-fg/[0.04] focus-visible:-outline-offset-2"
@@ -191,63 +191,63 @@ export default async function HomePage() {
       {/* Proof in progress */}
       <section aria-labelledby="proof-title" className="section">
         <div className="shell">
-          <div className="grid items-start gap-x-16 gap-y-12 lg:grid-cols-12">
-            <div className="reveal lg:col-span-5">
+          <div className="reveal flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-2xl">
               <p className="eyebrow">{home.proofKicker}</p>
               <h2 id="proof-title" className="mt-5 text-title text-fg">
                 {home.proofTitle}
               </h2>
-              <div className="mt-6 max-w-md space-y-4 text-lead text-muted">
+              <div className="mt-6 max-w-measure space-y-4 text-lead text-muted">
                 {paragraphs(home.proofBody).map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
-              <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-                <Button href="/proof" className="w-full whitespace-nowrap sm:w-auto">
-                  How proof is scored
-                </Button>
-                <Button href="/scorecard" variant="secondary" className="w-full whitespace-nowrap sm:w-auto">
-                  Open the scorecard
-                </Button>
-              </div>
             </div>
+            <div className="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center">
+              <Button href="/proof" className="w-full whitespace-nowrap sm:w-auto">
+                How proof is scored
+              </Button>
+              <Button href="/scorecard" variant="secondary" className="w-full whitespace-nowrap sm:w-auto">
+                Open the scorecard
+              </Button>
+            </div>
+          </div>
 
+          <div className="reveal mt-14 grid gap-x-16 gap-y-10 md:mt-20 lg:grid-cols-12">
             {/* A plain preview of the public record. It reads from the same data as /scorecard. */}
-            <div className="reveal lg:col-span-7">
-              <div className="panel overflow-hidden">
-                <div className="flex items-center justify-between gap-4 border-b border-line px-5 py-4 sm:px-6">
-                  <p className="font-mono text-eyebrow uppercase text-subtle">Public scorecard</p>
-                  <p className="inline-flex items-center gap-2 font-mono text-xs text-soft">
-                    <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent" />
-                    {plural(record.total, 'call recorded', 'calls recorded')}
-                  </p>
-                </div>
-                <div aria-hidden="true" className="grid grid-cols-3 gap-4 border-b border-line px-5 py-3 text-xs text-subtle sm:grid-cols-4 sm:px-6">
-                  <span>Date stated</span>
-                  <span>Stated odds</span>
-                  <span className="hidden sm:block">Outcome</span>
-                  <span className="text-right">Brier term</span>
-                </div>
-                <p className="px-5 py-14 text-center text-sm text-muted sm:px-6 sm:py-20">
-                  {record.total === 0
-                    ? 'No calls recorded yet. The record starts on the day a call is stated.'
-                    : `${plural(record.scored, 'call', 'calls')} scored so far. Open the scorecard for the full record.`}
+            <div className="panel flex flex-col overflow-hidden lg:col-span-7">
+              <div className="flex items-center justify-between gap-4 border-b border-line px-5 py-4 sm:px-6">
+                <p className="font-mono text-eyebrow uppercase text-subtle">Public scorecard</p>
+                <p className="inline-flex items-center gap-2 font-mono text-xs text-soft">
+                  <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent" />
+                  {plural(record.total, 'call recorded', 'calls recorded')}
                 </p>
               </div>
-              <ol className="mt-2">
-                {home.proofPoints.map((point, index) => (
-                  <li key={point.title} className="grid grid-cols-[auto_1fr] gap-x-6 border-b border-line py-7">
-                    <span aria-hidden="true" className="pt-1 font-mono text-sm text-accent">
-                      {num(index)}
-                    </span>
-                    <div>
-                      <h3 className="text-subhead text-fg">{point.title}</h3>
-                      <p className="mt-2 text-body text-muted">{point.text}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
+              <div aria-hidden="true" className="grid grid-cols-3 gap-4 border-b border-line px-5 py-3 text-xs text-subtle sm:grid-cols-4 sm:px-6">
+                <span>Date stated</span>
+                <span>Stated odds</span>
+                <span className="hidden sm:block">Outcome</span>
+                <span className="text-right">Brier term</span>
+              </div>
+              <p className="flex flex-1 items-center justify-center px-5 py-16 text-center text-sm text-muted sm:px-6">
+                {record.total === 0
+                  ? 'No calls recorded yet. The record starts on the day a call is stated.'
+                  : `${plural(record.scored, 'call', 'calls')} scored so far. Open the scorecard for the full record.`}
+              </p>
             </div>
+            <ol className="border-t border-line lg:col-span-5">
+              {home.proofPoints.map((point, index) => (
+                <li key={point.title} className="grid grid-cols-[auto_1fr] gap-x-6 border-b border-line py-7">
+                  <span aria-hidden="true" className="pt-1 font-mono text-sm text-accent">
+                    {num(index)}
+                  </span>
+                  <div>
+                    <h3 className="text-subhead text-fg">{point.title}</h3>
+                    <p className="mt-2 text-body text-muted">{point.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
       </section>
@@ -256,7 +256,8 @@ export default async function HomePage() {
       <section aria-labelledby="teach-title" className="section">
         <div className="shell">
           <div className="reveal max-w-3xl">
-            <h2 id="teach-title" className="text-title text-fg">
+            <p className="eyebrow">{home.teachKicker}</p>
+            <h2 id="teach-title" className="mt-5 text-title text-fg">
               {home.villainTitle}
             </h2>
             <div className="mt-6 max-w-measure space-y-4 text-lead text-muted">
@@ -290,7 +291,7 @@ export default async function HomePage() {
                 </div>
               ) : null}
               {featured ? (
-                <div className="lg:col-span-7">
+                <div className="lg:col-span-7 lg:col-start-6">
                   <Link href={`/field-notes/${featured.slug}`} className="panel-link p-7">
                     <span className="font-mono text-eyebrow uppercase text-subtle">{home.notesKicker}</span>
                     <h3 className="mt-5 text-subhead text-fg">{featured.entry.title}</h3>

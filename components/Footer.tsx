@@ -30,8 +30,8 @@ export default function Footer({ site, steps }: FooterProps) {
   return (
     <footer className="border-t border-line">
       <div className="shell py-section-sm">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-12 md:grid-cols-12">
-          <div className="col-span-2 min-w-0 md:col-span-5">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-12 md:grid-cols-3 lg:grid-cols-12">
+          <div className="col-span-2 min-w-0 md:col-span-3 lg:col-span-5">
             <p className="flex items-center gap-2 text-[1.0625rem] font-semibold tracking-[-0.02em] text-fg">
               <span aria-hidden="true" className="font-mono text-accent">
                 {'//'}
@@ -42,8 +42,8 @@ export default function Footer({ site, steps }: FooterProps) {
             <p className="mt-2 max-w-xs text-sm leading-relaxed text-subtle">{site.coreLine}</p>
           </div>
 
-          <div className="min-w-0 md:col-span-2">
-            <h2 className="eyebrow !text-subtle">Method</h2>
+          <div className="min-w-0 lg:col-span-2">
+            <h2 className="eyebrow">Method</h2>
             <ul className="mt-4 text-sm sm:mt-5">
               <li>
                 <FooterLink href="/method">Overview</FooterLink>
@@ -60,8 +60,8 @@ export default function Footer({ site, steps }: FooterProps) {
           </div>
 
           {site.linkGroups.map((group, index) => (
-            <div key={group.title} className={`min-w-0 ${index === 0 ? 'md:col-span-2' : 'md:col-span-3'}`}>
-              <h2 className="eyebrow !text-subtle">{group.title}</h2>
+            <div key={group.title} className={`min-w-0 ${index === 0 ? 'lg:col-span-2' : 'lg:col-span-3'}`}>
+              <h2 className="eyebrow">{group.title}</h2>
               <ul className="mt-4 text-sm sm:mt-5">
                 {group.links.map((item) => (
                   <li key={item.href}>

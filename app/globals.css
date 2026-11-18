@@ -137,7 +137,7 @@ p, li, dd {
 
   /* Type */
   .eyebrow {
-    @apply font-mono text-eyebrow uppercase text-accent;
+    @apply font-mono text-eyebrow uppercase text-subtle;
   }
   .prose-muted {
     @apply text-body text-muted;
@@ -197,7 +197,7 @@ button.card:hover {
   color: rgb(var(--fg));
 }
 
-/* Faint drafting grid. Fades out toward the bottom so pages stay calm. */
+/* Page top backdrop. A faint wash of light under the header, nothing else. The old grid was removed as clutter. */
 .grid-bg {
   position: relative;
   isolation: isolate;
@@ -206,34 +206,29 @@ button.card:hover {
   content: '';
   position: absolute;
   inset: 0 0 auto 0;
-  height: min(44rem, 100%);
+  height: min(36rem, 100%);
   z-index: -1;
   pointer-events: none;
-  background-image:
-    linear-gradient(rgb(var(--fg) / 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(var(--fg) / 0.035) 1px, transparent 1px);
-  background-size: 72px 72px;
-  background-position: center top;
-  -webkit-mask-image: radial-gradient(ellipse 70% 100% at 50% 0%, #000 0%, transparent 78%);
-  mask-image: radial-gradient(ellipse 70% 100% at 50% 0%, #000 0%, transparent 78%);
+  background: linear-gradient(to bottom, rgb(var(--fg) / 0.035), transparent);
 }
 
-/* Soft warm light behind a hero. */
+/* Soft neutral light behind a hero. Clipped so it never widens the page. */
 .hero-glow {
   position: relative;
   isolation: isolate;
+  overflow: clip;
 }
 .hero-glow::after {
   content: '';
   position: absolute;
   left: 50%;
-  top: -18rem;
-  width: min(68rem, 140vw);
-  height: 40rem;
+  top: -22rem;
+  width: min(80rem, 160vw);
+  height: 44rem;
   transform: translateX(-50%);
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(closest-side, rgb(var(--accent) / 0.1), rgb(var(--accent) / 0.03) 55%, transparent);
+  background: radial-gradient(closest-side, rgb(var(--fg) / 0.075), rgb(var(--fg) / 0.02) 55%, transparent);
 }
 
 .code-block {

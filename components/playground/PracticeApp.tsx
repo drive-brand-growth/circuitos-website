@@ -135,9 +135,9 @@ export default function PracticeApp({ copy }: { copy: PracticeCopy }) {
 
   return (
     <MotionConfig reducedMotion="user">
-      <section className="grid-bg pb-12 px-6 pt-28">
+      <section className="grid-bg page-top pb-section-sm">
         <motion.div
-          className="max-w-7xl mx-auto"
+          className="shell"
           initial="initial"
           animate="animate"
           variants={staggerContainer}

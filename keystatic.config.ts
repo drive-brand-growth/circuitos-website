@@ -147,6 +147,7 @@ export default config({
           { label: 'Three steps', itemLabel: (props) => props.fields.title.value || 'Item' },
         ),
         loopLede: fields.text({ label: 'Line above the five stages', multiline: true }),
+        teachKicker: fields.text({ label: 'Teaching kicker' }),
         villainTitle: fields.text({ label: 'Teaching title' }),
         villainBody: fields.text({ label: 'Teaching', multiline: true }),
         originTitle: fields.text({ label: 'Background title' }),

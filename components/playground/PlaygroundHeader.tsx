@@ -12,10 +12,10 @@ interface PlaygroundHeaderProps {
 
 export default function PlaygroundHeader({ persona, onReset, kicker, title, lede }: PlaygroundHeaderProps) {
   return (
-    <div className="py-6 md:py-8">
-      {kicker ? <p className="text-sm font-medium text-accent mb-3">{kicker}</p> : null}
-      <h1 className="text-3xl md:text-4xl font-bold gradient-text mb-2">{title}</h1>
-      <p className="text-muted text-sm md:text-base max-w-2xl leading-relaxed">{lede}</p>
+    <div className="pb-6 md:pb-8">
+      {kicker ? <p className="eyebrow mb-5">{kicker}</p> : null}
+      <h1 className="mb-5 text-title text-fg">{title}</h1>
+      <p className="max-w-2xl text-lead text-muted">{lede}</p>
 
       {persona && (
         <div className="flex items-center gap-3 mt-4">
