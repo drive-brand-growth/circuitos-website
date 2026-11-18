@@ -24,7 +24,7 @@ export default function ProsePage({ page, email, steps = [], terms = [], afterLe
       <Container>
         <SectionHeader as="h1" kicker={text(page.kicker)} title={text(page.headline)} />
         {page.updated ? <p className="mt-4 text-sm text-muted">Last updated: {text(page.updated)}</p> : null}
-        <div className="mt-8 space-y-5 text-body text-muted [&>p:first-child]:text-lead [&>p:first-child]:text-soft">
+        <div className="mt-8 space-y-5 text-body text-muted [text-wrap:pretty] [&>p:first-child]:text-lead [&>p:first-child]:text-soft">
           {page.lede
             .filter((paragraph) => !isHeldCopy(paragraph))
             .map((paragraph) => (
@@ -45,13 +45,13 @@ export default function ProsePage({ page, email, steps = [], terms = [], afterLe
           return (
             <section
               key={`${section.heading}-${index}`}
-              className={section.heading ? 'mt-14 border-t border-line pt-14 md:mt-16 md:pt-16' : 'mt-12'}
+              className={section.heading ? 'mt-10 border-t border-line pt-10 md:mt-12 md:pt-12' : 'mt-10'}
             >
               {section.heading && !isHeldCopy(section.heading) ? (
                 <h2 className="text-heading text-fg">{text(section.heading)}</h2>
               ) : null}
               {paragraphs.length > 0 ? (
-                <div className={`${section.heading ? 'mt-5' : ''} space-y-5 text-body text-muted`}>
+                <div className={`${section.heading ? 'mt-5' : ''} space-y-5 text-body text-muted [text-wrap:pretty]`}>
                   {paragraphs.map((paragraph) => (
                     <p key={paragraph}>{text(paragraph)}</p>
                   ))}
@@ -68,7 +68,7 @@ export default function ProsePage({ page, email, steps = [], terms = [], afterLe
                 <ol className="mt-6 border-b border-line">
                   {items.map((item, itemIndex) => (
                     <li key={item.text || item.label} className="flex gap-5 border-t border-line py-6">
-                      <span aria-hidden="true" className="w-6 shrink-0 pt-1 font-mono text-sm text-accent">
+                      <span aria-hidden="true" className="w-6 shrink-0 pt-1 font-mono text-sm text-fg">
                         {String(itemIndex + 1).padStart(2, '0')}
                       </span>
                       <div className="min-w-0">
@@ -127,7 +127,7 @@ export default function ProsePage({ page, email, steps = [], terms = [], afterLe
                     <li key={step.slug}>
                       <Card href={`/method/${step.slug}`}>
                         <div className="flex items-baseline justify-between gap-4">
-                          <p className="font-mono text-sm text-accent">0{step.entry.order}</p>
+                          <p className="font-mono text-sm text-fg">0{step.entry.order}</p>
                           <p className="text-sm text-muted">{step.entry.kicker}</p>
                         </div>
                         <h3 className="mt-3 text-subhead">{step.entry.name}</h3>

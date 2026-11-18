@@ -73,8 +73,8 @@ export default function VectorDisplay({ vector }: VectorDisplayProps) {
         {/* Data polygon */}
         <motion.polygon
           points={polygonPath}
-          fill="rgba(232, 163, 77,0.2)"
-          stroke="#e8a34d"
+          fill="rgba(255, 255, 255,0.12)"
+          stroke="#d4d4d4"
           strokeWidth={1.5}
           initial={false}
           animate={{ points: polygonPath }}
@@ -86,7 +86,7 @@ export default function VectorDisplay({ vector }: VectorDisplayProps) {
           <motion.circle
             key={axes[i].key}
             r={3}
-            fill="#e8a34d"
+            fill="#d4d4d4"
             initial={false}
             animate={{ cx: p.x, cy: p.y }}
             transition={{ type: 'spring', stiffness: 80, damping: 20 }}

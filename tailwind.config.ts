@@ -27,6 +27,11 @@ const config: Config = {
         faint: token('faint'),
         accent: token('accent'),
         'accent-strong': token('accent-strong'),
+        'stage-1': token('stage-1'),
+        'stage-2': token('stage-2'),
+        'stage-3': token('stage-3'),
+        'stage-scored': token('stage-scored'),
+        'on-scored': token('on-scored'),
       },
       fontFamily: {
         sans: ['var(--font-sans)', 'system-ui', 'Segoe UI', 'sans-serif'],

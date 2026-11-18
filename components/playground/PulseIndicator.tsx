@@ -45,7 +45,7 @@ export default function PulseIndicator({ pulseRate, signals, currentTime }: Puls
     }
   }
 
-  const rateColor = pulseRate > 2 ? '#22c55e' : pulseRate > 1 ? '#eab308' : '#acaca7'
+  const rateColor = pulseRate > 2 ? '#22c55e' : pulseRate > 1 ? '#d4d4d4' : '#acaca7'
 
   return (
     <div className="bg-surface border border-line rounded-xl p-6">

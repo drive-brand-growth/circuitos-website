@@ -19,11 +19,11 @@ const ORDER = ['signal', 'switch', 'current', 'breaker', 'ground'] as const
 type StageSlug = (typeof ORDER)[number]
 
 const STAGE_COLOR: Record<StageSlug, string> = {
-  signal: '#64d2ff',
-  switch: '#ff2d2d',
-  current: '#ffd60a',
-  breaker: '#30d158',
-  ground: '#bf5af2',
+  signal: '#d4d4d4',
+  switch: '#a3a3a3',
+  current: '#737373',
+  breaker: '#525252',
+  ground: '#171717',
 }
 
 const RECEIPTS = [

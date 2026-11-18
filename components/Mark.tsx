@@ -21,7 +21,7 @@ export default function Mark({ className = 'h-8 w-8', title = 'The Circuit Metho
       />
       <circle cx="25.13" cy="9.5" r="2.7" stroke="currentColor" strokeWidth="1.6" />
       <circle cx="25.13" cy="22.9" r="2.7" stroke="currentColor" strokeWidth="1.6" />
-      <path d="M23.13 20.1L26.93 11.9" stroke="#ff2d2d" strokeWidth="3" strokeLinecap="round" />
+      <path d="M23.13 20.1L26.93 11.9" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
     </svg>
   )
 }

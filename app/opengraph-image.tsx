@@ -10,7 +10,7 @@ export default function OGImage() {
     (
       <div
         style={{
-          background: '#050505',
+          background: '#ffffff',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -19,16 +19,16 @@ export default function OGImage() {
           padding: '72px',
         }}
       >
-        <div style={{ display: 'flex', fontSize: 28, color: '#e8a34d', fontWeight: 600 }}>// Circuit Method</div>
-        <div style={{ display: 'flex', marginTop: 36, fontSize: 64, fontWeight: 700, color: '#f5f5f3', lineHeight: 1.15 }}>
+        <div style={{ display: 'flex', fontSize: 28, color: '#111111', fontWeight: 600 }}>// Circuit Method</div>
+        <div style={{ display: 'flex', marginTop: 36, fontSize: 64, fontWeight: 700, color: '#111111', lineHeight: 1.15 }}>
           The agent drafts. The rules decide.
         </div>
-        <div style={{ display: 'flex', marginTop: 24, fontSize: 28, color: '#c8c8c3' }}>
+        <div style={{ display: 'flex', marginTop: 24, fontSize: 28, color: '#404040' }}>
           Written decisions. Honest odds. Proof of cause.
         </div>
         <div style={{ display: 'flex', gap: 28, marginTop: 56 }}>
           {stages.map((stage) => (
-            <div key={stage} style={{ display: 'flex', fontSize: 22, color: '#c8c8c3' }}>
+            <div key={stage} style={{ display: 'flex', fontSize: 22, color: '#404040' }}>
               {stage}
             </div>
           ))}

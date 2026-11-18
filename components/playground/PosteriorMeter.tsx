@@ -8,9 +8,9 @@ interface PosteriorMeterProps {
 }
 
 function getMeterColor(p: number): string {
-  if (p >= 0.9) return '#eab308'
+  if (p >= 0.9) return '#d4d4d4'
   if (p >= 0.6) return '#22c55e'
-  if (p >= 0.3) return '#eab308'
+  if (p >= 0.3) return '#d4d4d4'
   return '#ef4444'
 }
 

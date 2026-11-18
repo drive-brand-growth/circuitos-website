@@ -1,5 +1,6 @@
 import Footer from '@/components/Footer'
 import Nav from '@/components/Nav'
+import SectionReveal from '@/components/SectionReveal'
 import { getSite, listSteps } from '@/lib/content'
 
 export default async function PageShell({ children }: { children: React.ReactNode }) {
@@ -12,6 +13,7 @@ export default async function PageShell({ children }: { children: React.ReactNod
       </a>
       <Nav items={[...site.nav]} ctaLabel={site.navCtaLabel} ctaHref={site.navCtaHref} />
       <main id="main-content">{children}</main>
+      <SectionReveal />
       <Footer site={site} steps={steps} />
     </div>
   )

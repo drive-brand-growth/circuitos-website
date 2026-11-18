@@ -4,30 +4,38 @@
 
 /*
  * Design tokens. One system for every page.
- * Mostly monochrome: deep black, near white, a short gray ramp, and ONE warm accent.
- * Colors are RGB triplets so Tailwind opacity modifiers work (bg-fg/5, border-accent/40).
- * Contrast on --ink: fg 18.7, soft 15.5, muted 12.1, subtle 8.9, faint 7.6, accent 9.5.
- * Every text token is 7:1 or better on the page. On raised panels the lowest is faint at 6.6:1, still above AA.
+ * Pure black, white, and neutral gray. No hue.
+ * Stage ink darkens from a light gray (the rule) through mid gray (the odds)
+ * to near black (the cause). The scored result is solid black, with white text on it.
+ * Colors are RGB triplets so Tailwind opacity modifiers work (bg-fg/5, border-fg/15).
+ * Text on white, measured contrast: fg 19.6, soft 17.0, muted 10.4, subtle 7.0, faint 7.0.
+ * Stage ink on white: stage-1 7.0, stage-2 10.4, stage-3 18.4, scored 21.
+ * White text on scored black is 21:1. Every text token clears WCAG AA, and body text clears 7:1.
  * Type floor: text-xs is 14px and text-sm is 16px (see tailwind.config.ts). Nothing readable goes below 14px.
  */
 :root {
-  --ink: 5 5 5;
-  --sunken: 10 10 10;
-  --surface: 17 17 17;
-  --raised: 24 24 24;
-  --line: 34 34 34;
-  --line-strong: 52 52 51;
-  --fg: 245 245 243;
-  --soft: 225 225 221;
-  --muted: 200 200 195;
-  --subtle: 172 172 167;
-  --faint: 158 158 153;
-  --accent: 232 163 77;
-  --accent-strong: 244 190 120;
+  --ink: 255 255 255;
+  --sunken: 246 246 246;
+  --surface: 250 250 250;
+  --raised: 255 255 255;
+  --line: 228 228 228;
+  --line-strong: 186 186 186;
+  --fg: 12 12 12;
+  --soft: 28 28 28;
+  --muted: 64 64 64;
+  --subtle: 89 89 89;
+  --faint: 89 89 89;
+  --accent: 12 12 12;
+  --accent-strong: 0 0 0;
+  --stage-1: 89 89 89;
+  --stage-2: 64 64 64;
+  --stage-3: 20 20 20;
+  --stage-scored: 0 0 0;
+  --on-scored: 255 255 255;
 
-  --gutter: clamp(1.25rem, 0.6rem + 2.8vw, 2.5rem);
-  --section: clamp(5rem, 3rem + 9vw, 10rem);
-  --section-sm: clamp(3.5rem, 2.5rem + 4.5vw, 6rem);
+  --gutter: clamp(1.25rem, 0.7rem + 2.2vw, 2.5rem);
+  --section: clamp(3.25rem, 2.15rem + 2.6vw, 5.5rem);
+  --section-sm: clamp(2.25rem, 1.6rem + 1.6vw, 3.75rem);
   --header: 4rem;
 
   --ease-calm: cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -47,14 +55,14 @@
 
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100%;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header) + 1rem);
-  color-scheme: dark;
+  color-scheme: light;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -77,13 +85,13 @@ a {
 }
 
 ::selection {
-  background: rgb(var(--accent) / 0.3);
+  background: rgb(var(--fg) / 0.14);
   color: rgb(var(--fg));
 }
 
-/* Focus: one visible ring everywhere, in the accent. */
+/* Focus: one visible ring everywhere. */
 :focus-visible {
-  outline: 2px solid rgb(var(--accent));
+  outline: 2px solid rgb(var(--fg));
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -132,7 +140,7 @@ h1, h2, h3, blockquote {
     @apply border-t border-line py-section;
   }
   .page-top {
-    padding-top: calc(var(--header) + clamp(3.5rem, 2rem + 6vw, 7rem));
+    padding-top: calc(var(--header) + clamp(2rem, 1.2rem + 2.4vw, 4.25rem));
   }
 
   /* Type */
@@ -143,9 +151,9 @@ h1, h2, h3, blockquote {
     @apply text-body text-muted;
   }
 
-  /* Text link: the accent, underlined, with a 44px touch target where it stands alone. */
+  /* Text link: black, underlined, with a 44px touch target where it stands alone. */
   .link {
-    @apply font-medium text-accent underline decoration-accent/40 underline-offset-4 transition-colors duration-200 hover:text-accent-strong hover:decoration-accent-strong;
+    @apply font-medium text-fg underline decoration-fg/35 underline-offset-4 transition-colors duration-200 hover:decoration-fg;
   }
   .link-block {
     @apply link inline-flex min-h-11 items-center gap-2;
@@ -164,7 +172,7 @@ h1, h2, h3, blockquote {
     @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 text-base font-medium leading-none tracking-[-0.01em] transition-[background-color,border-color,color,transform] duration-200 ease-calm;
   }
   .btn-solid {
-    @apply btn bg-fg text-ink hover:bg-white active:scale-[0.98];
+    @apply btn bg-fg text-ink hover:bg-soft active:scale-[0.98];
   }
   .btn-outline {
     @apply btn border border-line-strong text-fg hover:border-subtle hover:bg-fg/[0.05] active:scale-[0.98];
@@ -178,7 +186,7 @@ h1, h2, h3, blockquote {
   transition: background-color 0.2s var(--ease-calm), transform 0.2s var(--ease-calm);
 }
 .btn-primary:hover {
-  background: #ffffff;
+  background: rgb(var(--soft));
 }
 
 /* Legacy card, used across older pages. Same look as .panel. */
@@ -293,6 +301,26 @@ button.card:hover {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  /* Final proof state: the loop is fully drawn, in black, with every label visible. */
+  .loop-ink,
+  .loop-stroke,
+  .loop-node,
+  .loop-center,
+  .caret {
+    animation: none !important;
+  }
+  .loop-ink,
+  .loop-node,
+  .loop-center {
+    opacity: 1 !important;
+  }
+  .loop-stroke {
+    stroke-dashoffset: 0 !important;
+    stroke: rgb(var(--stage-scored)) !important;
+  }
+  .caret {
+    opacity: 0 !important;
+  }
 }
 
 .thin-scrollbar {
@@ -315,6 +343,7 @@ button.card:hover {
   color: rgb(var(--muted));
   font-size: 1.0625rem;
   line-height: 1.7;
+  text-wrap: pretty;
 }
 .note-body h2,
 .note-body h3 {
@@ -333,17 +362,123 @@ button.card:hover {
   padding-left: 1.25rem;
 }
 .note-body a {
-  color: rgb(var(--accent));
+  color: rgb(var(--fg));
   text-decoration: underline;
-  text-decoration-color: rgb(var(--accent) / 0.4);
+  text-decoration-color: rgb(var(--fg) / 0.35);
   text-underline-offset: 4px;
 }
 .note-body strong {
   color: rgb(var(--fg));
 }
 .note-body blockquote {
-  border-left: 2px solid rgb(var(--accent));
+  border-left: 2px solid rgb(var(--fg));
   padding-left: 1rem;
   color: rgb(var(--fg));
   margin: 1.5rem 0;
+}
+
+/* Practice sandbox stays a dark instrument. Marketing pages stay white. */
+.practice {
+  --ink: 8 8 8;
+  --sunken: 12 12 12;
+  --surface: 18 18 18;
+  --raised: 26 26 26;
+  --line: 42 42 42;
+  --line-strong: 72 72 72;
+  --fg: 245 245 245;
+  --soft: 225 225 225;
+  --muted: 196 196 196;
+  --subtle: 168 168 168;
+  --faint: 150 150 150;
+  --accent: 245 245 245;
+  --accent-strong: 255 255 255;
+  --stage-1: 196 196 196;
+  --stage-2: 168 168 168;
+  --stage-3: 245 245 245;
+  --stage-scored: 255 255 255;
+  --on-scored: 8 8 8;
+  color-scheme: dark;
+  background: rgb(var(--ink));
+  color: rgb(var(--fg));
+}
+
+/* Scroll fades. Opacity only, so the page does not shift. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+  }
+  .reveal.is-in {
+    opacity: 1;
+    transition: opacity 700ms var(--ease-calm);
+  }
+}
+
+/* How it works loop. Draws in stage order, then fades back to the white page. */
+.loop-ink {
+  opacity: 1;
+}
+.loop-stroke {
+  fill: none;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  stroke: rgb(var(--stage-1));
+}
+.loop-node,
+.loop-center {
+  opacity: 1;
+}
+.caret {
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  margin-left: 2px;
+  background: currentColor;
+  vertical-align: -0.12em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .loop-ink {
+    animation: loop-ink 9.6s var(--ease-calm) infinite both;
+  }
+  .loop-stroke {
+    animation: loop-stroke 9.6s var(--ease-calm) infinite both;
+  }
+  .loop-n1 { animation: loop-n1 9.6s var(--ease-calm) infinite both; }
+  .loop-n2 { animation: loop-n2 9.6s var(--ease-calm) infinite both; }
+  .loop-n3 { animation: loop-n3 9.6s var(--ease-calm) infinite both; }
+  .loop-center { animation: loop-center 9.6s var(--ease-calm) infinite both; }
+  .caret { animation: caret 1s steps(1) infinite; }
+}
+
+@keyframes loop-ink {
+  0% { opacity: 0; }
+  7% { opacity: 1; }
+  86% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes loop-stroke {
+  0%, 8% { stroke-dashoffset: 1; stroke: rgb(var(--stage-1)); }
+  30% { stroke-dashoffset: 0.52; stroke: rgb(var(--stage-1)); }
+  52% { stroke-dashoffset: 0.2; stroke: rgb(var(--stage-2)); }
+  72% { stroke-dashoffset: 0; stroke: rgb(var(--stage-3)); }
+  84%, 100% { stroke-dashoffset: 0; stroke: rgb(var(--stage-scored)); }
+}
+@keyframes loop-n1 {
+  0%, 12% { opacity: 0; }
+  22%, 100% { opacity: 1; }
+}
+@keyframes loop-n2 {
+  0%, 32% { opacity: 0; }
+  44%, 100% { opacity: 1; }
+}
+@keyframes loop-n3 {
+  0%, 52% { opacity: 0; }
+  64%, 100% { opacity: 1; }
+}
+@keyframes loop-center {
+  0%, 68% { opacity: 0; }
+  80%, 100% { opacity: 1; }
+}
+@keyframes caret {
+  50% { opacity: 0; }
 }
