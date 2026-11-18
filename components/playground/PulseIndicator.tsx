@@ -18,7 +18,7 @@ export default function PulseIndicator({ pulseRate, signals, currentTime }: Puls
 
   // Build heartbeat path
   const baselineY = padding.top + chartH * 0.6
-  const thresholdY = padding.top + chartH * (1 - 2 / Math.max(5, pulseRate + 2))
+  const thresholdY = baselineY - chartH * 0.25
 
   // Create signal spikes on the timeline
   const windowStart = Math.max(0, currentTime - 4)
@@ -45,7 +45,7 @@ export default function PulseIndicator({ pulseRate, signals, currentTime }: Puls
     }
   }
 
-  const rateColor = pulseRate > 2 ? '#22c55e' : pulseRate > 1 ? '#eab308' : '#71717a'
+  const rateColor = pulseRate > 2 ? '#22c55e' : pulseRate > 1 ? '#eab308' : '#acaca7'
 
   return (
     <div className="bg-surface border border-line rounded-xl p-6">
@@ -102,12 +102,12 @@ export default function PulseIndicator({ pulseRate, signals, currentTime }: Puls
         />
 
         {/* X-axis label */}
-        <text x={padding.left + chartW / 2} y={height - 3} fill="#71717a" fontSize="7" textAnchor="middle">
+        <text x={padding.left + chartW / 2} y={height - 3} fill="#acaca7" fontSize="7" textAnchor="middle">
           last 4 hours
         </text>
 
         {/* Baseline label */}
-        <text x={padding.left - 4} y={baselineY + 3} fill="#71717a" fontSize="7" textAnchor="end">1x</text>
+        <text x={padding.left - 4} y={baselineY + 3} fill="#acaca7" fontSize="7" textAnchor="end">1x</text>
       </svg>
     </div>
   )

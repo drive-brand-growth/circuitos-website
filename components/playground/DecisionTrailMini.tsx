@@ -93,7 +93,7 @@ export default function DecisionTrailMini({ firedSignals, dmnRoute, gates, poste
       <div className="flex items-center gap-2 px-4 py-3 border-b border-line">
         <Shield size={14} className="text-accent" />
         <span className="text-sm font-medium text-fg">Receipt</span>
-        <span className="ml-auto text-[10px] text-subtle font-mono">{events.length} events</span>
+        <span className="ml-auto text-xs text-subtle font-mono">{events.length} events</span>
       </div>
 
       <div
@@ -119,15 +119,15 @@ export default function DecisionTrailMini({ firedSignals, dmnRoute, gates, poste
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-medium text-fg">{event.label}</span>
                   <span
-                    className="text-[9px] font-mono px-1.5 py-0.5 rounded"
+                    className="text-xs font-mono px-1.5 py-0.5 rounded"
                     style={{ backgroundColor: `${color}15`, color }}
                   >
                     {event.type.toUpperCase()}
                   </span>
                 </div>
-                <p className="text-[10px] text-subtle font-mono mt-0.5">{event.detail}</p>
+                <p className="text-xs text-subtle font-mono mt-0.5">{event.detail}</p>
               </div>
-              <span className="text-[9px] text-faint font-mono shrink-0 mt-0.5">T+{event.time.toFixed(0)}h</span>
+              <span className="text-xs text-faint font-mono shrink-0 mt-0.5">T+{event.time.toFixed(0)}h</span>
             </motion.div>
           )
         })}

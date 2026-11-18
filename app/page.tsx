@@ -70,7 +70,7 @@ export default async function HomePage() {
           </p>
           <h1 id="hero-title" className="mt-8 text-display text-fg">
             {headline.map((part, index) => (
-              <span key={part} className={`block [text-wrap:balance] ${index > 0 ? 'text-muted' : ''}`}>
+              <span key={part} className={`block [text-wrap:balance] ${index > 0 ? 'text-subtle' : ''}`}>
                 {part}
               </span>
             ))}
@@ -215,42 +215,23 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div className="mt-14 grid gap-x-16 gap-y-10 md:mt-20 lg:grid-cols-12">
-            {/* A plain preview of the public record. It reads from the same data as /scorecard. */}
-            <div className="panel flex flex-col overflow-hidden lg:col-span-7">
-              <div className="flex items-center justify-between gap-4 border-b border-line px-5 py-4 sm:px-6">
-                <p className="font-mono text-eyebrow uppercase text-subtle">Public scorecard</p>
-                <p className="inline-flex items-center gap-2 font-mono text-xs text-soft">
-                  <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent" />
-                  {plural(record.total, 'call recorded', 'calls recorded')}
-                </p>
-              </div>
-              <div aria-hidden="true" className="grid grid-cols-3 gap-4 border-b border-line px-5 py-3 text-xs text-subtle sm:grid-cols-4 sm:px-6">
-                <span>Date stated</span>
-                <span>Stated odds</span>
-                <span className="hidden sm:block">Outcome</span>
-                <span className="text-right">Brier term</span>
-              </div>
-              <p className="flex flex-1 items-center justify-center px-5 py-16 text-center text-sm text-muted sm:px-6">
-                {record.total === 0
-                  ? 'No calls recorded yet. The record starts on the day a call is stated.'
-                  : `${plural(record.scored, 'call', 'calls')} scored so far. Open the scorecard for the full record.`}
-              </p>
-            </div>
-            <ol className="border-t border-line lg:col-span-5">
-              {home.proofPoints.map((point, index) => (
-                <li key={point.title} className="grid grid-cols-[auto_1fr] gap-x-6 border-b border-line py-7">
-                  <span aria-hidden="true" className="pt-1 font-mono text-sm text-accent">
-                    {num(index)}
-                  </span>
-                  <div>
-                    <h3 className="text-subhead text-fg">{point.title}</h3>
-                    <p className="mt-2 text-body text-muted">{point.text}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
+          {/* How a call will be scored. Three short tests, no placeholder panels. */}
+          <ol className="mt-14 grid border-t border-line md:mt-20 md:grid-cols-3 md:divide-x md:divide-line">
+            {home.proofPoints.map((point, index) => (
+              <li
+                key={point.title}
+                className={`border-b border-line py-8 md:border-b-0 md:py-10 ${index > 0 ? 'md:pl-8' : ''} ${
+                  index < home.proofPoints.length - 1 ? 'md:pr-8' : ''
+                }`}
+              >
+                <span aria-hidden="true" className="font-mono text-sm text-accent">
+                  {num(index)}
+                </span>
+                <h3 className="mt-4 text-subhead text-fg">{point.title}</h3>
+                <p className="mt-3 text-body text-muted">{point.text}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 

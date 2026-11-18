@@ -6,7 +6,9 @@
  * Design tokens. One system for every page.
  * Mostly monochrome: deep black, near white, a short gray ramp, and ONE warm accent.
  * Colors are RGB triplets so Tailwind opacity modifiers work (bg-fg/5, border-accent/40).
- * Contrast on --ink: fg 18.7, soft 15.5, muted 8.0, subtle 5.9, faint 5.3, accent 9.5. All pass AA for text, on --raised too.
+ * Contrast on --ink: fg 18.7, soft 15.5, muted 12.0, subtle 8.8, faint 7.4, accent 9.5.
+ * Every text token is 7:1 or better on the page and on raised panels, so body and caption copy pass AAA.
+ * Type floor: text-xs is 14px and text-sm is 16px (see tailwind.config.ts). Nothing readable goes below 14px.
  */
 :root {
   --ink: 5 5 5;
@@ -17,9 +19,9 @@
   --line-strong: 52 52 51;
   --fg: 245 245 243;
   --soft: 225 225 221;
-  --muted: 163 163 158;
-  --subtle: 138 138 133;
-  --faint: 130 130 125;
+  --muted: 200 200 195;
+  --subtle: 172 172 167;
+  --faint: 158 158 153;
   --accent: 232 163 77;
   --accent-strong: 244 190 120;
 
@@ -159,7 +161,7 @@ h1, h2, h3, blockquote {
 
   /* Buttons */
   .btn {
-    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 text-[0.9375rem] font-medium leading-none tracking-[-0.01em] transition-[background-color,border-color,color,transform] duration-200 ease-calm;
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 text-base font-medium leading-none tracking-[-0.01em] transition-[background-color,border-color,color,transform] duration-200 ease-calm;
   }
   .btn-solid {
     @apply btn bg-fg text-ink hover:bg-white active:scale-[0.98];
@@ -235,7 +237,7 @@ button.card:hover {
   font-family: var(--font-mono), ui-monospace, monospace;
 }
 .code-block pre {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   line-height: 1.6;
 }
 

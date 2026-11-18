@@ -23,12 +23,12 @@ export default function OGImage() {
         <div style={{ display: 'flex', marginTop: 36, fontSize: 64, fontWeight: 700, color: '#f5f5f3', lineHeight: 1.15 }}>
           The agent drafts. The rules decide.
         </div>
-        <div style={{ display: 'flex', marginTop: 24, fontSize: 28, color: '#a3a39e' }}>
+        <div style={{ display: 'flex', marginTop: 24, fontSize: 28, color: '#c8c8c3' }}>
           Written decisions. Honest odds. Proof of cause.
         </div>
         <div style={{ display: 'flex', gap: 28, marginTop: 56 }}>
           {stages.map((stage) => (
-            <div key={stage} style={{ display: 'flex', fontSize: 22, color: '#a3a39e' }}>
+            <div key={stage} style={{ display: 'flex', fontSize: 22, color: '#c8c8c3' }}>
               {stage}
             </div>
           ))}

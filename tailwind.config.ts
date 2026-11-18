@@ -33,7 +33,10 @@ const config: Config = {
         mono: ['var(--font-mono)', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       fontSize: {
-        eyebrow: ['0.75rem', { lineHeight: '1', letterSpacing: '0.14em', fontWeight: '500' }],
+        // Floor for small text. Captions (xs) are 14px and small body copy (sm) is 16px on every screen.
+        xs: ['0.875rem', { lineHeight: '1.5' }],
+        sm: ['1rem', { lineHeight: '1.6' }],
+        eyebrow: ['0.875rem', { lineHeight: '1.2', letterSpacing: '0.1em', fontWeight: '500' }],
         display: ['clamp(2.75rem, 1.55rem + 5.4vw, 5.75rem)', { lineHeight: '1.02', letterSpacing: '-0.045em', fontWeight: '600' }],
         title: ['clamp(2rem, 1.45rem + 2.4vw, 3.5rem)', { lineHeight: '1.06', letterSpacing: '-0.035em', fontWeight: '600' }],
         heading: ['clamp(1.5rem, 1.3rem + 0.9vw, 2rem)', { lineHeight: '1.15', letterSpacing: '-0.025em', fontWeight: '600' }],

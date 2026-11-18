@@ -78,9 +78,9 @@ export default function AutonomyPanel({ posterior, compositeScore }: AutonomyPan
           ))}
         </div>
         <div className="flex justify-between mt-1.5">
-          <span className="text-[10px] text-subtle">0%</span>
-          <span className="text-[10px] font-mono text-muted">{posteriorPct.toFixed(1)}%</span>
-          <span className="text-[10px] text-subtle">100%</span>
+          <span className="text-xs text-subtle">0%</span>
+          <span className="text-xs font-mono text-muted">{posteriorPct.toFixed(1)}%</span>
+          <span className="text-xs text-subtle">100%</span>
         </div>
       </div>
 
@@ -110,7 +110,7 @@ export default function AutonomyPanel({ posterior, compositeScore }: AutonomyPan
                 <span
                   className="w-1.5 h-1.5 rounded-full"
                   style={{
-                    backgroundColor: isPassed ? '#22c55e' : riskClass === 'CRITICAL' ? '#ef4444' : '#71717a',
+                    backgroundColor: isPassed ? '#22c55e' : riskClass === 'CRITICAL' ? '#ef4444' : '#acaca7',
                   }}
                 />
                 <span className={`${isPassed ? 'text-muted' : 'text-faint'}`}>{label}</span>
