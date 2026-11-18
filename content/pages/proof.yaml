@@ -1,0 +1,107 @@
+title: Proof in progress
+path: /proof
+description: >
+  No public results are published here yet. This page explains how results
+  will be scored in public: stated odds, a Brier score against a baseline, and
+  effect measured on held out data.
+status: published
+kicker: Proof
+headline: Proof in progress.
+updated: ""
+lede:
+  - >
+    There are no public results on this site yet. This page says so plainly,
+    and it shows how a result will be scored before one is shown.
+  - >
+    The method asks you to write the rule, state the odds, and prove the cause.
+    The same three tests apply to the method itself.
+table:
+  caption: ""
+  columns: []
+  rows: []
+sections:
+  - heading: What is here today
+    paragraphs:
+      - >
+        The method is written down. The scoring rules on this page are written
+        down. The scorecard is public and it is empty.
+      - >
+        No client results, no testimonials, and no figures are shown, because
+        none have been published. An empty record is the honest record today.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: none
+  - heading: How a call gets scored in public
+    paragraphs:
+      - Three tests, in this order. A result that skips one is not shown as proof.
+    items:
+      - label: Stated odds
+        text: >
+          Stated odds. Each call is written down with a date and the odds,
+          before the outcome is known. The entry does not change after that.
+        href: ""
+      - label: Brier score against a baseline
+        text: >
+          A Brier score against a baseline. When the outcome is known, the
+          stated odds are scored. A Brier score is the average squared gap
+          between the odds you stated and what happened. Lower is better. The
+          score sits next to a baseline, such as always stating the base rate,
+          so you can see whether the calls beat a simple guess.
+        href: ""
+      - label: Effect on held out data
+        text: >
+          Effect measured on held out data. Held out data is set aside before
+          the work starts and is not used to build the rule or the model. A
+          claim that something caused a lift has to hold there. A lift that
+          only shows up on the data it was built from is not proof.
+        href: ""
+    listStyle: numbers
+    callout: ""
+    embed: none
+  - heading: The calibration chart
+    paragraphs:
+      - >
+        Stated odds run one way. How often those calls happened runs the other.
+        Honest odds sit on the diagonal. The chart below is empty because no
+        calls have been scored in public yet.
+    items: []
+    listStyle: none
+    callout: ""
+    embed: chart
+  - heading: What this page will not show
+    paragraphs: []
+    items:
+      - label: ""
+        text: A figure with no source.
+        href: ""
+      - label: ""
+        text: A score with no baseline next to it.
+        href: ""
+      - label: ""
+        text: A claim of cause that was only tested on the data it came from.
+        href: ""
+      - label: ""
+        text: A client name, a logo, or a testimonial used in place of a scored result.
+        href: ""
+    listStyle: bullets
+    callout: ""
+    embed: none
+  - heading: Where the record lives
+    paragraphs:
+      - >
+        The scorecard is the dated record. Each call goes in with its stated
+        odds and gets scored later. It is empty today.
+    items:
+      - label: Open the scorecard
+        text: ""
+        href: /scorecard
+      - label: How a forecast is scored
+        text: ""
+        href: /forecasting
+      - label: Ask what caused it
+        text: ""
+        href: /causal
+    listStyle: links
+    callout: ""
+    embed: none
