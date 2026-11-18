@@ -31,16 +31,16 @@ export function pageMeta({ title, description, path, ogType = 'website', noindex
   }
 }
 
-export function personJsonLd(description?: string | null) {
+export function publisherJsonLd(description?: string | null) {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Person',
-    '@id': `${SITE_URL}/#noel-pena`,
-    name: 'Noel Pena',
-    url: `${SITE_URL}/about`,
+    '@type': 'Organization',
+    '@id': `${SITE_URL}/#publisher`,
+    name: SITE_NAME,
+    url: SITE_URL,
     description:
       description ||
-      'Noel Pena teaches The Circuit Method™. He has spent more than twenty years in RevOps and sales leadership.',
+      'The Circuit Method™ teaches written rules, honest odds, and proof of cause.',
   }
 }
 
@@ -53,7 +53,7 @@ export function websiteJsonLd(name = SITE_NAME, description = 'The agent drafts.
     url: SITE_URL,
     description,
     inLanguage: 'en',
-    publisher: { '@id': `${SITE_URL}/#noel-pena` },
+    publisher: { '@id': `${SITE_URL}/#publisher` },
   }
 }
 
@@ -74,8 +74,8 @@ export function articleJsonLd(input: {
     dateModified: input.dateModified,
     mainEntityOfPage: url,
     url,
-    author: { '@id': `${SITE_URL}/#noel-pena` },
-    publisher: { '@id': `${SITE_URL}/#noel-pena` },
+    author: { '@id': `${SITE_URL}/#publisher` },
+    publisher: { '@id': `${SITE_URL}/#publisher` },
     image: `${SITE_URL}/opengraph-image`,
   }
 }

@@ -18,7 +18,7 @@ export default function PulseIndicator({ pulseRate, signals, currentTime }: Puls
 
   // Build heartbeat path
   const baselineY = padding.top + chartH * 0.6
-  const thresholdY = padding.top + chartH * (1 - 3 / Math.max(5, pulseRate + 2))
+  const thresholdY = padding.top + chartH * (1 - 2 / Math.max(5, pulseRate + 2))
 
   // Create signal spikes on the timeline
   const windowStart = Math.max(0, currentTime - 4)
@@ -45,7 +45,7 @@ export default function PulseIndicator({ pulseRate, signals, currentTime }: Puls
     }
   }
 
-  const rateColor = pulseRate > 3 ? '#22c55e' : pulseRate > 1.5 ? '#eab308' : '#71717a'
+  const rateColor = pulseRate > 2 ? '#22c55e' : pulseRate > 1 ? '#eab308' : '#71717a'
 
   return (
     <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl p-6">
@@ -76,7 +76,7 @@ export default function PulseIndicator({ pulseRate, signals, currentTime }: Puls
           strokeDasharray="4 4"
         />
 
-        {/* Threshold line (3x) */}
+        {/* Example gate line */}
         <line
           x1={padding.left}
           y1={thresholdY}
@@ -87,7 +87,7 @@ export default function PulseIndicator({ pulseRate, signals, currentTime }: Puls
           strokeDasharray="3 3"
           opacity="0.4"
         />
-        <text x={padding.left + chartW + 4} y={thresholdY + 3} fill="#22c55e" fontSize="7" opacity="0.6">3x</text>
+        <text x={padding.left + chartW + 4} y={thresholdY + 3} fill="#22c55e" fontSize="7" opacity="0.6">2x</text>
 
         {/* Heartbeat line */}
         <motion.path

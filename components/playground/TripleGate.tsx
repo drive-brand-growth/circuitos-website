@@ -71,7 +71,10 @@ export default function TripleGate({ gates }: TripleGateProps) {
   return (
     <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl p-6">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="font-medium text-white">Triple Gate</h3>
+        <div>
+          <h3 className="font-medium text-white">Triple Gate</h3>
+          <p className="text-xs text-[#71717a] mt-1">Example gates only.</p>
+        </div>
         {allPassed && (
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
@@ -87,21 +90,21 @@ export default function TripleGate({ gates }: TripleGateProps) {
       <div className="divide-y divide-[#27272a]">
         <GateRow
           label="Certainty"
-          rule="P > 0.90"
+          rule="Example P > 0.80"
           passed={gates.certainty.passed}
           value={gates.certainty.value}
           formatValue={(v) => v.toFixed(4)}
         />
         <GateRow
           label="Variance"
-          rule="&sigma;&sup2; < 0.05"
+          rule="Example variance < 0.10"
           passed={gates.variance.passed}
           value={gates.variance.value}
           formatValue={(v) => v.toFixed(6)}
         />
         <GateRow
           label="Pulse"
-          rule="Rate > 3&times;"
+          rule="Example rate > 2"
           passed={gates.pulse.passed}
           value={gates.pulse.value}
           formatValue={(v) => `${v.toFixed(2)}x`}

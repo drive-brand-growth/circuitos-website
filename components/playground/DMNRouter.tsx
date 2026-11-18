@@ -50,7 +50,8 @@ const ROUTES: RouteConfig[] = [
 export default function DMNRouter({ route }: DMNRouterProps) {
   return (
     <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl p-6">
-      <h3 className="font-medium text-white mb-4">Switch · written route</h3>
+      <h3 className="font-medium text-white mb-1">Switch · written route</h3>
+      <p className="text-xs text-[#71717a] mb-4">Example route only.</p>
       <div className="space-y-1">
         {ROUTES.map(r => {
           const isActive = route.action === r.action
@@ -99,7 +100,7 @@ export default function DMNRouter({ route }: DMNRouterProps) {
                       color: r.color,
                     }}
                   >
-                    {(route.confidence * 100).toFixed(0)}%
+                    Example {(route.confidence * 100).toFixed(0)}%
                   </motion.span>
                 )}
               </div>

@@ -35,19 +35,19 @@ function buildTrail(
     events.push({
       type: 'decision',
       label: `Score: ${entry.signal.label}`,
-      detail: `LR ${entry.signal.likelihoodRatio.toFixed(1)} → P=${entry.posteriorAfter.toFixed(4)}`,
+      detail: `Example LR ${entry.signal.likelihoodRatio}. Stated odds ${entry.posteriorAfter.toFixed(2)}.`,
       status: isNegative ? 'danger' : 'success',
       time: entry.time,
     })
 
     // Action event (gate evaluation after each signal)
     const conf = entry.posteriorAfter
-    const gateStatus = conf >= 0.78 ? 'PASS' : conf >= 0.65 ? 'SOFT PASS' : 'BELOW'
+    const gateStatus = conf >= 0.8 ? 'PASS' : conf >= 0.5 ? 'SOFT PASS' : 'BELOW'
     events.push({
       type: 'action',
       label: `Gate: ${gateStatus}`,
-      detail: `Confidence ${(conf * 100).toFixed(1)}% vs threshold 78%`,
-      status: conf >= 0.78 ? 'success' : conf >= 0.65 ? 'warning' : 'danger',
+      detail: `Example only. Stated odds ${Math.round(conf * 100)} percent. Example gate is 80 percent.`,
+      status: conf >= 0.8 ? 'success' : conf >= 0.5 ? 'warning' : 'danger',
       time: entry.time,
     })
   }

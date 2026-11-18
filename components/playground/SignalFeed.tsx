@@ -56,7 +56,7 @@ export default function SignalFeed({ entries }: SignalFeedProps) {
                 {entry.signal.label}
               </span>
               <span className="text-yellow-400">
-                (LR {entry.signal.likelihoodRatio.toFixed(1)})
+                (Example LR {entry.signal.likelihoodRatio})
               </span>
               <span className="text-[#71717a]">&rarr;</span>
               <span className={posteriorUp ? 'text-green-400' : 'text-red-400'}>

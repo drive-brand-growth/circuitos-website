@@ -2,7 +2,7 @@
 
 > The agent drafts. The rules decide. Written decisions. Honest odds. Proof of cause.
 
-The Circuit Method™ is a method Noel Pena teaches. He has spent more than twenty years in RevOps and sales leadership. He teaches it as a course, in a book, and in team strategy work. The site is for learning the method.
+The Circuit Method™ is a method Noel Pena teaches. He has spent more than twenty years in RevOps and sales leadership. He teaches it in team strategy work. The site is for learning the method.
 
 The agent drafts. The rules decide. An agent is a tool inside the method. It does not own the rule, the odds, or the release.
 
@@ -44,8 +44,8 @@ The agent drafts. The rules decide. An agent is a tool inside the method. It doe
 
 ## What this site will not do
 
-It does not publish prices, client lists, testimonials, or results. The practice sandbox uses simulated signals and says so. A Pipeline Autopsy is a free scored report on an export you email.
+It does not publish prices, client lists, testimonials, or results. The practice sandbox uses example data only and says so. A Pipeline Autopsy is a free scored report on an export you email.
 
 Contact: hello@usecircuitos.com
 
-Last updated: October 24, 2026
+Last updated: November 18, 2026

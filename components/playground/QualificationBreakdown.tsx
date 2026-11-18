@@ -8,16 +8,17 @@ interface QualificationBreakdownProps {
 }
 
 const BARS = [
-  { key: 'bayesian' as const, label: 'Bayesian', weight: '40%', color: '#3b82f6' },
+  { key: 'bayesian' as const, label: 'Bayesian', weight: '25%', color: '#3b82f6' },
   { key: 'financial' as const, label: 'Financial', weight: '25%', color: '#22c55e' },
-  { key: 'philExperience' as const, label: 'Authority/Fit', weight: '20%', color: '#a855f7' },
-  { key: 'engagement' as const, label: 'Engagement', weight: '15%', color: '#f97316' },
+  { key: 'philExperience' as const, label: 'Authority and fit', weight: '25%', color: '#a855f7' },
+  { key: 'engagement' as const, label: 'Engagement', weight: '25%', color: '#f97316' },
 ] as const
 
 export default function QualificationBreakdown({ compositeScore }: QualificationBreakdownProps) {
   return (
     <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl p-6">
-      <h4 className="font-medium text-white mb-1">Qualification Score</h4>
+      <h4 className="font-medium text-white mb-1">Qualification score</h4>
+      <p className="text-xs text-[#71717a] mb-4">Example weights only. These bars are not a live score.</p>
 
       {/* Total composite score */}
       <p
