@@ -15,7 +15,7 @@ nav:
   - label: Forecasting
     href: /forecasting
   - label: Proof
-    href: /causal
+    href: /proof
   - label: Practice sandbox
     href: /practice
   - label: Field notes
@@ -29,6 +29,10 @@ linkGroups:
         href: /decisions
       - label: Forecasting
         href: /forecasting
+      - label: Proof in progress
+        href: /proof
+      - label: Scorecard
+        href: /scorecard
       - label: Causal proof
         href: /causal
       - label: Practice sandbox

@@ -20,10 +20,10 @@ export default async function GlossaryPage() {
 
   return (
     <PageShell>
-      <article className="grid-bg pb-20 pt-36">
+      <article className="grid-bg page-top pb-section">
         <Container>
-          <p className="text-sm text-[#a1a1aa]">
-            <Link href="/method" className="text-blue-400 hover:text-blue-300 max-sm:inline-block max-sm:py-2">
+          <p className="text-sm text-muted">
+            <Link href="/method" className="link max-sm:inline-block max-sm:py-2">
               The method
             </Link>
           </p>
@@ -35,11 +35,11 @@ export default async function GlossaryPage() {
               lede={isHeldCopy(glossary.lede) ? '' : glossary.lede}
             />
           </div>
-          <dl className="mt-16 space-y-12">
+          <dl className="mt-section-sm space-y-12">
             {visible.filter((term) => !isHeldCopy(term.entry.text)).map((term) => (
               <div key={term.slug} id={term.slug}>
                 <dt className="text-2xl font-semibold tracking-tight">{term.entry.name}</dt>
-                <dd className="mt-3 text-lg leading-[1.6] text-[#a1a1aa]">{term.entry.text}</dd>
+                <dd className="mt-3 text-body text-muted">{term.entry.text}</dd>
               </div>
             ))}
           </dl>

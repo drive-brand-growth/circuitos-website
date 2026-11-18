@@ -12,7 +12,7 @@ interface SignalBoardProps {
 
 const CATEGORY_CONFIG: Record<SignalCategory, { label: string; color: string; textColor: string; borderColor: string }> = {
   financial: { label: 'Financial', color: 'bg-green-500/10', textColor: 'text-green-400', borderColor: 'border-green-500/30' },
-  authority: { label: 'Authority', color: 'bg-blue-500/10', textColor: 'text-blue-400', borderColor: 'border-blue-500/30' },
+  authority: { label: 'Authority', color: 'bg-accent/10', textColor: 'text-accent', borderColor: 'border-accent/30' },
   fit: { label: 'Product Fit', color: 'bg-purple-500/10', textColor: 'text-purple-400', borderColor: 'border-purple-500/30' },
   engagement: { label: 'Engagement', color: 'bg-orange-500/10', textColor: 'text-orange-400', borderColor: 'border-orange-500/30' },
   market: { label: 'Market', color: 'bg-cyan-500/10', textColor: 'text-cyan-400', borderColor: 'border-cyan-500/30' },
@@ -56,13 +56,13 @@ export default function SignalBoard({ firedSignalIds, onFireSignal, disabled }: 
                   whileTap={!isFired && !disabled ? { scale: 0.98 } : undefined}
                   className={`
                     w-full flex items-center justify-between
-                    bg-[#1a1a1a] border rounded-lg px-4 py-3
+                    bg-surface border rounded-lg px-4 py-3
                     transition-colors text-left
                     ${isFired
-                      ? 'border-[#27272a] opacity-50 cursor-default'
+                      ? 'border-line opacity-50 cursor-default'
                       : isNegative
                         ? 'border-red-500/20 hover:border-red-500/50 cursor-pointer'
-                        : 'border-[#27272a] hover:border-blue-500/50 cursor-pointer'
+                        : 'border-line hover:border-accent/50 cursor-pointer'
                     }
                   `}
                 >
@@ -72,18 +72,18 @@ export default function SignalBoard({ firedSignalIds, onFireSignal, disabled }: 
                     ) : isNegative ? (
                       <AlertTriangle className="w-4 h-4 text-red-400 flex-shrink-0" />
                     ) : (
-                      <Zap className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                      <Zap className="w-4 h-4 text-accent flex-shrink-0" />
                     )}
-                    <span className={`text-sm ${isFired ? 'text-zinc-500' : 'text-white'}`}>
+                    <span className={`text-sm ${isFired ? 'text-subtle' : 'text-fg'}`}>
                       {signal.label}
                     </span>
                   </div>
 
                   <span
-                    className={`text-xs ${isNegative ? 'text-red-400' : 'text-zinc-400'}`}
-                    style={{ fontFamily: 'JetBrains Mono, monospace' }}
+                    className={`text-xs ${isNegative ? 'text-red-400' : 'text-muted'}`}
+                    style={{ fontFamily: 'var(--font-mono), monospace' }}
                   >
-                    Example LR {signal.likelihoodRatio}
+                    Example LR {signal.likelihoodRatio.toFixed(1)}
                   </span>
                 </motion.button>
               )

@@ -18,12 +18,12 @@ export default function TimeSimulator({
   onAdvance,
 }: TimeSimulatorProps) {
   return (
-    <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl p-6">
-      <h3 className="font-medium text-white mb-1">Ground · before an outcome</h3>
-      <p className="text-xs text-[#71717a] mb-4">Odds fade when nothing new arrives. This is not a score.</p>
+    <div className="bg-surface border border-line rounded-xl p-6">
+      <h3 className="font-medium text-fg mb-1">Ground · before an outcome</h3>
+      <p className="text-xs text-subtle mb-4">Odds fade when nothing new arrives. The fade rate is an example value. This is not a score.</p>
 
       {/* Current time display */}
-      <div className="font-mono text-2xl text-white mb-6 text-center">
+      <div className="font-mono text-2xl text-fg mb-6 text-center">
         T + {currentTime.toFixed(1)}h
       </div>
 
@@ -33,7 +33,7 @@ export default function TimeSimulator({
           <button
             key={h}
             onClick={() => onAdvance(h)}
-            className="bg-[#27272a] hover:bg-[#3f3f46] rounded-lg px-4 py-2 font-mono text-sm text-white transition-colors"
+            className="bg-line hover:bg-line-strong rounded-lg px-4 py-2 font-mono text-sm text-fg transition-colors"
           >
             +{h}h
           </button>
@@ -41,8 +41,8 @@ export default function TimeSimulator({
       </div>
 
       {/* Decay preview */}
-      <div className="border-t border-[#27272a] pt-4">
-        <p className="text-xs text-[#71717a] mb-2 font-mono">Example fade preview</p>
+      <div className="border-t border-line pt-4">
+        <p className="text-xs text-subtle mb-2 font-mono">Example fade preview</p>
         <div className="grid grid-cols-4 gap-2">
           {TIME_STEPS.map(h => {
             const decayed = applyDecay(posterior, decayRate, h)
@@ -52,8 +52,8 @@ export default function TimeSimulator({
                 key={h}
                 className="text-center font-mono text-xs"
               >
-                <div className="text-[#a1a1aa]">+{h}h</div>
-                <div className="text-white">{decayed.toFixed(4)}</div>
+                <div className="text-muted">+{h}h</div>
+                <div className="text-fg">{decayed.toFixed(4)}</div>
                 <div className="text-red-400">-{loss.toFixed(4)}</div>
               </div>
             )

@@ -11,7 +11,7 @@ interface SocialEnginePanelProps {
 export default function SocialEnginePanel({ socialEnrichments, latestSignalEngines }: SocialEnginePanelProps) {
   return (
     <div>
-      <h4 className="text-sm font-medium text-[#a1a1aa] uppercase tracking-wider mb-3">
+      <h4 className="text-sm font-medium text-muted uppercase tracking-wider mb-3">
         Social Intelligence Engines
       </h4>
 
@@ -25,7 +25,7 @@ export default function SocialEnginePanel({ socialEnrichments, latestSignalEngin
           return (
             <div
               key={engine.name}
-              className="bg-[#1a1a1a]/50 border border-[#27272a] rounded-lg p-3 text-center flex-grow"
+              className="bg-surface/50 border border-line rounded-lg p-3 text-center flex-grow"
               style={{ minWidth: 150 }}
             >
               {/* Circle icon */}
@@ -44,7 +44,7 @@ export default function SocialEnginePanel({ socialEnrichments, latestSignalEngin
               </div>
 
               {/* Engine name */}
-              <p className="text-sm font-medium text-white mb-1">{engine.displayName}</p>
+              <p className="text-sm font-medium text-fg mb-1">{engine.displayName}</p>
 
               {/* Status indicator */}
               <div className="flex items-center justify-center gap-1.5 mb-2">
@@ -62,9 +62,9 @@ export default function SocialEnginePanel({ socialEnrichments, latestSignalEngin
                 ) : hasData ? (
                   <span className="inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
                 ) : (
-                  <span className="inline-flex h-2.5 w-2.5 rounded-full bg-zinc-600" />
+                  <span className="inline-flex h-2.5 w-2.5 rounded-full bg-faint" />
                 )}
-                <span className="text-xs text-[#a1a1aa]">
+                <span className="text-xs text-muted">
                   {isActive ? 'active' : hasData ? `${enrichments.length} result${enrichments.length !== 1 ? 's' : ''}` : 'idle'}
                 </span>
               </div>
@@ -78,8 +78,8 @@ export default function SocialEnginePanel({ socialEnrichments, latestSignalEngin
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -6 }}
                     transition={{ duration: 0.3 }}
-                    className="text-xs text-zinc-500 truncate"
-                    style={{ fontFamily: 'JetBrains Mono, monospace' }}
+                    className="text-xs text-subtle truncate"
+                    style={{ fontFamily: 'var(--font-mono), monospace' }}
                     title={latestResult}
                   >
                     {latestResult}

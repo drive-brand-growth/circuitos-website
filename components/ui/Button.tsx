@@ -10,9 +10,9 @@ type ButtonProps = {
 }
 
 const styles = {
-  primary: 'btn-primary text-white rounded-lg font-semibold',
-  secondary: 'border border-[#27272a] rounded-lg font-semibold hover:bg-white/5 transition-colors',
-  quiet: 'text-[#a1a1aa] hover:text-white transition-colors',
+  primary: 'btn-solid',
+  secondary: 'btn-outline',
+  quiet: 'btn text-muted hover:text-fg',
 }
 
 export default function Button({
@@ -23,7 +23,7 @@ export default function Button({
   className = '',
   onClick,
 }: ButtonProps) {
-  const cls = `inline-flex items-center justify-center px-8 py-3.5 text-base ${styles[variant]} ${className}`
+  const cls = `${styles[variant]} ${className}`
   if (href) {
     const external = href.startsWith('mailto:') || href.startsWith('http')
     if (external) {
@@ -34,7 +34,7 @@ export default function Button({
       )
     }
     return (
-      <Link href={href} className={cls}>
+      <Link prefetch={false} href={href} className={cls}>
         {children}
       </Link>
     )

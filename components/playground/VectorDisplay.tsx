@@ -38,8 +38,8 @@ export default function VectorDisplay({ vector }: VectorDisplayProps) {
   ]
 
   return (
-    <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl p-6">
-      <h3 className="font-medium text-white mb-4">4D Vector</h3>
+    <div className="bg-surface border border-line rounded-xl p-6">
+      <h3 className="font-medium text-fg mb-4">4D Vector</h3>
       <svg viewBox="0 0 200 200" className="w-full max-w-[200px] mx-auto">
         {/* Grid circles */}
         {[0.25, 0.5, 0.75, 1].map(r => (
@@ -73,8 +73,8 @@ export default function VectorDisplay({ vector }: VectorDisplayProps) {
         {/* Data polygon */}
         <motion.polygon
           points={polygonPath}
-          fill="rgba(59,130,246,0.2)"
-          stroke="#3b82f6"
+          fill="rgba(232, 163, 77,0.2)"
+          stroke="#e8a34d"
           strokeWidth={1.5}
           initial={false}
           animate={{ points: polygonPath }}
@@ -86,7 +86,7 @@ export default function VectorDisplay({ vector }: VectorDisplayProps) {
           <motion.circle
             key={axes[i].key}
             r={3}
-            fill="#3b82f6"
+            fill="#e8a34d"
             initial={false}
             animate={{ cx: p.x, cy: p.y }}
             transition={{ type: 'spring', stiffness: 80, damping: 20 }}
@@ -103,8 +103,8 @@ export default function VectorDisplay({ vector }: VectorDisplayProps) {
               y={end.y + labelOffsets[i].dy}
               textAnchor="middle"
               dominantBaseline="central"
-              className="fill-[#a1a1aa]"
-              style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px' }}
+              className="fill-muted"
+              style={{ fontFamily: 'var(--font-mono), monospace', fontSize: '10px' }}
             >
               {a.label} {a.value.toFixed(2)}
             </text>

@@ -33,6 +33,8 @@ The agent drafts. The rules decide. An agent is a tool inside the method. It doe
 - Glossary: https://thecircuitmethod.com/method/glossary
 - Decisions (DMN): https://thecircuitmethod.com/decisions
 - Forecasting: https://thecircuitmethod.com/forecasting
+- Proof in progress: https://thecircuitmethod.com/proof
+- Scorecard: https://thecircuitmethod.com/scorecard
 - Causal proof: https://thecircuitmethod.com/causal
 - Practice sandbox: https://thecircuitmethod.com/practice
 - Pipeline Autopsy: https://thecircuitmethod.com/autopsy

@@ -1,10 +1,41 @@
 status: published
 kicker: The Circuit Method
-headline: The agent drafts. The rules decide.
+headline: Revenue is a system. Engineer it like one.
 intro: >
-  I build revenue systems that tell the truth about the pipeline. You write the decision. You say the odds. You
-  keep a record of what caused the result. An agent may draft the note. It does
-  not own the rule.
+  For B2B revenue leaders who own the decision. You write the rule. You state
+  the odds, and the odds get scored. You prove what caused the result.
+heroStatus: Proof in progress
+audienceKicker: Who it is for
+audienceTitle: For B2B revenue leaders who own the call.
+audienceBody: >
+  You are the one who has to say the number, make the call, and explain the
+  result. The method is narrow on purpose. It is a discipline, not software,
+  and it does not promise a number.
+audience:
+  - title: A forecast nobody trusts
+    text: You say a number every week. Nobody checks later how often you were right, so nobody knows how much to believe it.
+  - title: Calls made on gut feel
+    text: Who gets the lead, which deal gets held, what gets approved. The rules live in heads and habits, so nobody can read them or check them.
+  - title: No way to tell what caused a result
+    text: The report hands credit to whatever was nearby. You still cannot say what changed the outcome.
+stepsKicker: How it works
+stepsTitle: Three steps.
+stepsLede: Each one is plain enough to try on a single decision.
+plainSteps:
+  - title: Write the rule
+    text: >
+      Put the decision in writing before it is made. What comes in, what you
+      do, and who approves. Anyone can read it and audit it later.
+  - title: State the odds
+    text: >
+      Say how likely the outcome is before you know it. Write the odds down
+      with the date. When the result comes in, score them.
+  - title: Prove the cause
+    text: >
+      When a result arrives, test what caused it against a baseline. A touch
+      that was only nearby gets no credit.
+loopLede: Inside the method, the three steps run as one loop of five stages.
+teachKicker: Teaching
 villainTitle: What I teach
 villainBody: >
   The five stages, written down, so a team can read them in order.
@@ -27,16 +58,31 @@ diagramTitle: One circuit
 diagramLine: signal returns to ground
 coreSupport: >
   The agent drafts. The rules decide. The odds are math, not mood.
-proofTitle: Recorded. Measured. Proven.
+proofKicker: Proof
+proofTitle: Proof in progress.
 proofBody: >
-  You can read the rule. You can score the odds you wrote. You can see who
-  approved the send. That is the proof on this site today.
+  No public results are published yet. I would rather show an empty record
+  than an invented one. This is how a result will be scored before it is shown.
 
   [Noel to confirm: one true story of a forecast that was a guess, with the real
   detail and no invented number.]
 
   [Noel to confirm: a result you will stand behind. Leave this out until the
   detail is real.]
+proofPoints:
+  - title: Stated odds
+    text: Every call is written down with a date and its odds before the outcome is known.
+  - title: Brier score against a baseline
+    text: The odds are scored when the outcome is known, next to a simple guess they have to beat.
+  - title: Effect on held out data
+    text: A claim of cause has to hold on data that was set aside before the work started.
+contactKicker: Contact
+contactTitle: Start with one decision.
+contactBody: >
+  Write to me and name one decision you already make. The forecast call, lead
+  routing, or an approval before something reaches a customer. That is enough
+  to start.
+contactLabel: Email {{email}}
 primaryLabel: Pipeline Autopsy
 primaryHref: /autopsy
 circuitKicker: The loop

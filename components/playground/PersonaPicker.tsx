@@ -36,28 +36,25 @@ export default function PersonaPicker({ onSelect }: PersonaPickerProps) {
             key={id}
             variants={item}
             onClick={() => onSelect(id)}
-            className="bg-[#1a1a1a] border border-[#27272a] rounded-xl p-6 text-left hover:border-blue-500/50 cursor-pointer transition-colors"
+            className="bg-surface border border-line rounded-xl p-6 text-left hover:border-accent/50 cursor-pointer transition-colors"
           >
-            <h3 className="text-white font-bold text-lg">{persona.name}</h3>
-            <p className="text-[#a1a1aa] text-sm mt-1">{persona.tagline}</p>
+            <h3 className="text-fg font-bold text-lg">{persona.name}</h3>
+            <p className="text-muted text-sm mt-1">{persona.tagline}</p>
 
-            <div className="mt-4">
-              <p className="text-xs font-medium text-blue-400">Example only</p>
-              <div className="mt-1 flex items-center gap-4">
-                <span className="font-mono text-blue-400 text-sm" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-                  {Math.round(persona.prior * 100)}% start
-                </span>
-                <span className="font-mono text-[#a1a1aa] text-sm" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-                  Example fade {persona.decayRate.toFixed(2)}
-                </span>
-              </div>
+            <div className="mt-4 flex flex-col gap-1">
+              <span className="font-mono text-accent text-sm" style={{ fontFamily: 'var(--font-mono), monospace' }}>
+                Example starting odds: {Math.round(persona.prior * 100)}%
+              </span>
+              <span className="font-mono text-muted text-sm" style={{ fontFamily: 'var(--font-mono), monospace' }}>
+                Example fade rate: {persona.decayRate.toFixed(2)} per hour
+              </span>
             </div>
 
-            <p className="text-[#a1a1aa] text-sm mt-4 leading-relaxed">
+            <p className="text-muted text-sm mt-4 leading-relaxed">
               {persona.description}
             </p>
 
-            <p className="text-zinc-500 text-xs mt-3 border-t border-[#27272a] pt-3">
+            <p className="text-subtle text-xs mt-3 border-t border-line pt-3">
               {persona.qualificationProfile}
             </p>
           </motion.button>

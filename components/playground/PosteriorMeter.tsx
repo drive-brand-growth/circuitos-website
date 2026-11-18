@@ -19,9 +19,9 @@ export default function PosteriorMeter({ posterior, logOdds }: PosteriorMeterPro
   const widthPercent = Math.max(0, Math.min(100, posterior * 100))
 
   return (
-    <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl p-6">
+    <div className="bg-surface border border-line rounded-xl p-6">
       <div className="flex items-baseline justify-between mb-4">
-        <h3 className="text-sm font-medium text-[#a1a1aa]">Switch · stated odds</h3>
+        <h3 className="text-sm font-medium text-muted">Switch · stated odds</h3>
         <span
           className="font-mono text-4xl font-bold"
           style={{ color }}
@@ -30,7 +30,7 @@ export default function PosteriorMeter({ posterior, logOdds }: PosteriorMeterPro
         </span>
       </div>
 
-      <div className="h-3 bg-[#09090b] rounded-full overflow-hidden border border-[#27272a]">
+      <div className="h-3 bg-sunken rounded-full overflow-hidden border border-line">
         <motion.div
           className="h-full rounded-full"
           style={{ backgroundColor: color }}
@@ -40,11 +40,11 @@ export default function PosteriorMeter({ posterior, logOdds }: PosteriorMeterPro
       </div>
 
       <div className="mt-2 flex justify-between items-center">
-        <span className="font-mono text-xs text-[#a1a1aa]">0</span>
-        <span className="font-mono text-xs text-[#a1a1aa]">
+        <span className="font-mono text-xs text-muted">0</span>
+        <span className="font-mono text-xs text-muted">
           log odds: {logOdds.toFixed(4)}
         </span>
-        <span className="font-mono text-xs text-[#a1a1aa]">1</span>
+        <span className="font-mono text-xs text-muted">1</span>
       </div>
     </div>
   )
