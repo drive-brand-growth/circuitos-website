@@ -4,7 +4,7 @@ The agent drafts. The rules decide.
 
 Written decisions. Honest odds. Proof of cause.
 
-Author: Noel Pena. More than twenty years in RevOps and sales leadership. He teaches the method as a course, in a book, and in team strategy work. The site does not describe an employer, a client list, or a set of results.
+Author: The Circuit Method™. The method is taught in team strategy work. The site does not describe an employer, a client list, or a set of results.
 
 Core line: The agent drafts. The rules decide.
 
@@ -49,7 +49,7 @@ Credit divides closed work among touches that were present. Cause needs a baseli
 
 https://thecircuitmethod.com/practice
 
-Practice on simulated signals. The figures are not a book of business and not a benchmark.
+Practice on simulated signals. Starting odds and fade rates are example data only. The figures are not a client list and not a benchmark.
 
 ## Pipeline Autopsy
 
@@ -78,4 +78,4 @@ Canonical host: https://thecircuitmethod.com
 Old paths on usecircuitos.com are mapped in docs/domain-switch.md and are not active in this deployment.
 www should redirect with 301, not 307, when the domains are attached.
 
-Last updated: October 24, 2026
+Last updated: November 18, 2026

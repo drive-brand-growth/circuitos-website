@@ -42,7 +42,7 @@ export default function TimeSimulator({
 
       {/* Decay preview */}
       <div className="border-t border-[#27272a] pt-4">
-        <p className="text-xs text-[#71717a] mb-2 font-mono">Decay preview</p>
+        <p className="text-xs text-[#71717a] mb-2 font-mono">Example fade preview</p>
         <div className="grid grid-cols-4 gap-2">
           {TIME_STEPS.map(h => {
             const decayed = applyDecay(posterior, decayRate, h)

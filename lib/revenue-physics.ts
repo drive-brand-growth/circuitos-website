@@ -1,5 +1,5 @@
-// Revenue Physics Engine — Pure TypeScript math engine
-// Ported from circuitos/kernel/bayesian_scorer.py + circuit-os-pro/ml/bayesian_scorer.py
+// Practice sandbox math. Figures are example data only.
+// They are round illustrations, not production scoring settings.
 // Zero React dependencies. All pure functions.
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -44,11 +44,11 @@ export interface GateStatus {
 }
 
 export interface CompositeScore {
-  bayesian: number   // 40% weight
-  financial: number  // 25% weight
-  philExperience: number // 20% weight — authority + fit
-  engagement: number // 15% weight
-  total: number      // weighted sum, 0-100
+  bayesian: number
+  financial: number
+  philExperience: number
+  engagement: number
+  total: number
 }
 
 export type DMNAction = 'CLUTCH_STRIKE' | 'NURTURE_ACCELERATE' | 'NURTURE_STANDARD' | 'IDENTITY_SHUNT' | 'FRICTION_INTERCEPT'
@@ -99,8 +99,8 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     id: 'COLD_INBOUND',
     name: 'Cold Inbound',
     tagline: 'Unknown lead from a web form',
-    prior: 0.10,
-    decayRate: 0.050,
+    prior: 0.20,
+    decayRate: 0.10,
     description: 'Low starting probability, fast decay. Needs strong signals quickly or belief erodes to zero.',
     qualificationProfile: 'Unknown intent, no prior relationship, requires rapid qualification',
   },
@@ -108,8 +108,8 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     id: 'CONTENT_ENGAGED',
     name: 'Content Engaged',
     tagline: 'Downloaded a whitepaper, read the blog',
-    prior: 0.15,
-    decayRate: 0.020,
+    prior: 0.40,
+    decayRate: 0.05,
     description: 'Moderate start, slower decay. A careful reader. The practice run gives them time.',
     qualificationProfile: 'Reading on their own, exploring, needs material that earns trust',
   },
@@ -117,8 +117,8 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     id: 'WARM_REFERRAL',
     name: 'Warm Referral',
     tagline: 'Introduced by an existing customer',
-    prior: 0.20,
-    decayRate: 0.015,
+    prior: 0.60,
+    decayRate: 0.02,
     description: 'Higher starting probability, patient decay. Warm intro carries social proof the engine respects.',
     qualificationProfile: 'Introduced by someone already known, higher trust, a shorter path',
   },
@@ -126,8 +126,8 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     id: 'ENTERPRISE_RFP',
     name: 'Enterprise RFP',
     tagline: 'Formal vendor evaluation in progress',
-    prior: 0.25,
-    decayRate: 0.005,
+    prior: 0.80,
+    decayRate: 0.01,
     description: 'Highest start, minimal decay. Formal process signals real budget and timeline commitment.',
     qualificationProfile: 'Budget allocated, several people involved, a structured review, a long timeline',
   },
@@ -136,127 +136,127 @@ export const PERSONAS: Record<PersonaId, Persona> = {
 // ─── Signal Constants ────────────────────────────────────────────────────────
 
 export const SIGNALS: Signal[] = [
-  // Financial (25% composite weight)
+  // Financial
   {
     id: 'revenue_1m_plus',
     label: 'Revenue $1M+',
-    likelihoodRatio: 8.5,
+    likelihoodRatio: 8,
     category: 'financial',
-    confidence: 0.95,
+    confidence: 0.8,
     enrichmentSource: ['professional'],
     enrichmentQuery: 'Proprietary data → company revenue, funding rounds, financial indicators',
   },
   {
     id: 'revenue_500k_1m',
     label: 'Revenue from $500K to $1M',
-    likelihoodRatio: 5.0,
+    likelihoodRatio: 4,
     category: 'financial',
-    confidence: 0.85,
+    confidence: 0.7,
     enrichmentSource: ['professional'],
     enrichmentQuery: 'Proprietary data → company size indicators, employee count, growth signals',
   },
   {
     id: 'budget_allocated',
     label: 'Budget Allocated',
-    likelihoodRatio: 2.8,
+    likelihoodRatio: 2,
     category: 'financial',
-    confidence: 0.70,
+    confidence: 0.6,
     enrichmentSource: ['professional', 'research'],
     enrichmentQuery: 'Proprietary data → procurement signals, vendor evaluation activity',
   },
   {
     id: 'existing_business',
     label: 'Existing Business Owner',
-    likelihoodRatio: 3.2,
+    likelihoodRatio: 3,
     category: 'financial',
-    confidence: 0.80,
+    confidence: 0.7,
     enrichmentSource: ['professional'],
     enrichmentQuery: 'Proprietary data → business ownership, years operating, entity filings',
   },
 
-  // Authority (20% composite weight with Fit)
+  // Authority
   {
     id: 'csuite_contact',
     label: 'Executive contact',
-    likelihoodRatio: 6.0,
+    likelihoodRatio: 5,
     category: 'authority',
-    confidence: 0.90,
+    confidence: 0.8,
     enrichmentSource: ['professional', 'deep_analysis'],
     enrichmentQuery: 'Proprietary data → title verification, org chart, decision authority',
   },
   {
     id: 'multi_stakeholder',
     label: 'Several people engaged',
-    likelihoodRatio: 4.0,
+    likelihoodRatio: 3,
     category: 'authority',
-    confidence: 0.85,
+    confidence: 0.7,
     enrichmentSource: ['deep_analysis'],
     enrichmentQuery: 'Proprietary data → buying committee signals, multiple contacts same account',
   },
 
-  // Fit (20% composite weight with Authority)
+  // Fit
   {
     id: 'icp_match_strong',
     label: 'Strong ICP Match',
-    likelihoodRatio: 7.0,
+    likelihoodRatio: 6,
     category: 'fit',
-    confidence: 0.88,
+    confidence: 0.8,
     enrichmentSource: ['social'],
     enrichmentQuery: 'Proprietary data → industry vertical, company profile, tech stack match',
   },
   {
     id: 'competitor_displacement',
     label: 'Competitor Displacement',
-    likelihoodRatio: 4.5,
+    likelihoodRatio: 4,
     category: 'fit',
-    confidence: 0.82,
+    confidence: 0.7,
     enrichmentSource: ['social', 'deep_analysis'],
     enrichmentQuery: 'Proprietary data → current vendor signals, dissatisfaction indicators',
   },
   {
     id: 'use_case_validated',
     label: 'Use Case Validated',
-    likelihoodRatio: 9.0,
+    likelihoodRatio: 8,
     category: 'fit',
-    confidence: 0.98,
+    confidence: 0.9,
     enrichmentSource: ['deep_analysis'],
     enrichmentQuery: 'Proprietary data → how the problem and the offer line up',
   },
 
-  // Engagement (15% composite weight)
+  // Engagement
   {
     id: 'demo_requested',
     label: 'Meeting requested',
-    likelihoodRatio: 6.0,
+    likelihoodRatio: 5,
     category: 'engagement',
-    confidence: 0.92,
+    confidence: 0.8,
     enrichmentSource: ['market'],
     enrichmentQuery: 'Proprietary data → form submission, UTM attribution, session context',
   },
   {
     id: 'content_downloaded',
     label: 'Content Downloaded',
-    likelihoodRatio: 4.0,
+    likelihoodRatio: 3,
     category: 'engagement',
-    confidence: 0.78,
+    confidence: 0.7,
     enrichmentSource: ['market'],
     enrichmentQuery: 'Proprietary data → asset downloads, content engagement score',
   },
   {
     id: 'pricing_page_visits',
     label: 'Pricing Page Visits (3+)',
-    likelihoodRatio: 3.5,
+    likelihoodRatio: 3,
     category: 'engagement',
-    confidence: 0.72,
+    confidence: 0.6,
     enrichmentSource: ['market'],
     enrichmentQuery: 'Proprietary data → page view frequency, return visits, session depth',
   },
   {
     id: 'form_complete',
     label: 'Full Form Completed',
-    likelihoodRatio: 2.0,
+    likelihoodRatio: 2,
     category: 'engagement',
-    confidence: 0.65,
+    confidence: 0.6,
     enrichmentSource: ['research'],
     enrichmentQuery: 'Proprietary data → form field quality, completion rate, data enrichment',
   },
@@ -265,9 +265,9 @@ export const SIGNALS: Signal[] = [
   {
     id: 'market_identified',
     label: 'Target Market Identified',
-    likelihoodRatio: 4.5,
+    likelihoodRatio: 4,
     category: 'market',
-    confidence: 0.80,
+    confidence: 0.7,
     enrichmentSource: ['market', 'research'],
     enrichmentQuery: 'Proprietary data → geographic demand, TAM analysis, competitive density',
   },
@@ -276,27 +276,27 @@ export const SIGNALS: Signal[] = [
   {
     id: 'no_industry_match',
     label: 'No Industry Match',
-    likelihoodRatio: 0.4,
+    likelihoodRatio: 0.5,
     category: 'negative',
-    confidence: 0.75,
+    confidence: 0.6,
     enrichmentSource: ['professional'],
     enrichmentQuery: 'Proprietary data → industry classification mismatch, vertical misalignment',
   },
   {
     id: 'weak_fit_score',
     label: 'Weak Product Fit',
-    likelihoodRatio: 0.2,
+    likelihoodRatio: 0.25,
     category: 'negative',
-    confidence: 0.80,
+    confidence: 0.7,
     enrichmentSource: ['social'],
     enrichmentQuery: 'Proprietary data → needs analysis mismatch, feature gap detected',
   },
   {
     id: 'no_timeline',
     label: 'No Timeline Commitment',
-    likelihoodRatio: 0.1,
+    likelihoodRatio: 0.2,
     category: 'negative',
-    confidence: 0.70,
+    confidence: 0.6,
     enrichmentSource: ['research'],
     enrichmentQuery: 'Proprietary data → no urgency indicators, passive browsing pattern',
   },
@@ -322,35 +322,35 @@ export const ENGINES: EngineInfo[] = [
 // Simulated responses per engine per signal type
 const ENRICHMENT_RESPONSES: Record<string, Record<string, string>> = {
   social: {
-    icp_match_strong: 'Social analysis: signals that mention the brand, sentiment score: 0.87',
-    competitor_displacement: 'Social signals: Negative sentiment toward current vendor, exploring alternatives',
-    weak_fit_score: 'Social analysis: Needs pattern misaligned with product capabilities, fit score: 0.22',
+    icp_match_strong: 'Example only. A sketch of public posts that mention the brand.',
+    competitor_displacement: 'Example only. A sketch of unease with a current vendor.',
+    weak_fit_score: 'Example only. A sketch where the stated need misses the offer.',
   },
   professional: {
-    revenue_1m_plus: 'Company verified: $2.4M ARR, 45 employees, Series A funded, 6-year track record',
-    revenue_500k_1m: 'Company verified: $780K ARR, 12 employees, bootstrapped, 3 years operating',
-    budget_allocated: 'Procurement signal: Active vendor evaluation, Q2 budget cycle confirmed',
-    existing_business: 'Business verified: Active entity since 2019, 3 registered businesses, good standing',
-    csuite_contact: 'Title verified: CEO, 15+ years leadership experience, decision authority confirmed',
-    no_industry_match: 'Industry classification: Outside target vertical, no relevant experience detected',
+    revenue_1m_plus: 'Example only. A larger company sketch, not a real account.',
+    revenue_500k_1m: 'Example only. A smaller company sketch, not a real account.',
+    budget_allocated: 'Example only. A buying cycle sketch, not a confirmed budget.',
+    existing_business: 'Example only. An owner sketch, not a filing lookup.',
+    csuite_contact: 'Example only. An executive title sketch, not a verified person.',
+    no_industry_match: 'Example only. A field that sits outside this sketch.',
   },
   market: {
-    demo_requested: 'Attribution: Organic search → pricing page (4m12s) → demo form, high intent score',
-    content_downloaded: 'Engagement: Downloaded ROI calculator + case study, 18-min total session',
-    pricing_page_visits: 'Behavior: 5 pricing page visits over 2 weeks, avg 3.8-min session depth',
-    market_identified: 'Market data: Target region shows $4.2B TAM, 12% YoY growth, 340 potential accounts',
+    demo_requested: 'Example only. A sketch of a visit that ends on a meeting form.',
+    content_downloaded: 'Example only. A sketch of someone reading a page.',
+    pricing_page_visits: 'Example only. A sketch of repeat visits to a pricing page.',
+    market_identified: 'Example only. A market sketch, not a measured market.',
   },
   research: {
-    budget_allocated: 'Research: 68% of similar companies allocate Q2 budget for new vendor evaluation',
-    form_complete: 'Data quality: 12/12 fields completed, responses indicate high purchase intent',
-    market_identified: 'Analysis: Target market median revenue $1.2M, technology adoption rate 73%',
-    no_timeline: 'Pattern detected: 90+ days passive engagement, no urgency indicators in any channel',
+    budget_allocated: 'Example only. A sketch of a budget conversation, not a study.',
+    form_complete: 'Example only. A sketch of a finished form, not a quality score.',
+    market_identified: 'Example only. A market sketch with no measured adoption.',
+    no_timeline: 'Example only. A sketch with no date attached.',
   },
   deep_analysis: {
-    csuite_contact: 'Deep analysis: Published thought leadership in target space, spoke at 2 industry events',
-    multi_stakeholder: 'Pattern: 4 unique contacts from same account, spanning engineering + procurement',
-    competitor_displacement: 'Analysis: Current vendor contract expires Q3, RFP language detected in job posts',
-    use_case_validated: 'Deep match: Published case study mirrors prospect challenge exactly, 94% alignment',
+    csuite_contact: 'Example only. A sketch of public writing, not a named speaker.',
+    multi_stakeholder: 'Example only. A sketch of several people at one account.',
+    competitor_displacement: 'Example only. A sketch of a vendor change, not a contract date.',
+    use_case_validated: 'Example only. A sketch where the problem lines up with the offer.',
   },
 }
 
@@ -413,19 +413,19 @@ export function evaluateGates(state: EngineState): GateStatus {
 
   return {
     certainty: {
-      passed: certainty > 0.90,
+      passed: certainty > 0.80,
       value: certainty,
-      threshold: 0.90,
+      threshold: 0.80,
     },
     variance: {
-      passed: variance < 0.05,
+      passed: variance < 0.10,
       value: variance,
-      threshold: 0.05,
+      threshold: 0.10,
     },
     pulse: {
-      passed: pulse > 3,
+      passed: pulse > 2,
       value: pulse,
-      threshold: 3.0,
+      threshold: 2,
     },
   }
 }
@@ -449,10 +449,10 @@ export function computeCompositeScore(state: EngineState): CompositeScore {
   const engagement = categoryScore(state.firedSignals, ['engagement'])
 
   const total = (
-    bayesian * 40 +
+    bayesian * 25 +
     financial * 25 +
-    philExperience * 20 +
-    engagement * 15
+    philExperience * 25 +
+    engagement * 25
   )
 
   return { bayesian, financial, philExperience, engagement, total }
@@ -462,13 +462,13 @@ export function computeCompositeScore(state: EngineState): CompositeScore {
 
 export function routeDMN(compositeScore: CompositeScore, gates: GateStatus): DMNRoute {
   const allGatesPass = gates.certainty.passed && gates.variance.passed && gates.pulse.passed
-  const hasFriction = compositeScore.total < 20 && compositeScore.bayesian < 0.2
+  const hasFriction = compositeScore.total < 25 && compositeScore.bayesian < 0.25
 
   if (allGatesPass) {
     return {
       action: 'CLUTCH_STRIKE',
       tier: 'CRITICAL',
-      confidence: 0.99,
+      confidence: 0.9,
       description: 'The practice gates passed. Prepare the draft. A written gate and a named person\'s recorded approval still stand before anything reaches a customer or moves money.',
     }
   }
@@ -477,25 +477,25 @@ export function routeDMN(compositeScore: CompositeScore, gates: GateStatus): DMN
     return {
       action: 'FRICTION_INTERCEPT',
       tier: 'INTERVENTION',
-      confidence: 0.75,
+      confidence: 0.7,
       description: 'Friction detected. Answer the objection, change the route, and draft a note the owner can release.',
     }
   }
 
-  if (compositeScore.total > 70) {
+  if (compositeScore.total > 75) {
     return {
       action: 'NURTURE_ACCELERATE',
       tier: 'HIGH',
-      confidence: 0.85,
+      confidence: 0.8,
       description: 'A drafted note sequence and a reminder. A written gate and a named person\'s recorded approval still stand before a customer sees it.',
     }
   }
 
-  if (compositeScore.total >= 40) {
+  if (compositeScore.total >= 50) {
     return {
       action: 'NURTURE_STANDARD',
       tier: 'MEDIUM',
-      confidence: 0.65,
+      confidence: 0.6,
       description: 'A slower sequence of notes the team already uses. A written gate and a named person\'s recorded approval still stand before anything sends.',
     }
   }
@@ -503,7 +503,7 @@ export function routeDMN(compositeScore: CompositeScore, gates: GateStatus): DMN
   return {
     action: 'IDENTITY_SHUNT',
     tier: 'LOW',
-    confidence: 0.50,
+    confidence: 0.4,
     description: 'Hold for a later pass. Draft material that qualifies them again, and keep them out of the live route.',
   }
 }
@@ -542,21 +542,21 @@ export function createInitialState(personaId: PersonaId): EngineState {
     logOdds: lo,
     vector: { S: 0, T: 1, B: 0, C: posterior },
     gates: {
-      certainty: { passed: false, value: posterior, threshold: 0.90 },
-      variance: { passed: false, value: 1, threshold: 0.05 },
-      pulse: { passed: false, value: 0, threshold: 3.0 },
+      certainty: { passed: false, value: posterior, threshold: 0.80 },
+      variance: { passed: false, value: 1, threshold: 0.10 },
+      pulse: { passed: false, value: 0, threshold: 2 },
     },
     pulseRate: 0,
     variance: 1,
     clutchStrike: false,
     simulatedTimeHours: 0,
-    compositeScore: { bayesian: posterior, financial: 0, philExperience: 0, engagement: 0, total: posterior * 40 },
+    compositeScore: { bayesian: posterior, financial: 0, philExperience: 0, engagement: 0, total: posterior * 25 },
     dmnRoute: routeDMN(
-      { bayesian: posterior, financial: 0, philExperience: 0, engagement: 0, total: posterior * 40 },
+      { bayesian: posterior, financial: 0, philExperience: 0, engagement: 0, total: posterior * 25 },
       {
-        certainty: { passed: false, value: posterior, threshold: 0.90 },
-        variance: { passed: false, value: 1, threshold: 0.05 },
-        pulse: { passed: false, value: 0, threshold: 3.0 },
+        certainty: { passed: false, value: posterior, threshold: 0.80 },
+        variance: { passed: false, value: 1, threshold: 0.10 },
+        pulse: { passed: false, value: 0, threshold: 2 },
       }
     ),
     socialEnrichments: [],
@@ -595,9 +595,9 @@ export function fireSignal(state: EngineState, signalId: string): EngineState {
     socialEnrichments,
     vector: { S: 0, T: 0, B: 0, C: 0 },
     gates: {
-      certainty: { passed: false, value: 0, threshold: 0.90 },
-      variance: { passed: false, value: 0, threshold: 0.05 },
-      pulse: { passed: false, value: 0, threshold: 3.0 },
+      certainty: { passed: false, value: 0, threshold: 0.80 },
+      variance: { passed: false, value: 0, threshold: 0.10 },
+      pulse: { passed: false, value: 0, threshold: 2 },
     },
     pulseRate: 0,
     variance: 0,
@@ -635,9 +635,9 @@ export function advanceTime(state: EngineState, deltaHours: number): EngineState
     posteriorHistory,
     vector: { S: 0, T: 0, B: 0, C: 0 },
     gates: {
-      certainty: { passed: false, value: 0, threshold: 0.90 },
-      variance: { passed: false, value: 0, threshold: 0.05 },
-      pulse: { passed: false, value: 0, threshold: 3.0 },
+      certainty: { passed: false, value: 0, threshold: 0.80 },
+      variance: { passed: false, value: 0, threshold: 0.10 },
+      pulse: { passed: false, value: 0, threshold: 2 },
     },
     pulseRate: 0,
     variance: 0,

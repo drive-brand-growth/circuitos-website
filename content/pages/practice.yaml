@@ -2,16 +2,17 @@ title: Practice sandbox
 path: /practice
 description: >
   Practice a forecast update and a routing decision on simulated signals.
-  The figures are for practice, not a book of business.
+  Starting odds and fade rates are example data only.
 status: published
-kicker: Practice, not a book of business
+kicker: Example data only
 headline: Practice sandbox
 updated: ""
 lede:
   - >
-    Fire a simulated signal and watch a forecast move. Then see which routing row
-    would match. The figures are for practice. They are not accounts, and they are
-    not results. A model may draft the next step. You would still decide.
+    Fire a simulated signal and watch a forecast move. Then see which routing
+    row would match. Starting odds and fade rates on this page are example
+    data only. They are round illustrations. They are not accounts, and they
+    are not results. A model may draft the next step. You would still decide.
 table:
   caption: ""
   columns: []

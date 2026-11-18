@@ -7,9 +7,8 @@ intro: >
   not own the rule.
 villainTitle: What I teach
 villainBody: >
-  A course through the five stages. A book a team can use when I am not in the
-  room. Strategy work on the pipeline review, the forecast call, routing, and
-  approvals.
+  The five stages, written down, so a team can read them in order.
+  Strategy work on the pipeline review, the forecast call, routing, and approvals.
 originTitle: The work behind it
 originBody: >
   I have spent more than twenty years in RevOps and sales leadership.
@@ -45,15 +44,11 @@ circuitTitle: Five stages. One circuit.
 circuitLede: The agent drafts. The rules decide.
 pillars:
   - href: /method
-    kicker: Course
-    title: A course
-    text: The five stages, in order, with the rules written down.
-  - href: /method
-    kicker: Book
-    title: A book
-    text: The method on paper, so a team can run it when I am not in the room.
+    kicker: On the site
+    title: The five stages
+    text: The stages in order, with the rules written down.
   - href: /work-with-me
-    kicker: Team
+    kicker: With your team
     title: Team strategy
     text: The pipeline review, the forecast call, routing, and approvals, with your team.
 notesKicker: A note from the notebook

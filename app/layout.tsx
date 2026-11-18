@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import Analytics from '@/components/Analytics'
-import { getPage, getSite } from '@/lib/content'
-import { personJsonLd, websiteJsonLd } from '@/lib/seo'
+import { getSite } from '@/lib/content'
+import { publisherJsonLd, websiteJsonLd } from '@/lib/seo'
 import { SITE_URL } from '@/lib/site'
 
 export const viewport: Viewport = {
@@ -22,8 +22,8 @@ export async function generateMetadata(): Promise<Metadata> {
       template: `%s · ${site.name}`,
     },
     description: site.description,
-    authors: [{ name: 'Noel Pena', url: `${SITE_URL}/about` }],
-    creator: 'Noel Pena',
+    authors: [{ name: site.name, url: SITE_URL }],
+    creator: site.name,
     openGraph: {
       type: 'website',
       locale: 'en_US',
@@ -51,8 +51,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const [site, about] = await Promise.all([getSite(), getPage('about')])
-  const person = personJsonLd(about?.description)
+  const site = await getSite()
+  const publisher = publisherJsonLd()
   const website = websiteJsonLd(site.name, site.description)
 
   return (
@@ -60,7 +60,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(publisher) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }} />
       </head>
       <body className="antialiased overflow-x-hidden">

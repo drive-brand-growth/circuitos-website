@@ -85,7 +85,7 @@ export default async function HomePage() {
               ))}
             </div>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className={`grid gap-6 ${home.pillars.length > 2 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
             {home.pillars.map((pillar) => (
               <a key={pillar.href + pillar.title} href={pillar.href} className="card rounded-xl p-8 block">
                 <span className="text-sm text-blue-500 font-mono font-semibold">{pillar.kicker}</span>

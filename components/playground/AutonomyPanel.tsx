@@ -9,12 +9,10 @@ interface AutonomyPanelProps {
 }
 
 const THRESHOLDS = [
-  { label: 'Critical risk: still a draft', value: 0.92, riskClass: 'CRITICAL' },
-  { label: 'Hard to undo: breaker', value: 0.88, riskClass: 'HIGH' },
-  { label: 'Critical risk: breaker', value: 0.85, riskClass: 'CRITICAL' },
-  { label: 'Hard to undo: hold', value: 0.80, riskClass: 'HIGH' },
-  { label: 'Internal work: draft', value: 0.78, riskClass: 'MEDIUM' },
-  { label: 'Internal work: hold', value: 0.65, riskClass: 'LOW' },
+  { label: 'Critical risk, still a draft', value: 0.9, riskClass: 'CRITICAL' },
+  { label: 'Hard to undo, breaker', value: 0.8, riskClass: 'HIGH' },
+  { label: 'Internal work, draft', value: 0.7, riskClass: 'MEDIUM' },
+  { label: 'Internal work, hold', value: 0.5, riskClass: 'LOW' },
 ]
 
 function resolveDecision(posterior: number): {
@@ -23,13 +21,13 @@ function resolveDecision(posterior: number): {
   icon: typeof ShieldCheck
   description: string
 } {
-  if (posterior >= 0.88)
-    return { decision: 'DRAFT', color: '#22c55e', icon: ShieldCheck, description: 'Odds are high in this practice run. The work may be drafted. A written gate and a named person\'s recorded approval still stand before a release.' }
-  if (posterior >= 0.78)
-    return { decision: 'DRAFT', color: '#22c55e', icon: ShieldCheck, description: 'Internal work may be drafted. A release to a customer still waits for a written gate and a named person\'s recorded approval.' }
-  if (posterior >= 0.65)
-    return { decision: 'BREAKER', color: '#f59e0b', icon: ShieldAlert, description: 'The odds sit under the line for a draft. A written gate applies, and a named person\'s recorded approval comes before any work is prepared.' }
-  return { decision: 'HOLD', color: '#ef4444', icon: ShieldX, description: 'Not enough evidence. Hold the route for the pipeline review.' }
+  if (posterior >= 0.8)
+    return { decision: 'DRAFT', color: '#22c55e', icon: ShieldCheck, description: 'Example only. Odds are high in this practice run. The work may be drafted. A written gate and a named person\'s recorded approval still stand before a release.' }
+  if (posterior >= 0.7)
+    return { decision: 'DRAFT', color: '#22c55e', icon: ShieldCheck, description: 'Example only. Internal work may be drafted. A release to a customer still waits for a written gate and a named person\'s recorded approval.' }
+  if (posterior >= 0.5)
+    return { decision: 'BREAKER', color: '#f59e0b', icon: ShieldAlert, description: 'Example only. The odds sit under the line for a draft. A written gate applies, and a named person\'s recorded approval comes before any work is prepared.' }
+  return { decision: 'HOLD', color: '#ef4444', icon: ShieldX, description: 'Example only. Not enough evidence. Hold the route for the pipeline review.' }
 }
 
 export default function AutonomyPanel({ posterior, compositeScore }: AutonomyPanelProps) {
@@ -40,7 +38,10 @@ export default function AutonomyPanel({ posterior, compositeScore }: AutonomyPan
   return (
     <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl p-6">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="font-medium text-white">Breaker</h3>
+        <div>
+          <h3 className="font-medium text-white">Breaker</h3>
+          <p className="text-xs text-[#71717a] mt-1">Example gates only.</p>
+        </div>
         <motion.span
           key={resolved.decision}
           initial={{ scale: 0.8, opacity: 0 }}

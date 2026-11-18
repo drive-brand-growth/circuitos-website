@@ -26,6 +26,9 @@ export default function PersonaPicker({ onSelect }: PersonaPickerProps) {
       initial="initial"
       animate="animate"
     >
+      <p className="md:col-span-2 lg:col-span-4 text-sm text-[#a1a1aa] leading-relaxed">
+        Example data only. Starting odds and fade rates below are round illustrations. They are not live scoring settings.
+      </p>
       {personaIds.map((id) => {
         const persona = PERSONAS[id]
         return (
@@ -38,13 +41,16 @@ export default function PersonaPicker({ onSelect }: PersonaPickerProps) {
             <h3 className="text-white font-bold text-lg">{persona.name}</h3>
             <p className="text-[#a1a1aa] text-sm mt-1">{persona.tagline}</p>
 
-            <div className="mt-4 flex items-center gap-4">
-              <span className="font-mono text-blue-400 text-sm" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-                {Math.round(persona.prior * 100)}% Prior
-              </span>
-              <span className="font-mono text-[#a1a1aa] text-sm" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-                &lambda; = {persona.decayRate.toFixed(3)}
-              </span>
+            <div className="mt-4">
+              <p className="text-xs font-medium text-blue-400">Example only</p>
+              <div className="mt-1 flex items-center gap-4">
+                <span className="font-mono text-blue-400 text-sm" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
+                  {Math.round(persona.prior * 100)}% start
+                </span>
+                <span className="font-mono text-[#a1a1aa] text-sm" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
+                  Example fade {persona.decayRate.toFixed(2)}
+                </span>
+              </div>
             </div>
 
             <p className="text-[#a1a1aa] text-sm mt-4 leading-relaxed">
