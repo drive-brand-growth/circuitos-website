@@ -23,20 +23,20 @@ export default function SignalFeed({ entries }: SignalFeedProps) {
   }, [entries.length])
 
   return (
-    <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl overflow-hidden">
+    <div className="bg-surface border border-line rounded-xl overflow-hidden">
       {/* Title bar */}
-      <div className="flex items-center gap-2 px-4 py-3 border-b border-[#27272a]">
+      <div className="flex items-center gap-2 px-4 py-3 border-b border-line">
         <span className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_6px_rgba(34,197,94,0.6)]" />
-        <span className="text-sm font-medium text-white">Signal Feed</span>
+        <span className="text-sm font-medium text-fg">Signal Feed</span>
       </div>
 
       {/* Terminal body */}
       <div
         ref={scrollRef}
-        className="bg-black/50 max-h-[300px] overflow-y-auto p-4 font-mono text-xs leading-relaxed"
+        className="bg-ink/50 max-h-[300px] overflow-y-auto p-4 font-mono text-xs leading-relaxed"
       >
         {entries.length === 0 && (
-          <span className="text-[#52525b]">Awaiting signals...</span>
+          <span className="text-faint">Awaiting signals...</span>
         )}
         {entries.map((entry, i) => {
           const isNegative = entry.signal.likelihoodRatio < 1
@@ -46,19 +46,19 @@ export default function SignalFeed({ entries }: SignalFeedProps) {
 
           return (
             <div key={entry.signal.id} className="flex flex-wrap gap-x-1">
-              <span className="text-[#71717a]">
+              <span className="text-subtle">
                 [T+{entry.time.toFixed(1)}h]
               </span>
-              <span className={isNegative ? 'text-red-400' : 'text-[#71717a]'}>
+              <span className={isNegative ? 'text-red-400' : 'text-subtle'}>
                 {isNegative ? '▼' : '▶'}
               </span>
-              <span className={isNegative ? 'text-red-400' : 'text-white'}>
+              <span className={isNegative ? 'text-red-400' : 'text-fg'}>
                 {entry.signal.label}
               </span>
               <span className="text-yellow-400">
                 (Example LR {entry.signal.likelihoodRatio.toFixed(1)})
               </span>
-              <span className="text-[#71717a]">&rarr;</span>
+              <span className="text-subtle">&rarr;</span>
               <span className={posteriorUp ? 'text-green-400' : 'text-red-400'}>
                 C={entry.posteriorAfter.toFixed(4)}
               </span>

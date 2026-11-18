@@ -36,11 +36,11 @@ export default function AutonomyPanel({ posterior, compositeScore }: AutonomyPan
   const posteriorPct = posterior * 100
 
   return (
-    <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl p-6">
+    <div className="bg-surface border border-line rounded-xl p-6">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h3 className="font-medium text-white">Breaker</h3>
-          <p className="text-xs text-[#71717a] mt-1">Example gates only.</p>
+          <h3 className="font-medium text-fg">Breaker</h3>
+          <p className="text-xs text-subtle mt-1">Example gates only.</p>
         </div>
         <motion.span
           key={resolved.decision}
@@ -60,7 +60,7 @@ export default function AutonomyPanel({ posterior, compositeScore }: AutonomyPan
 
       {/* Confidence bar with threshold markers */}
       <div className="relative mb-6">
-        <div className="h-3 bg-[#09090b] rounded-full overflow-hidden relative">
+        <div className="h-3 bg-sunken rounded-full overflow-hidden relative">
           <motion.div
             className="h-full rounded-full"
             style={{ backgroundColor: resolved.color }}
@@ -72,15 +72,15 @@ export default function AutonomyPanel({ posterior, compositeScore }: AutonomyPan
           {THRESHOLDS.filter(t => t.riskClass === 'MEDIUM' || t.riskClass === 'HIGH').slice(0, 3).map((t) => (
             <div
               key={t.label}
-              className="absolute top-0 h-full w-px bg-white/20"
+              className="absolute top-0 h-full w-px bg-fg/20"
               style={{ left: `${t.value * 100}%` }}
             />
           ))}
         </div>
         <div className="flex justify-between mt-1.5">
-          <span className="text-[10px] text-[#71717a]">0%</span>
-          <span className="text-[10px] font-mono text-[#a1a1aa]">{posteriorPct.toFixed(1)}%</span>
-          <span className="text-[10px] text-[#71717a]">100%</span>
+          <span className="text-[10px] text-subtle">0%</span>
+          <span className="text-[10px] font-mono text-muted">{posteriorPct.toFixed(1)}%</span>
+          <span className="text-[10px] text-subtle">100%</span>
         </div>
       </div>
 
@@ -89,13 +89,13 @@ export default function AutonomyPanel({ posterior, compositeScore }: AutonomyPan
         key={resolved.description}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="text-xs text-[#a1a1aa] mb-4"
+        className="text-xs text-muted mb-4"
       >
         {resolved.description}
       </motion.p>
 
       {/* Threshold reference */}
-      <div className="space-y-1.5 border-t border-[#27272a] pt-4">
+      <div className="space-y-1.5 border-t border-line pt-4">
         {THRESHOLDS.map(({ label, value, riskClass }) => {
           const isActive = Math.abs(posterior - value) < 0.05
           const isPassed = posterior >= value
@@ -103,7 +103,7 @@ export default function AutonomyPanel({ posterior, compositeScore }: AutonomyPan
             <div
               key={label}
               className={`flex items-center justify-between text-xs px-2 py-1 rounded ${
-                isActive ? 'bg-blue-500/10' : ''
+                isActive ? 'bg-accent/10' : ''
               }`}
             >
               <div className="flex items-center gap-2">
@@ -113,9 +113,9 @@ export default function AutonomyPanel({ posterior, compositeScore }: AutonomyPan
                     backgroundColor: isPassed ? '#22c55e' : riskClass === 'CRITICAL' ? '#ef4444' : '#71717a',
                   }}
                 />
-                <span className={`${isPassed ? 'text-[#a1a1aa]' : 'text-[#52525b]'}`}>{label}</span>
+                <span className={`${isPassed ? 'text-muted' : 'text-faint'}`}>{label}</span>
               </div>
-              <span className={`font-mono ${isPassed ? 'text-white' : 'text-[#52525b]'}`}>
+              <span className={`font-mono ${isPassed ? 'text-fg' : 'text-faint'}`}>
                 {(value * 100).toFixed(0)}%
               </span>
             </div>

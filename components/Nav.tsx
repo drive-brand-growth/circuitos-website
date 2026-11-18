@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 type NavItem = { href: string; label: string }
 
@@ -13,59 +14,86 @@ type NavProps = {
 export default function Nav({ items, ctaLabel, ctaHref }: NavProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
+  useEffect(() => {
+    if (!mobileOpen) return
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMobileOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [mobileOpen])
+
   return (
-    <nav className="fixed top-0 w-full z-50 border-b border-[#27272a] bg-black/80 backdrop-blur-xl">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-8 min-w-0">
-          <a href="/" className="flex items-center gap-2 shrink-0 py-2 xl:py-0">
-            <span className="text-lg sm:text-xl font-semibold tracking-tight whitespace-nowrap">
-              <span className="text-blue-500">//</span> Circuit Method
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line/80 bg-ink/75 backdrop-blur-xl backdrop-saturate-150">
+      <nav aria-label="Primary" className="shell flex h-header items-center justify-between gap-6">
+        <div className="flex min-w-0 items-center gap-10">
+          <Link href="/" className="flex min-h-11 shrink-0 items-center gap-2 text-[1.0625rem] font-semibold tracking-[-0.02em] text-fg">
+            <span aria-hidden="true" className="font-mono text-accent">
+              {'//'}
             </span>
-          </a>
-          <div className="hidden xl:flex items-center gap-6 text-sm text-[#a1a1aa]">
+            <span className="whitespace-nowrap">Circuit Method</span>
+          </Link>
+          <ul className="hidden items-center gap-7 text-sm text-muted xl:flex">
             {items.map((item) => (
-              <a key={item.href} href={item.href} className="font-medium hover:text-white transition-colors whitespace-nowrap">
-                {item.label}
-              </a>
+              <li key={item.href}>
+                <Link href={item.href} className="whitespace-nowrap transition-colors duration-200 hover:text-fg">
+                  {item.label}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
-        <div className="flex items-center gap-3 shrink-0">
-          <a href={ctaHref} className="inline-flex min-h-11 items-center text-sm btn-primary text-white px-3 sm:px-4 py-2 rounded-lg font-medium whitespace-nowrap xl:min-h-0">
-            {ctaLabel}
-          </a>
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="xl:hidden -mr-2 inline-flex h-11 w-11 items-center justify-center text-[#a1a1aa] hover:text-white"
-            aria-label="Toggle menu"
-            aria-expanded={mobileOpen}
+        <div className="flex shrink-0 items-center gap-2">
+          <Link
+            href={ctaHref}
+            className="hidden min-h-9 items-center whitespace-nowrap rounded-full border border-line-strong px-4 text-sm font-medium text-fg transition-colors duration-200 hover:border-subtle hover:bg-fg/[0.05] min-[440px]:inline-flex"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {ctaLabel}
+          </Link>
+          <button
+            type="button"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="-mr-2 inline-flex h-11 w-11 items-center justify-center text-muted transition-colors hover:text-fg xl:hidden"
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
+          >
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               {mobileOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M6 18L18 6M6 6l12 12" />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M4 8h16M4 16h16" />
               )}
             </svg>
           </button>
         </div>
-      </div>
+      </nav>
       {mobileOpen && (
-        <div className="xl:hidden border-t border-[#27272a] bg-black/95 backdrop-blur-xl">
-          <div className="px-6 py-4 space-y-3">
+        <div id="mobile-menu" className="border-t border-line bg-ink xl:hidden">
+          <ul className="shell divide-y divide-line py-2">
             {items.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="block text-[#a1a1aa] hover:text-white transition-colors py-3"
-              >
-                {link.label}
-              </a>
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="flex min-h-12 items-center text-[1.0625rem] text-soft transition-colors hover:text-fg"
+                >
+                  {link.label}
+                </Link>
+              </li>
             ))}
-          </div>
+            <li>
+              <Link
+                href={ctaHref}
+                onClick={() => setMobileOpen(false)}
+                className="flex min-h-12 items-center text-[1.0625rem] font-medium text-accent"
+              >
+                {ctaLabel}
+              </Link>
+            </li>
+          </ul>
         </div>
       )}
-    </nav>
+    </header>
   )
 }

@@ -64,10 +64,10 @@ export default function ScorecardPage() {
 
   return (
     <PageShell>
-      <article className="grid-bg pb-20 pt-36">
+      <article className="grid-bg page-top pb-section">
         <Container>
           <SectionHeader as="h1" kicker="Public record" title="Scorecard" />
-          <div className="mt-8 space-y-5 text-[#a1a1aa] text-lg leading-[1.6]">
+          <div className="mt-8 space-y-5 text-body text-muted [&>p:first-child]:text-lead [&>p:first-child]:text-soft">
             <p>
               A dated record of calls. Each call goes in with its stated odds before the outcome is known. It gets
               scored later, next to a baseline.
@@ -83,42 +83,42 @@ export default function ScorecardPage() {
           </div>
         </Container>
 
-        <div className="mx-auto mt-12 w-full max-w-6xl px-6">
+        <div className="shell mt-section-sm">
           <section aria-labelledby="scorecard-summary">
             <h2 id="scorecard-summary" className="sr-only">
               Summary
             </h2>
-            <dl className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+            <dl className="grid grid-cols-2 overflow-hidden rounded-panel border border-line sm:grid-cols-3 lg:grid-cols-5">
               {stats.map((stat) => (
-                <div key={stat.label} className="rounded-xl border border-[#3f3f46] bg-white/[0.02] px-4 py-4">
-                  <dt className="text-xs font-medium text-[#a1a1aa]">{stat.label}</dt>
-                  <dd className="mt-1 font-mono text-base text-white">{stat.value}</dd>
+                <div key={stat.label} className="-mb-px -mr-px border-b border-r border-line px-5 py-5">
+                  <dt className="font-mono text-eyebrow uppercase leading-normal text-subtle">{stat.label}</dt>
+                  <dd className="mt-3 font-mono text-sm text-soft">{stat.value}</dd>
                 </div>
               ))}
             </dl>
           </section>
 
-          <section aria-labelledby="scorecard-record" className="mt-10">
-            <h2 id="scorecard-record" className="text-2xl md:text-3xl font-bold tracking-[-0.02em] text-white">
+          <section aria-labelledby="scorecard-record" className="mt-section-sm">
+            <h2 id="scorecard-record" className="text-heading text-fg">
               The record
             </h2>
 
             {/* Narrow screens: one card per call. */}
             <div className="mt-6 space-y-4 min-[900px]:hidden">
               {entries.length === 0 ? (
-                <p className="rounded-xl border border-dashed border-[#52525b] px-5 py-8 text-center text-[#d4d4d8]">
+                <p className="rounded-panel border border-dashed border-line-strong px-5 py-12 text-center text-sm text-muted">
                   No calls recorded yet. The first entry appears here on the day a call is stated.
                 </p>
               ) : (
                 entries.map((entry) => {
                   const row = cells(entry)
                   return (
-                    <div key={entry.id} id={entry.id} className="rounded-xl border border-[#3f3f46] bg-white/[0.02] p-5">
+                    <div key={entry.id} id={entry.id} className="panel p-5">
                       <dl>
                         {COLUMNS.map((column, index) => (
                           <div key={column.key} className={index > 0 ? 'mt-4' : ''}>
-                            <dt className="text-xs font-medium text-[#a1a1aa]">{column.label}</dt>
-                            <dd className="mt-1 text-sm leading-relaxed text-white break-words">{row[column.key]}</dd>
+                            <dt className="text-xs font-medium text-muted">{column.label}</dt>
+                            <dd className="mt-1 text-sm leading-relaxed text-fg break-words">{row[column.key]}</dd>
                           </div>
                         ))}
                       </dl>
@@ -130,7 +130,7 @@ export default function ScorecardPage() {
 
             {/* Wide screens: the table. */}
             <div
-              className="mt-6 hidden overflow-x-auto rounded-xl border border-[#3f3f46] bg-white/[0.02] min-[900px]:block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+              className="panel mt-6 hidden overflow-x-auto min-[900px]:block"
               role="region"
               aria-labelledby="scorecard-record"
               tabIndex={0}
@@ -139,10 +139,10 @@ export default function ScorecardPage() {
                 <caption className="sr-only">
                   Calls with their stated odds, the baseline, the outcome, and the Brier term for each.
                 </caption>
-                <thead className="text-[#a1a1aa]">
+                <thead className="text-xs text-subtle">
                   <tr>
                     {COLUMNS.map((column) => (
-                      <th key={column.key} scope="col" className="px-5 py-4 font-medium whitespace-nowrap">
+                      <th key={column.key} scope="col" className="px-6 py-4 font-medium whitespace-nowrap">
                         {column.label}
                       </th>
                     ))}
@@ -150,8 +150,8 @@ export default function ScorecardPage() {
                 </thead>
                 <tbody>
                   {entries.length === 0 ? (
-                    <tr className="border-t border-[#3f3f46]">
-                      <td colSpan={COLUMNS.length} className="px-5 py-12 text-center text-[#d4d4d8]">
+                    <tr className="border-t border-line">
+                      <td colSpan={COLUMNS.length} className="px-6 py-20 text-center text-sm text-muted">
                         No calls recorded yet. The first entry appears here on the day a call is stated.
                       </td>
                     </tr>
@@ -159,11 +159,11 @@ export default function ScorecardPage() {
                     entries.map((entry) => {
                       const row = cells(entry)
                       return (
-                        <tr key={entry.id} className="border-t border-[#3f3f46] text-white">
+                        <tr key={entry.id} className="border-t border-line text-fg">
                           {COLUMNS.map((column) => (
                             <td
                               key={column.key}
-                              className={`px-5 py-4 align-top ${column.key === 'call' ? '' : 'font-mono whitespace-nowrap'}`}
+                              className={`px-6 py-4 align-top ${column.key === 'call' ? '' : 'font-mono whitespace-nowrap'}`}
                             >
                               {row[column.key]}
                             </td>
@@ -179,38 +179,38 @@ export default function ScorecardPage() {
         </div>
 
         <Container>
-          <section aria-labelledby="scorecard-columns" className="mt-16">
-            <h2 id="scorecard-columns" className="text-2xl md:text-3xl font-bold tracking-[-0.02em] text-white">
+          <section aria-labelledby="scorecard-columns" className="mt-section-sm">
+            <h2 id="scorecard-columns" className="text-heading text-fg">
               How to read it
             </h2>
-            <dl className="mt-6 divide-y divide-[#27272a] border-y border-[#27272a]">
+            <dl className="mt-6 divide-y divide-line border-y border-line">
               {COLUMNS.map((column) => (
                 <div key={column.key} className="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
-                  <dt className="font-medium text-white">{column.label}</dt>
-                  <dd className="text-[#a1a1aa] leading-relaxed">{column.help}</dd>
+                  <dt className="font-medium text-fg">{column.label}</dt>
+                  <dd className="text-body text-muted">{column.help}</dd>
                 </div>
               ))}
             </dl>
           </section>
 
-          <section aria-labelledby="scorecard-rules" className="mt-16">
-            <h2 id="scorecard-rules" className="text-2xl md:text-3xl font-bold tracking-[-0.02em] text-white">
+          <section aria-labelledby="scorecard-rules" className="mt-section-sm">
+            <h2 id="scorecard-rules" className="text-heading text-fg">
               The rules of the record
             </h2>
-            <ol className="mt-5 list-decimal space-y-3 pl-5 text-[#a1a1aa] text-lg leading-[1.6]">
+            <ol className="mt-5 list-decimal space-y-3 pl-5 text-body text-muted marker:font-mono marker:text-sm marker:text-accent">
               <li>A call is entered with its date and its odds before the outcome is known.</li>
               <li>The call, the date, the stated odds, and the baseline are never edited after that.</li>
               <li>Every call gets scored, including the ones that miss.</li>
               <li>The Brier score is always shown next to the baseline score on the same calls.</li>
               <li>There are no sample rows. If the record is empty, the page says it is empty.</li>
             </ol>
-            <p className="mt-8 flex flex-wrap gap-x-5 gap-y-2">
-              <Link href="/proof" className="text-blue-400 hover:text-blue-300 font-medium max-sm:inline-block max-sm:py-2">
+            <p className="mt-8 flex flex-wrap gap-x-7 gap-y-1">
+              <Link href="/proof" className="link-block">
                 How results are scored
               </Link>
               <Link
                 href="/forecasting"
-                className="text-blue-400 hover:text-blue-300 font-medium max-sm:inline-block max-sm:py-2"
+                className="link-block"
               >
                 How a forecast is scored
               </Link>

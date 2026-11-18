@@ -4,21 +4,20 @@ headline: Revenue is a system. Engineer it like one.
 intro: >
   For B2B revenue leaders who own the decision. You write the rule. You state
   the odds, and the odds get scored. You prove what caused the result.
-heroStatus: Proof in progress. No public results yet.
+heroStatus: Proof in progress
 audienceKicker: Who it is for
-audienceTitle: B2B revenue leaders who own the call.
+audienceTitle: For B2B revenue leaders who own the call.
 audienceBody: >
-  The method is narrow on purpose. It covers decisions you own, odds you are
-  willing to have scored, and cause you can prove.
-
-  It is a discipline, not software. It does not promise a number.
+  You are the one who has to say the number, make the call, and explain the
+  result. The method is narrow on purpose. It is a discipline, not software,
+  and it does not promise a number.
 audience:
-  - title: You run the forecast call
-    text: You state odds every week. You want them scored, so you know how often they come true.
-  - title: You own the routing and approval rules
-    text: Today the rules live in heads and habits. You want them written down, where anyone can read and audit them.
-  - title: You answer for what worked
-    text: Reports hand credit to whatever was nearby. You want to know what changed the result.
+  - title: A forecast nobody trusts
+    text: You say a number every week. Nobody checks later how often you were right, so nobody knows how much to believe it.
+  - title: Calls made on gut feel
+    text: Who gets the lead, which deal gets held, what gets approved. The rules live in heads and habits, so nobody can read them or check them.
+  - title: No way to tell what caused a result
+    text: The report hands credit to whatever was nearby. You still cannot say what changed the outcome.
 stepsKicker: How it works
 stepsTitle: Three steps.
 stepsLede: Each one is plain enough to try on a single decision.

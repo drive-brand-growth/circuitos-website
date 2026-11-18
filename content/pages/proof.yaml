@@ -38,20 +38,20 @@ sections:
     items:
       - label: Stated odds
         text: >
-          Stated odds. Each call is written down with a date and the odds,
+          Each call is written down with a date and the odds,
           before the outcome is known. The entry does not change after that.
         href: ""
       - label: Brier score against a baseline
         text: >
-          A Brier score against a baseline. When the outcome is known, the
+          When the outcome is known, the
           stated odds are scored. A Brier score is the average squared gap
           between the odds you stated and what happened. Lower is better. The
           score sits next to a baseline, such as always stating the base rate,
           so you can see whether the calls beat a simple guess.
         href: ""
-      - label: Effect on held out data
+      - label: Effect measured on held out data
         text: >
-          Effect measured on held out data. Held out data is set aside before
+          Held out data is set aside before
           the work starts and is not used to build the rule or the model. A
           claim that something caused a lift has to hold there. A lift that
           only shows up on the data it was built from is not proof.

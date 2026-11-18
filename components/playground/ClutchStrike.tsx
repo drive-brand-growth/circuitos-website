@@ -22,7 +22,7 @@ export default function ClutchStrike({
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black/95"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-ink/95"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -57,10 +57,10 @@ export default function ClutchStrike({
 
           {/* CLUTCH STRIKE text */}
           <motion.h1
-            className="text-5xl md:text-6xl font-bold text-white mb-6"
+            className="text-5xl md:text-6xl font-bold text-fg mb-6"
             style={{
               textShadow:
-                '0 0 40px rgba(59, 130, 246, 0.8), 0 0 80px rgba(59, 130, 246, 0.4)',
+                '0 0 40px rgba(232, 163, 77, 0.8), 0 0 80px rgba(232, 163, 77, 0.4)',
             }}
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -85,19 +85,19 @@ export default function ClutchStrike({
               <div className="font-mono text-3xl font-bold text-[#eab308]">
                 {posterior.toFixed(4)}
               </div>
-              <div className="text-xs text-[#a1a1aa] mt-1">Conviction</div>
+              <div className="text-xs text-muted mt-1">Conviction</div>
             </div>
             <div>
               <div className="font-mono text-3xl font-bold text-[#eab308]">
                 {compositeScore.toFixed(1)}
               </div>
-              <div className="text-xs text-[#a1a1aa] mt-1">Composite</div>
+              <div className="text-xs text-muted mt-1">Composite</div>
             </div>
           </motion.div>
 
           {/* Description */}
           <motion.p
-            className="text-sm text-[#a1a1aa] mb-6"
+            className="text-sm text-muted mb-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: delay ?? 2.6, duration: prefersReducedMotion ? 0 : 0.4 }}
@@ -115,7 +115,7 @@ export default function ClutchStrike({
             {socialEngines.map((engine) => (
               <span
                 key={engine}
-                className="text-xs font-mono px-2 py-1 rounded bg-[#27272a] text-[#a1a1aa]"
+                className="text-xs font-mono px-2 py-1 rounded bg-line text-muted"
               >
                 {engine}
               </span>
@@ -137,7 +137,7 @@ export default function ClutchStrike({
             </button>
             <a
               href="/method/breaker"
-              className="px-8 py-3 rounded-lg text-sm font-medium text-white border border-[#3f3f46] hover:bg-white/5 transition-colors"
+              className="px-8 py-3 rounded-lg text-sm font-medium text-fg border border-line-strong hover:bg-fg/5 transition-colors"
             >
               Read the breaker
             </a>

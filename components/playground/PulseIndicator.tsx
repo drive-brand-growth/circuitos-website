@@ -48,9 +48,9 @@ export default function PulseIndicator({ pulseRate, signals, currentTime }: Puls
   const rateColor = pulseRate > 2 ? '#22c55e' : pulseRate > 1 ? '#eab308' : '#71717a'
 
   return (
-    <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl p-6">
+    <div className="bg-surface border border-line rounded-xl p-6">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="text-sm font-medium text-[#a1a1aa] uppercase tracking-wider">Pulse Rate</h3>
+        <h3 className="text-sm font-medium text-muted uppercase tracking-wider">Pulse Rate</h3>
         <div className="flex items-center gap-2">
           <motion.div
             className="w-2 h-2 rounded-full"

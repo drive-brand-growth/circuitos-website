@@ -4,10 +4,10 @@ import Button from '@/components/ui/Button'
 export default function NotFound() {
   return (
     <PageShell>
-      <section className="px-6 pb-28 pt-36 text-center hero-glow">
-        <p className="text-sm font-medium text-blue-400">404</p>
-        <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-[-0.02em]">This page is not on the site</h1>
-        <p className="mx-auto mt-5 max-w-md text-lg text-[#a1a1aa] leading-relaxed">
+      <section className="hero-glow page-top px-gutter pb-section text-center">
+        <p className="eyebrow">404</p>
+        <h1 className="mt-4 text-title">This page is not on the site</h1>
+        <p className="mx-auto mt-5 max-w-md text-body text-muted">
           The address does not match a page. The method and the Pipeline Autopsy are below.
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

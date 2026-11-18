@@ -151,8 +151,8 @@ export default function PracticeApp({ copy }: { copy: PracticeCopy }) {
               title={copy.headline}
               lede={copy.lede}
             />
-            <p className="mt-2 max-w-2xl rounded-lg border border-[#3f3f46] px-4 py-3 text-sm leading-relaxed text-[#d4d4d8]">
-              <strong className="font-semibold text-white">Example values.</strong> The starting odds, the fade rates, and
+            <p className="mt-2 max-w-2xl rounded-lg border border-line-strong px-4 py-3 text-sm leading-relaxed text-soft">
+              <strong className="font-semibold text-fg">Example values.</strong> The starting odds, the fade rates, and
               the likelihood ratios (LR) on this page are round numbers chosen for practice. Every signal uses the same
               example ratio. In real work each ratio comes from your own closed deals. These numbers are not taken from
               a real scoring scale, and they are not a recommendation.
@@ -160,8 +160,8 @@ export default function PracticeApp({ copy }: { copy: PracticeCopy }) {
             <dl className="mt-8 grid gap-3 sm:grid-cols-5 text-sm">
               {copy.stages.map((stage) => (
                 <div key={stage.label} className="card rounded-xl px-4 py-4">
-                  <dt className="font-medium text-white">{stage.label}</dt>
-                  <dd className="mt-1 text-[#a1a1aa]">{stage.text}</dd>
+                  <dt className="font-medium text-fg">{stage.label}</dt>
+                  <dd className="mt-1 text-muted">{stage.text}</dd>
                 </div>
               ))}
             </dl>
@@ -245,7 +245,7 @@ export default function PracticeApp({ copy }: { copy: PracticeCopy }) {
                     {/* Advanced toggle */}
                     <button
                       onClick={() => setShowAdvanced(!showAdvanced)}
-                      className="w-full flex items-center justify-center gap-2 py-3 text-sm text-[#71717a] hover:text-[#a1a1aa] border border-[#27272a] rounded-lg hover:bg-white/[0.02] transition-all"
+                      className="w-full flex items-center justify-center gap-2 py-3 text-sm text-subtle hover:text-muted border border-line rounded-lg hover:bg-fg/[0.02] transition-all"
                     >
                       {showAdvanced ? 'Hide' : 'Show'} Advanced Panels
                       <svg
@@ -315,17 +315,17 @@ export default function PracticeApp({ copy }: { copy: PracticeCopy }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="mt-20 text-center border-t border-[#27272a] pt-16 pb-8"
+              className="mt-20 text-center border-t border-line pt-16 pb-8"
             >
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-4">
                 {copy.closeTitle}
               </h2>
-              <p className="text-[#a1a1aa] mb-8 max-w-lg mx-auto">
+              <p className="text-muted mb-8 max-w-lg mx-auto">
                 {copy.closeBody}
               </p>
               <Link
                 href={copy.closeHref}
-                className="inline-block btn-primary text-white px-8 py-3.5 rounded-lg font-semibold"
+                className="inline-block btn-primary px-8 py-3.5 rounded-lg font-semibold"
               >
                 {copy.closeLabel}
               </Link>

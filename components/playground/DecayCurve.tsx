@@ -37,8 +37,8 @@ export default function DecayCurve({ posterior, decayRate, currentTime }: DecayC
   const xLabels = [0, 12, 24, 36, 48]
 
   return (
-    <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl p-6">
-      <h3 className="font-medium text-white mb-4">Belief Decay Projection</h3>
+    <div className="bg-surface border border-line rounded-xl p-6">
+      <h3 className="font-medium text-fg mb-4">Belief Decay Projection</h3>
       <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} className="w-full">
         {/* Y-axis gridlines */}
         {Y_GRIDLINES.map(v => {
@@ -59,8 +59,8 @@ export default function DecayCurve({ posterior, decayRate, currentTime }: DecayC
                 y={y}
                 textAnchor="end"
                 dominantBaseline="central"
-                className="fill-[#71717a]"
-                style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '7px' }}
+                className="fill-subtle"
+                style={{ fontFamily: 'var(--font-mono), monospace', fontSize: '7px' }}
               >
                 {v.toFixed(2)}
               </text>
@@ -87,8 +87,8 @@ export default function DecayCurve({ posterior, decayRate, currentTime }: DecayC
               x={x}
               y={HEIGHT - 5}
               textAnchor="middle"
-              className="fill-[#71717a]"
-              style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '7px' }}
+              className="fill-subtle"
+              style={{ fontFamily: 'var(--font-mono), monospace', fontSize: '7px' }}
             >
               {h}h
             </text>
@@ -96,16 +96,16 @@ export default function DecayCurve({ posterior, decayRate, currentTime }: DecayC
         })}
 
         {/* Fill under curve */}
-        <path d={fillPath} fill="rgba(59,130,246,0.1)" />
+        <path d={fillPath} fill="rgba(232, 163, 77,0.1)" />
 
         {/* Curve line */}
-        <path d={linePath} fill="none" stroke="#3b82f6" strokeWidth={1.5} />
+        <path d={linePath} fill="none" stroke="#e8a34d" strokeWidth={1.5} />
 
         {/* Current position glowing dot */}
-        <circle cx={dotX} cy={dotY} r={5} fill="rgba(59,130,246,0.3)" />
-        <circle cx={dotX} cy={dotY} r={3} fill="#3b82f6" />
+        <circle cx={dotX} cy={dotY} r={5} fill="rgba(232, 163, 77,0.3)" />
+        <circle cx={dotX} cy={dotY} r={3} fill="#e8a34d" />
       </svg>
-      <div className="flex justify-between mt-2 font-mono text-xs text-[#71717a]">
+      <div className="flex justify-between mt-2 font-mono text-xs text-subtle">
         <span>T+{currentTime.toFixed(1)}h</span>
         <span>T+{(currentTime + HOURS_SPAN).toFixed(1)}h</span>
       </div>

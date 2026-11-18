@@ -18,11 +18,11 @@ export default function ProsePage({ page, email, steps = [], terms = [] }: Prose
   const loopTerms = terms.filter((term) => term.entry.group === 'loop')
 
   return (
-    <article className="grid-bg pb-20 pt-36">
+    <article className="grid-bg page-top pb-section">
       <Container>
         <SectionHeader as="h1" kicker={text(page.kicker)} title={text(page.headline)} />
-        {page.updated ? <p className="mt-4 text-sm text-[#a1a1aa]">Last updated: {text(page.updated)}</p> : null}
-        <div className="mt-8 space-y-5 text-[#a1a1aa] text-lg leading-[1.6]">
+        {page.updated ? <p className="mt-4 text-sm text-muted">Last updated: {text(page.updated)}</p> : null}
+        <div className="mt-8 space-y-5 text-body text-muted [&>p:first-child]:text-lead [&>p:first-child]:text-soft">
           {page.lede
             .filter((paragraph) => !isHeldCopy(paragraph))
             .map((paragraph) => (
@@ -39,28 +39,38 @@ export default function ProsePage({ page, email, steps = [], terms = [] }: Prose
             section.embed === 'table' || section.embed === 'chart' || section.embed === 'steps' || section.embed === 'terms'
           if (!paragraphs.length && !hasList && !callout && !hasEmbed) return null
           return (
-            <section key={`${section.heading}-${index}`} className="mt-16">
+            <section key={`${section.heading}-${index}`} className="mt-section-sm">
               {section.heading && !isHeldCopy(section.heading) ? (
-                <h2 className="text-2xl md:text-3xl font-bold tracking-[-0.02em] text-white">{text(section.heading)}</h2>
+                <h2 className="text-heading text-fg">{text(section.heading)}</h2>
               ) : null}
               {paragraphs.length > 0 ? (
-                <div className={`${section.heading ? 'mt-5' : ''} space-y-5 text-[#a1a1aa] text-lg leading-[1.6]`}>
+                <div className={`${section.heading ? 'mt-5' : ''} space-y-5 text-body text-muted`}>
                   {paragraphs.map((paragraph) => (
                     <p key={paragraph}>{text(paragraph)}</p>
                   ))}
                 </div>
               ) : null}
               {section.listStyle === 'bullets' && items.length > 0 ? (
-                <ul className="mt-5 list-disc space-y-3 pl-5 text-[#a1a1aa] text-lg leading-[1.6]">
+                <ul className="mt-5 list-disc space-y-3 pl-5 text-body text-muted marker:text-faint">
                   {items.map((item) => (
                     <li key={item.text || item.label}>{text(item.text || item.label)}</li>
                   ))}
                 </ul>
               ) : null}
               {section.listStyle === 'numbers' && items.length > 0 ? (
-                <ol className="mt-5 list-decimal space-y-3 pl-5 text-[#a1a1aa] text-lg leading-[1.6]">
-                  {items.map((item) => (
-                    <li key={item.text || item.label}>{text(item.text || item.label)}</li>
+                <ol className="mt-6 border-b border-line">
+                  {items.map((item, itemIndex) => (
+                    <li key={item.text || item.label} className="flex gap-5 border-t border-line py-6">
+                      <span aria-hidden="true" className="w-6 shrink-0 pt-1 font-mono text-sm text-accent">
+                        {String(itemIndex + 1).padStart(2, '0')}
+                      </span>
+                      <div className="min-w-0">
+                        {item.label && item.text ? <h3 className="text-subhead text-fg">{text(item.label)}</h3> : null}
+                        <p className={`text-body text-muted ${item.label && item.text ? 'mt-2' : ''}`}>
+                          {text(item.text || item.label)}
+                        </p>
+                      </div>
+                    </li>
                   ))}
                 </ol>
               ) : null}
@@ -69,17 +79,17 @@ export default function ProsePage({ page, email, steps = [], terms = [] }: Prose
                   {items.map((item) => (
                     <li key={item.label || item.text}>
                       <Card href={item.href || undefined}>
-                        {item.label ? <h3 className="text-xl font-bold">{text(item.label)}</h3> : null}
-                        {item.text ? <p className="mt-2 text-sm text-[#a1a1aa] leading-relaxed">{text(item.text)}</p> : null}
+                        {item.label ? <h3 className="text-subhead">{text(item.label)}</h3> : null}
+                        {item.text ? <p className="mt-2 text-sm text-muted leading-relaxed">{text(item.text)}</p> : null}
                       </Card>
                     </li>
                   ))}
                 </ul>
               ) : null}
               {section.listStyle === 'links' && items.length > 0 ? (
-                <p className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
+                <p className="mt-6 flex flex-wrap gap-x-7 gap-y-1">
                   {items.map((item) => (
-                    <a key={item.href || item.label} className="text-blue-400 hover:text-blue-300 font-medium max-sm:inline-block max-sm:py-2" href={text(item.href)}>
+                    <a key={item.href || item.label} className="link-block" href={text(item.href)}>
                       {text(item.label)}
                     </a>
                   ))}
@@ -110,11 +120,11 @@ export default function ProsePage({ page, email, steps = [], terms = [] }: Prose
                     <li key={step.slug}>
                       <Card href={`/method/${step.slug}`}>
                         <div className="flex items-baseline justify-between gap-4">
-                          <p className="font-mono text-sm text-blue-500 font-semibold">0{step.entry.order}</p>
-                          <p className="text-sm text-[#a1a1aa]">{step.entry.kicker}</p>
+                          <p className="font-mono text-sm text-accent">0{step.entry.order}</p>
+                          <p className="text-sm text-muted">{step.entry.kicker}</p>
                         </div>
-                        <h3 className="mt-3 text-xl font-bold">{step.entry.name}</h3>
-                        <p className="mt-3 text-[#a1a1aa] leading-relaxed">
+                        <h3 className="mt-3 text-subhead">{step.entry.name}</h3>
+                        <p className="mt-3 text-muted leading-relaxed">
                           {step.entry.lede.find((paragraph) => !isHeldCopy(paragraph))}
                         </p>
                       </Card>
@@ -127,8 +137,8 @@ export default function ProsePage({ page, email, steps = [], terms = [] }: Prose
                   {loopTerms.map((term) => (
                     <li key={term.slug}>
                       <Card href={`/method/glossary#${term.slug}`}>
-                        <h3 className="text-xl font-bold">{term.entry.name}</h3>
-                        <p className="mt-2 text-sm text-[#a1a1aa] leading-relaxed">
+                        <h3 className="text-subhead">{term.entry.name}</h3>
+                        <p className="mt-2 text-sm text-muted leading-relaxed">
                           {isHeldCopy(term.entry.text) ? null : term.entry.text}
                         </p>
                       </Card>

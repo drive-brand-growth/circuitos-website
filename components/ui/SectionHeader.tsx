@@ -14,14 +14,12 @@ export default function SectionHeader({
   as = 'h2',
 }: HeaderProps) {
   const Tag = as
-  const size = as === 'h1' ? 'text-4xl md:text-5xl' : 'text-3xl md:text-4xl'
+  const size = as === 'h1' ? 'text-title' : 'text-heading'
   return (
     <header className={`max-w-3xl ${align === 'center' ? 'mx-auto text-center' : ''}`}>
-      {kicker ? <p className="text-sm font-medium text-blue-400 mb-3">{kicker}</p> : null}
-      <Tag className={`${size} font-bold tracking-[-0.02em] text-white`}>{title}</Tag>
-      {lede ? (
-        <p className={`mt-4 text-lg text-[#a1a1aa] leading-[1.6] ${align === 'center' ? 'mx-auto' : ''}`}>{lede}</p>
-      ) : null}
+      {kicker ? <p className="eyebrow mb-5">{kicker}</p> : null}
+      <Tag className={`${size} text-fg`}>{title}</Tag>
+      {lede ? <p className={`mt-5 text-lead text-muted ${align === 'center' ? 'mx-auto' : ''}`}>{lede}</p> : null}
     </header>
   )
 }

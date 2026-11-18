@@ -89,11 +89,11 @@ export default function DecisionTrailMini({ firedSignals, dmnRoute, gates, poste
   }, [events.length])
 
   return (
-    <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl overflow-hidden">
-      <div className="flex items-center gap-2 px-4 py-3 border-b border-[#27272a]">
-        <Shield size={14} className="text-blue-400" />
-        <span className="text-sm font-medium text-white">Receipt</span>
-        <span className="ml-auto text-[10px] text-[#71717a] font-mono">{events.length} events</span>
+    <div className="bg-surface border border-line rounded-xl overflow-hidden">
+      <div className="flex items-center gap-2 px-4 py-3 border-b border-line">
+        <Shield size={14} className="text-accent" />
+        <span className="text-sm font-medium text-fg">Receipt</span>
+        <span className="ml-auto text-[10px] text-subtle font-mono">{events.length} events</span>
       </div>
 
       <div
@@ -101,7 +101,7 @@ export default function DecisionTrailMini({ firedSignals, dmnRoute, gates, poste
         className="max-h-[280px] overflow-y-auto p-3 space-y-1"
       >
         {events.length === 0 && (
-          <p className="text-xs text-[#52525b] text-center py-6">Fire a signal to start the receipt</p>
+          <p className="text-xs text-faint text-center py-6">Fire a signal to start the receipt</p>
         )}
         {events.map((event, i) => {
           const Icon = ICONS[event.type]
@@ -112,12 +112,12 @@ export default function DecisionTrailMini({ firedSignals, dmnRoute, gates, poste
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.2 }}
-              className="flex items-start gap-2 px-2 py-1.5 rounded hover:bg-[#27272a]/50 transition-colors"
+              className="flex items-start gap-2 px-2 py-1.5 rounded hover:bg-line/50 transition-colors"
             >
               <Icon size={12} className="mt-0.5 shrink-0" style={{ color }} />
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-medium text-white">{event.label}</span>
+                  <span className="text-xs font-medium text-fg">{event.label}</span>
                   <span
                     className="text-[9px] font-mono px-1.5 py-0.5 rounded"
                     style={{ backgroundColor: `${color}15`, color }}
@@ -125,9 +125,9 @@ export default function DecisionTrailMini({ firedSignals, dmnRoute, gates, poste
                     {event.type.toUpperCase()}
                   </span>
                 </div>
-                <p className="text-[10px] text-[#71717a] font-mono mt-0.5">{event.detail}</p>
+                <p className="text-[10px] text-subtle font-mono mt-0.5">{event.detail}</p>
               </div>
-              <span className="text-[9px] text-[#52525b] font-mono shrink-0 mt-0.5">T+{event.time.toFixed(0)}h</span>
+              <span className="text-[9px] text-faint font-mono shrink-0 mt-0.5">T+{event.time.toFixed(0)}h</span>
             </motion.div>
           )
         })}

@@ -31,7 +31,7 @@ const ROUTES: RouteConfig[] = [
     action: 'NURTURE_STANDARD',
     label: 'Standard draft',
     description: 'Draft a note',
-    color: '#3b82f6',
+    color: '#e8a34d',
   },
   {
     action: 'IDENTITY_SHUNT',
@@ -49,9 +49,9 @@ const ROUTES: RouteConfig[] = [
 
 export default function DMNRouter({ route }: DMNRouterProps) {
   return (
-    <div className="bg-[#1a1a1a] border border-[#27272a] rounded-xl p-6">
-      <h3 className="font-medium text-white mb-1">Switch · written route</h3>
-      <p className="text-xs text-[#71717a] mb-4">Example route only.</p>
+    <div className="bg-surface border border-line rounded-xl p-6">
+      <h3 className="font-medium text-fg mb-1">Switch · written route</h3>
+      <p className="text-xs text-subtle mb-4">Example route only.</p>
       <div className="space-y-1">
         {ROUTES.map(r => {
           const isActive = route.action === r.action
@@ -84,7 +84,7 @@ export default function DMNRouter({ route }: DMNRouterProps) {
 
                 {/* Route name */}
                 <span
-                  className={`text-sm font-mono ${isActive ? 'text-white' : 'text-[#52525b]'}`}
+                  className={`text-sm font-mono ${isActive ? 'text-fg' : 'text-faint'}`}
                 >
                   {r.label}
                 </span>
@@ -110,7 +110,7 @@ export default function DMNRouter({ route }: DMNRouterProps) {
                 <motion.p
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
-                  className="text-xs text-[#a1a1aa] mt-1 ml-[22px]"
+                  className="text-xs text-muted mt-1 ml-[22px]"
                 >
                   {route.description}
                 </motion.p>

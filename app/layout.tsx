@@ -1,16 +1,21 @@
 import type { Metadata, Viewport } from 'next'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Analytics from '@/components/Analytics'
 import { getSite } from '@/lib/content'
 import { publisherJsonLd, websiteJsonLd } from '@/lib/seo'
 import { SITE_URL } from '@/lib/site'
 
+/* Fonts are self hosted at build time. Swap display and metric matched fallbacks keep layout from shifting. */
+const sans = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-sans' })
+const mono = JetBrains_Mono({ subsets: ['latin'], display: 'swap', variable: '--font-mono', weight: ['400', '500'] })
+
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: '#000000',
+  themeColor: '#050505',
 }
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -56,14 +61,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const website = websiteJsonLd(site.name, site.description)
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(publisher) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }} />
       </head>
-      <body className="antialiased overflow-x-hidden">
+      <body className="overflow-x-hidden">
         <Analytics />
         {children}
       </body>
