@@ -1,0 +1,9 @@
+"Opportunity ID","Opportunity Name","Stage","Amount","Close Date","Created Date","Last Modified Date","Opportunity Owner"
+"006SYN000000001","Synthetic Opp A","Prospecting","USD 10,000.00","12/15/2026","10/5/2026","10/20/2026","Rep A"
+"006SYN000000002","Synthetic Opp B","Négociation","USD 25,000.00","11/30/2026","9/30/2026","10/27/2026","Rep B"
+"006SYN000000003","Synthetic Opp C","Closed Won","USD 12,000.00","9/10/2026","8/25/2026","9/10/2026","Rep A"
+"006SYN000000004","Synthetic Opp D","Closed Lost","USD 8,000.00","9/15/2026","8/27/2026","9/15/2026","Rep B"
+"006SYN000000005","Synthetic Opp E","Négociation","USD 5,500.50","1/20/2027","10/22/2026","10/22/2026","Rep A"
+
+"Synthetic footer line one"
+"Synthetic footer line two"

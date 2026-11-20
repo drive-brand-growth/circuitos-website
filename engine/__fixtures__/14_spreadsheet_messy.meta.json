@@ -1,0 +1,22 @@
+{
+  "synthetic": true,
+  "purpose": "Shape C. UTF-8 BOM, CRLF, no id column, a blank row, a totals row, an unreadable amount.",
+  "params": {
+    "as_of": "2026-10-30",
+    "report_tz": "America/Chicago"
+  },
+  "expect": {
+    "warnings": [
+      "no_id_column_using_line_numbers",
+      "totals_row_skipped"
+    ],
+    "H1_cents": 2400000,
+    "H1_rows": 2,
+    "excluded": {
+      "7": "invalid_amount",
+      "10": "blank_amount"
+    },
+    "H2_cents": 0,
+    "H3": "2 of 4"
+  }
+}

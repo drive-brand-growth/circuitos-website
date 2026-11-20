@@ -1,0 +1,20 @@
+{
+  "synthetic": true,
+  "purpose": "Day boundaries and offsets.",
+  "params": {
+    "as_of": "2026-10-30",
+    "report_tz": "America/Chicago"
+  },
+  "expect": {
+    "chicago": {
+      "H2_cents": 1100000,
+      "H2_rows": 4
+    },
+    "utc": {
+      "H2_cents": 1000000,
+      "H2_rows": 4
+    },
+    "H1_cents": 2200000,
+    "warning": "datetime_without_offset_assumed_tz"
+  }
+}

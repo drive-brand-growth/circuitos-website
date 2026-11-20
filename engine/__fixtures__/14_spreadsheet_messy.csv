@@ -1,0 +1,11 @@
+﻿Deal,Value,Status,Rep,Expected Close,Started,Updated
+Example Co 1,"$12,000",Won,Sam,9/10/2026,8/25/2026,9/10/2026
+Example Co 2,"$8,000",Lost,Pat,9/15/2026,8/27/2026,9/15/2026
+Example Co 3,15000,Won,Sam,Sep 22 2026,Sep 2 2026,9/22/2026
+Example Co 4,"$5,000.00",Lost,Lee,9/29/2026,9/8/2026,9/29/2026
+Example Co 5,"$18,000",Proposal sent,Pat,11/20/2026,9/23/2026,10/12/2026
+Example Co 6,25k,Negotiating,Sam,12/5/2026,9/30/2026,10/27/2026
+Example Co 7,"$6,000",Open,Lee,10/28/2026,10/1/2026,10/20/2026
+,,,,,,
+Example Co 8,,Open,Pat,12/15/2026,10/20/2026,10/29/2026
+Total,"$64,000",,,,,

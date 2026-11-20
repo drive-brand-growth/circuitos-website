@@ -1,0 +1,22 @@
+{
+  "synthetic": true,
+  "purpose": "No cross currency sums.",
+  "params": {
+    "as_of": "2026-10-30",
+    "report_tz": "America/Chicago"
+  },
+  "expect": {
+    "USD": {
+      "H1_cents": 6850000,
+      "H1_rows": 8,
+      "H2_cents": 1650000,
+      "H3": "3 of 6"
+    },
+    "EUR": {
+      "H1_cents": 3450000,
+      "H1_rows": 2,
+      "H2_cents": 0,
+      "H3": "undefined"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "synthetic": true,
+  "purpose": "Shape B. ISO-8859-1 bytes (e-acute is 0xE9), currency inside amount text, footer rows. All values are assumptions, TO VERIFY with a real export.",
+  "params": {
+    "as_of": "2026-10-30",
+    "report_tz": "America/Chicago"
+  },
+  "expect": {
+    "warnings": [
+      "encoding_fallback_latin1",
+      "footer_rows_skipped"
+    ],
+    "H1_cents": 4050050,
+    "H1_rows": 3,
+    "H2_cents": 550050,
+    "H3": "1 of 2",
+    "currency": "USD"
+  }
+}

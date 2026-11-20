@@ -1,0 +1,11 @@
+Record ID,Deal Name,Deal Stage,Amount,Close Date,Create Date,Deal owner,Last Modified Date
+F001,Synthetic Control,Discovery,1000,2027-01-15,2026-10-20,Rep A,2026-10-21
+=1+1,=1+1,Discovery,2000,2027-01-15,2026-10-20,Rep A,2026-10-21
+F003,+cmd,"+SUM(1,1)",3000,2027-01-15,2026-10-20,Rep A,2026-10-21
+F004,-2+3,-2+3,4000,2027-01-15,2026-10-20,Rep A,2026-10-21
+F005,@SUM(A1),@SUM(A1),5000,2027-01-15,2026-10-20,Rep A,2026-10-21
+F006,x,	Discovery,6000,2027-01-15,2026-10-20,Rep A,2026-10-21
+F007,x,＝1+1,7000,2027-01-15,2026-10-20,Rep A,2026-10-21
+F008,x,Discovery,=100,2027-01-15,2026-10-20,Rep A,2026-10-21
+F009,x,Discovery,-500,2027-01-15,2026-10-20,Rep A,2026-10-21
+F010,x,Discovery,8000,2027-01-15,2026-10-20,"=HYPERLINK(""https://example.test"",""click"")",2026-10-21

@@ -1,0 +1,21 @@
+{
+  "synthetic": true,
+  "purpose": "Optional stage entry columns. In this build the entered columns are dropped and the stage_skipped_info finding is NOT built; headlines must equal 01.",
+  "params": {
+    "as_of": "2026-10-30",
+    "report_tz": "America/Chicago",
+    "stage_order": [
+      "Discovery",
+      "Qualified",
+      "Proposal",
+      "Negotiation",
+      "Closed Won"
+    ]
+  },
+  "expect": {
+    "H1_cents": 10300000,
+    "H2_cents": 1650000,
+    "H3": "3 of 6",
+    "not_built": "stage_skipped_info"
+  }
+}

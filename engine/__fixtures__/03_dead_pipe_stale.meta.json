@@ -1,0 +1,15 @@
+{
+  "synthetic": true,
+  "purpose": "AT2: identical bytes to 01; only params differ.",
+  "params": {
+    "as_of": "2026-12-15",
+    "report_tz": "America/Chicago"
+  },
+  "expect": {
+    "H1_cents": 10300000,
+    "H2_cents": 0,
+    "H3": "undefined",
+    "days_since_newest": 47,
+    "zero_check": "M3: BROKEN Z4 export_stale"
+  }
+}
